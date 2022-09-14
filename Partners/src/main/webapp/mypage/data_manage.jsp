@@ -24,6 +24,10 @@ $("label").click(function() {
   			<div id="tab4">담당자 정보</div>
   			<div id="tab5">정산 정보</div>  			
   		</div>
+
+  	</div>
+
+    <div class="all_information">
   	</div>    
     <div>
 		<form method="post" action="#">
