@@ -14,20 +14,18 @@ $("label").click(function() {
 </script>
 
 
-  <article>
-   <div id="main_cont">
-  	<div id="main_cont_color">
+  <article id="main_cont">
     <h1 class="item_title">내 정보관리</h1>
   	<div class="item_tab_box">
   		<div role="tablist" class="item_tab_inbox">
-  			<div id="tab1"><a href="#business" class="tab-link">사업자 정보</a></div>
-  			<div id="tab2"><a href="#additional" class="tab-link">부가 정보</a></div>
-  			<div id="tab3"><a href="#preference" class="tab-link">선호 시공정보</a></div>
-  			<div id="tab4"><a href="#representative" class="tab-link">담당자 정보</a></div>
-  			<div id="tab5"><a href="#payment" class="tab-link">정산 정보</a></div>  			
+  			<div id="tab1">사업자 정보</div>
+  			<div id="tab2">부가 정보</div>
+  			<div id="tab3">선호 시공정보</div>
+  			<div id="tab4">담당자 정보</div>
+  			<div id="tab5">정산 정보</div>  			
   		</div>
   	</div>    
-    <div class="all_information">
+    <div>
 		<form method="post" action="#">
 			<fieldset id="business">
 				<legend>
@@ -110,7 +108,7 @@ $("label").click(function() {
 					<div class="upload_image_size">(권장 이미지 사이즈 750 x 600)</div>
 					<div tabindex="0" class="upload_image" >
 						<label for="choosefile" class="upload_lbl">
-							<img src="../images/partners_images/upload_plus.png" width="40px" height="40px">
+							<img src="../images/upload_plus.png" width="40px" height="40px">
 						</label>
 						<input type="file" id="choosefile" name="file" accept="image/*">
 					</div>
@@ -377,9 +375,7 @@ $("label").click(function() {
 			</fieldset>
 		</form>
 
-     </div>
     </div>
-   </div>
   </article>
 
 
