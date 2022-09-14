@@ -1,8 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
 		
-<article>
-  <div id="main_cont">
     <div id="introduce_cont">
       <h2>시공사례등록</h2>
       <p>직접 시공한 인테리어의 포트폴리오를 등록할 수 있습니다.<br>
@@ -107,10 +105,8 @@
         <input type="submit" value="다음"> <input type="reset" value="초기화">
         </fieldset>
       </form>
-  </div>
 
 
-  </article>
 <jsp:include page="../include/footer.jsp" />
 
 

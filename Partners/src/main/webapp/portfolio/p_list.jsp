@@ -1,11 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page  contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
-<!--메인 content-->
 
 
-<article id="main_cont">
-	<div style="width: 1000px; height: 700px; border: 1px solid black; margin:0 auto;">
 	<h1> 포트폴리오 목록</h1>
 		<table style="margin:0 auto;">
 			<tr>
@@ -25,8 +21,6 @@
 			</tr>
 		</table>
 
-	</div>
 
-</article>
 <jsp:include page="../include/footer.jsp" />
 

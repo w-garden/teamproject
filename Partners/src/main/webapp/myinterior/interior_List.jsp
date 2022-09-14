@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
-<!--메인 content-->
 
 <script type="text/javascript">
     $(function() {
@@ -15,8 +13,6 @@
     })
 </script>
     
-</html>
-<article id="main_cont">
 	<h1>내공사내역</h1>
 	
 	<div style="display:flex; justify-content: flex-end; margin-bottom:20px;">
@@ -71,6 +67,5 @@
 	</table>
 
 
-</article>
 <jsp:include page="../include/footer.jsp" />
 

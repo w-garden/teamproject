@@ -20,9 +20,13 @@ border: 1px solid blue;
 margin: 35px 20px;
 
 }
+#part_cont ul{
+padding:0px 40px;
+list-style-type: square;
+
+}
 </style>
 
-		<article id="main_cont">
 			<div id="part_cont">
 					<h1>부분시공요금제</h1>
 					<p>고객 예산 1천만원 미만의 예산으로 부분 시공 및 소규모 종합 시공 견적 의뢰를 받을 수 있는 상품입니다.
@@ -42,9 +46,7 @@ margin: 35px 20px;
 					<div id="part_cost">
 						<div>부분시공 주거 + 상업</div> <div>정상가 550,000원 <input type="button" value="신청하기"></div>
 					</div>
-		
 			</div>
 
-		</article>
 <jsp:include page="../include/footer.jsp" />
 

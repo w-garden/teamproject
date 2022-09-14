@@ -1,15 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<!--메인 content-->
 
 
-<article>
 
-	<div id="main_cont">
 		<div class="request_page">
 			<div class="request_spot">
 				<h1 class="item_title">입찰의뢰</h1>
@@ -109,8 +105,6 @@
 				<button type="button" class="more_button"><img src="../images/more_plus.png"></br><span>더보기</span></button>
 			</div>
 		</div>
-	</div>
-</article>
 <jsp:include page="../include/footer.jsp" />
 
 

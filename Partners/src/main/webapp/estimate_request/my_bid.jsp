@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
-		<!--메인 content-->
 
 
-		<div id="main_cont">
 			<div class="my_bid_list">
 					<h1>내 입찰목록</h1>
 			<div class="my_bid_title1"><h3 id="bid_fin">입찰 완료</h3></div>
@@ -36,6 +34,5 @@
 			</table>
 			</div>
 
-		</div>
 		
 <jsp:include page="../include/footer.jsp" />

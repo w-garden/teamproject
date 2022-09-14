@@ -1,9 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"   pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
-		<!--메인 content-->
 
 
-		<div id="main_cont">
 			<div class="my_req_list">
 					<h1>시공견적요청</h1>
 			<table border="1" style="width: 90%; border: 2px solid #0064CD; border-collapse: collapse; text-align:center; margin-top:10px;">
@@ -28,6 +26,5 @@
 				</tr>
 			</table>
 			</div>
-		</div>
 		
 <jsp:include page="../include/footer.jsp" />

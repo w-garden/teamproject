@@ -1,10 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
-<!--메인 content-->
 
 
-<article id="main_cont">
 
 	<div id="main_cont_title">
 		<div class="title">고객 후기</div>
@@ -103,7 +100,6 @@
 		</table>
 	</div>
 
-</article>
 <jsp:include page="../include/footer.jsp" />
 
 
