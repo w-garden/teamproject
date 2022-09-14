@@ -5,12 +5,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>회원가입</title>
-	<link rel="stylesheet" type="text/css" href="../css/login.css" />
+	<link rel="stylesheet" type="text/css" href="/DoZip/css/login.css" />
+	<script src="/DoZip/js/jquery.js"></script>
+	<script src="/DoZip/js/member.js"></script>
 </head>
 <body>
 <div id="join_wrap">
 	<div id="join_title"><p>회원가입</p></div>
-	<form id="join_form_box" method="post"  action="#" >
+	<form id="join_form_box" method="post"  action="member_join_ok.do"  name="m">
 		<table id="join_form_table">
 			<tr>
 				<th>아이디</th>
@@ -30,11 +32,21 @@
 			</tr>
 			<tr>
 				<th>연락처</th>
-				<td><input type="text"  name="mem_phone"  placeholder="-없이 숫자만 입력해주세요"/></td>
+				<td><input type="tel"  name="mem_tel"  placeholder="-없이 숫자만 입력해주세요"/></td>
 			</tr>
 			<tr>
 				<th>이메일주소</th>
-				<td><input type="text"  name="mem_email"  placeholder="이메일주소를 입력해주세요"/></td>
+				<td id="emailbox">
+					<input type="text"  name="mem_email"  id="mem_email" placeholder="이메일주소를 입력해주세요"/>
+					<span>@</span>
+					<input type="text"  name="mem_domain"  id="mem_domain" placeholder="도메인주소를 입력해주세요"/>
+					<select name="domain_list" id="domain_list" onchange="changeSelect(this.value);">
+						<option selected>직접입력</option>
+						<option value="naver.com">naver.com</option>
+						<option value="daum.net">daum.net</option>
+						<option value="gmail.com">gamil.com</option>
+					</select>
+				</td>
 			</tr>
 		</table>
 		
@@ -50,28 +62,7 @@
 			<button id="join_btn"  type="submit">가 입 하 기</button>
 		</div>
 	</form>
-	
-	<script>
-		/* 전체선택 */
-		function allselect(bool){
-			var chks = document.getElementsByName("chk");
-			for(var i = 0; i < chks.length; i++){
-				chks[i].checked = bool;
-			}
-		}
-		/* 아래 항목 선택여부 따라 자동으로 전체선택 적용, 해제 */
-		function checkSelectAll()  {
-			  const checkboxes = document.querySelectorAll('input[name="chk"]');
-			  const checked = document.querySelectorAll('input[name="chk"]:checked');
-			  const selectAll = document.querySelector('input[name="all"]');
-			  
-			  if(checkboxes.length === checked.length)  {
-			    selectAll.checked = true;
-			  }else {
-			    selectAll.checked = false;
-			  }
-		}
-	</script>
+
 </div>
 </body>
 </html>

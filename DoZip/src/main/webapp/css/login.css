@@ -145,6 +145,10 @@
 #join_form_table td{
 	width: 70%;
 }
+#emailbox>input, #emailbox>select{
+	width: 26%;
+	height: 30px;
+}
 #join_btn {
 	width: 75%;
 	font-family: '210 맨발의청춘 Regular';

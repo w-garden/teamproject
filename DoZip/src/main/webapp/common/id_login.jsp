@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>아이디로 로그인</title>
-	<link rel="stylesheet" type="text/css" href="../css/login.css" />
+	<link rel="stylesheet" type="text/css" href="/DoZip/css/login.css" />
 </head>
 <body>
 <div id="id_login_wrap">
@@ -33,7 +33,7 @@
 <!-- 회원가입 -->
 	<script>
     function openJoin(){
-        window.open("mem_join.jsp", "_blank", 
+        window.open("member_join.do", "_blank", 
         		"toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=750, left=0, top=0" );
     }
 	</script>
