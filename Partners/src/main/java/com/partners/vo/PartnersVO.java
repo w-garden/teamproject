@@ -1,4 +1,4 @@
-package com.dozip.vo;
+package com.partners.vo;
 
 public class PartnersVO {
 

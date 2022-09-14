@@ -1,4 +1,4 @@
-package com.dozip.control;
+package com.partners.control;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
