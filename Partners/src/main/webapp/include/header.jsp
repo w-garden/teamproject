@@ -10,9 +10,9 @@ String id = request.getParameter("id");
 <meta charset="UTF-8">
 <title>파트너스 메인</title>
 <link rel="stylesheet" href="/Partners/css/main_style.css">
+<link rel='stylesheet' href="/Partners/css/calendar.css"/> 
 <link rel="stylesheet" href="/Partners/css/partners_style.css">
 <link rel="stylesheet" href="/Partners/css/partners_style2.css">
-<link rel='stylesheet' href="/Partners/css/calendar.css"/>
 <script src="/Partners/js/jquery.js"></script>
 <script src="/Partners/js/javascript.js"></script>
 <script src="/Partners/js/javascript2.js"></script>
@@ -24,9 +24,10 @@ String id = request.getParameter("id");
 
 <body>
 <!-- 좌측 사이드바 영역 -->
-		<div id="side_wrap">
+<div id="wrap">
+	<div id="side_wrap">
 			<ul id="side_menu">
-			
+				<li><a href="#" style="height:49px;"></a></li>
 				<li><a href="/Partners/index.jsp">파트너스홈</a></li>
 				<li><a href="#">요금제 ▼</a>
 					<ul>
@@ -67,10 +68,10 @@ String id = request.getParameter("id");
 						<li><a href="/Partners/mypage/data_manage.jsp">내 정보관리</a></li>
 						<li><a href="/Partners/mypage/pw_change.jsp">비밀번호 변경</a></li>
 					</ul></li>
+				
 			</ul>
 		</div>
 	<div id="cont_wrap">
-		<!--헤더 영역-->
 		<header>
 			<div id="top_bar">
 				<div id=top_title>
@@ -87,4 +88,6 @@ String id = request.getParameter("id");
 				</div>
 			</div>
 		</header>
-		
+
+
+		<article id="main_cont">

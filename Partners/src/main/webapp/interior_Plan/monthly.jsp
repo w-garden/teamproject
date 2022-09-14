@@ -30,9 +30,15 @@
 background: #B3B9BE;
 padding:13px;
 }
+
+#monthly_cont ul, #part_cont ul{
+padding:0px 40px;
+list-style-type: square;
+
+}
+
 </style>
 
-<article id="main_cont">
 	<div id="monthly_cont">
 		<h1>월정액 요금제</h1>
 		<p>고객이 상담 접수 시 작성한 공사 예산을 기준으로 매월 종합 인테리어 고객을 소개해드리는 상품
@@ -152,6 +158,5 @@ padding:13px;
 
 	</div>
 
-</article>
 <jsp:include page="../include/footer.jsp" />
 
