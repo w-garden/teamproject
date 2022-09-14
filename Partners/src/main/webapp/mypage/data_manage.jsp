@@ -26,7 +26,8 @@ $("label").click(function() {
   			<div id="tab4"><a href="#representative" class="tab-link">담당자 정보</a></div>
   			<div id="tab5"><a href="#payment" class="tab-link">정산 정보</a></div>  			
   		</div>
-  	</div>    
+  	</div>
+	<div></div>
     <div class="all_information">
 		<form method="post" action="#">
 			<fieldset id="business">
