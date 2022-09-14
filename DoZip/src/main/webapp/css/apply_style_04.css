@@ -1,0 +1,96 @@
+
+.title {
+    background-color: none;
+    width: 600px;
+    /* height: 100px; */
+    margin: 0 auto;
+    margin-top: 18px;
+  }
+  .estimate_box{
+    background-color: none;
+    width: 600px;
+    /* height: 500px; */
+    margin: 0 auto;
+    margin-top: 18px;
+  }
+  .companies{
+    background-color: rgb(248, 246, 246);
+  }
+  
+  .title {
+    display:flex;
+    justify-content: space-between;
+  }
+  .title h3{
+    color: #888;
+    font-size: 28px;
+    margin-top: 0;
+  }
+  
+  #p1 {
+    font-weight: bolder;
+    font-size: larger;
+    margin-top: 50px;
+  }
+  
+  #p2{
+    font-size: smaller;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+  
+  /*your_cost, proposed_cost*/
+  .proposed_cost{
+    display:flex;
+  }
+  .your_cost{
+    display: flex;
+  }
+  
+  .estimate_box input[type=text]{
+    font-size: large;
+    margin: 10px 10px 0px 10px;  /*아래 오른쪽 위 왼쪽*/
+    height: 35px;
+    width: 450px;
+  }
+  
+  #li_01>img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+  
+/*다음 페이지 넘김 버튼*/
+.nextpage{
+  background-color: none;
+  width: 600px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 18px;
+}
+#go-back{
+  margin-top: 5%;
+  width: 30%;
+  height: 45px;
+  border-radius: 10px;
+  background-color: rgb(247, 226, 169);
+  border:none;
+  font: bolder;
+}
+#go-next{
+  margin-top: 5%;
+  width: 69%;
+  height: 45px;
+  border-radius: 10px;
+  background-color: rgb(235, 103, 3);
+  border:none;
+  font: bolder;
+  color: white;
+}
+.nextpage button:hover{
+  cursor: pointer;
+}
+  
+  #li_01{
+    display: flex;
+  }

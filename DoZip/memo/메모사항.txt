@@ -1,0 +1,16 @@
+1. GIT 작업순서
+
+main에서 pull -> 브랜치 생성 -> 커밋 -> 커밋옵션(pull request) + 변경내용 작성 ->
+ push -> merge 확인 후 -> 내 브랜치 삭제
+
+2. 커넥션풀 만들기
+<Resource name="jdbc/oracle" auth="Container"
+                 type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
+                 url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+                 username="admin" password="1234" maxTotal="20" maxIdle="10"
+                 maxWaitMillis="-1"/>
+
+
+	Servers/server.xml 에서 DoZip 태그 안에 위의 내용 추가 하면됨
+
+3. DB 이름 : admin, 패스워드 : 1234

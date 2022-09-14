@@ -1,0 +1,389 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<jsp:include page="../common/header.jsp" />
+<%-- 상단 공통부분 끝 --%>
+<link rel="stylesheet" href="../css/apply_style.css" />
+<script src="../js/apply.js" defer></script>
+<script src="../js/jquery.js"></script>
+  </head>
+    <title>인테리어 견적 신청서</title>
+  <body>
+    <article id="estimate_step01">
+      <div>
+        <section aria-label="공간 유형 선택" class="building_types">
+          <div class="title">
+          <h2>어떤 공간의 시공을 원하시나요?</h2><h3>1/4</h3>
+          </div>
+          <br/>
+          <div class="estimate_box">
+          <h3>공간 유형</h3>
+            <input type="radio" id="1" name="2" checked>
+            <label for="1">주거</label>
+            <input type="radio" id="2" name="2">
+            <label for="2">상가</label>
+        </section>
+        </div>
+      </div>
+      <div class="estimate_box">
+        <h3>건물 유형</h3>
+        <div id = "type01" >
+          <div>
+          <input type="radio" id="ty1" name="ty"><label for="ty1">아파트</label>
+          <input type="radio" id="ty2" name="ty"><label for="ty2">빌라</label>
+          </div>
+          <div>
+            <input type="radio" id="ty3" name="ty"><label for="ty3">주택</label>
+            <input type="radio" id="ty4" name="ty"><label for="ty4">오피스텔</label>
+          </div>
+          </div>
+           <div id="type02" style="display: none;">
+            <div>
+            <input type="radio" id="ty5" name="ty"><label for="ty5">사무실</label>
+            <input type="radio" id="ty6" name="ty"><label for="ty6">상가/매장</label>
+            </div>
+            <input type="radio" id="ty7" name="ty"><label for="ty7">카페/식당</label>
+            <input type="radio" id="ty8" name="ty"><label for="ty8">학원/교육</label>
+            <div>
+            <input type="radio" id="ty9" name="ty"><label for="ty9">숙박/병원</label>
+            <input type="radio" id="ty10" name="ty"><label for="ty10">간판</label>
+            </div>
+            <input type="radio" id="ty11" name="ty"><label for="ty11">기타</label>
+           </div>
+      </div>
+      <!-- id : 고유한 식별 목적
+           class : 재사용을 목적
+           name : 컨트롤 요소값(value)을 서버로 전송하기위함-->
+      <div class = "estimate_calculator">
+        <h3>평수 (공급면적)</h3><br/><br/>
+        <input type="tel" id="cal1" maxlength="3" placeholder="0" onkeyup="calculator(1);">평 -<input type="text" id="cal2" placeholder="0" onkeyup="calculator(2);">m2
+      </div>
+      <div class="areaBoxComponent">
+        <h3>원하는 공간 선택</h3>
+        <div class="123">
+          <input type="checkbox" id="allCk" name="check" class="checkbox" data-name="전체선택">
+          <input type="checkbox" id="wall" name="check" data-name="도배/벽" class ="checkbox"/>
+          <input type="checkbox" id="floor" name="check" data-name="바닥" class ="checkbox"/>
+          <input type="checkbox" id="kitchen" name="check" data-name="주방" class ="checkbox"/>
+          <input type="checkbox" id="washroom" name="check" data-name="욕실" class ="checkbox"/>
+          <input type="checkbox" id="porch" name="check" data-name="현관" class ="checkbox"/>
+          <input type="checkbox" id="window" name="check" data-name="발코니/샷시" class ="checkbox"/>
+          <input type="checkbox" id="light" name="check" data-name="조명" class ="checkbox"/>
+          <input type="checkbox" id="door" name="check" data-name="문" class ="checkbox"/>
+        </div>
+      </div>
+
+      <!-- 상세 시공 도배/벽 -->
+      <article class="section_detail_select" id="detail01" name="detail" style="display: none;">
+            <h3>도배/벽</h3>
+        <ul aria-label="도배/벽 선택 목록" class="detail_item">
+            <li class="btn_line_detail">
+                <input type="radio" id="group_wallpaper_item_0" name="group_wallpaper_item">
+                <label for="group_wallpaper_item_0">
+                    <span class="h4 select_detail__title">합지</span>
+                    <p class="select_detail__desc">일반 종이 벽지로 친환경적</p>
+                    <span class="expect_price">326만원~</span>
+                </label>
+
+                <input type="radio" id="group_wallpaper_item_1" name="group_wallpaper_item">
+                <label for="group_wallpaper_item_1">
+                    <span class="h4 select_detail__title">실크</span>
+                    <p class="select_detail__desc">코팅된 종이로 오염에 강함</p>
+                    <span class="expect_price">445만원~</span>
+                </label></li>
+            <li class="btn_line_detail">
+                <input type="radio" id="group_wallpaper_item_2" name="group_wallpaper_item">
+                <label for="group_wallpaper_item_2">
+                    <span class="h4 select_detail__title">합지+실크</span>
+                    <p class="select_detail__desc">거실 실크+방 합지 조합</p>
+                    <span class="expect_price">374만원~</span>
+                </label>
+
+                <input type="radio" id="group_wallpaper_item_3" name="group_wallpaper_item">
+                <label for="group_wallpaper_item_3">
+                    <span class="h4 select_detail__title">타일</span>
+                    <p class="select_detail__desc">내구성이 강하고 고급스러움</p>
+                </label></li>
+            <li class="btn_line_detail">
+                <input type="radio" id="group_wallpaper_item_4" name="group_wallpaper_item">
+                <label for="group_wallpaper_item_4">
+                    <span class="h4 select_detail__title">대리석</span>
+                    <p class="select_detail__desc">천연소재로 고급스러움</p>
+                    <span class="expect_price">360만원~</span>
+                </label>
+
+                <input type="radio" id="group_wallpaper_item_5" name="group_wallpaper_item">
+                <label for="group_wallpaper_item_5">
+                    <span class="h4 select_detail__title">페인트</span>
+                    <p class="select_detail__desc">다양한 색 조합 가능</p>
+                </label></li>
+        </ul>
+        <h4 class="detail_item">추가선택</h4>
+        <ul class="clearfix detail_item">
+            <li class="btn_line_detail"><input type="checkbox" id="group_wallpaper_option_0">
+                <label for="group_wallpaper_option_0">
+                    <span class="h4 select_detail__title">몰딩</span>
+                    <p class="select_detail__desc">천장과 벽 사이의 마감</p>
+                </label></li>
+        </ul>
+    </article>
+
+    <!-- 상세 시공 바닥 -->
+    <article class="section_detail_select" id="detail02" name="detail" style="display: none;">
+      <h3>바닥</h3>
+  <ul aria-label="바닥 선택 목록" class="detail_item">
+      <li class="btn_line_detail">
+          <input type="radio" id="group_floor_item_0" name="group_floor_item">
+          <label for="group_floor_item_0">
+              <span class="h4 select_detail__title">장판</span>
+              <p class="select_detail__desc">오염과손상에강함</p>
+              <span class="expect_price">240만원~</span>
+          </label>
+          <input type="radio" id="group_floor_item_1" name="group_floor_item">
+          <label for="group_floor_item_1">
+              <span class="h4 select_detail__title">강마루</span>
+              <p class="select_detail__desc">원목느낌의 코팅합판마루</p>
+              <span class="expect_price">592만원~</span>
+          </label></li>
+
+      <li class="btn_line_detail">
+          <input type="radio" id="group_floor_item_2" name="group_floor_item">
+          <label for="group_floor_item_2">
+              <span class="h4 select_detail__title">타일</span>
+              <p class="select_detail__desc">내구성이강하고고급스러움</p>
+              <span class="expect_price">380만원~</span>
+          </label>
+          <input type="radio" id="group_floor_item_3" name="group_floor_item">
+          <label for="group_floor_item_3">
+              <span class="h4 select_detail__title">포세린타일</span>
+              <p class="select_detail__desc">내구성이 강하고 고급스러움</p>
+              <span class="expect_price">1000만원~</span>
+          </label></li>
+
+      <li class="btn_line_detail">
+          <input type="radio" id="group_floor_item_4" name="group_floor_item">
+          <label for="group_floor_item_4">
+              <span class="h4 select_detail__title">대리석</span>
+              <p class="select_detail__desc">천연소재로 고급스러움</p>
+              <span class="expect_price">360만원~</span>
+          </label>
+  </ul>
+  <h4 class="detail_item">추가선택</h4>
+  <ul class="clearfix detail_item">
+      <li class="btn_line_detail"><input type="checkbox" id="group_floor_option_1">
+          <label for="group_floor_option_1">
+              <span class="h4 select_detail__title">걸레받이</span>
+              <p class="select_detail__desc">벽과 바닥재 사이의마감</p>
+          </label></li>
+  </ul>
+</article>
+
+<!-- 상세 시공 주방 -->
+<article class="section_detail_select" id="detail03" name="detail" style="display: none;">
+  <h3>주방</h3>
+<ul aria-label="주방 선택 목록" class="detail_item">
+  <li class="btn_line_detail">
+      <input type="radio" id="group_kitchen_item_0" name="group_kitchen_item">
+      <label for="group_kitchen_item_0">
+          <span class="h4 select_detail__title">전체교체</span>
+          <span class="expect_price">550만원~</span>
+      </label>
+      <input type="radio" id="group_kitchen_item_1" name="group_kitchen_item">
+      <label for="group_kitchen_item_1">
+          <span class="h4 select_detail__title">필름</span>
+          <p class="select_detail__desc">상부장,하부장등필름시공</p>
+          <span class="expect_price">248만원~</span>
+      </label></li>
+
+  <li class="btn_line_detail">
+      <input type="radio" id="group_kitchen_item_2" name="group_kitchen_item">
+      <label for="group_kitchen_item_2">
+          <span class="h4 select_detail__title">타일</span>
+          <p class="select_detail__desc">벽면타일교체</p>
+          <span class="expect_price">45만원~</span>
+      </label>
+      <input type="radio" id="group_kitchen_item_3" name="group_kitchen_item">
+      <label for="group_kitchen_item_3">
+          <span class="h4 select_detail__title">싱크대</span>
+          <p class="select_detail__desc">상부장,하부장만 교체</p>
+      </label></li>
+
+  <li class="btn_line_detail">
+      <input type="radio" id="group_kitchen_item_4" name="group_kitchen_item">
+      <label for="group_kitchen_item_4">
+          <span class="h4 select_detail__title">가구</span>
+          <p class="select_detail__desc">내장고장등맞춤가구제작</p>
+      </label>
+      <input type="radio" id="group_kitchen_item_5" name="group_kitchen_item">
+      <label for="group_kitchen_item_5">
+          <span class="h4 select_detail__title">아일랜드식탁</span>
+          <span class="expect_price">120만원~</p>
+      </label></li>
+</ul>
+</article>
+<!-- 상세 시공 욕실 -->
+<article class="section_detail_select" id="detail04" name="detail" style="display: none;">
+    <h3>욕실</h3>
+  <ul aria-label="욕실 선택 목록" class="detail_item">
+    <li class="btn_line_detail">
+        <input type="radio" id="group_washroom_item_0" name="group_washroom_item">
+        <label for="group_washroom_item_0">
+            <span class="h4 select_detail__title">전체교체</span>
+            <span class="expect_price">420만원~</span>
+        </label>
+        <input type="radio" id="group_washroom_item_1" name="group_washroom_item">
+        <label for="group_washroom_item_1">
+            <span class="h4 select_detail__title">수납장/선반</span>
+            </label></li>
+        <li class="btn_line_detail">
+            <input type="radio" id="group_washroom_item_2" name="group_washroom_item">
+            <label for="group_washroom_item_2">
+                <span class="h4 select_detail__title">도기</span>
+                <p class="select_detail__desc">세면대,변기등도기만교체</p>
+                <span class="expect_price">64만원~</span>
+                </label></li>
+    <li class="btn_line_detail">
+        <input type="radio" id="group_washroom_item_3" name="group_washroom_item">
+        <label for="group_washroom_item_3">
+            <span class="h4 select_detail__title">타일</span>
+            <p class="select_detail__desc">바닥과벽면타일교체</p>
+            <span class="expect_price">322만원~</span>
+        </label></li>
+  </ul>
+  </article>
+<!-- 상세 시공 현관 -->
+<article class="section_detail_select" id="detail05" name="detail" style="display: none;">
+    <h3>현관</h3>
+  <ul aria-label="욕실 선택 목록" class="detail_item">
+    <li class="btn_line_detail">
+        <input type="radio" id="group_porch_item_0" name="group_porch_item">
+        <label for="group_porch_item_0">
+            <span class="h4 select_detail__title">신발장</span>
+            <span class="expect_price">128만원~</span>
+        </label>
+        <input type="radio" id="group_porch_item_1" name="group_porch_item">
+        <label for="group_porch_item_1">
+            <span class="h4 select_detail__title">타일</span>
+            <span class="expect_price">24만원~</span>
+            </label></li>
+        <li class="btn_line_detail">
+            <input type="radio" id="group_porch_item_2" name="group_porch_item">
+            <label for="group_porch_item_2">
+                <span class="h4 select_detail__title">가벽설치</span>
+                <span class="expect_price">60만원~</span>
+                </label>
+                <input type="radio" id="group_porch_item_4" name="group_porch_item">
+                <label for="group_porch_item_4">
+                    <span class="h4 select_detail__title">필름</span>
+                </label>
+            </li>
+    <li class="btn_line_detail">
+        <input type="radio" id="group_porch_item_3" name="group_porch_item">
+        <label for="group_porch_item_3">
+            <span class="h4 select_detail__title">중문</span>
+            <span class="expect_price">130만원~</span>
+        </label>
+    </li>
+  </ul>
+  </article>
+  <!-- 상세 시공 발코니/샷시 -->
+<article class="section_detail_select" id="detail06" name="detail" style="display: none;">
+    <h3>발코니/샷시</h3>
+  <ul aria-label="발코니/샷시 선택 목록" class="detail_item">
+    <li class="btn_line_detail">
+        <input type="radio" id="group_window_item_0" name="group_window_item">
+        <label for="group_window_item_0">
+            <span class="h4 select_detail__title">전체교체</span>
+            <p class="select_detail__desc">내창/외창모두철거후교체</p>
+            <span class="expect_price">1720만원~</span>
+        </label></li>
+        <li class="btn_line_detail">
+        <input type="radio" id="group_window_item_1" name="group_window_item">
+        <label for="group_window_item_1">
+            <span class="h4 select_detail__title">부분교체</span>
+            <p class="select_detail__desc">부분적으로철거후교체</p>
+            <span class="expect_price">528만원~</span>
+            </label></li>
+        <li class="btn_line_detail">
+            <input type="radio" id="group_window_item_2" name="group_window_item">
+            <label for="group_window_item_2">
+                <span class="h4 select_detail__title">필름만시공</span>
+                <p class="select_detail__desc">창들에필름만시공</p>
+                <span class="expect_price">304만원~</span>
+                </label>
+            </li>
+        </ul>
+        <h4 class="detail_item">추가선택</h4>
+        <ul class="clearfix detail_item">
+            <li class="btn_line_detail"><input type="checkbox" id="group_window_option_0">
+                <label for="group_window_option_0">
+                    <span class="h4 select_detail__title">페인트</span>
+                    <p class="select_detail__desc">천장과 벽 사이의 마감</p>
+                </label>
+            </li>
+        </ul>
+  </article>
+
+  <!-- 상세 시공 조명 -->
+<article class="section_detail_select" id="detail07" name="detail" style="display: none;">
+    <h3>조명</h3>
+  <ul aria-label="조명 선택 목록" class="detail_item">
+    <li class="btn_line_detail">
+        <input type="radio" id="group_light_item_0" name="group_light_item">
+        <label for="group_light_item_0">
+            <span class="h4 select_detail__title">전체교체</span>
+            <p class="select_detail__desc">새로운위치에교체</p>
+            <span class="expect_price">449만원~</span>
+        </label></li>
+        <li class="btn_line_detail">
+        <input type="radio" id="group_light_item_1" name="group_light_item">
+        <label for="group_light_item_1">
+            <span class="h4 select_detail__title">조명,스위치,콘센트만</span>
+            <p class="select_detail__desc">기존위치에교체</p>
+            <span class="expect_price">158만원~</span>
+            </label></li>
+        <li class="btn_line_detail">
+            <input type="radio" id="group_light_item_2" name="group_light_item">
+            <label for="group_light_item_2">
+                <span class="h4 select_detail__title">전기공사만</span>
+                <p class="select_detail__desc">원하는위치에전기공사</p>
+                <span class="expect_price">96만원~</span>
+                </label>
+            </li>
+        </ul>
+  </article>
+  <!-- 상세 시공 문 -->
+  <article class="section_detail_select" id="detail08" name="detail" style="display: none;">
+    <h3>문</h3>
+<ul aria-label="문 선택 목록" class="detail_item">
+    <li class="btn_line_detail">
+        <input type="radio" id="group_door_item_0" name="group_door_item">
+        <label for="group_door_item_0">
+            <span class="h4 select_detail__title">전체교체</span>
+            <p class="select_detail__desc">문틀과문짝모두새로설치</p>
+            <span class="expect_price">326만원~</span>
+        </label>
+
+        <input type="radio" id="group_door_item_1" name="group_door_item">
+        <label for="group_door_item_1">
+            <span class="h4 select_detail__title">부분교체</span>
+            <p class="select_detail__desc">문틀과문짝부분교체</p>
+            <span class="expect_price">445만원~</span>
+        </label></li>
+    <li class="btn_line_detail">
+        <input type="radio" id="group_door_item_2" name="group_door_item">
+        <label for="group_door_item_2">
+            <span class="h4 select_detail__title">필름</span>
+            <p class="select_detail__desc">문틀과문짝에시공가능</p>
+            <span class="expect_price">374만원~</span>
+        </label>
+        </li>
+</ul>
+</article>
+      <div class="nextpage">
+        <button class="button" onclick="location.href='applicationSheet2.jsp'">다음단계</button>
+      </div>
+      </div>
+    </article>
+</body>
+ <%-- 하단 공통부분 --%>
+<jsp:include page="../common/footer.jsp" />

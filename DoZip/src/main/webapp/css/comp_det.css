@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+/* 상단 명함 부분 */
+.comp_card {
+	width : 500px;
+	height: 150px;
+	background-color : #fff;
+	display:flex;
+	/* flex-direction : row; */
+	justify-content: space-evenly;
+	align-items : center;
+	flex-grow : 1;
+	flex-wrap : wrap;
+	margin: 0 auto;	
+	outline : 3px solid #A0FA78; 
+	border-radius : 5px;
+}
+
+#comp_logo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 100%;	
+}
+
+.comp_img {
+	display:flex;
+	justify-content:flex-start; 
+	
+}
+
+h2{
+	font-family:'여기어때 잘난체';
+	color: #3296FF;
+}
+#comp {
+	display: inline-block;
+	border:0;
+	border-radius : 5px;
+	font-size : 18px;
+	text-align : center;
+	width : 120px;
+	height : 50px;
+	background-color : #41A541;
+	font-family : '여기어때 잘난체';	
+	color : white;
+}
+
+/*보증업체 마우스 오버 시 보증 info 나오게*/
+
+.tooltip-text {
+  display: none;
+  position: absolute;
+  max-width: 200px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 0.9em;
+  color: white;
+  background: #3296FF;
+  font-family:'san-serif';
+  font-weight : bold;
+}
+
+#comp:hover .tooltip-text {
+  display: block;
+}
+
+#comp_loca {
+	font-family:'여기어때 잘난체';
+	font-size : 15px;
+}
+
+
+/* 카드리스트 */
+.cards-list {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+}
+
+/* 개별카드 */
+.card {
+	width: 22%;
+	height: 100%;
+}
+
+.card_image img {
+	width: 80%;
+	height: 200px;
+	border-radius: 40px 40px 0px 0px;
+	object-fit: cover;
+	display: flex;
+}
+
+.card_title {
+	border-radius: 0px 0px 40px 40px;
+	background-color:#92d1fc;
+	height: 50px;
+	width: 80%;
+}
+
+.card_title li {
+	list-style: none;
+	text-align: center;
+	font-size: 1.0rem;
+	font-family:'여기어때 잘난체';
+	line-height: 1.9;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+}
+
+/*제공 서비스 부분*/
+
+#service_title {
+	font-family : '여기어때 잘난체';
+	font-size: 1.6rem;
+	color : #41A541;
+	text-align : center;
+	padding-bottom: 20px;
+}
+
+.service_images {
+	display : flex;
+	flex-direction : row;
+	justify-content: space-evenly;
+	padding: 0px, 30px;
+}
+
+.service_cont {
+	display:flex;
+    list-style: none;
+    padding-left: 0; /*왼쪽여백을 0을 줘서 중앙에 정렬*/
+    font-size: 1.3rem;
+	font-family:'210 맨발의청춘 Regular'; 
+	justify-content: space-evenly;
+}
+
+.service_cont li {
+	display:flex;
+	text-align : center; 
+	padding: 5px 15px;
+}
+
+/* 업체 정보 */
+#comp_title {
+	font-family : '여기어때 잘난체';
+	font-size: 1.6rem;
+	color : #41A541;
+	text-align : center;
+}
+
+.comp_cont {
+	display:flex;
+	flex-direction : column;
+	/* text-align : center; */
+	align-items : center;
+	font-family : '여기어때 잘난체';
+}
+
+
+/* 전문가 한마디 */
+#comp_ment_title {
+	font-family : '여기어때 잘난체';
+	font-size: 1.6rem;
+	color : #41A541;
+	text-align : center;
+	padding-bottom: 20px;
+}
+
+#comp_ment1 {
+	font-family : '여기어때 잘난체';
+	font-size: 1.0rem;
+	justify-content: center;
+	padding-left : 200px;
+	color : #0000CD;
+	line-height: 20px;
+}
+
+/* 시공사례 모아보기*/
+
+#port_title {
+	font-family : '여기어때 잘난체';
+	font-size: 1.6rem;
+	color : #41A541;
+	text-align : center;
+	padding-bottom: 20px;
+}

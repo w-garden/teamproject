@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>고객후기</title>
+<style>
+  /*헤더 영역*/
+  header{
+    font-size:40px;
+    font-weight: bold;
+    padding:3px 20px;
+    height:60px;
+    width:95%;
+    margin: 0px 0px 30px 40px;
+    background-color:#197DCB;
+    display: flex;
+    justify-content:space-between;
+    color: white;
+  }
+  header .msg{
+    font-size: 15px;
+    margin: 20px 3px;
+  }
+ 
+
+  /*좌측 메뉴 */
+  #side_menu{
+    float:left;
+    width:155px;
+  }
+  @media all and (max-width:1280px){
+    #side_menu{
+    display: none;
+    }
+    }
+  #side_menu a {
+    display: block;
+    text-decoration: none;
+    color:#333;
+    font-weight: bolder;
+  }
+  #side_menu li{
+  list-style:none;
+}
+  #side_menu li a {
+    height: 40px;
+	  display: block;
+	  border-top: 1px solid #eee;
+	  padding: 15px 3px 0px 15px;
+	  background: #197DCB;
+	  text-decoration: none;
+	  color: #ffffff;
+    font-size:1em;
+  
+}
+  #side_menu li a:hover, #nav li a.enable {
+	background: #999;
+	color: #ffffff;
+}
+  #side_menu li ul {
+	  background: none repeat scroll 0 0 #ccb81f91;
+	  display: none;
+	  margin: 0;
+	  padding: 0 0 0 15px;
+}
+
+  #side_menu li ul li a {
+	  background: none repeat scroll 0 0 #197ecb98;
+	  border-bottom: medium none;
+}
+
+
+
+
+/*메인 컨텐트(article) */
+
+
+#main_cont_title .title{
+  font-size:2em;
+  margin-left: 10px;
+}
+#main_cont_title .message{
+  background-color:#eee;
+  margin:10px;
+  padding:6px;
+}
+
+#search_bar {
+  background-color: antiquewhite;
+  border-radius: 20px;
+  height:120px;
+  margin: 0px 10px;
+}
+#search_bar dt{
+  font-weight: bolder;
+  float:left;
+  margin: 0px 15px;
+
+}
+
+
+#search_bar span div{
+  display: inline-block;
+  margin: 0px 15px 0px 0px; 
+
+}
+
+#search_bar_cont span :last-of-type{
+  color: antiquewhite;
+}
+#board table{
+  margin:50px;
+  height: 200px;
+  width:90%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+#search_bar button{
+  border:none;
+  background:none;
+}
+#search_bar>div{
+  margin-left:50px;
+
+}
+#search_bar {
+  display:grid;
+  align-items: center;
+}
+span>div{
+  border: 1px solid black;
+  border-radius: 20px;
+  padding:3px 10px;
+  font-size: 0.8em;
+}
+.period_cont{
+  color:royalblue;
+}
+
+
+
+
+
+
+
+
+/* footer 영역 */
+
+#footer_nav {
+	/* background-color: #e0e7f1; */
+	font-size: 1.0rem;
+	font-family:'210 맨발의청춘 Regular';
+}
+#footer_nav a{
+  padding: 10px 0px 0px 20px;
+  font-weight: 500;
+  color: black;
+  white-space: nowrap;
+}
+#footer_nav a:hover {
+  color: green;
+  text-decoration: none;
+}
+#footer ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+
+}
+
+#footer_company {
+	/* background-color: #cdd8e9; */
+	color:gray;
+	font-size: 0.8rem;
+	margin-left: 20px;
+}
+.footer_company_call_number {
+	font-size: 1.0rem;
+	font-family:'여기어때 잘난체';
+	color: black;
+}
+
+</style>
+
+
+
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('#side_menu > li >a ').click(function(){
+    $('#side_menu li ul').slideUp();
+    if($(this).attr('class')!='enable'){
+      $(this).next().slideToggle();
+      $('#side_menu li a').removeClass('enable');
+      $(this).addClass('enable');
+    }else{
+      $(this).removeClass('enable');
+    }
+  });
+  
+});
+
+</script>
+
+</head>
+<body>
+  <div id="wrap">
+
+  <!--헤더 영역-->
+<header>
+  <div>파트너스 페이지 </div>
+  <div class="msg">홍길동 님 환영합니다 (59:58)</div>
+</header>
+<!-- 좌측 사이드바 영역 -->
+  <div id="a">
+    <ul id="side_menu">
+      <li><a href="#">파트너스홈</a></li>
+      <li><a href="#">공개입찰 ▼</a>
+        <ul>
+          <li><a href="#">리스트</a></li>
+          <li><a href="#">입찰현황</a></li>
+        </ul></li>
+
+      <li><a href="#">시공사례관리 ▼</a>
+        <ul>
+          <li><a href="#">등록</a></li>
+          <li><a href="#">수정삭제</a></li>
+        </ul>
+      </li>
+      <li><a href="#">견적관리 ▼</a>
+        <ul>
+          <li><a href="#">견적목록</a></li>
+          <li><a href="#">수정</a></li>
+        </ul>
+      </li>
+      <li><a href="#">시공/정산 ▼</a> 
+        <ul>
+          <li><a href="#">시공진척도</a></li>
+         <li><a href="#">정산 현황</a></li>
+        </ul>
+      </li>
+      <li><a href="#">광고관리 ▼</a>
+        <ul>
+          <li><a href="#">노출프로모션</a></li>
+        </ul>
+      </li>
+      <li><a href="#">고객관리 ▼</a>
+        <ul>
+          <li><a href="#">고객문의</a></li>
+          <li><a href="#">고객후기</a></li>
+        </ul>
+      </li>
+      <li><a href="#">마이페이지 ▼</a>
+        <ul>
+          <li><a href="#">정보관리</a></li>
+          <li><a href="#">비밀번호 변경</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+<!--메인 content-->
+
+  <article id="main_cont">
+
+   <div id="main_cont_title">
+    <div class="title">고객 후기</div>
+    <div class="message">시공 완료 후 고객께서 후기를 남긴 내역입니다</div>
+   </div>
+   <div id="search_bar">
+    <div>
+      <dt>검색조건</dt>
+      <dd>
+        <span>
+          <div><span>등록일</span><span class="period_cont"> 지난7일</span><button type="button">▼</button></div>
+          <div>별점<span class="period_cont"> 전체</span><button type="button">▼</button></div>
+          <div>상세조건<button type="button">▼</button></div>
+          <div>초기화<button type="button">▼</button></div>
+        </span>
+      </dd>
+    </div>
+    
+   </div>
+   <div>
+    <img src="">
+   </div>
+   <div id="board">
+    <table border="1">
+      <tr>
+        <th> ↓↑</th>
+        <th>등록일</th>
+        <th>시공종류</th>
+        <th>별점</th>
+        <th>후기 코멘트</th>
+        <th>작성자</th>
+      </tr>
+      <tr>
+        <td colspan="6"> 검색 결과가 없습니다</td>
+      </tr>
+    </table>
+   </div>
+
+  </article>
+  </div>
+
+
+  <footer>
+      <div class="clear"></div>
+
+      <footer id="footer">
+        <hr/>
+        <nav id="footer_nav">
+          <ul>
+            <li><a href="#">회사소개</a></li>
+            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">파트너스 페이지</a></li>
+          </ul>
+        </nav>     
+        <div class="clear"></div>
+  
+        <div id="footer_company">
+            <div class="footer_company_call">
+              <p class="footer_company_call_number">1600 - 0000</p>
+              <p class="footer_company_call_info">
+                <span>월 - 금: 09:00 - 18:00 (주말/공휴일 제외) | </span>
+                <span class="_modis">팩스 : 02-1111-1111 | </span>
+                <span class="_modis">고객문의: <a class="footer_mail" href="mailto:5140lovely@naver.com">5140lovely@naver.com</a> | </span> 
+                <span class="_modis">제휴문의: <a class="footer_mail" href="mailto:5140lovely@naver.com">5140lovely@naver.com</a> | </span>
+              </p>
+            </div>
+            
+            <div class="footer_company_text" >
+                <span>두집주식회사 대표이사 : 1조 | </span>
+                <span>주소 : 서울 강남구 | </span> 
+                <span>사업자등록번호 : 000-81-12345 | </span> 
+                <span>통신판매번호 : 2022-서울강남-11111호</span>
+            </div>
+            <div class="footer_company_copyright">
+              <p>두집주식회사는 통신판매중개자로서 건축 공사의 주 거래 당사자가 아니며, 시공전문가가 제공한 견적 및 공사
+                시공 서비스에 대해 일체 책임을 지지 않습니다.</p>
+              <p>copyright © DOZIP</p>
+            </div>
+        </div>
+      </footer>    
+
+
+</div>
+</body>
+
+</html>

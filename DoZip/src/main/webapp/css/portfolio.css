@@ -1,0 +1,163 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/*포트폴리오 본문*/
+.port_wrap{
+	display:flex;
+	justify-content: space-between;
+}
+/*드롭다운*/
+.dropdown{
+  height : 70px;
+  float:left;
+}
+
+.dd_group {
+	width: 100px;
+	height: 30px;
+	border: 1px solid #C4C4C4;
+	box-sizing: border-box;
+	border-radius: 10px;
+	font-family: '여기어때 잘난체';
+	font-size: 14px;
+	line-height: 50px;
+}
+
+.dd_group:focus {
+	border: 1px solid #9B51E0;
+	box-sizing: border-box;
+	border-radius: 10px;
+	outline: 3px solid #a7ee8e;
+	border-radius: 10px;
+}
+
+/*검색창 부분*/
+.search {
+	width:100%;
+	float: right;
+	display: flex;
+}
+
+.search_nav > ul{
+	list-style:none;
+}
+
+#searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+#searchTerm:focus{
+  color: #00B4CC;
+}
+
+.search_Btn {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.search_wrap{
+  width: 30%;
+}
+
+/*프리미엄 포트폴리오*/
+.premium_title {
+	font-family : '여기어때 잘난체';
+	font-size : 1.5rem;
+	color : #41A541;
+	
+}
+
+#crown {
+	padding-top : 10px;
+}
+.premium_comp {
+	outline : 8px solid #A0FA78; 
+	border-radius : 5px;
+	overflow-x : scroll; 
+	white-space: nowrap;
+	width: 100%;
+	height:400px;
+}
+
+.premium_cards_wrap {
+	display:flex;
+	flex-direction : row;
+}
+
+
+/*포트폴리오 본문*/
+/* 전체 */
+.construction_list {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.top_title {
+	font-family : '여기어때 잘난체';
+	font-size : 1.0rem;
+	padding-left : 15px;
+}
+/* 카드리스트 */
+.cards-list {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* 개별카드 */
+.card {
+	width: 22%;
+	height: 100%;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.card_image img {
+	width: 100%;
+	height: 200px;
+	border-radius: 40px 40px 0px 0px;
+	object-fit: cover;
+	display: flex;
+}
+
+.card_title {
+	border-radius: 0px 0px 40px 40px;
+	background-color:#92d1fc;
+	height: 80px;
+	width: 100%;
+}
+
+.card_title li {
+	list-style: none;
+	text-align: center;
+	font-size: 1.1rem;
+	font-family:'여기어때 잘난체';
+	line-height: 1.9;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+}
