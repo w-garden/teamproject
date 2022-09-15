@@ -23,3 +23,8 @@ function checkSelectAll()  {
 	  }
 }
 
+/* 회원가입 창 띄우기 */
+function openJoin(){
+	window.open("member_join.do", "_blank", "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=750, left=0, top=0" );
+}
+

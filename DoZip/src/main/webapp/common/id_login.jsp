@@ -6,15 +6,17 @@
 	<meta charset="UTF-8">
 	<title>아이디로 로그인</title>
 	<link rel="stylesheet" type="text/css" href="/DoZip/css/login.css" />
+	<script src="/DoZip/js/jquery.js"></script>
+	<script src="/DoZip/js/member.js"></script>
 </head>
 <body>
 <div id="id_login_wrap">
 	<div id="id_login_title">
 		<p>아이디로 시작하기</p>
 	</div>
-	<form id="id_login_box" method="post" action="#">
-		<input type="text"  name="member_id" placeholder="  아이디"/>
-		<input type="password" name="member_pwd" placeholder="  비밀번호"/>
+	<form id="id_login_box" method="post" action="member_login_ok.do">
+		<input type="text"  name="mem_id" placeholder="  아이디"/>
+		<input type="password" name="mem_pwd" placeholder="  비밀번호"/>
 		<button id="login_btn" type="submit">로 그 인</button>
 	</form>
 	<div id="find_box">
@@ -29,13 +31,5 @@
 		</span>
 	</div>
 </div>
-
-<!-- 회원가입 -->
-	<script>
-    function openJoin(){
-        window.open("member_join.do", "_blank", 
-        		"toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=750, left=0, top=0" );
-    }
-	</script>
 </body>
 </html>
