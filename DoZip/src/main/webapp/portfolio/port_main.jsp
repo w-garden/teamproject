@@ -70,13 +70,14 @@
 			<img id = "crown" src = "../images/portfolio/detail/crown.png"/>
 			<p class = "premium_title">프리미엄 업체 (광고)</p>
 			<div class = "premium_comp">
-					<%! int k = 0;%>
+					<h2>배너로 변경예정</h2>
+					<%-- <%! int k = 0;%>
 					<% for(int k = 1; k <3; k++){ %>
 					<div class="premium_cards_wrap">
 						<div class="card 1">
 						  <div class="card_image"> 
 						  	<img onclick = "location = './port_detail.jsp';" src= "../images/portfolio/port001.png" /> 
-						  	<%-- onclick으로 클릭시 상세로 연결되게 --%>
+						  	onclick으로 클릭시 상세로 연결되게
 						  </div>
 						  <div class="card_title">
 							   	<li class = "corp">★ 호철 디자인 ★</li>
@@ -125,7 +126,7 @@
 					  </div>
 					  
 				</div>
-				<%} %>
+				<%} %> --%>
 			</div>
 		</div>
 		<br>		
@@ -139,12 +140,12 @@
 			<div class="cards-list">
 			<div class="card 1">
 			  <div class="card_image"> 
-			  	<img onclick = "location = './port_detail.jsp';" src= "../images/portfolio/port001.png" /> 
+			  	<img class = "ho" onclick = "location = './port_detail.jsp';" src= "../images/portfolio/port001.png" /> 
 			  	<%-- onclick으로 클릭시 상세로 연결되게 --%>
 			  </div>
 			  <div class="card_title">
-				   	<li class = "corp">★ 호철 디자인 ★</li>
-				   	<li>#감성펍 #20평 1000만원대 </li>
+				   	<li class = "corp">호철 디자인</li>
+				   	<li class = "card_tag">#감성펍 #20평 1000만원대 </li>
 			  </div> 
 			</div>
 			
@@ -153,28 +154,19 @@
 			    <img onclick = "location = './port_detail.jsp';" src="../images/portfolio/port002.png" />
 			    </div>
 			  <div class="card_title">
-			    <li class = "corp">★ 지혜 디자인 ★</li>
-			    <li>#모던 #22평 1000만원대</li>
+			    <li class = "corp">지혜 디자인</li>
+			    <li class = "card_tag">#모던 #22평 1000만원대</li>
 			  </div>
 			</div>
 			
-			<div class="card 3">
-			  <div class="card_image">
-			    <img onclick = "location = './port_detail.jsp';" src="../images/portfolio/port003.png" />
-			  </div>
-			  <div class="card_title ">
-			    <li class = "corp">★ 민우 디자인 ★</li>
-			    <li>#모던 #80평 5000만원대</li>
-			  </div>
-			</div>
 			  
 			  <div class="card 4">
 			  <div class="card_image">
 			    <img onclick = "location = './port_detail.jsp';" src="../images/portfolio/port004.png" />
 			    </div>
 			  <div class="card_title">
-			    <li class = "corp">★ 수환 디자인 ★</li>
-			    <li>#럭셔리 #80평 5000만원대</li>
+			    <li class = "corp">수환 디자인</li>
+			    <li class = "card_tag">#럭셔리 #80평 5000만원대</li>
 			  </div>
 			  </div>
 			

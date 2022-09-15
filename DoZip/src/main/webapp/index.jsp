@@ -100,8 +100,8 @@
 						<%-- onclick으로 클릭시 상세로 연결되게 --%>
 					</div>
 					<div class="card_title">
-						<li class="corp">★ 호철 디자인 ★</li>
-						<li>#감성펍 #20평 1000만원대</li>
+						<li class="corp">호철 디자인</li>
+						<li class = "card_tag">#감성펍 #20평 1000만원대</li>
 					</div>
 				</div>
 	
@@ -112,8 +112,8 @@
 							src="./images/portfolio/port002.png" />
 					</div>
 					<div class="card_title">
-						<li class="corp">★ 지혜 디자인 ★</li>
-						<li>#모던 #22평 1000만원대</li>
+						<li class="corp">지혜 디자인</li>
+						<li class = "card_tag">#모던 #22평 1000만원대</li>
 					</div>
 				</div>
 	
@@ -123,8 +123,8 @@
 							src="./images/portfolio/port003.png" />
 					</div>
 					<div class="card_title">
-						<li class="corp">★ 민우 디자인 ★</li>
-						<li>#모던 #80평 5000만원대</li>
+						<li class="corp">민우 디자인</li>
+						<li class = "card_tag">#모던 #80평 5000만원대</li>
 					</div>
 				</div>
 	
@@ -134,8 +134,8 @@
 							src="./images/portfolio/port004.png" />
 					</div>
 					<div class="card_title">
-						<li class="corp">★ 수환 디자인 ★</li>
-						<li>#럭셔리 #80평 5000만원대</li>
+						<li class="corp">수환 디자인</li>
+						<li class = "card_tag">#럭셔리 #80평 5000만원대</li>
 					</div>
 				</div>
 	
