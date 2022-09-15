@@ -45,7 +45,7 @@
 								<span class="label_val2">도배/바닥/욕실 공사</span>
 							</p>
 							<p class="request_title">
-								<a href="/projectView/PR-3A90TFtPUUs?tab=default&amp;&amp;p=" >목동 사무실 원상복구 견적 문의</a>
+								<a href="./bid_detail.jsp">목동 사무실 원상복구 견적 문의</a>
 							</p>
 							<div class="request_desc_div">
 								<p class="request_desc">
@@ -59,7 +59,7 @@
 									<li class="info">
 										<p class="request_info_tit">예상 계약금액</p>
 										<p class="request_info_val">
-											<span><b>80,000,000</b></span> 원
+											<span><b>500</b></span>만원
 										</p>
 									</li>
 									<li class="info">
@@ -77,7 +77,7 @@
 									<li class="info">
 										<p class="request_info_tit">참여 파트너 수</p>
 										<p class="request_info_val">
-											<span><b>9</b></span>
+											<span><b>3</b></span>
 										</p>
 									</li>
 								</ul>

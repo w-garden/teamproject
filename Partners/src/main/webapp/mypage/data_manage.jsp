@@ -1,16 +1,5 @@
 <%@ page  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
-<script>
-a.active-color { color:#000; }
-
-$("a").click(function() {
-    toggleClass(".active-color");
-});
-
-$("label").click(function() {
-    toggleClass(".lbl-checkbox");
-});
-</script>
 
 
   <article>
@@ -47,20 +36,6 @@ $("label").click(function() {
 							<input type="text" size="20">
 						</div>
 					</div>
-				</div>
-				<br />
-				<div class="business-02">
-					<label><b>사업자등록주소</b></label><br />
-					<div>
-						<input type="text" size="5" disabled="true"> <input
-							type="text" size="10" disabled="true">
-						<button type="button">변경</button>
-					</div>
-					<div>
-						<input type="text" size="29">
-					</div>
-					<div id="red">* 최초 1회만 입력 가능한 정보 입니다. 수정희망 시 두집담당자
-						(****-****)에게 문의 해주세요.</div>
 				</div>
 				<br />
 				<div class="business-03">
@@ -109,7 +84,7 @@ $("label").click(function() {
 					<div class="upload_image_size">(권장 이미지 사이즈 750 x 600)</div>
 					<div tabindex="0" class="upload_image" >
 						<label for="choosefile" class="upload_lbl">
-							<img src="../images/partners_images/upload_plus.png" width="40px" height="40px">
+							<img src="../images/upload_plus.png" width="40px" height="40px">
 						</label>
 						<input type="file" id="choosefile" name="file" accept="image/*">
 					</div>
@@ -134,11 +109,12 @@ $("label").click(function() {
 						<label for="check2" class="lbl-checkbox"> <input type="checkbox" id="check2">일반도면</label>
 						<label for="check3" class="lbl-checkbox"> <input type="checkbox" id="check3">카드결제</label>
 						<label for="check4" class="lbl-checkbox"> <input type="checkbox" id="check4">쇼룸</label>
-						<label for="check5" class="lbl-checkbox"> <input type="checkbox" id="check5">정부지원사업</label>
-						<label for="check6" class="lbl-checkbox-disabled"><input type="checkbox" id="check6" disabled="disabled" aria-hidden="false">실내건축공사업 면허</label>
-						<label for="check7" class="lbl-checkbox-disabled"><input type="checkbox" id="check7" disabled="disabled" aria-hidden="false">두집예치제</label>
+						<label for="check5" class="lbl-checkbox"> <input type="checkbox" id="check5">정부지원사업</label></br>
+						<label for="check7" class="lbl-checkbox-disabled"><input type="checkbox" id="check7" aria-hidden="false">두집예치제</label>
+						<label class="deposit_label">예치금</label> <input type="text" id="deposit_money">
+						<p id="red">* 두집예치제는 두집(****-****)으로 추가 문의주세요.</p>
 					</div>
-					<p id="red">* 실내건축공사업 면허,두집예치제는 두집(****-****)으로 문의주세요.</p>
+					
 
 
 				<div class="additional-05">
