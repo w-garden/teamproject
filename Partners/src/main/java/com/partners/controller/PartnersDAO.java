@@ -1,4 +1,4 @@
-package com.partners.control;
+package com.partners.controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
