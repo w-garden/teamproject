@@ -1,6 +1,6 @@
-package com.partners.vo;
+package com.partners.dto;
 
-public class PartnersVO {
+public class PartnersDTO {
 	private int business_num;
 	private String businessName;
 	private String pId;
@@ -14,9 +14,9 @@ public class PartnersVO {
 	private String pDelcont;
 	private int pState;
 	
-	public PartnersVO() {}
+	public PartnersDTO() {}
 
-	public PartnersVO(int business_num, String businessName, String pId, String pPw, String pName, int pTel,
+	public PartnersDTO(int business_num, String businessName, String pId, String pPw, String pName, int pTel,
 			String pMail, String pAddress, String pDate, String pDeldate, String pDelcont, int pState) {
 		super();
 		this.business_num = business_num;

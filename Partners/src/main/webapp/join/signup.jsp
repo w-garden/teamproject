@@ -70,13 +70,11 @@ footer {
 
 			<div id="signup_title">
 				<div>
-					<a href="/Partners/Join/signin.jsp"> <img
-						src="../images/logo.png" alt="메인로고"></a>
+					<a href="/Partners/join/signin.jsp"> <img src="images/logo.png"	alt="메인로고"></a>
 				</div>
 				<div class="msg">파트너스 회원가입</div>
 			</div>
-			<form action="signin.jsp" method="post"
-				onsubmit="return login_check();">
+			<form action="partners_signup_ok.do" method="post"	onsubmit="return login_check();">
 				<div class="info">
 					<label for="businessName">사업자명</label> <input type="text"
 						id="businessName" name="businessName" placeholder="업체명을 입력해주세요">
@@ -101,15 +99,13 @@ footer {
 				<div class="info">
 					<label for="pId">아이디</label>
 					<div class=signup_idchk>
-						<input type="text" id="pId" name="pId"
-							placeholder="2~16자 영문, 숫자"> <input type="button"
-							name="idchk" value="중복확인">
+						<input type="text" id="pId" name="pId" placeholder="2~16자 영문, 숫자">
+						<input type="button" name="idchk" value="중복확인">
 					</div>
 				</div>
 				<div class="signup_pwd">
-					<label for="pPw">비밀번호</label> <input type="password"
-						id="pPw" name="pPw"
-						placeholder="10~16자 영문, 숫자, 특수문자 조합"> <input
+					<label for="pPw">비밀번호</label> <input type="password" id="pPw"
+						name="pPw" placeholder="10~16자 영문, 숫자, 특수문자 조합"> <input
 						type="password" id="pwchk" placeholder="비밀번호 다시 입력">
 				</div>
 
