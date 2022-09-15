@@ -39,6 +39,7 @@
 					<li><a href="../portfolio/port_main.jsp">포트폴리오</a></li>
 					<li><a href="../review/review_main.jsp">고객후기</a></li>
 					<li><a href="../mypage/mypage_main.jsp">스토리</a></li>
+					<li><a href="/Partners/Join/signin.jsp">파트너스</a></li>
 				</ul>
 			
 				<ul class="icons">
