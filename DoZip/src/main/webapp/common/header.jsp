@@ -52,4 +52,4 @@
 
 		<div class="clear"></div>
 
-<div id="wrap">
+<div id="wrap"> <!-- #wrap 시작 -->

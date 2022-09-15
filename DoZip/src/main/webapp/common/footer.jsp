@@ -39,6 +39,6 @@
 					</div>
 			</div>
 		</footer>
-	</div>
+	</div> <!-- #wrap 끝 -->
 </body>
 </html>
