@@ -8,13 +8,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<title>두꺼비집</title>
-	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+	<link rel="stylesheet" type="text/css" href="/DoZip/css/main.css" />
 	
 	<script src="https://kit.fontawesome.com/3624917c4f.js" crossorigin="anonymous"></script>
 	<script src ="./js/header.js" defer></script>
 	<script>
 	    function openLogin(){
-	        window.open("./common/login.jsp", "_blank", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=550, left=0, top=0" );
+	        window.open("member_login.do", "_blank", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=550, left=0, top=0" );
 	    }
 	</script>
 </head>
