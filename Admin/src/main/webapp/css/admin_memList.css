@@ -69,21 +69,48 @@
 }
 
 #tb_mem {
-	margin-top : 50px;
+	margin-top : 70px;
 	display : flex;
 	justify-content: center; 
-	border-top: 1px solid;
+	border-top: 1px solid #ccc;
+	border-bottom : 1px solid #ccc;
+	margin : 20px 10px;
 	text-align: center;
+	line-height : 1.5;
 	border-collapse: collapse;
+}
+
+#tb_mem th {
+	padding : 10px;
+	font-weight : bold;
+	color : #fff;
+	background-color : #41A541; 
+}
+
+#tb_mem tr.even {
+	background-color: #D2FFD2;
 }
 
 
 #tb_part {
 	margin-top : 50px;
-	margin-left : 20px;
 	display : none;
 	text-align: center;
+	line-height : 1.5;
+	border-collapse: collapse;
 }
+
+#tb_part th{
+	padding:10px;
+	font-weight:bold;
+	color: #fff;
+	background-color: #41A541; 
+}
+
+#tb_part tr.even {
+	background-color : #D2FFD2;
+}
+
 
 
 
