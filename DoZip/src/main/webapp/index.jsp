@@ -48,7 +48,7 @@
 		<div class="clear"></div>
 
 		<!-- 본문 -->
-<div id="wrap">
+
 		<div id="part">
 			<div id="part1">
 				<!-- <div id="slide_banner"> -->
