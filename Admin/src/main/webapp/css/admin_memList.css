@@ -65,7 +65,7 @@
 
 .mem_table {
 	display : flex;
-	justify-content: center;
+	justify-content: center; 
 }
 
 #tb_mem {
@@ -77,23 +77,13 @@
 	border-collapse: collapse;
 }
 
-#tb_mem th,td {
-	border-bottom: 1px solid #808080;
-	padding: 10px 0;
-}
-
-#tb_mem td {
-	height : 10%;
-}
 
 #tb_part {
 	margin-top : 50px;
 	margin-left : 20px;
-	display : flex;
-	justify-content: center;
+	display : none;
+	text-align: center;
 }
 
-#tb_check {
-	width : 10%;
-}
+
 
