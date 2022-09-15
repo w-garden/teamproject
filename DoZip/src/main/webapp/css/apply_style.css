@@ -143,17 +143,37 @@ ul{
 li{
   margin-right: 10px;
 }
+
 .section_detail_select{
-  background-color:rgb(238, 236, 236);
+	background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: rgb(244, 244, 242);
+}
+
+.detail_select{
   width: 600px;
-  height: 450px;
   margin: 0 auto;
-  margin-top: -15px;
+}
+
+/*폰트*/
+.detail_title{
+	font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    padding-top: 60px;
+    padding-bottom: 0;
 }
 
 .btn_line_detail label .h4 {
   color: #1d1d1d;
 }
+/*폰트끝*/
 
 .btn_line_detail .select_detail__desc {
   margin-top: 10px;

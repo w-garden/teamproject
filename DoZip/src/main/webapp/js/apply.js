@@ -1,3 +1,4 @@
+/*평/m2 계산기*/
 function calculator(num) {
   if (num == 1) {
     document.getElementById('cal2').value = parseFloat(document.getElementById('cal1').value) * 3.3058;
@@ -7,13 +8,27 @@ function calculator(num) {
 }
 
 /*전체선택*/
-$('#allCk').click(function () {
-  var checked = $('#allCk').is(':checked');
-
-  if (checked)
-    $('input:checkbox').prop('checked', true);
-  else
-    $('input:checkbox').prop('checked', false);
+$(document).ready(function(){
+  $('#allCk').click(function () {
+    var checked = $('#allCk').is(':checked');
+  
+     if (checked){
+       $('[name=check]').prop('checked', true);
+       $("[name='detail']").show();
+      }else{
+        $('[name=check]').prop('checked', false);
+        $("[name='detail']").hide();}
+  });
+  $("input[name=check]").click(function(){
+    var totalBt = $('input[name=check]').length;
+    var checkedBt = $('input[name=check]:checked').length;
+    
+    if(totalBt != checkedBt){
+      $('input[name=checkAll]').prop('checked', false);
+    }else{
+      $('input[name=checkAll]').prop('checked', true);
+    }
+});
 });
 
 /*라디오*/
@@ -31,6 +46,13 @@ $('#2').change(function () {
 });
 
 /*토글*/
+/*$('#wall').click(function () {
+	if($('#wall').is(':checked')){
+   		$("#detail01").show();
+	}else{
+		$("#detail01").hide();
+	}
+});*/
 $('#wall').click(function () {
   $("#detail01").toggle();
 });
@@ -41,6 +63,26 @@ $('#floor').click(function () {
 
 $('#kitchen').click(function () {
   $("#detail03").toggle();
+});
+
+$('#washroom').click(function(){
+  $("#detail04").toggle();
+});
+
+$('#porch').click(function(){
+  $("#detail05").toggle();
+});
+
+$("#window").click(function(){
+  $("#detail06").toggle();
+});
+
+$("#light").click(function(){
+  $("#detail07").toggle();
+});
+
+$("#door").click(function(){
+  $("#detail08").toggle();
 });
 
 /*천단위로 콤마찍기*/
@@ -112,3 +154,15 @@ $(function () {
 });
 
 //뒤로가기 버튼
+
+//글자수
+$('#paragraph').keyup(function (e) {
+	let content = $(this).val();
+    
+    // 글자수 세기
+    if (content.length == 0 || content == '') {
+    	$('.textCount').text('0자');
+    } else {
+    	$('.textCount').text(content.length + '자');
+    }
+});

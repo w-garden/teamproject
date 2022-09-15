@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../common/header.jsp" />
 <%-- 상단 공통부분 끝 --%>
 <link rel="stylesheet" href="../css/apply_style.css" />
@@ -60,7 +59,7 @@
       <div class="areaBoxComponent">
         <h3>원하는 공간 선택</h3>
         <div class="123">
-          <input type="checkbox" id="allCk" name="check" class="checkbox" data-name="전체선택">
+          <input type="checkbox" id="allCk" name="checkAll" class="checkbox" data-name="전체선택">
           <input type="checkbox" id="wall" name="check" data-name="도배/벽" class ="checkbox"/>
           <input type="checkbox" id="floor" name="check" data-name="바닥" class ="checkbox"/>
           <input type="checkbox" id="kitchen" name="check" data-name="주방" class ="checkbox"/>
@@ -74,7 +73,8 @@
 
       <!-- 상세 시공 도배/벽 -->
       <article class="section_detail_select" id="detail01" name="detail" style="display: none;">
-            <h3>도배/벽</h3>
+      <div class = "detail_select">
+            <h3 class="detail_title">도배/벽</h3>
         <ul aria-label="도배/벽 선택 목록" class="detail_item">
             <li class="btn_line_detail">
                 <input type="radio" id="group_wallpaper_item_0" name="group_wallpaper_item">
@@ -125,11 +125,13 @@
                     <p class="select_detail__desc">천장과 벽 사이의 마감</p>
                 </label></li>
         </ul>
+        </div>
     </article>
 
     <!-- 상세 시공 바닥 -->
     <article class="section_detail_select" id="detail02" name="detail" style="display: none;">
-      <h3>바닥</h3>
+    <div class = "detail_select">
+      <h3 class="detail_title">바닥</h3>
   <ul aria-label="바닥 선택 목록" class="detail_item">
       <li class="btn_line_detail">
           <input type="radio" id="group_floor_item_0" name="group_floor_item">
@@ -175,11 +177,13 @@
               <p class="select_detail__desc">벽과 바닥재 사이의마감</p>
           </label></li>
   </ul>
+  </div>
 </article>
 
 <!-- 상세 시공 주방 -->
 <article class="section_detail_select" id="detail03" name="detail" style="display: none;">
-  <h3>주방</h3>
+<div class = "detail_select">
+  <h3 class="detail_title">주방</h3>
 <ul aria-label="주방 선택 목록" class="detail_item">
   <li class="btn_line_detail">
       <input type="radio" id="group_kitchen_item_0" name="group_kitchen_item">
@@ -219,10 +223,13 @@
           <span class="expect_price">120만원~</p>
       </label></li>
 </ul>
+</div>
 </article>
+
 <!-- 상세 시공 욕실 -->
 <article class="section_detail_select" id="detail04" name="detail" style="display: none;">
-    <h3>욕실</h3>
+<div class = "detail_select">
+    <h3 class="detail_title">욕실</h3>
   <ul aria-label="욕실 선택 목록" class="detail_item">
     <li class="btn_line_detail">
         <input type="radio" id="group_washroom_item_0" name="group_washroom_item">
@@ -249,10 +256,13 @@
             <span class="expect_price">322만원~</span>
         </label></li>
   </ul>
+  </div>
   </article>
+  
 <!-- 상세 시공 현관 -->
 <article class="section_detail_select" id="detail05" name="detail" style="display: none;">
-    <h3>현관</h3>
+<div class = "detail_select">
+    <h3 class="detail_title">현관</h3>
   <ul aria-label="욕실 선택 목록" class="detail_item">
     <li class="btn_line_detail">
         <input type="radio" id="group_porch_item_0" name="group_porch_item">
@@ -284,10 +294,12 @@
         </label>
     </li>
   </ul>
+  </div>
   </article>
   <!-- 상세 시공 발코니/샷시 -->
 <article class="section_detail_select" id="detail06" name="detail" style="display: none;">
-    <h3>발코니/샷시</h3>
+<div class = "detail_select">
+    <h3 class="detail_title">발코니/샷시</h3>
   <ul aria-label="발코니/샷시 선택 목록" class="detail_item">
     <li class="btn_line_detail">
         <input type="radio" id="group_window_item_0" name="group_window_item">
@@ -321,11 +333,13 @@
                 </label>
             </li>
         </ul>
+        </div>
   </article>
 
   <!-- 상세 시공 조명 -->
 <article class="section_detail_select" id="detail07" name="detail" style="display: none;">
-    <h3>조명</h3>
+<div class = "detail_select">
+    <h3 class="detail_title">조명</h3>
   <ul aria-label="조명 선택 목록" class="detail_item">
     <li class="btn_line_detail">
         <input type="radio" id="group_light_item_0" name="group_light_item">
@@ -350,10 +364,13 @@
                 </label>
             </li>
         </ul>
+        </div>
   </article>
+  
   <!-- 상세 시공 문 -->
   <article class="section_detail_select" id="detail08" name="detail" style="display: none;">
-    <h3>문</h3>
+  <div class = "detail_select">
+    <h3 class="detail_title">문</h3>
 <ul aria-label="문 선택 목록" class="detail_item">
     <li class="btn_line_detail">
         <input type="radio" id="group_door_item_0" name="group_door_item">
@@ -378,7 +395,10 @@
         </label>
         </li>
 </ul>
+</div>
 </article>
+
+<%-- 다음페이지 버튼 --%>
       <div class="nextpage">
         <button class="button" onclick="location.href='applicationSheet2.jsp'">다음단계</button>
       </div>
