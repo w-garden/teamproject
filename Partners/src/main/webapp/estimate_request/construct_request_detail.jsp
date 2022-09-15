@@ -13,9 +13,9 @@
 					<span class="label_val1">사무실</span>
 					<span class="label_val2">도배/바닥/욕실 공사</span>
 				</p>
-				<p class="request_detail_title">
-				<h2>목동 사무실 원상복구 견적 문의</h2>
-				</p>
+				<div class="request_detail_title">
+				<h3>목동 사무실 원상복구 견적 문의</h3>
+				</div>
 				
 				<div class="greeb_box_container">
 					<div class="green_box">
@@ -49,6 +49,22 @@
 				</div>
 				<div class="detail_option">
 					<div class="detail-op-sec">
+						<div class="sec-head-title">첨부파일</div>
+						</hr>
+						<div class="sec-cont-wrap">
+							<div class="file-box">
+								<ul class="file-list">
+									<li class="attach_file_list">
+										<a href="javascript:void(0);" class="btn-file">
+										<span class="download_mark"><img src="../images/downloadmark.png" width="20px" height="20px"></span>
+										 프로젝트 첨부파일
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="detail-op-sec">
 						<div class="sec-head">
 							<div class="sec-head-title">
 								의뢰 세부 정보
@@ -68,8 +84,8 @@
 								<dd class="sec-cont">[도배/바닥/욕실]</dd>
 							</dl>
 							<dl class="sec-item">
-								<dt class="sec-title">희망 예산</dt>
-								<dd class="sec-cont">500만원</dd>
+								<dt class="sec-title">세부 선택</dt>
+								<dd class="sec-cont"></dd>
 							</dl>
 							<dl class="sec-item">
 								<dt class="sec-title">시공 규모 (평 수)</dt>
@@ -78,6 +94,10 @@
 							<dl class="sec-item">
 								<dt class="sec-title">시공 주소</dt>
 								<dd class="sec-cont">경기도 성남시 수정구 위례서일로22</dd>
+							</dl>
+							<dl class="sec-item">
+								<dt class="sec-title">희망 예산</dt>
+								<dd class="sec-cont">500만원</dd>
 							</dl>
 							<dl class="sec-item">
 								<dt class="sec-title">희망 시공시작일</dt>
@@ -91,12 +111,6 @@
 								<dt class="sec-title">희망 스타일</dt>
 								<dd class="sec-cont"></dd>
 							</dl>
-							<ul class="style_list">
-								<li class="attach_style_list"><a href="javascript:void(0);"
-									class="btn-file"> <span class="download_mark"><img
-											src="../images/downloadmark.png" width="20px" height="20px"></span>
-								</a>첨부파일 다운로드</li>
-							</ul>
 						</div>
 					</div>
 				</div>

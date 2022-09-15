@@ -37,6 +37,8 @@
 	.tab-link{
 		cursor:pointer;
 		text-decoration-line:none;
+		font-weight:bold;
+		color:lightgray;
 	}
 	
 	.all_information{
@@ -154,12 +156,19 @@
 
   .lbl-checkbox-disabled{
   	font-size: 15px;
-  	color: #c0c4cc!important;
+  	font-weight: bold;
+  	color: #606266;
   	padding: 5px 5px 5px 5px;
     border:1px solid #0AC9FF; 
   	border-radius:5px 5px 5px 5px;
-  	cursor: not-allowed;
   	display: inline-block;
+  }
+  .deposit_label{
+  	margin:5px;
+  }
+  #deposit_money{
+  	width: 30%;
+  	height: 20px;
   }
   .sigong, .gicho{
     margin:10px 0px 5px;
@@ -388,8 +397,9 @@
  	
  	div.bid_detail{
 		padding:0 5% 0 5%;
- 		margin:0;
+ 		margin:0 auto;
  		text-align: center;
+ 		
  	}
  	td.bid_result{
  		font-weight:bold;
@@ -428,6 +438,7 @@
  		cursor:pointer;
  		text-align:center;
  	}
+ 	
  	
  	
 /* bid_detail */
@@ -474,6 +485,7 @@
     word-break: keep-all;
 	}
 	.request_detail_title {
+		margin:20px 0;
 		text-decoration-line:none;
 		font-size: 20px;
 		font-weight: 600;
@@ -492,7 +504,7 @@
     font-weight: bold;
 	}
 	.green_box{
-    padding: 0.5%;
+    padding: 1.5%;
     background-color: #EBFBFF;
     box-sizing: border-box;
 		font-weight: 500;
@@ -538,6 +550,9 @@
 	  font-size:18px;
 	  font-weight:bold;
 	}
+	.file-box{
+		margin-top:10px;
+	}
 	.attach_file_list{
 		list-style: none;
 	}
@@ -552,6 +567,7 @@
 		float:left;
 	}
 	.sec-item{
+		margin:10px 0;
 		display: flex;
 		flex-wrap:no-wrap;
 	}
@@ -573,7 +589,24 @@
 		padding: 10px;
 		background-color: #EBFBFF;
 	}
-
+	.bid_but{
+		overflow: hidden;
+    margin: 15px 25% 15px 25%;
+    text-decoration-line: none;
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 5px;
+    background: #00BFFF;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: -0.025em;
+	}
+	.bid_but_tab{
+		padding:0 15% 0 15%;
+ 		margin:0 auto;
+ 		text-align: center;
+	}
 
 /* my_bid */
 	.my_bid_title1, .my_bid_title2{
