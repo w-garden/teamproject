@@ -180,7 +180,6 @@ li{
 }
 
 .btn_line_detail span {
-  display: inline-block;
   width: 100%;
 }
 
@@ -207,6 +206,9 @@ li{
 
 .detail_item{
   display: flex;
+}
+.detail_item[input=checkbox]{
+	opacity: 0;
 }
 
 /* 상세시공항목 버튼박스 active 폰트 */

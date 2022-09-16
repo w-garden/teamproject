@@ -25,16 +25,12 @@
       </div>
       </section>
       <div class="estimate_box">
-        <h3>예상 평단가</h3>
-        <div class="proposed_cost">
-          <input type="text" id="estimate_cost" readonly maxlength="7" placeholder="0" onkeyup="inputNumberFormat(this);" />
-        <h3>만원</h3>
-        </div><hr/>
         <h3>예산</h3>
         <div class="your_cost">
           <input type="text" id="estimate_cost" maxlength="7" placeholder="0" onkeyup="inputNumberFormat(this);" />
         <h3>만원</h3>
         </div>
+        <br/><br/><br/><br/><hr/>
         </div>
         <div class="estimate_date">
           <h3>희망 시공일정</h3><br/><br/>
