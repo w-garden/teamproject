@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="../common/header.jsp" />
 <%-- 상단 공통부분 끝 --%>
-  <link rel="stylesheet" href="../css/main_css/apply_style_05.css">  
+  <link rel="stylesheet" href="../css/apply_style_05.css">  
   <script src="../js/apply.js" defer></script>
   <script src="../js/jquery.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
