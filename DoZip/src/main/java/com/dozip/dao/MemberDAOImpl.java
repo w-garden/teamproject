@@ -58,4 +58,33 @@ public class MemberDAOImpl {
 		}
 		return res;
 	}//insertMember()
+
+	
+	//일반회원 로그인
+	public String loginCheck(String mem_id) {
+		String db_pwd = null;
+		
+		try {
+			con = ds.getConnection();
+			sql = "select mem_pwd from memberT where mem_id=? and mem_withdraw=0";
+			pt = con.prepareStatement(sql);
+			pt.setString(1, mem_id);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				db_pwd = rs.getNString("mem_pwd");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pt != null) pt.close();
+				if(con != null) con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return db_pwd;
+	}
 }

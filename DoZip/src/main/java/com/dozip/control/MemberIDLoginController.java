@@ -3,6 +3,7 @@ package com.dozip.control;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+//아이디로 로그인하는 창으로 이동
 public class MemberIDLoginController implements Action {
 
 	@Override

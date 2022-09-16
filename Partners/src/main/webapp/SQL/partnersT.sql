@@ -14,7 +14,7 @@ create table partnersT (
     pState number(5) default 1 --탈퇴여부(가입 1, 탈퇴 2)
 );
 
-select * from PARTNERST;
+select * from partnersT;
 
 
 

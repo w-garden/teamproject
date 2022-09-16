@@ -33,8 +33,8 @@ footer {
 
 		<div id= signin_cont>
 			<div id="signin_title">
-					<div><a href="../index.jsp">
-						<img src="../images/logo.png" alt="메인로고"></a></div>
+					<div><a href="main.jsp">
+						<img src="images/logo.png" alt="메인로고"></a></div>
 					<div class="msg">파트너스</div>
 			</div>
 			<form action="index.jsp" id="로그인 폼" onsubmit="return check()">
@@ -46,7 +46,7 @@ footer {
 					<div><input type="checkbox" id=id_save_checkbox></div>		
 					<div><button type="button" id=id_save_button>아이디 저장</button></div>
 					</div>
-					<div> <input type="button" id="signup_button" value="회원가입" onclick="location='signup.jsp'"></div>
+					<div> <input type="button" id="signup_button" value="회원가입" onclick="location='partners_signup.do'"></div>
 				</div>
 			</form>
 			<div id=bottom_button2>
@@ -93,7 +93,7 @@ footer {
 	
 
 		
-<jsp:include page="../include/footer.jsp" />
+<jsp:include page="include/footer.jsp" />
 
 
 		

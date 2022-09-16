@@ -1,18 +1,19 @@
-package com.dozip.control;
+package com.partners.controller;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//메인 홈 화면으로 들어가기
-public class HomeController implements Action {
+public class PartnersLoginController implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		ActionForward forward=new ActionForward();
-		forward.setRedirect(true);
-		forward.setPath("./index.jsp");
 		
+		
+		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("./signin.jsp");
 		return forward;
 	}
 

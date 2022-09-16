@@ -34,6 +34,7 @@
 					<li><a href="./portfolio/port_main.jsp">포트폴리오</a></li>
 					<li><a href="./review/review_main.jsp">고객후기</a></li>
 					<li><a href="./mypage/mypage_main.jsp">스토리</a></li>
+					<li><a href="/Partners/Join/signin.jsp">파트너스</a></li>
 				</ul>
 			
 				<ul class="icons">
@@ -65,12 +66,23 @@
 			<div class="clear"></div>
 			
 			<div id="part2">
-				<ul class="quick_menu">
-					<li><a class="icon01" href="#"><img src="./images/imsi_icon.png" width="40" height="40"/><span class="icon_title">1번이동</span></a></li>
-					<li><a class="icon01" href="#"><img src="./images/imsi_icon.png" width="40" height="40"/><span class="icon_title">2번이동</span></a></li>
-					<li><a class="icon01" href="#"><img src="./images/imsi_icon.png" width="40" height="40"/><span class="icon_title">3번이동</span></a></li>
-					<li><a class="icon01" href="#"><img src="./images/imsi_icon.png" width="40" height="40"/><span class="icon_title">4번이동</span></a></li>
-				</ul>
+				<div class="part2_left">
+					<p id="part2_title">주변의 인테리어 업체를 찾아보세요</p>
+					<p id="part2_info">검색하고자 하는 위치를 입력하세요. (예. 강남구 역삼동, 서초구 반포동)</p>
+					<p id="search_wrap">
+						<input type="text"  name="search_map" id="search_map"/><button type="submit" id="search_map_btn">검색</button>
+					</p>
+				</div>
+				<div id="map"></div>
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d8bfa3cbe8aabf2dd47e365262af246"></script>
+				<script>
+					var container = document.getElementById('map');
+					var options = {
+						center: new kakao.maps.LatLng(33.450701, 126.570667),
+						level: 3
+					};			
+					var map = new kakao.maps.Map(container, options);
+				</script>
 			</div>
 			
 			<div class="clear"></div>
@@ -100,8 +112,8 @@
 						<%-- onclick으로 클릭시 상세로 연결되게 --%>
 					</div>
 					<div class="card_title">
-						<li class="corp">★ 호철 디자인 ★</li>
-						<li>#감성펍 #20평 1000만원대</li>
+						<li class="corp">호철 디자인</li>
+						<li class = "card_tag">#감성펍 #20평 1000만원대</li>
 					</div>
 				</div>
 	
@@ -112,8 +124,8 @@
 							src="./images/portfolio/port002.png" />
 					</div>
 					<div class="card_title">
-						<li class="corp">★ 지혜 디자인 ★</li>
-						<li>#모던 #22평 1000만원대</li>
+						<li class="corp">지혜 디자인</li>
+						<li class = "card_tag">#모던 #22평 1000만원대</li>
 					</div>
 				</div>
 	
@@ -123,8 +135,8 @@
 							src="./images/portfolio/port003.png" />
 					</div>
 					<div class="card_title">
-						<li class="corp">★ 민우 디자인 ★</li>
-						<li>#모던 #80평 5000만원대</li>
+						<li class="corp">민우 디자인</li>
+						<li class = "card_tag">#모던 #80평 5000만원대</li>
 					</div>
 				</div>
 	
@@ -134,15 +146,14 @@
 							src="./images/portfolio/port004.png" />
 					</div>
 					<div class="card_title">
-						<li class="corp">★ 수환 디자인 ★</li>
-						<li>#럭셔리 #80평 5000만원대</li>
+						<li class="corp">수환 디자인</li>
+						<li class = "card_tag">#럭셔리 #80평 5000만원대</li>
 					</div>
 				</div>
 	
 			</div>			
 			
 			</div>	
-			</div>
 			
 			<div class="clear"></div>
 			
@@ -191,13 +202,12 @@
 		<div class="clear"></div>
 
 		<footer id="footer">
-			<hr/>
 			<nav class="footer_nav">
 				<ul class="footer_menu">
 					<li><a href="#">회사소개</a></li>
 					<li><a href="#">개인정보처리방침</a></li>
 					<li><a href="#">이용약관</a></li>
-					<li><a href="/Partners/Join/signin.jsp">파트너스 페이지</a></li>
+					<li><a href="partners.do">파트너스 페이지</a></li>
 				</ul>
 			</nav>
 

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
+</div> <!-- #wrap 끝 -->    
+
 		<!-- footer영역 -->
 		<div class="clear"></div>
 
@@ -11,7 +13,7 @@
 					<li><a href="#">회사소개</a></li>
 					<li><a href="#">개인정보처리방침</a></li>
 					<li><a href="#">이용약관</a></li>
-					<li><a href="/Partners/Join/signin.jsp">파트너스 페이지</a></li>
+					<li><a href="partners.do">파트너스 페이지</a></li>
 				</ul>
 			</nav>
 
@@ -39,6 +41,5 @@
 					</div>
 			</div>
 		</footer>
-	</div> <!-- #wrap 끝 -->
 </body>
 </html>

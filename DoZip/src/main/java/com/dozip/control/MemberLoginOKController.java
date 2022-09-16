@@ -1,15 +1,15 @@
 package com.dozip.control;
 
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dozip.dao.MemberDAOImpl;
-import com.dozip.vo.MemberVO;
 
-//회원가입기능
-public class MemberJoinOKController implements Action {
+public class MemberLoginOKController implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -18,32 +18,33 @@ public class MemberJoinOKController implements Action {
 		
 		String mem_id = request.getParameter("mem_id");
 		String mem_pwd = request.getParameter("mem_pwd");
-		String mem_name = request.getParameter("mem_name");
-		String mem_tel = request.getParameter("mem_tel");
-		String mem_email = request.getParameter("mem_email");
-		String mem_domain = request.getParameter("mem_domain");
-		
-		MemberVO m = new MemberVO();
-		m.setMem_id(mem_id); m.setMem_pwd(mem_pwd);
-		m.setMem_name(mem_name); m.setMem_tel(mem_tel);
-		m.setMem_email(mem_email); m.setMem_domain(mem_domain);
 		
 		MemberDAOImpl mdao = new MemberDAOImpl();
-		int res = mdao.insertMember(m);
+		String db_pwd = mdao.loginCheck(mem_id);
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out=response.getWriter();
 		
-		if(res == -1) { //회원가입 실패시
+		if(db_pwd == null) {
 			out.println("<script>");
-			out.println("alert('회원가입에 실패했습니다.');");
+			out.println("alert('가입되어 있지 않은 아이디 입니다.');");
 			out.println("history.back();");
 			out.println("</script>");
-		} else { //회원가입 성공시 창을 닫는다.
+		} else if(!db_pwd.equals(mem_pwd)) {
 			out.println("<script>");
+			out.println("alert('비밀번호를 확인해주세요.');");
+			out.println("history.back();");
+			out.println("</script>");
+		} else {
+			HttpSession session=request.getSession();
+			session.setAttribute("id",mem_id); //세션에 로그인 된 아이디를 저장
+			
+			out.println("<script>");
+			out.println("opener.parent.location.reload();");
 			out.println("window.close();");
 			out.println("</script>");
-		}		
+			//창을 닫고 메인화면을 새로고침
+		}
 		return null;
 	}
 

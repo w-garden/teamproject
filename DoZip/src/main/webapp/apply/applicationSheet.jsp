@@ -168,6 +168,7 @@
               <p class="select_detail__desc">천연소재로 고급스러움</p>
               <span class="expect_price">360만원~</span>
           </label>
+          </li>
   </ul>
   <h4 class="detail_item">추가선택</h4>
   <ul class="clearfix detail_item">
