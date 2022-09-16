@@ -2,8 +2,7 @@
 <jsp:include page="../include/header.jsp" />
 
 
-  <article>
-   <div id="main_cont">
+   <div>
   	<div id="main_cont_color">
     <h1 class="item_title">내 정보관리</h1>
   	<div class="item_tab_box">
@@ -354,8 +353,7 @@
 
      </div>
     </div>
-   </div>
-  </article>
+	</div>
 
 
 <jsp:include page="../include/footer.jsp" />
