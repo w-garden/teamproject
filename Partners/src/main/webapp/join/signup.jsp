@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,79 +11,36 @@
 
 <script src="/Partners/js/jquery.js"></script>
 <script src="/Partners/js/javascript.js"></script>
-<style>
-body {
-	margin: 0px;
-	background: #F9FAFB;
-}
 
-footer {
-	background: white;
+<style>
+#join_wrap .email_info {
+	display: flex;
+	justify-content: space-around;
+	width: 306px;
 }
 </style>
-<script>
-	function login_check() {
-		if ($.trim($('#businessName').val()) == '') {
-			alert('업체명을 입력하세요');
-			$('#businessName').focus();
-			return false;
-		}
-		if ($.trim($('#business_num').val()) == '') {
-			alert('사업자번호를 입력하세요');
-			$('#business_num').focus();
-			return false;
-		}
-		if ($.trim($('#pName').val()) == '') {
-			alert('이름을 입력하세요');
-			$('#pName').focus();
-			return false;
-		}
-		if ($.trim($('#pTel').val()) == '') {
-			alert('연락처를 입력하세요');
-			$('#pTel').focus();
-			return false;
-		}
-		if ($.trim($('#pMail').val()) == '') {
-			alert('이메일을 입력하세요');
-			$('#pMail').focus();
-			return false;
-		}
-		if ($.trim($('#pId').val()) == '') {
-			alert('아이디를 입력하세요');
-			$('#pId').focus();
-			return false;
-		}
-		if ($.trim($('#pPw').val()) == '') {
-			alert('비밀번호를 입력하세요');
-			$('#pPw').focus();
-			return false;
-		}
-	}
-</script>
-
-
-
 </head>
 <body>
-	<div id="signup_wrap">
+	<article id="join_wrap">
 
-		<section id="signup_form">
+		<div id="signup_form">
 
 			<div id="signup_title">
 				<div>
-					<a href="/Partners/join/signin.jsp"> <img src="images/logo.png"	alt="메인로고"></a>
+					<a href="/Partners/signin.jsp"> <img src="images/logo.png"
+						alt="메인로고"></a>
 				</div>
-				<div class="msg">파트너스 회원가입</div>
+				<div class="msg" style="font-size: 26px;">파트너스 회원가입</div>
 			</div>
-			<form action="partners_signup_ok.do" method="post"	onsubmit="return login_check();">
+			<form action="partners_signup_ok.do" method="post"
+				onsubmit="return login_check();">
 				<div class="info">
 					<label for="businessName">사업자명</label> <input type="text"
 						id="businessName" name="businessName" placeholder="업체명을 입력해주세요">
 				</div>
 				<div class="info">
 					<label for="business_num">사업자번호</label> <input type="text"
-						id="business_num" name="business_num"
-						placeholder="사업자번호를 숫자만 입력해주세요">
+						id="business_num" name="business_num" placeholder="000-00-00000">
 				</div>
 				<div class="info">
 					<label for="pName">대표자 이름</label> <input type="text" id="pName"
@@ -90,11 +48,22 @@ footer {
 				</div>
 				<div class="info">
 					<label for="pTel">대표자 연락처</label> <input type="text" id="pTel"
-						name="pTel" placeholder="대표자 연락처를 숫자만 입력해주세요">
+						name="pTel" placeholder="핸드폰번호('-')제외">
+
 				</div>
 				<div class="info">
-					<label for="pMail">대표자 이메일</label> <input type="text" id="pMail"
-						name="pMail" placeholder="대표자 이메일을 입력해주세요">
+					<label for="pMail">대표자 이메일</label>
+					<div class="email_info">
+						<input type="text" id="pMail_id" name="pMail_id"
+							placeholder="이메일 아이디"><span style="margin: 0px 3px;">@</span>
+						<input type="text" id="pMail_domain" name="pMail_domain"
+							placeholder="이메일 도메인">
+					</div>
+					<select id="email_adr" name="email_adr">
+						<c:forEach var="e" items="${email}">
+							<option value="${e}">${e}</option>
+						</c:forEach>
+					</select>
 				</div>
 				<div class="info">
 					<label for="pId">아이디</label>
@@ -108,8 +77,6 @@ footer {
 						name="pPw" placeholder="10~16자 영문, 숫자, 특수문자 조합"> <input
 						type="password" id="pwchk" placeholder="비밀번호 다시 입력">
 				</div>
-
-
 				<div id=signup_personalInfo>
 					<div>
 						<div>
@@ -146,12 +113,11 @@ footer {
 					</div>
 
 				</div>
-
 				<div class=signup_submit>
 					<input type="submit" value="가입하기">
 				</div>
 			</form>
-		</section>
+		</div>
 		<jsp:include page="../include/footer.jsp" />
 </body>
 </html>

@@ -19,10 +19,45 @@ String id = request.getParameter("id");
 <script src='/Partners/js/calendar.js'></script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+	
+<%--
+로딩중 아이콘 추가
+
+ --%>
+<style>
+#loading {
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	position: fixed;
+	display: block;
+	background-color: #fff;
+	z-index: 99;
+	text-align: center;
+}
+#loading-image {
+ 	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 100;
+}
+</style>	
+	
 </head>
+<script>
+	$(window).ready(function() {
+		$('#loading').hide();
+	});
+</script>
+
 
 
 <body>
+<!-- 로딩 아이콘 -->
+<div align="center" id="loading"><img id="loading-image" src="../images/loading.gif"></div>
+
 <!-- 좌측 사이드바 영역 -->
 <div id="wrap">
 	<div id="side_wrap">
@@ -82,7 +117,7 @@ String id = request.getParameter("id");
 					<div>파트너스 페이지</div>
 				</div>
 				<div class="msg">
-					<span class="hide_1"> ${param.id} 님 환영합니다 <span id="timer"></span></span> <span
+					<span class="hide_1"> ${businessName}   님 환영합니다 <span id="timer"></span></span> <span
 						class="hide_2"><input type="button" value="로그아웃"
 						onclick="logout();"></span>
 				</div>

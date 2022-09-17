@@ -4,7 +4,6 @@
 </article>
 		<div class="clear"></div>
 		<footer>
-			<hr/>
 			<nav id="footer_nav">
 				<ul>
 					<li><a href="#">회사소개</a></li>
