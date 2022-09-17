@@ -1,5 +1,6 @@
 package com.partners.controller;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,22 +11,26 @@ public class PartnersSignupOKController implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-		
 		request.setCharacterEncoding("UTF-8");
-		String business_num1 = request.getParameter("business_num");
 		
-		int business_num=Integer.parseInt(business_num1);
+		String business_num = request.getParameter("business_num");
 		String businessName = request.getParameter("businessName");
 		String pId = request.getParameter("pId");
 		String pPw = request.getParameter("pPw");
 		String pName = request.getParameter("pName");
-		String pTel1= request.getParameter("pTel");
-		int pTel = Integer.parseInt(pTel1);
-		
-		PartnersDTO dto = new PartnersDTO(business_num, businessName, pId, pPw, pName, pTel, businessName, "d", "d", "d", "d", 1);
+		String pTel = request.getParameter("pTel");
+		String pMail_id = request.getParameter("pMail_id");
+		String pMail_domain = request.getParameter("pMail_domain");
+		PartnersDTO dto = new PartnersDTO(business_num, businessName, pId, pPw, pName, pTel, pMail_id, pMail_domain);
 		PartnersDAO dao = new PartnersDAO();
-		dao.insertPartners(dto);
+		int result = dao.insertPartners(dto);
+		
+		if(result ==1) {
+			ActionForward forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("partners_login.do");
+			return forward;
+		}
 		return null;
 	}
 
