@@ -32,7 +32,7 @@
 				</ul>
 			
 				<ul class="icons">
-					<li><a href="/DoZip/index.jsp"  id="admin_logout">관리자페이지 나가기</a></li>
+					<li><a href="go_home.do"  id="admin_logout">관리자페이지 나가기</a></li>
 				</ul>
 				<a href="#" class="toggleBtn"><i class="fas fa-bars"></i></a> <!-- 반응형 메뉴 토글 버튼-->
 			</nav>
