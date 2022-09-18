@@ -51,7 +51,7 @@ public class PartnersLoginOKController implements Action {
 					session.setAttribute("businessName", dto.getBusinessName());
 
 					ActionForward forward = new ActionForward();
-					forward.setRedirect(true);
+					forward.setRedirect(false);
 					forward.setPath("main.jsp");
 					return forward;
 				}

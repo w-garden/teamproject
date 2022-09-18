@@ -30,7 +30,7 @@
 						<img src="images/logo.png" alt="메인로고"></a></div>
 					<div class="msg">파트너스</div>
 			</div>
-			<form action="partners_login_ok.do" id="로그인 폼" onsubmit="return check()">
+			<form action="partners_login_ok.do" method="post" id="로그인 폼" onsubmit="return check()">
 				<div><input type="text" name="login_pId" id="signin_id" placeholder="아이디"></div>
 				<div><input type="password" name="login_pPw" id="signin_pw" placeholder="비밀번호"></div>
 				<div><input type="submit" value="로그인" id="login"></div>

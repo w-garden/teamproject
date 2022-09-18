@@ -86,8 +86,8 @@ String id = request.getParameter("id");
 					</ul></li>
 				<li><a href="#">시공사례관리 ▼</a>
 					<ul>
-						<li><a href="/Partners/portfolio/p_upload.jsp">등록</a></li>
-						<li><a href="/Partners/portfolio/p_list.jsp">수정/삭제</a></li>
+						<li><a href="/Partners/portfolio_upload.do">등록</a></li>
+						<li><a href="/Partners/portfolio_list.do">수정/삭제</a></li>
 					</ul></li>
 				<li><a href="#">광고관리 ▼</a>
 					<ul>
@@ -95,8 +95,8 @@ String id = request.getParameter("id");
 					</ul></li>
 				<li><a href="#">고객관리 ▼</a>
 					<ul>
-						<li><a href="/Partners/customer/qna.jsp">고객문의</a></li>
-						<li><a href="/Partners/customer/review.jsp">고객후기</a></li>
+						<li><a href="/Partners/customer_qna.do">고객문의</a></li>
+						<li><a href="/Partners/customer_review.do">고객후기</a></li>
 					</ul></li>
 				<li><a href="#">마이페이지 ▼</a>
 					<ul>
@@ -126,7 +126,7 @@ String id = request.getParameter("id");
 							function logout_check() {
 								var x = confirm('로그아웃 하시겠습니까?');
 								
-								if(x) location='partners_logout.do'
+								if(x) location='/Partners/partners_logout.do'
 								else return;
 							}
 						</script>
