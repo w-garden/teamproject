@@ -64,6 +64,12 @@
 	border: 1px solid;
 	margin: 30px auto;
 }
+#mp {
+	margin: 40px 10px;
+}
+#mp>span{
+	font-size: 1.5rem;
+}
 .my_info_wrap p {
 	font-size: 1.2rem;
 	font-family: '210 맨발의청춘 Regular';
@@ -84,9 +90,16 @@
 }
 .notice_wrap {
 	width: 60%;
-	border-radius: 20px;
+	border-radius: 5px;
 	border: 3px solid #3a7232;
 	margin: 10px auto;
+}
+#logout_btn {
+	background-color: #3a7232;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	height: 30px;
 }
 
 /*정보수정*/
@@ -131,6 +144,11 @@
 	margin: 5px 0;
 	margin-left: 20px;
 }
+#emailbox>input, #emailbox>select{
+	width: 25%;
+	height: 40px;
+}
+#mem_domain { margin-left: 0;}
 #mem_zip {
 	width: 20%;
 	height: 40px;

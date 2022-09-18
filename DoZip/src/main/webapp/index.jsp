@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
 			<nav class="header_nav">
 				<!-- 로고 -->
 				<div class="logo">
-					<a href="./index.jsp"> <img src="./images/logo.png"/>
+					<a href="home.do"> <img src="./images/logo.png"/>
 					</a>
 				</div>
 				
@@ -38,7 +39,12 @@
 				</ul>
 			
 				<ul class="icons">
+				<c:if test="${empty id}"> <!-- 로그인 전 -->
 					<li><a href="#none" onclick="openLogin();"><img src="./images/user.png" width="30" height="30" /></a></li>
+				</c:if>
+				<c:if test="${!empty id}"> <!-- 로그인 후 -->
+					<li><a href="mypage_go.do"><img src="./images/user.png" width="30" height="30" /></a></li>
+				</c:if>
 					<li><a href="./counsel/counsel_main.jsp"><img src="./images/counsel.png" width="30" height="30" /></a></li>
 				</ul>
 				<a href="#" class="toggleBtn"><i class="fas fa-bars"></i></a> <!-- 반응형 메뉴 토글 버튼-->
