@@ -54,9 +54,9 @@ public class PartnersDAO {
 			}
 	}
 
-	/*********************************/
+	/***********************************/
 	/***** 파트너스 정보관련메서드 *****/
-	/*********************************/
+	/***********************************/
 
 	// 아이디를 기준으로 파트너스 정보 검색
 	public PartnersDTO selectPartner(String pId) {
@@ -70,19 +70,27 @@ public class PartnersDAO {
 			if(rs.next()) {
 				dto = new PartnersDTO();
 				
-				/* 일단 상호명 이름만 조회 가능하게 만듬 */
-				
-				
+				dto.setBusiness_num(rs.getString("business_num"));
 				dto.setBusinessName(rs.getString("businessName"));
-				
-				
-				
+				dto.setpId(rs.getString("pId"));
+				dto.setpPw(rs.getString("pPw"));
+				dto.setpName(rs.getString("pName"));
+				dto.setpTel(rs.getString("pTel"));
+				dto.setpMail_id(rs.getString("pMail_id"));
+				dto.setpMail_domain(rs.getString("pMail_domain"));
+				dto.setpAddress(rs.getString("pAddress"));
+				dto.setpDate(rs.getString("pDate"));
+				dto.setPDeldate(rs.getString("PDeldate"));
+				dto.setpDelcont(rs.getString("pDelcont"));
+				dto.setpState(rs.getInt("pState"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-
+				close(rs);
+				close(pstmt);
+				close(conn);
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -98,7 +106,7 @@ public class PartnersDAO {
 
 		try {
 			conn = ds.getConnection();
-			sql = "insert into partnersT (business_num, businessName, pId, pPw, pName, pTel, pMail_id, pMail_domain) values(?, ?, ?, ?, ?, ?, ?, ?)";
+			sql = "insert into partnersT (business_num, businessName, pId, pPw, pName, pTel, pMail_id, pMail_domain, pDate) values(?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setString(1, dto.getBusiness_num());
@@ -117,7 +125,6 @@ public class PartnersDAO {
 			close(pstmt);
 			close(conn);
 		}
-
 		return result;
 	}
 
@@ -155,7 +162,49 @@ public class PartnersDAO {
 		return result;
 	}
 
-	// 로그인 체크 메서드
+	public PartnersDTO findID(String findid_business_num) {
+		PartnersDTO dto = null;
+		
+		try {
+			conn =ds.getConnection();
+			sql="select * from partnersT where business_num=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, findid_business_num);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new PartnersDTO();
+				dto.setBusiness_num(rs.getString("business_num"));
+				dto.setpId(rs.getString("pId"));
+				dto.setpTel(rs.getString("pTel"));
+				dto.setpMail_id(rs.getString("pMail_id"));
+				dto.setpMail_domain(rs.getString("pMail_domain"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				close(rs);
+				close(pstmt);
+				close(conn);
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			
+		}
+		
+		return dto;
+	}
+
+	//파트너스 아이디 찾기 메서드
+	
+	
+	
+	
+	
+	
+	
 
 	// 파트너스 정보 수정 메서드
 

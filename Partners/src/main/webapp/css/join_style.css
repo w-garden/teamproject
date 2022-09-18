@@ -262,7 +262,7 @@ zoom: 1.3;
 	margin: 10px 50px;
 }
 
-#findid_form input[type=text], #findpwd_form input[type=text]	{
+#findid_form input[type=text], #findpwd_form input[type=text], #findid_form input[type=email] {
 	width: 97%;
 	height: 30px;
 	padding: 1px 0px 1px 7px;

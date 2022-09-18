@@ -15,7 +15,7 @@
 		<div id="findinfo_cont">
 			<div id="findinfo_title">
 				<div>
-					<a href="../signin.jsp"> <img src="../images/logo.png"
+					<a href="../signin.jsp"> <img src="./images/logo.png"
 						alt="메인로고"></a>
 				</div>
 				<div class="msg">회원정보 찾기</div>
@@ -28,13 +28,13 @@
 
 
 			<div id=findinfo_form>
-				<form id="findid_form">
+				<form id="findid_form" action="partners_findid.do" method="post">
 					<div>
 						<div class="findinfo_label">
 							<label>사업자 등록번호</label>
 						</div>
 						<div>
-							<input type="text" placeholder="000-00-00000">
+							<input type="text" name="findid_business_num" placeholder="000-00-00000">
 						</div>
 					</div>
 					<div>
@@ -42,7 +42,7 @@
 							<label>가입시 등록한 핸드폰 번호</label>
 						</div>
 						<div>
-							<input type="text" placeholder="000-0000-0000">
+							<input type="text" name="findid_pTel" placeholder="000-0000-0000">
 						</div>
 					</div>
 					<div>
@@ -50,12 +50,12 @@
 							<label>이메일</label>
 						</div>
 						<div>
-							<input type="email">
+							<input type="email" name="findid_email">
 						</div>
 					</div>
 					<div class="findinfo_findbtn">
 						<div>
-							<input type="button" value="아이디 찾기">
+							<input type="submit" value="아이디 찾기">
 						</div>
 						<div>
 							<input type="reset" value="취소">
@@ -65,13 +65,13 @@
 
 				</form>
 
-				<form id="findpwd_form">
+				<form action="partners_findpwd.do" id="findpwd_form" method="post">
 					<div>
 						<div class="findinfo_label">
 							<label>사업자 등록번호</label>
 						</div>
 						<div>
-							<input type="text" placeholder="000-00-00000">
+							<input type="text" name="findpwd_business_num" placeholder="000-00-00000">
 						</div>
 					</div>
 					<div>
@@ -79,7 +79,7 @@
 							<label>계정 ID</label>
 						</div>
 						<div>
-							<input type="text">
+							<input type="text" name="findpwd_pId">
 						</div>
 					</div>
 					<div>
@@ -87,13 +87,13 @@
 							<label>계정 사용자명</label>
 						</div>
 						<div>
-							<input type="text">
+							<input type="text" name="findpwd_pName">
 						</div>
 					</div>
 					<p>*가입시 등록한 이메일로 전송됩니다.</p>
 					<div class="findinfo_findbtn">
 						<div>
-							<input type="button" value="비밀번호 찾기">
+							<input type="submit" value="비밀번호 찾기">
 						</div>
 						<div>
 							<input type="reset" value="취소">

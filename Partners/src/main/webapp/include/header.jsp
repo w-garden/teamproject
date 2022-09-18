@@ -63,7 +63,7 @@ String id = request.getParameter("id");
 	<div id="side_wrap">
 			<ul id="side_menu">
 				<li><a href="#" style="height:49px;"></a></li>
-				<li><a href="/Partners/index.jsp">파트너스홈</a></li>
+				<li><a href="/Partners/main.jsp">파트너스홈</a></li>
 				<li><a href="#">요금제 ▼</a>
 					<ul>
 						<li><a href="/Partners/interior_Plan/plan.jsp">요금제안내</a></li>
@@ -119,7 +119,17 @@ String id = request.getParameter("id");
 				<div class="msg">
 					<span class="hide_1"> ${businessName}   님 환영합니다 <span id="timer"></span></span> <span
 						class="hide_2"><input type="button" value="로그아웃"
-						onclick="logout();"></span>
+						onclick="logout_check()"></span>
+						
+						
+						<script>
+							function logout_check() {
+								var x = confirm('로그아웃 하시겠습니까?');
+								
+								if(x) location='partners_logout.do'
+								else return;
+							}
+						</script>
 				</div>
 			</div>
 		</header>

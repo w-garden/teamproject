@@ -33,7 +33,7 @@
 				<div class="msg" style="font-size: 26px;">파트너스 회원가입</div>
 			</div>
 			<form action="partners_signup_ok.do" method="post"
-				onsubmit="return login_check();">
+				onsubmit="return signup_check();">
 				<div class="info">
 					<label for="businessName">사업자명</label> <input type="text"
 						id="businessName" name="businessName" placeholder="업체명을 입력해주세요">

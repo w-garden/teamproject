@@ -60,7 +60,7 @@ $(function() {
 /* 로그인 창 유효성 검사 */
 /*************************/
 
-function login_check() {
+function signup_check() {
 	if ($.trim($('#businessName').val()) == '') {
 		alert('업체명을 입력하세요');
 		$('#businessName').focus();
@@ -81,7 +81,7 @@ function login_check() {
 		$('#pTel').focus();
 		return false;
 	}
-	if ($.trim($('#pMail').val()) == '') {
+	if ($.trim($('#ppMail_id').val()) == '') {
 		alert('이메일을 입력하세요');
 		$('#pMail').focus();
 		return false;
@@ -90,10 +90,18 @@ function login_check() {
 		alert('아이디를 입력하세요');
 		$('#pId').focus();
 		return false;
-	}
+	}pwchk
 	if ($.trim($('#pPw').val()) == '') {
 		alert('비밀번호를 입력하세요');
 		$('#pPw').focus();
+		return false;
+	}
+	if ($.trim($('#pPw').val()) != $.trim($('#pwchk').val())) {
+		alert('비밀번호가 일치하지 않습니다.');
+		$('#pPw').val('');
+		$('#pwchk').val('');
+		$('#pPw').focus();
+
 		return false;
 	}
 }

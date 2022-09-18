@@ -26,7 +26,7 @@
 
 		<div id= signin_cont>
 			<div id="signin_title">
-					<div><a href="main.jsp">
+					<div><a href="/DoZip/index.jsp">
 						<img src="images/logo.png" alt="메인로고"></a></div>
 					<div class="msg">파트너스</div>
 			</div>
@@ -44,7 +44,7 @@
 			</form>
 			<div id=bottom_button2>
 				<div> 아이디 또는 비밀번호를 잃어버리셨다면 ?</div>
-				<div><input type="button" id="" value="문의하기" onclick="location='./join/find_info.jsp'"></div>
+				<div><input type="button" id="" value="문의하기" onclick="location='partners_findinfo.do'"></div>
 			</div>
 		
 		
