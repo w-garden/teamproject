@@ -69,7 +69,7 @@
 					<label for="pId">아이디</label>
 					<div class=signup_idchk>
 						<input type="text" id="pId" name="pId" placeholder="2~16자 영문, 숫자">
-						<input type="button" name="idchk" value="중복확인">
+						<input type="button" name="idchk" value="중복확인" onclick="location='partners_idcheck.do">
 					</div>
 				</div>
 				<div class="signup_pwd">

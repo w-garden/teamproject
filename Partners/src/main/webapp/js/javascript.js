@@ -81,9 +81,9 @@ function signup_check() {
 		$('#pTel').focus();
 		return false;
 	}
-	if ($.trim($('#ppMail_id').val()) == '') {
+	if ($.trim($('#pMail_id').val()) == '') {
 		alert('이메일을 입력하세요');
-		$('#pMail').focus();
+		$('#pMail_id').focus();
 		return false;
 	}
 	if ($.trim($('#pId').val()) == '') {
