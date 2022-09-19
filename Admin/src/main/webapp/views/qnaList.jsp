@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <jsp:include page = "../include/header.jsp"/>
 <%-- 상단 공통부분 끝 --%>
-<link rel="stylesheet" type="text/css" href="../css/admin_qnaList.css" />
+<link rel="stylesheet" type="text/css" href="/Admin/css/admin_qnaList.css" />
 <script>
 	function openPopUp() {
 	    window.open("./admin_qna.jsp", "_blank", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=600, left=0, top=0");

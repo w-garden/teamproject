@@ -40,7 +40,9 @@ public class MemberLoginOKController implements Action {
 			HttpSession session=request.getSession();
 			session.setAttribute("id",mem_id); //세션에 로그인 된 아이디를 저장
 			
-			if(mem_id.equals("admin")) { //로그인 된 아이디가 admin 관리자 아이디라면 관리자 페이지로 이동한다.
+			if(mem_id.equals("admin")) { //로그인 된 아이디가 admin 관리자 아이디라면 관리자 페이지로 이동한다.		
+				session.invalidate();//세션 만료 => 로그아웃
+				
 				out.println("<script>");
 				out.println("opener.parent.location.href='/Admin/admin_home.do';"); //admin 쪽 controller로 연결
 				out.println("window.close();");
