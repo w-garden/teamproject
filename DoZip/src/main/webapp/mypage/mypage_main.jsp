@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../common/header.jsp" />
 <%-- 상단 공통부분 끝 --%>
 <link rel = "stylesheet" type = "text/css" href = "../css/myscrap.css"/>
+<script src="/DoZip/js/member.js"></script>
 
 <div class="mypage_wrap">
 	<%--상단 메뉴부분 --%>
@@ -40,7 +42,7 @@
 		<%-- 내정보 --%>
 		<div class="mypage_body" id="my_info">
 			<div class="my_info_wrap">
-				<p>회원정보 님 활동</p>
+				<div id="mp"><span>${id} 님 활동</span> <button id="logout_btn" onclick="location='member_logout.do';">로그아웃</button></div>
 				<hr />
 				<div id="span_box"><span>신청내역<span class="num_text">2 건</span></span>
 				<span>|</span>
@@ -48,7 +50,7 @@
 			</div>
 			<div class="notice_wrap">
 				<p>알림내역</p>
-					
+				<p>${m.mem_name }</p>					
 			</div>
 		</div>
 		
@@ -56,28 +58,39 @@
 		<div class="mypage_body" id="my_info_modify">
 		<div id="mim_wrap">
 			<p id="mim_title">내 정보 수정</p>
-			<form class="mim_table_box" method="post" action="#" >
+			<form class="mim_table_box" method="post"  action="member_edit_ok.do" >
 				<table class="mim_table">
 					<tr>
-						<th>아이디</th><td><input type="text" name="mem_id" id="mem_id" readonly></td>
+						<th>아이디</th><td><input type="text" name="mem_id" id="mem_id" readonly value="${id}"></td>
 					</tr>
 					<tr>
-						<th>이름</th><td><input type="text" name="mem_name" id="mem_name"></td>
+						<th>이름</th><td><input type="text" name="mem_name" id="mem_name" value="${m.mem_name}"></td>
 					</tr>
 					<tr>
-						<th>연락처</th><td><input type="text" name="mem_phone" id="mem_phone"></td>
+						<th>연락처</th><td><input type="text" name="mem_tel" id="mem_tel" value="${m.mem_tel}"></td>
 					</tr>
 					<tr>
-						<th>이메일</th><td><input type="text" name="mem_email" id="mem_email"></td>
+						<th>이메일</th>
+						<td id="emailbox">
+							<input type="text"  name="mem_email"  id="mem_email" value="${m.mem_email}" />
+							<span>@</span>
+							<input type="text"  name="mem_domain"  id="mem_domain" value="${m.mem_domain}"/>
+							<select name="domain_list" id="domain_list" onchange="changeSelect(this.value);">
+								<option selected>직접입력</option>
+								<option value="naver.com">naver.com</option>
+								<option value="daum.net">daum.net</option>
+								<option value="gmail.com">gamil.com</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<th>주소</th>
 						<td>
-						<input type="text" name="mem_zip" id="mem_zip" readonly placeholder="우편번호"/>
-						<input type="text" name="mem_addr1" id="mem_addr1" readonly placeholder="주소"/>
+						<input type="text" name="mem_zip" id="mem_zip" readonly placeholder="우편번호" value="${m.mem_zip}"/>
+						<input type="text" name="mem_addr1" id="mem_addr1" readonly placeholder="주소" value="${m.mem_addr1}"/>
 						<a id="search_btn" onclick="openAddr()">주소검색</a>
 						<br/>
-						<input type="text" name="mem_addr2" id="mem_addr2" placeholder="상세주소를 입력해주세요."/>
+						<input type="text" name="mem_addr2" id="mem_addr2" placeholder="상세주소를 입력해주세요." value="${m.mem_addr2}"/>
 						</td>
 					</tr>
 				</table>
@@ -118,7 +131,7 @@
 					<div class="card 1">
 						<div class="card_image">
 							<img onclick="location = './port_detail.jsp';"
-								src="../images/portfolio/port010.png" />
+								src="/DoZip/images/portfolio/port010.png" />
 						</div>
 						<div class="card_title">
 							<li>#모던 #30평 #2000만원대</li>
@@ -128,7 +141,7 @@
 					<div class="card 2">
 						<div class="card_image">
 							<img onclick="location = './port_detail.jsp';"
-								src="../images/portfolio/port011.png" />
+								src="/DoZip/images/portfolio/port011.png" />
 						</div>
 						<div class="card_title">
 							<li>#필라테스 #40평 #3000만원대</li>
@@ -138,7 +151,7 @@
 					<div class="card 3">
 						<div class="card_image">
 							<img onclick="location = './port_detail.jsp';"
-								src="../images/portfolio/port015.png" />
+								src="/DoZip/images/portfolio/port015.png" />
 						</div>
 						<div class="card_title ">
 							<li>#모던 #30평 #4000만원대</li>
@@ -163,7 +176,7 @@
 				<%-- 나중에 if문으로 데이터가 없으면 내역이 없다는 문구를 노출시킬 예정 --%>
 				<% for(i=1; i<3; i++) { %>
 				<div class="big_review" id="b_review">
-					<img id="big_img" src="../images/ex01.png" />
+					<img id="big_img" src="/DoZip/images/ex01.png" />
 					<div class="big_review_cont">
 						<p id="review_title"><%=i %>번 글제목</p>
 						<p id="review_cont">집닥을 통해 여러군데 견적을 받았어요. 그 중에 여기가 견적서도 빨리 보내주고 제가 원하는 가격에 최대한 맞춰서 인테리어를 도와주셨어요! 요즘 인테리어 사기가 많아서 고민하고 걱정했는데 확실하게 일 처리 해주시고 전기부터 소방까지 꼼꼼하게 챙겨주셨어요. 벽지나 타일을 고르는데 고민이 많은데 추천도 잘 해주시고 지금도 대 만족 하고 있습니다</p>

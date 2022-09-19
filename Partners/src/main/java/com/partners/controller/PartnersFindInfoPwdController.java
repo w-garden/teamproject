@@ -40,7 +40,7 @@ public class PartnersFindInfoPwdController implements Action {
 			String db_pName = dto.getpName();		
 			if (db_business_num.equals(findpwd_business_num)  && db_pId.equals(findpwd_pId)  && db_pName.equals(findpwd_pName)) {
 				final String user = "w.garden316@gmail.com";
-				final String password = "iablqkwrntjvwhph";
+				final String password = "";
 
 				// Step 1 프로퍼티 생성
 				prop = new Properties();
@@ -76,6 +76,8 @@ public class PartnersFindInfoPwdController implements Action {
 					
 					// 수신자 이메일 주소
 					message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+					
+					
 					message.setSubject("비밀번호 찾기 결과");
 					
 					
