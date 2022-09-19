@@ -86,7 +86,7 @@ String id = request.getParameter("id");
 					</ul></li>
 				<li><a href="#">시공사례관리 ▼</a>
 					<ul>
-						<li><a href="/Partners/portfolio_upload.do">등록</a></li>
+						<li><a href="/Partners/upload.do">등록</a></li>
 						<li><a href="/Partners/portfolio_list.do">수정/삭제</a></li>
 					</ul></li>
 				<li><a href="#">광고관리 ▼</a>

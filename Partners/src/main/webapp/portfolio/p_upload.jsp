@@ -9,7 +9,7 @@
       <div><span><b>두집</b>에서 계약한 인테리어를 조회하면 쉽게 주요정보를 입력 할 수 있습니다.</span>
       <input type="file" name="fileipload" value="내 계약 불러오기"></div>
     </div>
-      <form action="p_upload_photo.jsp" id="portfolio_form">
+      <form action="upload_photo.do" id="portfolio_form" method="post">
         <!-- 제목, 공사 유형, 시공범위, 주소 ,평수, 공사비용, 공사기간-->
         <fieldset id="first_area">
           <legend>기본정보</legend>
@@ -102,7 +102,7 @@
           <textarea rows="7" cols=100% style="width:100%;resize : none;">지금까지 서울 강남구 논현동 33평 아파트 인테리어 였습니다.</textarea>
         </fieldset>
         <fieldset id="f_button">
-        <input type="submit" value="다음"> <input type="reset" value="초기화">
+        <input type="submit" value="사진등록"> <input type="reset" value="초기화">
         </fieldset>
       </form>
 
