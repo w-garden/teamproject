@@ -10,7 +10,7 @@ public class HomeController implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		ActionForward forward=new ActionForward();
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		forward.setPath("./index.jsp");
 		
 		return forward;

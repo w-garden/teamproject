@@ -7,7 +7,7 @@ public class MemberVO {
 	private String mem_tel;
 	private String mem_email;
 	private String mem_domain;
-	private int mem_zip;
+	private String mem_zip;
 	private String mem_addr1;
 	private String mem_addr2;
 	private String mem_joinType;
@@ -51,10 +51,10 @@ public class MemberVO {
 	public void setMem_domain(String mem_domain) {
 		this.mem_domain = mem_domain;
 	}
-	public int getMem_zip() {
+	public String getMem_zip() {
 		return mem_zip;
 	}
-	public void setMem_zip(int mem_zip) {
+	public void setMem_zip(String mem_zip) {
 		this.mem_zip = mem_zip;
 	}
 	public String getMem_addr1() {

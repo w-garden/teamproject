@@ -112,7 +112,7 @@ a:hover {
 
 /* 본문 */
 #wrap { /* 본문 전체를 감싸는 wrap */
-	width: 90%;
+	width: 100%;
 	margin:0 auto; /* 가운데 정렬 */
 }
 
