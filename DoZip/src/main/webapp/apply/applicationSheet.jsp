@@ -186,39 +186,40 @@
 <div class = "detail_select">
   <h3 class="detail_title">주방</h3>
 <ul aria-label="주방 선택 목록" class="detail_item">
-  <li class="btn_line_detail">
-      <input type="radio" id="group_kitchen_item_0" name="group_kitchen_item">
-      <label for="group_kitchen_item_0">
-          <span class="h4 select_detail__title">전체교체</span>
-          <span class="expect_price">550만원~</span>
-      </label>
-      <input type="radio" id="group_kitchen_item_1" name="group_kitchen_item">
-      <label for="group_kitchen_item_1">
-          <span class="h4 select_detail__title">필름</span>
-          <p class="select_detail__desc">상부장,하부장등필름시공</p>
-          <span class="expect_price">248만원~</span>
-      </label></li>
+ <li class="btn_line_detail">
+    <input type="checkbox" id="group_kitchen_item_0" name="group_kitchen_item">
+     <label for="group_kitchen_item_0">
+      <span class="h4 select_detail__title">전체선택</span>
+       <span class="expect_price">550만원~</span>
+     </label>
+    <input type="checkbox" id="group_kitchen_item_1" name="group_kitchen_item">
+     <label for="group_kitchen_item_1">
+      <span class="h4 select_detail__title">필름</span>
+       <p class="select_detail__desc">상부장,하부장등필름시공</p>
+       <span class="expect_price">550만원~</span>
+     </label>
+ </li>
 
   <li class="btn_line_detail">
-      <input type="radio" id="group_kitchen_item_2" name="group_kitchen_item">
+      <input type="checkbox" id="group_kitchen_item_2" name="group_kitchen_item">
       <label for="group_kitchen_item_2">
           <span class="h4 select_detail__title">타일</span>
           <p class="select_detail__desc">벽면타일교체</p>
           <span class="expect_price">45만원~</span>
       </label>
-      <input type="radio" id="group_kitchen_item_3" name="group_kitchen_item">
+      <input type="checkbox" id="group_kitchen_item_3" name="group_kitchen_item">
       <label for="group_kitchen_item_3">
           <span class="h4 select_detail__title">싱크대</span>
           <p class="select_detail__desc">상부장,하부장만 교체</p>
       </label></li>
 
   <li class="btn_line_detail">
-      <input type="radio" id="group_kitchen_item_4" name="group_kitchen_item">
+      <input type="checkbox" id="group_kitchen_item_4" name="group_kitchen_item">
       <label for="group_kitchen_item_4">
           <span class="h4 select_detail__title">가구</span>
           <p class="select_detail__desc">내장고장등맞춤가구제작</p>
       </label>
-      <input type="radio" id="group_kitchen_item_5" name="group_kitchen_item">
+      <input type="checkbox" id="group_kitchen_item_5" name="group_kitchen_item">
       <label for="group_kitchen_item_5">
           <span class="h4 select_detail__title">아일랜드식탁</span>
           <span class="expect_price">120만원~</p>
@@ -233,24 +234,24 @@
     <h3 class="detail_title">욕실</h3>
   <ul aria-label="욕실 선택 목록" class="detail_item">
     <li class="btn_line_detail">
-        <input type="radio" id="group_washroom_item_0" name="group_washroom_item">
+        <input type="checkbox" id="group_washroom_item_0" name="group_washroom_item">
         <label for="group_washroom_item_0">
             <span class="h4 select_detail__title">전체교체</span>
             <span class="expect_price">420만원~</span>
         </label>
-        <input type="radio" id="group_washroom_item_1" name="group_washroom_item">
+        <input type="checkbox" id="group_washroom_item_1" name="group_washroom_item">
         <label for="group_washroom_item_1">
             <span class="h4 select_detail__title">수납장/선반</span>
             </label></li>
         <li class="btn_line_detail">
-            <input type="radio" id="group_washroom_item_2" name="group_washroom_item">
+            <input type="checkbox" id="group_washroom_item_2" name="group_washroom_item">
             <label for="group_washroom_item_2">
                 <span class="h4 select_detail__title">도기</span>
                 <p class="select_detail__desc">세면대,변기등도기만교체</p>
                 <span class="expect_price">64만원~</span>
                 </label></li>
     <li class="btn_line_detail">
-        <input type="radio" id="group_washroom_item_3" name="group_washroom_item">
+        <input type="checkbox" id="group_washroom_item_3" name="group_washroom_item">
         <label for="group_washroom_item_3">
             <span class="h4 select_detail__title">타일</span>
             <p class="select_detail__desc">바닥과벽면타일교체</p>
@@ -266,25 +267,26 @@
     <h3 class="detail_title">현관</h3>
   <ul aria-label="욕실 선택 목록" class="detail_item">
     <li class="btn_line_detail">
-        <input type="radio" id="group_porch_item_0" name="group_porch_item">
+        <input type="checkbox" id="group_porch_item_0" name="group_porch_item">
         <label for="group_porch_item_0">
             <span class="h4 select_detail__title">신발장</span>
             <span class="expect_price">128만원~</span>
         </label>
-        <input type="radio" id="group_porch_item_1" name="group_porch_item">
+        <input type="checkbox" id="group_porch_item_1" name="group_porch_item">
         <label for="group_porch_item_1">
             <span class="h4 select_detail__title">타일</span>
             <span class="expect_price">24만원~</span>
             </label></li>
         <li class="btn_line_detail">
-            <input type="radio" id="group_porch_item_2" name="group_porch_item">
+            <input type="checkbox" id="group_porch_item_2" name="group_porch_item">
             <label for="group_porch_item_2">
                 <span class="h4 select_detail__title">가벽설치</span>
                 <span class="expect_price">60만원~</span>
                 </label>
-                <input type="radio" id="group_porch_item_4" name="group_porch_item">
+                <input type="checkbox" id="group_porch_item_4" name="group_porch_item">
                 <label for="group_porch_item_4">
                     <span class="h4 select_detail__title">필름</span>
+                    <span class="expect_price">60만원~</span>
                 </label>
             </li>
     <li class="btn_line_detail">
@@ -380,14 +382,15 @@
             <p class="select_detail__desc">문틀과문짝모두새로설치</p>
             <span class="expect_price">326만원~</span>
         </label>
-
+	<li class="btn_line_detail">
         <input type="radio" id="group_door_item_1" name="group_door_item">
         <label for="group_door_item_1">
             <span class="h4 select_detail__title">부분교체</span>
             <p class="select_detail__desc">문틀과문짝부분교체</p>
             <span class="expect_price">445만원~</span>
-        </label></li>
-    <li class="btn_line_detail">
+        </label>
+        </li>
+	<li class="btn_line_detail">        
         <input type="radio" id="group_door_item_2" name="group_door_item">
         <label for="group_door_item_2">
             <span class="h4 select_detail__title">필름</span>

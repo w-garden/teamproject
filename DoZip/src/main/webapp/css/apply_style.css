@@ -210,6 +210,9 @@ li{
 .detail_item[input=checkbox]{
 	opacity: 0;
 }
+input[type=checkbox]{
+	appearance: none;
+}
 
 /* 상세시공항목 버튼박스 active 폰트 */
 .btn_line_detail input:checked+label {
@@ -224,6 +227,7 @@ li{
 .btn_line_detail[aria-selected=true] .h4 {
   font-weight: bold;
 }
+/* 상세시공항목 버튼박스 active 폰트 end */
 
 /*다음 페이지 넘김 버튼*/
 .nextpage{
