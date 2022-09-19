@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <jsp:include page = "../common/header.jsp"/>
 <%-- 상단 공통부분 끝--%>
-<link rel="stylesheet" type="text/css" href="../css/portfolio.css" />
-<script src="../js/portfolio.js" defer></script>
+<link rel="stylesheet" type="text/css" href="/DoZip/css/portfolio.css" />
+<script src="/DoZip/js/portfolio.js" defer></script>
 
 
 	<div class="clear"></div>
@@ -11,7 +11,7 @@
 	<!-- 프리미엄 기업 리스트-->
 		<div class = "premium_wrap">
 			<div class = "premium_top">
-				<img id = "crown" src = "../images/portfolio/detail/crown.png"/>
+				<img id = "crown" src = "/DoZip/images/portfolio/detail/crown.png"/>
 				<p class = "premium_title">프리미엄 업체 (광고)</p>
 			</div>
 			<div class = "premium_comp">
@@ -110,7 +110,7 @@
 			<div class="cards-list">
 			<div class="card 1">
 			  <div class="card_image"> 
-			  	<img class = "ho" onclick = "location = './port_detail.jsp';" src= "../images/portfolio/port001.png" /> 
+			  	<img class = "ho" onclick = "location = './port_detail.jsp';" src= "/DoZip/images/portfolio/port001.png" /> 
 			  	<%-- onclick으로 클릭시 상세로 연결되게 --%>
 			  </div>
 			  <div class="card_title">
@@ -121,7 +121,7 @@
 			
 			  <div class="card 2">
 			  <div class="card_image">
-			    <img onclick = "location = './port_detail.jsp';" src="../images/portfolio/port002.png" />
+			    <img onclick = "location = './port_detail.jsp';" src="/DoZip/images/portfolio/port002.png" />
 			    </div>
 			  <div class="card_title">
 			    <li class = "corp">지혜 디자인</li>
@@ -132,7 +132,7 @@
 			  
 			  <div class="card 4">
 			  <div class="card_image">
-			    <img onclick = "location = './port_detail.jsp';" src="../images/portfolio/port004.png" />
+			    <img onclick = "location = './port_detail.jsp';" src="/DoZip/images/portfolio/port004.png" />
 			    </div>
 			  <div class="card_title">
 			    <li class = "corp">수환 디자인</li>

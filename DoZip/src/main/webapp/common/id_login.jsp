@@ -21,7 +21,7 @@
 	</form>
 	<div id="find_box">
 		<span>
-			<a href="./find_id_pwd.jsp" >아이디/비밀번호 찾기 </a>
+			<a href="member_find.do" >아이디/비밀번호 찾기 </a>
 		</span>
 	</div>
 	<div id="join_info">

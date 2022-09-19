@@ -16,7 +16,11 @@
 		<table id="join_form_table">
 			<tr>
 				<th>아이디</th>
-				<td><input type="text"  name="mem_id"  id="mem_id" placeholder="아이디를 입력해주세요"/></td>
+				<td id="id_box">
+					<input type="text"  name="mem_id"  id="mem_id" placeholder="아이디를 입력해주세요"/>
+					<button type="button"  onclick="id_check();">아이디체크</button><br/>
+					<span id="idcheck"></span>
+				</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>

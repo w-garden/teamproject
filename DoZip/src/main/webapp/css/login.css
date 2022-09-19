@@ -146,6 +146,10 @@
 #join_form_table td{
 	width: 70%;
 }
+#id_box>input {
+	width: 60%;
+	margin-right: 10px;
+}
 #emailbox>input, #emailbox>select{
 	width: 26%;
 	height: 30px;
