@@ -42,7 +42,7 @@ public class MemberLoginOKController implements Action {
 			
 			if(mem_id.equals("admin")) { //로그인 된 아이디가 admin 관리자 아이디라면 관리자 페이지로 이동한다.
 				out.println("<script>");
-				out.println("opener.parent.location.href='/Admin/index.jsp';"); //controller 없이 링크로 바로 연결해놨음 나중에 admin 쪽 controller로 연결하기
+				out.println("opener.parent.location.href='/Admin/admin_home.do';"); //admin 쪽 controller로 연결
 				out.println("window.close();");
 				out.println("</script>");
 			} else { //일반 회원이라면 창을 닫고 메인화면을 새로고침 한다.
