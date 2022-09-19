@@ -15,8 +15,8 @@
 		<p>아이디로 시작하기</p>
 	</div>
 	<form id="id_login_box" method="post" onsubmit="login_check();" action="member_login_ok.do" >
-		<input type="text"  name="mem_id" placeholder="  아이디"/>
-		<input type="password" name="mem_pwd" placeholder="  비밀번호"/>
+		<input type="text"  name="mem_id" id="mem_id" placeholder="  아이디"/>
+		<input type="password" name="mem_pwd" id="mem_pwd" placeholder="  비밀번호"/>
 		<button id="login_btn" type="submit">로 그 인</button>
 	</form>
 	<div id="find_box">
