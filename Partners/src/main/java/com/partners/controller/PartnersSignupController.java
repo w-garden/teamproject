@@ -13,7 +13,7 @@ public class PartnersSignupController implements Action {
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/Partners/join/signup.jsp");
+		forward.setPath("./join/signup.jsp");
 		return forward;
 		
 		
