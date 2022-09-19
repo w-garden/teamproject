@@ -6,6 +6,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.partners.dto.PartnersDTO;
+import com.partners.dto.PortfolioDTO;
 
 public class PartnersDAO {
 	Connection conn = null;
@@ -60,16 +61,16 @@ public class PartnersDAO {
 
 	// 아이디를 기준으로 파트너스 정보 검색
 	public PartnersDTO selectPartner(String pId) {
-			PartnersDTO dto=null;
+		PartnersDTO dto = null;
 		try {
 			conn = ds.getConnection();
 			sql = "select * from partnersT where pId=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, pId);
-			rs=pstmt.executeQuery();
-			if(rs.next()) {
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
 				dto = new PartnersDTO();
-				
+
 				dto.setBusiness_num(rs.getString("business_num"));
 				dto.setBusinessName(rs.getString("businessName"));
 				dto.setpId(rs.getString("pId"));
@@ -164,16 +165,16 @@ public class PartnersDAO {
 
 	public PartnersDTO findID(String findid_business_num) {
 		PartnersDTO dto = null;
-		
+
 		try {
-			conn =ds.getConnection();
-			sql="select * from partnersT where business_num=?";
-			pstmt=conn.prepareStatement(sql);
+			conn = ds.getConnection();
+			sql = "select * from partnersT where business_num=?";
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, findid_business_num);
-			
-			rs=pstmt.executeQuery();
-			
-			if(rs.next()) {
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
 				dto = new PartnersDTO();
 				dto.setBusiness_num(rs.getString("business_num"));
 				dto.setpId(rs.getString("pId"));
@@ -183,7 +184,7 @@ public class PartnersDAO {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				close(rs);
 				close(pstmt);
@@ -191,23 +192,53 @@ public class PartnersDAO {
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-			
+
 		}
-		
+
 		return dto;
 	}
 
-	//파트너스 아이디 찾기 메서드
-	
-	
-	
-	
-	
-	
-	
+	// 파트너스 아이디 찾기 메서드
 
 	// 파트너스 정보 수정 메서드
 
 	// 파트너스 탈퇴 메서드
 
+	/**************************************/
+	/********* 포트폴리오 관련 메서드 ******/
+	/**************************************/
+
+	public void addPortfolio(PortfolioDTO dto) {
+		try {
+			conn = ds.getConnection();
+			sql = "insert into portfolioT (pf_no, business_num, pf_title, pf_type, pf_subtype, pf_range, pf_zipcode, pf_addr1, pf_addr2, pf_addr3, pf_area, pf_cost, pf_period,"
+					+ "pf_concept, pf_introduction, pf_closing, pf_regdate) values (portfolioT_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getBusiness_num());
+			pstmt.setString(2, dto.getPf_title());
+			pstmt.setString(3, dto.getPf_type());
+			pstmt.setString(4, dto.getPf_subtype());
+			pstmt.setString(5, dto.getPf_range());
+			pstmt.setString(6, dto.getPf_zipcode());
+			pstmt.setString(7, dto.getPf_addr1());
+			pstmt.setString(8, dto.getPf_addr2());
+			pstmt.setString(9, dto.getPf_addr3());
+			pstmt.setInt(10, dto.getPf_area());
+			pstmt.setInt(11, dto.getPf_cost());
+			pstmt.setInt(12, dto.getPf_period());
+			pstmt.setString(13, dto.getPf_concept());
+			pstmt.setString(14, dto.getPf_introduction());
+			pstmt.setString(15, dto.getPf_closing());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close(pstmt);
+				close(conn);
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
 }

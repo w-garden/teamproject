@@ -240,14 +240,13 @@ function sample6_execDaumPostcode() {
 /*******************/
 
 $(function() {
-
 	$('#sel_type').change(function() {
-		if (($('#sel_type').val()) == 'house') {
+		if (($('#sel_type').val()) == '주거공간') {
 			$('#sel_house').removeAttr("disabled");
 			$('#sel_house').show();
 			$('#sel_business').hide();
 		}
-		if (($('#sel_type').val()) == 'business') {
+		if (($('#sel_type').val()) == '상업공간') {
 			$('#sel_business').removeAttr("disabled");
 			$('#sel_business').show();
 			$('#sel_house').hide();
