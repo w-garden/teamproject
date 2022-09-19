@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<link rel="stylesheet" type="text/css" href="../css/admin_memList.css"/>
+<link rel="stylesheet" type="text/css" href="/Admin/css/admin_memList.css"/>
 
 <jsp:include page = "../include/header.jsp"/>
 <script src="../js/jquery.js" ></script>

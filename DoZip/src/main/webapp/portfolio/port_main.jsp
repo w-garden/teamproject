@@ -10,8 +10,10 @@
 	<!-- 본문영역-->
 	<!-- 프리미엄 기업 리스트-->
 		<div class = "premium_wrap">
-			<img id = "crown" src = "../images/portfolio/detail/crown.png"/>
-			<p class = "premium_title">프리미엄 업체 (광고)</p>
+			<div class = "premium_top">
+				<img id = "crown" src = "../images/portfolio/detail/crown.png"/>
+				<p class = "premium_title">프리미엄 업체 (광고)</p>
+			</div>
 			<div class = "premium_comp">
 				<div class="outer">
 				  <div class="inner-list">
@@ -30,10 +32,10 @@
 				  </div>
 				</div>
 				
-				<div class="button-list">
+				<!-- <div class="button-list">
 				  <button class="button-left">← Left</button>
 				  <button class="button-right">Right →</button>
-				</div>
+				</div> -->
 					
 			</div>
 		</div>

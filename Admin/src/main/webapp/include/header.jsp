@@ -25,10 +25,10 @@
 				</div>
 				
 				<ul class="menu">
-					<li><a href="/Admin/views/memberList.jsp">회원/파트너스관리&nbsp;</a></li>
-					<li><a href="/Admin/views/writingList.jsp">전체글관리&nbsp;</a></li>
-					<li><a href="/Admin/views/contractList.jsp">계약/정산관리&nbsp;</a></li>
-					<li><a href="/Admin/views/qnaList.jsp">문의관리&nbsp;</a></li>
+					<li><a href="/Admin/admin_memlist.do">회원/파트너스관리&nbsp;</a></li>
+					<li><a href="/Admin/admin_writinglist.do">전체글관리&nbsp;</a></li>
+					<li><a href="/Admin/admin_contractlist.do">계약/정산관리&nbsp;</a></li>
+					<li><a href="/Admin/admin_qnalist.do">문의관리&nbsp;</a></li>
 				</ul>
 			
 				<ul class="icons">

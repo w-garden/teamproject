@@ -76,24 +76,18 @@
 }
 
 /*프리미엄 포트폴리오*/
-.premium_title {
-	font-family : '여기어때 잘난체';
-	font-size : 1.5rem;
-	color : #41A541;
-	
+
+.premium_comp {
+	margin-top : 30px;
 }
 
-#crown {
-	padding-top : 10px;
-}
-
-.outer {
+/* .outer {
   border: 6px solid royalblue;
   width: 80%;
   height: 300px;
   margin: 0 auto;
   overflow-x: hidden;
-}
+} */
 
 .inner-list {
   display: flex;
@@ -104,7 +98,7 @@
 }
 
 .inner {
-  border: 6px solid olive;
+ /*  border: 6px solid olive; */
   padding: 0 16px;
 }
 
@@ -112,7 +106,7 @@
   text-align: center;
 }
 
-.button-left {
+/* .button-left {
 	border:0;
 	border-radius : 5px;
 	font-size : 1.2rem;
@@ -138,7 +132,7 @@
 	font-weight : bold;	
 	color : white;
 	margin-top : 15px;
-}
+} */
 
 
 /*포트폴리오 본문*/

@@ -10,7 +10,7 @@ public class AdminHomeController implements Action {
 		
 		ActionForward forward = new ActionForward();
 		
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		forward.setPath("./index.jsp");
 		return forward;
 	}
