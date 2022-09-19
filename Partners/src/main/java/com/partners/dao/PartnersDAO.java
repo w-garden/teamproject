@@ -17,7 +17,7 @@ public class PartnersDAO {
 	public PartnersDAO() {
 		try {
 			Context context = new InitialContext();
-			ds = (DataSource) context.lookup("java:comp/env/jdbc/oracle");
+			ds = (DataSource) context.lookup("java:comp/env/jdbc/xe");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
