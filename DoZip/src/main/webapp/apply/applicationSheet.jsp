@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../common/header.jsp" />
 <%-- 상단 공통부분 끝 --%>
-<link rel="stylesheet" href="../css/apply_style.css" />
-<script src="../js/apply.js" defer></script>
-<script src="../js/jquery.js"></script>
+<link rel="stylesheet" href="./css/apply_style.css" />
+<script src="./js/apply.js" defer></script>
+<script src="./js/jquery.js"></script>
   </head>
     <title>인테리어 견적 신청서</title>
   <body>
