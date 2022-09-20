@@ -30,28 +30,21 @@ public class MemberJoinOKController implements Action {
 		
 		MemberDAOImpl mdao = new MemberDAOImpl();
 		int res = mdao.insertMember(m);
-		int count_id = mdao.checkID(m);
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out=response.getWriter();
 		
-		if(count_id == 1) {
+		if(res == -1) { //회원가입 실패시
 			out.println("<script>");
-			out.println("alert('중복된 아이디입니다.');");
+			out.println("alert('회원가입에 실패했습니다.');");
 			out.println("history.back();");
 			out.println("</script>");
-		} else {
-			if(res == -1) { //회원가입 실패시
-				out.println("<script>");
-				out.println("alert('회원가입에 실패했습니다.');");
-				out.println("history.back();");
-				out.println("</script>");
-			} else { //회원가입 성공시 창을 닫는다.
-				out.println("<script>");
-				out.println("window.close();");
-				out.println("</script>");
-			}		
-		}
+		} else { //회원가입 성공시 창을 닫는다.
+			out.println("<script>");
+			out.println("window.close();");
+			out.println("</script>");
+		}		
+
 		return null;
 	}
 

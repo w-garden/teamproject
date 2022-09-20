@@ -88,18 +88,18 @@ public class MemberDAOImpl {
 	}
 
 	//회원가입 아이디 체크
-	public int checkID(MemberVO m) {
-		int count_id = 0;
+	public int checkID(String mem_id) {
+		int checkid = 0;
 		
 		try {
 			con = ds.getConnection();
 			sql = "select count(mem_id) from memberT where mem_id=?";
 			pt = con.prepareStatement(sql);
-			pt.setString(1, m.getMem_id());
+			pt.setString(1, mem_id);
 			rs = pt.executeQuery();
 			
 			if(rs.next()) {
-				count_id = rs.getInt(1);
+				checkid = rs.getInt(1);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -112,7 +112,7 @@ public class MemberDAOImpl {
 				e.printStackTrace();
 			}
 		}		
-		return count_id;
+		return checkid;
 	}
 
 	//아이디 회원의 정보를 불러옴
@@ -185,6 +185,36 @@ public class MemberDAOImpl {
 			}
 		}		
 		return res;
+	}
+
+	//아이디 찾기
+	public String getFindID(String mem_name, String mem_tel) {
+		String mem_id=null;
+		
+		try {
+			con = ds.getConnection();
+			sql = "select mem_id from memberT where mem_name=? and mem_tel=?";
+			pt = con.prepareStatement(sql);
+			pt.setString(1, mem_name);
+			pt.setString(2, mem_tel);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				mem_id = rs.getString(1);
+			}
+			System.out.println(mem_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs != null) rs.close();
+				if(pt != null) pt.close();
+				if(con != null) con.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}		
+		return mem_id;
 	}
 	
 	

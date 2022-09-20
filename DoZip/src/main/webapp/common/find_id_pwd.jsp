@@ -5,8 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>아이디/비밀번호 찾기</title>
-	<link rel="stylesheet" type="text/css" href="../css/login.css" />
-	<script src="../js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="/DoZip/css/login.css" />
+	<script src="/DoZip/js/jquery.js"></script>
 	<script>
 		function on_find_id() {
 			$('.find_pwd').hide();
@@ -26,17 +26,17 @@
 		<button class="select_btn"  type="button"  onclick="on_find_pw()">비밀번호 찾기</button>
 	</div>
 	
-	<form class="find_id" method="post" action="#">
-		<input class="find_id_input"  type="text" name="member_name"  placeholder="이름" />
-		<input class="find_id_input" type="text" name="member_phone"  placeholder="전화번호" />
+	<form class="find_id" method="post" action="member_find_id.do">
+		<input class="find_id_input"  type="text" name="mem_name"  placeholder="이름" />
+		<input class="find_id_input" type="text" name="mem_tel"  placeholder="전화번호" />
 		<button id="find_id_btn" type="submit">아이디 찾기</button>
 	</form>
 	
 	<form class="find_pwd" method="post" action="#"   style="display: none;">
-		<input class="find_pwd_input"  type="text" name="member_id"  placeholder="아이디" />
-		<input class="find_pwd_input" type="text" name="member_name"  placeholder="이름" />
-		<input class="find_pwd_input" type="text" name="member_phone"  placeholder="전화번호" />
-		<input class="find_pwd_input" type="text" name="member_email"  placeholder="이메일주소" />
+		<input class="find_pwd_input"  type="text" name="mem_id"  placeholder="아이디" />
+		<input class="find_pwd_input" type="text" name="mem_name"  placeholder="이름" />
+		<input class="find_pwd_input" type="text" name="mem_tel"  placeholder="전화번호" />
+		<input class="find_pwd_input" type="text" name="mem_email"  placeholder="이메일주소" />
 		<p id="find_pwd_info">※비밀번호 찾기를 누르면 임시번호를 메일주소로 보내드립니다.</p>
 		<button id="find_pwd_btn" type="submit">비밀번호 찾기</button>
 	</form>

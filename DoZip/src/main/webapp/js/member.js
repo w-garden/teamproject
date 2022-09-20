@@ -36,19 +36,72 @@ function validate_userid($mem_id)
   return pattern.test($mem_id);
 };
 
+function id_check(){
+ /* copy begin */
+	$("#idcheck").hide();
+	//아이디 영역을 숨김
+	$mem_id=$.trim($("#mem_id").val());
+	//1.입력글자 길이 체크
+	if($mem_id.length < 4){
+		$newtext='<font color="red" size="2"><b>아이디는 4자 이상이어야 합니다.</b></font>';
+		$("#idcheck").text('');
+		$("#idcheck").show();
+		$("#idcheck").append($newtext);
+		$("#mem_id").val('').focus();
+		return false;
+	};
+	if($mem_id.length > 20){
+		$newtext='<font color="red" size="2"><b>아이디는 20자 이하이어야 합니다.</b></font>';
+		$("#idcheck").text('');
+		$("#idcheck").show();
+		$("#idcheck").append($newtext);
+		$("#mem_id").val('').focus();
+		return false;
+	};
+	//2.입력글자 확인
+	if(!(validate_userid($mem_id))){
+		$newtext='<font color="red" size="2"><b>아이디는 영문소문자,숫자,_조합만 가능합니다.</b></font>';
+		$("#idcheck").text('');
+		$("#idcheck").show();
+		$("#idcheck").append($newtext);
+		$("#mem_id").val('').focus();
+		return false;
+	};
+	//아이디 중복확인
+    $.ajax({
+        type:"POST",
+        url:"member_id_check.do", 
+        data: {"mem_id":$mem_id},
+        datatype:"int",
+        success: function (data) {
+      	  if(data==1){
+      		$newtext='<font color="red" size="2"><b>중복 아이디입니다.</b></font>';
+      		$("#idcheck").text('');
+        	$("#idcheck").show();
+        	$("#idcheck").append($newtext);          		
+          	$("#mem_id").val('').focus();
+          	return false;
+      	  }else{
+      		$newtext='<font color="blue" size="2"><b>사용가능한 아이디입니다.</b></font>';
+      		$("#idcheck").text('');
+      		$("#idcheck").show();
+      		$("#idcheck").append($newtext);
+      		$("#mem_pwd").focus();
+      	  }  	    	  
+        },
+    	  error:function(){//비동기식 아작스로 서버디비 데이터를 못가져와서 에러가 발생했을 때 호출되는 함수이다.
+    		  alert("data error");
+    	  }
+      });//$.ajax
+}
+
 function join_check(){
 	$mem_id=$.trim($("#mem_id").val());
-	
 	if($mem_id ==''){
 		  alert('아이디를 입력해주세요.');
 		  $('#mem_id').val('').focus();
 		  return false;
 	  }
-	if(!validate_userid($mem_id)){
-		 alert('아이디는 영문소문자,숫자,_조합만 가능합니다.');
-		  $('#mem_id').val('').focus();
-		  return false;
-	}
 	$mem_pwd=$.trim($("#mem_pwd").val());
 	$mem_pwd_check=$.trim($("#mem_pwd_check").val());
 	if($mem_pwd == ""){
