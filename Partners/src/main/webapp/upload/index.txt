@@ -1,0 +1,6 @@
+ 
+ 이런식으로 db에 저장됩니다.
+ /Partners/upload/사업자번호/포트폴리오제목/photo01.jpg
+ 
+ 예시
+ /Partners/upload/321-15-01521/테스트제목/photo01.jpg

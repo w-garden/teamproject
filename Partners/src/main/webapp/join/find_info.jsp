@@ -5,7 +5,6 @@
 
 <meta charset="UTF-8">
 <title>회원 정보 찾기</title>
-<link rel="stylesheet" href="/Partners/css/main_style.css">
 <link rel="stylesheet" href="/Partners/css/join_style.css">
 <script src="/Partners/js/jquery.js"></script>
 <script src="/Partners/js/javascript.js"></script>

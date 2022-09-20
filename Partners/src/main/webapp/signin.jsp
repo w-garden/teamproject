@@ -6,13 +6,11 @@
 
 <meta charset="UTF-8">
 <title>파트너스 로그인</title>
-<link rel="stylesheet" href="/Partners/css/main_style.css">
 <link rel="stylesheet" href="/Partners/css/join_style.css">
 
 <script src="/Partners/js/jquery.js"></script>
 <script src="/Partners/js/javascript.js"></script>
 <style>
-
 
 </style>
 

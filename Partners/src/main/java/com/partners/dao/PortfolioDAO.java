@@ -107,6 +107,30 @@ public class PortfolioDAO {
 			}
 		}
 		return pf_no;
-
+	}
+	//사진 파일 이름 저장 메서드
+	public void selectOnePortfolio(String[] fileDBName, int pf_no) {
+		try {
+			conn=ds.getConnection();
+			sql="update portfolioT set pf_photo1=?, pf_photo2=?, pf_photo3=?, pf_photo4=?, pf_photo5=? where pf_no=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, fileDBName[0]);
+			pstmt.setString(2, fileDBName[1]);
+			pstmt.setString(3, fileDBName[2]);
+			pstmt.setString(4, fileDBName[3]);
+			pstmt.setString(5, fileDBName[4]);
+			pstmt.setInt(6, pf_no);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				close(pstmt);
+				close(conn);
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
 	}
 }

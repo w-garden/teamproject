@@ -63,42 +63,42 @@ String id = request.getParameter("id");
 	<div id="side_wrap">
 			<ul id="side_menu">
 				<li><a href="#" style="height:49px;"></a></li>
-				<li><a href="/Partners/main.jsp">파트너스홈</a></li>
-				<li><a href="#">요금제 ▼</a>
+				<li><a href="/Partners/main.jsp">PARTNERS</a></li>
+				<li><a href="#">요&nbsp;&nbsp;금&nbsp;&nbsp;제</a>
 					<ul>
 						<li><a href="/Partners/interior_Plan/plan.jsp">요금제안내</a></li>
 					</ul>
 				</li>
-				<li><a href="#">견적의뢰 ▼</a>
+				<li><a href="#">견적&nbsp;의뢰</a>
 					<ul>
 						<li><a href="/Partners/estimate_request/bid.jsp">입찰의뢰</a></li>
 						<li><a href="/Partners/estimate_request/construct_request.jsp">시공요청</a></li>
 					</ul></li>
-				<li><a href="#">견적관리 ▼</a>
+				<li><a href="#">견적&nbsp;관리</a>
 					<ul>
 						<li><a href="/Partners/estimate/estimate_list.jsp">견적목록</a></li>
 					</ul></li>
-				<li><a href="#">내 공사 ▼</a>
+				<li><a href="#">내&nbsp;&nbsp;공&nbsp;&nbsp;사</a>
 					<ul>
 						<li><a href="/Partners/myinterior/interior_List.jsp">내 공사내역</a></li>
 						<li><a href="/Partners/myinterior/schedule_List.jsp">일정 및 정산관리</a></li>
 						<li><a href="/Partners/myinterior/settlement_details.jsp">정산내역</a></li>
 					</ul></li>
-				<li><a href="#">시공사례관리 ▼</a>
+				<li><a href="#">시공&nbsp;사례</a>
 					<ul>
 						<li><a href="/Partners/upload.do">등록</a></li>
 						<li><a href="/Partners/portfolio_list.do">수정/삭제</a></li>
 					</ul></li>
-				<li><a href="#">광고관리 ▼</a>
+				<li><a href="#">광고&nbsp;관리</a>
 					<ul>
 						<li><a href="/Partners/marketing/marketing.jsp">노출프로모션</a></li>
 					</ul></li>
-				<li><a href="#">고객관리 ▼</a>
+				<li><a href="#">고객&nbsp;관리</a>
 					<ul>
 						<li><a href="/Partners/customer_qna.do">고객문의</a></li>
 						<li><a href="/Partners/customer_review.do">고객후기</a></li>
 					</ul></li>
-				<li><a href="#">마이페이지 ▼</a>
+				<li><a href="#">My&nbsp;Page</a>
 					<ul>
 						<li><a href="/Partners/mypage/data_manage.jsp">내 정보관리</a></li>
 						<li><a href="/Partners/mypage/pw_change.jsp">비밀번호 변경</a></li>
@@ -112,9 +112,9 @@ String id = request.getParameter("id");
 				<div id=top_title>
 					<div>
 						<a href="/DoZip/index.jsp"><img
-							src="/Partners/images/logo.png" alt="메인로고"></a>
+							src="/Partners/images/dozip_logo.png" alt="메인로고"></a>
 					</div>
-					<div>파트너스 페이지</div>
+					<div style="font-family: '210 맨발의 청춘'">파트너스 페이지</div>
 				</div>
 				<div class="msg">
 					<span class="hide_1"> ${businessName}   님 환영합니다 <span id="timer"></span></span> <span

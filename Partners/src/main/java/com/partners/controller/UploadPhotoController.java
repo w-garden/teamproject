@@ -1,6 +1,5 @@
 package com.partners.controller;
 
-import java.io.PrintWriter;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -43,12 +42,10 @@ public class UploadPhotoController implements Action {
 				pf_addr2, pf_addr3, pf_area, pf_cost, pf_period, pf_concept, pf_introduction, pf_closing);
 		
 		
-		int intpf_no=dao.addPortfolio(dto);
-		String pf_no=String.valueOf(intpf_no);
-		
-		
-		Cookie cookie = new Cookie("pf_no", pf_no);
+		Cookie cookie = new Cookie("pf_no", String.valueOf(dao.addPortfolio(dto)));
+		Cookie cookie2 = new Cookie("pf_title", pf_title.replaceAll(" ",""));
 		response.addCookie(cookie);
+		response.addCookie(cookie2);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

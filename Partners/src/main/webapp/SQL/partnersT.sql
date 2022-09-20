@@ -43,11 +43,11 @@ create table portfolioT(
 	pf_concept nvarchar2(30) not null, --시공컨셉
 	pf_introduction nvarchar2(1000) not null, --인사말
 	pf_closing nvarchar2(1000) not null, --맺음말
-	pf_photo1 nvarchar2(50), --사진1
-	pf_photo2 nvarchar2(50), --사진2
-	pf_photo3 nvarchar2(50), --사진3
-	pf_photo4 nvarchar2(50), --사진4
-	pf_photo5 nvarchar2(50), --사진5
+	pf_photo1 nvarchar2(70), --사진1
+	pf_photo2 nvarchar2(70), --사진2
+	pf_photo3 nvarchar2(70), --사진3
+	pf_photo4 nvarchar2(70), --사진4
+	pf_photo5 nvarchar2(70), --사진5
 	pf_premium number(5) default 0, --프리미엄여부
 	pf_regdate nvarchar2(20) not null, --작성일자
 	foreign key(business_num) references partnersT(business_num)
