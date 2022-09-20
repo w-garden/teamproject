@@ -20,27 +20,27 @@
 				<div class="greeb_box_container">
 					<div class="green_box">
 						<ul class="box-cell5">
-							<li class="detail_info">
+							<li class="detail_info_cons">
 								<div class="dt">
-									<p class="ico2">희망 예산</p>
+									<p class="ico1">희망 예산</p>
 								</div>
 								<div class="dd">500만원</div>
 							</li>
-							<li class="detail_info">
+							<li class="detail_info_cons">
 								<div class="dt">
-									<p class="ico3">희망 견적일</p>
+									<p class="ico2">견적 신청일</p>
 								</div>
 								<div class="dd">2022.07.10</div>
 							</li>
-							<li class="detail_info">
+							<li class="detail_info_cons">
 								<div class="dt">
-									<p class="ico4">희망 시공시작일</p>
+									<p class="ico3">희망 시공시작일</p>
 								</div>
 								<div class="dd">2022.07.13</div>
 							</li>
-							<li class="detail_info_ex">
+							<li class="detail_info_cons_ex">
 								<div class="dt">
-									<p class="ico5">희망 시공종료일</p>
+									<p class="ico4">희망 시공종료일</p>
 								</div>
 								<div class="dd">2022.07.25</div>
 							</li>

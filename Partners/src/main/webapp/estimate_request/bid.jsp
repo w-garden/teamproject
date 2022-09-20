@@ -7,16 +7,15 @@
 
 
 		<div class="request_page">
+			<form method="post" action="bid_board_list.do">
 			<div class="request_spot">
-				<h1 class="item_title">입찰의뢰</h1>
-					<form action="." method="post">
+				<h2 class="item_title">입찰의뢰</h2>
 						<div class="search_box">
 					    <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
 					    <button class="search-btn" type="submit">
 					    	<img src="../images/search.png" width="20px" height="20px">
 					    </button>
 						</div>
-					</form>
 					<div class="my_bid_icon">
 						<a href="./my_bid.jsp;"
 							class="to_my_bid" target="_blank"><img src="../images/bid_list.png" width="55px" height="55px"></a>
@@ -101,9 +100,11 @@
 					</div></br>
 				</div>
 			</div>
-			<div class="bottom-btn-wrap">
-				<button type="button" class="more_button"><img src="../images/more_plus.png"></br><span>더보기</span></button>
-			</div>
+				<!--  
+				<div class="bottom-btn-wrap">
+					<button type="button" class="more_button"><img src="../images/more_plus.png"></br><span>더보기</span></button>
+				</div> -->
+			</form>
 		</div>
 <jsp:include page="../include/footer.jsp" />
 

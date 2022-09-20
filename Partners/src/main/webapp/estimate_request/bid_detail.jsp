@@ -30,23 +30,28 @@
 						<ul class="box-cell5">
 							<li class="detail_info">
 								<div class="dt">
-									<p class="ico2">희망 예산</p>
+									<p class="ico1">희망 예산</p>
 								</div>
 								<div class="dd">500만원</div>
 							</li>
 							<li class="detail_info">
 								<div class="dt">
-									<p class="ico3">모집마감일</p>
+									<p class="ico2">모집마감일</p>
 								</div>
-								<div class="dd">2022.07.13</div>
+								<div class="dd">2022.07.20</div>
 							</li>
 							<li class="detail_info">
 								<div class="dt">
-									<p class="ico4">견적마감일</p>
+									<p class="ico3">희망 시공시작일</p>
 								</div>
-								<div class="dd">2022.07.12</div>
+								<div class="dd">2022.08.12</div>
 							</li>
-							
+							<li class="detail_info">
+								<div class="dt">
+									<p class="ico4">희망 시공종료일</p>
+								</div>
+								<div class="dd">2022.08.12</div>
+							</li>							
 							<li class="detail_info_ex">
 								<div class="dt">
 									<p class="ico5">참여 파트너 수</p>
@@ -97,8 +102,8 @@
 								<dd class="sec-cont"></dd>
 							</dl>
 							<dl class="sec-item">
-								<dt class="sec-title">시공 규모 (평 수)</dt>
-								<dd class="sec-cont">21.96평</dd>
+								<dt class="sec-title">시공 규모(평 수)</dt>
+								<dd class="sec-cont">21.96m2(10평)</dd>
 							</dl>
 							<dl class="sec-item">
 								<dt class="sec-title">시공 주소</dt>

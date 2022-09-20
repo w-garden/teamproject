@@ -156,7 +156,7 @@
 
 				<div class=''>
 					<div>
-						<b><span id="red">*</span></b><span> 가능한 공간(최소 2개 이상)</span>
+						<b><span id="red">*</span></b><span> 건물 유형(최소 2개 이상)</span>
 					</div>
 					<article class="residence" style="border: 1px solid gray;">
 							<label for="check8" class="lbl-checkbox"> <input type="checkbox" id="check8"></input> 전체</label><br />
@@ -171,7 +171,7 @@
 					<br />
 
 					<div>
-						<b><span id="red">*</span></b><span> 가능한 시공</span>
+						<b><span id="red">*</span></b><span> 가능한 공간</span>
 					</div>
 					<article class="residence" style="border: 1px solid gray;">
 						<label for="check13" class="lbl-checkbox"> <input type="checkbox" id="check"></input> 전체
@@ -210,13 +210,13 @@
 				</div>
 
 				<div>
-					<span><b>주거공간</b></span> <span>▼</span>
+					<span><b>상업공간</b></span> <span>▼</span>
 				</div>
 				<br />
 
 				<div class=''>
 					<div>
-						<b><span id="red">*</span></b><span> 가능한 공간(최소 3개 이상)</span>
+						<b><span id="red">*</span></b><span> 건물 유형(최소 3개 이상)</span>
 					</div>
 					<article class="residence" style="border: 1px solid gray;">
 							<label for="check35" class="lbl-checkbox"> <input type="checkbox" id="check35"></input> 전체</label><br />
@@ -242,7 +242,7 @@
 					<br />
 
 					<div>
-						<b><span id="red">*</span></b><span> 가능한 시공</span>
+						<b><span id="red">*</span></b><span> 가능한 공간</span>
 					</div>
 					<article class="residence" style="border: 1px solid gray;">
 						<label for="check51" class="lbl-checkbox"> <input type="checkbox" id="check51"></input> 전체
@@ -324,7 +324,7 @@
 					<div><input type="text" size="20"></div></br>					
 				</div>
 				<div>
-					<label><b>보증금/보증보험</b></label>
+					<label><b>예치금</b></label>
 					<div><input type="text" size="20" readonly="readonly" autocomplete="off"></div></br>								
 				</div>
 				<div>
