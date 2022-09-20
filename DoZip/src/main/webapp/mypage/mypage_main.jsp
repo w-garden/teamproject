@@ -332,7 +332,7 @@
 			</div>
 			</div>
 			<div class="mqw_box"><button id="my_qna_write_btn">
-				<a href="../counsel/counsel_write.jsp" >문의글 작성하기</a>
+				<a href="counsel_write.do" >문의글 작성하기</a>
 			</button></div>
 			<p id="my_qna_text">더 많은 질문을 확인하고 싶다면? <a href="../counsel/counsel_main.jsp">자주하는 질문 보러가기</a></p>
 		</div>
@@ -356,7 +356,7 @@
 			</div>
 			</div>
 			<div class="mqw_box"><button id="my_P_qna_write_btn">
-				<a href="../counsel/counsel_partner_write.jsp" >업체 문의글 작성하기</a>
+				<a href="counsel_partner_write.do" >업체 문의글 작성하기</a>
 			</button></div>
 		</div>
 		

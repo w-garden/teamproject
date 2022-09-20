@@ -172,13 +172,13 @@
 	border-radius: 15px;
 	margin-bottom: 30px;
 }
-#cw_title {
+#qna_title {
 	width: 95%;
 	border-radius: 5px;
 	height: 30px;
 	margin: 5px 0 20px 10px;
 }
-#cw_partner_name {
+#businessName {
 	width: 86%;
 	border-radius: 5px;
 	height: 30px;
@@ -201,13 +201,13 @@
 	width: 95%;
 	margin-left: 10px;
 }
-#cw_check {
+#qna_type {
 	width: 95%;
 	border-radius: 5px;
 	height: 30px;
 	margin: 5px 0 20px 10px;
 }
-#cw_cont {
+#qna_cont {
 	margin: 5px 0 20px 10px;
 	width: 95%;
 	height: 100px;
@@ -219,7 +219,7 @@
 	display: flex;
 	text-align: center;
 }
-#cw_btn {
+#qna_btn {
 	border: 0;
 	border-radius: 5px;
 	font-size: 1.3rem;
