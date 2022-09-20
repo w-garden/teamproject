@@ -1,9 +1,16 @@
 package com.dozip.control;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dozip.vo.EstimateVO;
+
 public class EstimateApplyController implements Action {
+	
+	EstimateVO e = new EstimateVO();
+	
+	//Cookie c1 = new Cookie();
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

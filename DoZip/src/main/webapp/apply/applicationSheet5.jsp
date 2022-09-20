@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="../common/header.jsp" />
 <%-- 상단 공통부분 끝 --%>
-  <link rel="stylesheet" href="../css/apply_style_05.css">  
-  <script src="../js/apply.js" defer></script>
-  <script src="../js/jquery.js"></script>
+  <link rel="stylesheet" href="./css/apply_style_05.css">  
+  <script src="./js/apply.js" defer></script>
+  <script src="./js/jquery.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <title>Step 5</title>
@@ -20,6 +20,8 @@
           <p class="subtitle">견적요청내용을 확인하시고 맞다면 요청을 보내주세요.</p><br />
       <div class="estimate_box">
         <h3>고객님의 요청내용</h3>
+        <h4>고객</h4>
+        <h4>전화번호</h4>
         <h4>공간 유형</h4>
         <p>주거</p>
         <h4>건물 유형</h4>
@@ -34,8 +36,8 @@
       </div>
       </section>    
    <div class="nextpage">
-    <button class="button" id="go-back" onclick="location.href='applicationSheet2.jsp'">이전</button>
-    <button class="button" id="go-next" onclick="location.href='applicationSheet4.jsp'">다음</button>
+    <button class="button" id="go-back" onclick="location.href='estimate_apply4.do'">이전</button>
+    <button class="button" id="go-next" onclick="location.href=''">진행하기</button>
    </div>
   </div>
 </body>

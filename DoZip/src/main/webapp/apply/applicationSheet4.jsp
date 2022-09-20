@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="../common/header.jsp" />
 <%-- 상단 공통부분 끝 --%>
-    <link rel="stylesheet" href="../css/apply_style_04.css">
-    <script src="../js/apply.js" defer></script>
-    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="./css/apply_style_04.css">
+    <script src="./js/apply.js" defer></script>
+    <script src="./js/jquery.js"></script>
 
 
 <div id = "estimate_step04">
@@ -38,8 +38,8 @@
         </ul>
       </div>
         <div class="nextpage">
-          <button class="button" id="go-back" onclick="location.href='applicationSheet3.jsp'">이전</button>
-          <button class="button" id="go-next" onclick="location.href='applicationSheet5.jsp'">진행하기</button>
+          <button class="button" id="go-back" onclick="location.href='estimate_apply3.do'">이전</button>
+          <button class="button" id="go-next" onclick="location.href='estimate_apply5.do'">다음</button>
         </div>
     </div>
  </section>

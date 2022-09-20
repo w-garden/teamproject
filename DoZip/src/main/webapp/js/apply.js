@@ -32,6 +32,7 @@ $(document).ready(function(){
 });
 
 /*라디오*/
+
 $('#1').change(function () {
   if ($('#1').val() == 'on') {
     $('#type01').show();
@@ -152,8 +153,6 @@ $(function () {
     }
   });
 });
-
-//뒤로가기 버튼
 
 //글자수
 $('#paragraph').keyup(function (e) {
