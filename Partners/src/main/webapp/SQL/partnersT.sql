@@ -58,6 +58,8 @@ create table portfolioT(
 drop table portfolioT;
 select * from portfolioT;
 
+delete from portfolioT;
+
 
 
 

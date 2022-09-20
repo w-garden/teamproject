@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <jsp:include page = "../common/header.jsp"/>
 <%-- 상단 공통부분 끝--%>
-<link rel="stylesheet" type="text/css" href="../css/port_detail.css" />
+<link rel="stylesheet" type="text/css" href="/DoZip/css/port_detail.css" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 	<div class="clear"></div>
 		
@@ -92,7 +92,7 @@
 			<pre id = "comp_loca">경기 수원시 영통구 광교중앙로 170</pre>
 		</div>	
 		<div class = "comp_detail">
-			<button type = "button" id = "comp" onclick = "location = './comp_detail.jsp'">더보러가기</button>
+			<button type = "button" id = "comp" onclick = "location = 'comp_detail.do'">더보러가기</button>
 		</div>
 	</div>
 	<br><br>
