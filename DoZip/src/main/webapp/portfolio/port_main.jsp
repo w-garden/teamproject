@@ -2,10 +2,14 @@
 <jsp:include page = "../common/header.jsp"/>
 <%-- 상단 공통부분 끝--%>
 <link rel="stylesheet" type="text/css" href="/DoZip/css/portfolio.css" />
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <script src="../js/portfolio.js" defer></script>
+=======
+<script src="/DoZip/js/portfolio.js" defer></script>
+>>>>>>> 96f1bafe4b4bba6d2f46cdcfad2185aef2eb6ca7
 
 
 	<div class="clear"></div>
@@ -13,28 +17,38 @@
 	<!-- 본문영역-->
 	<!-- 프리미엄 기업 리스트-->
 		<div class = "premium_wrap">
+<<<<<<< HEAD
 			<!-- <div class = "premium_top">
 				<img id = "crown" src = "/DoZip/images/portfolio/detail/crown.png"/>
 				<p class = "premium_title">프리미엄 업체 (광고)</p>
 			</div> -->
+=======
+			
+>>>>>>> 96f1bafe4b4bba6d2f46cdcfad2185aef2eb6ca7
 			<div class = "premium_comp">
 				<div class="outer">
 				  <div class="inner-list">
 				    <div class="inner">
-				      <h2>업체 1</h2>
+				      <img src = "../images/portfolio/banner/test02.png"/>
 				    </div>
 				    <div class="inner">
-				      <h2>업체 2</h2>
+				      <h2>second...</h2>
 				    </div>
 				    <div class="inner">
-				      <h2>업체 3</h2>
+				      <h2>third...</h2>
 				    </div>
-				    <div class = "inner">
-				    	<h2>업체 4</h2>
+				    <div class="inner">
+				      <h2>forth...</h2>
 				    </div>
 				  </div>
+<<<<<<< HEAD
 				
 				<!-- 버튼에 이벤트를 등록해 버튼을 삭제하면 안됨 (hidden)으로 처리 -->
+=======
+				</div>
+
+				
+>>>>>>> 96f1bafe4b4bba6d2f46cdcfad2185aef2eb6ca7
 				<div class="button-list">
 				  <button class="button-left">← Left</button>
 				  <button class="button-right">Right →</button>

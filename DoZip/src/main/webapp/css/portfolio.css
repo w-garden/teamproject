@@ -82,8 +82,13 @@
 }
 
 .outer {
+<<<<<<< HEAD
   border: 6px solid royalblue;
   width: 80%;
+=======
+  border: 6px solid royalblue;  
+  width: 95%;
+>>>>>>> 96f1bafe4b4bba6d2f46cdcfad2185aef2eb6ca7
   height: 300px;
   margin: 0 auto;
   overflow-x: hidden;
@@ -91,22 +96,30 @@
 
 .inner-list {
   display: flex;
- /*  transition: 1.5s ease-out; */
- transition : linear;
-  transition-delay : delay;
+ transition: 1.5s ease-out; 
+ /* transition : linear;
+  transition-delay : delay; */
   height: 100%;
 }
 
 .inner {
- /*  border: 6px solid olive; */
-  padding: 0 16px;
+/*  border: 6px solid olive;  */
+  padding: 0 16px; 
 }
 
 .button-list {
   text-align: center;
 }
 
+<<<<<<< HEAD
 .button-left {
+=======
+.button-left,.button-right{
+	display : none;
+}
+
+/* .button-left {
+>>>>>>> 96f1bafe4b4bba6d2f46cdcfad2185aef2eb6ca7
 	border:0;
 	border-radius : 5px;
 	font-size : 1.2rem;
