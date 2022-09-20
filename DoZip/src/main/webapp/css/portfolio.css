@@ -82,8 +82,13 @@
 }
 
 .outer {
+<<<<<<< HEAD
+  border: 6px solid royalblue;
+  width: 80%;
+=======
   border: 6px solid royalblue;  
   width: 95%;
+>>>>>>> 96f1bafe4b4bba6d2f46cdcfad2185aef2eb6ca7
   height: 300px;
   margin: 0 auto;
   overflow-x: hidden;
@@ -106,11 +111,15 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
+.button-left {
+=======
 .button-left,.button-right{
 	display : none;
 }
 
 /* .button-left {
+>>>>>>> 96f1bafe4b4bba6d2f46cdcfad2185aef2eb6ca7
 	border:0;
 	border-radius : 5px;
 	font-size : 1.2rem;
@@ -122,6 +131,7 @@
 	font-weight : bold;	
 	color : white;
 	margin-top : 15px;
+	display : none;
 }
 
 .button-right {
@@ -136,7 +146,8 @@
 	font-weight : bold;	
 	color : white;
 	margin-top : 15px;
-} */
+	display : none;
+} 
 
 
 /*포트폴리오 본문*/
@@ -168,13 +179,21 @@
 }
 
 /* 개별카드 */
+
+.card-list {
+	width : 100%;
+	word-break:break-all;
+	word-wrap:break-word;
+}
+
 .card {
 	width: 30%;
-	height: 100%;
 	margin: 10px;
 	display: flex;
 	flex-direction: column;
-}
+}  
+
+
 
 .card_image img {
 	width: 100%;

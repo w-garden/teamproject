@@ -2,7 +2,10 @@
 <jsp:include page = "../common/header.jsp"/>
 <%-- 상단 공통부분 끝--%>
 <link rel="stylesheet" type="text/css" href="/DoZip/css/portfolio.css" />
-<script src="/DoZip/js/portfolio.js" defer></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+<script src="../js/portfolio.js" defer></script>
 
 
 	<div class="clear"></div>
@@ -10,7 +13,9 @@
 	<!-- 본문영역-->
 	<!-- 프리미엄 기업 리스트-->
 		<div class = "premium_wrap">
+
 			
+
 			<div class = "premium_comp">
 				<div class="outer">
 				  <div class="inner-list">
@@ -27,9 +32,8 @@
 				      <h2>forth...</h2>
 				    </div>
 				  </div>
-				</div>
-
 				
+				<!-- 버튼에 이벤트를 등록해 버튼을 삭제하면 안됨 (hidden)으로 처리 -->
 				<div class="button-list">
 				  <button class="button-left">← Left</button>
 				  <button class="button-right">Right →</button>
@@ -103,43 +107,21 @@
 			<div class="top_utile">
 				<p class="top_title">포트폴리오</p> 
  			</div>
- 		<%! int i=0; %>
-		<% for(i=1; i<5; i++) { %>
+ 			<!-- 반복문 시작 -->
 			<div class="cards-list">
-			<div class="card 1">
-			  <div class="card_image"> 
-			  	<img class = "ho" onclick = "location = './port_detail.jsp';" src= "/DoZip/images/portfolio/port001.png" /> 
-			  	<%-- onclick으로 클릭시 상세로 연결되게 --%>
-			  </div>
-			  <div class="card_title">
-				   	<li class = "corp">호철 디자인</li>
-				   	<li class = "card_tag">#감성펍 #20평 1000만원대 </li>
-			  </div> 
+				<c:forEach var="i" begin="0" end="${fn:length(plist)}" step="1">
+					<div class="card">
+					  <div class="card_image"> 
+					  	<img class = "ho" onclick = "location = 'port_detail.do';" src= "/DoZip/images/portfolio/port001.png" /> 
+					  	<%-- onclick으로 클릭시 상세로 연결되게 --%>
+					  </div>
+					  <div class="card_title">
+						   	<li class = "corp">${plist[i].pf_title}</li>
+						   	<li class = "card_tag">${plist[i].pf_type} ${plist[i].pf_area}  ${plist[i].pf_cost}</li>
+					  </div>
+					</div>
+				</c:forEach>
 			</div>
-			
-			  <div class="card 2">
-			  <div class="card_image">
-			    <img onclick = "location = './port_detail.jsp';" src="/DoZip/images/portfolio/port002.png" />
-			    </div>
-			  <div class="card_title">
-			    <li class = "corp">지혜 디자인</li>
-			    <li class = "card_tag">#모던 #22평 1000만원대</li>
-			  </div>
-			</div>
-			
-			  
-			  <div class="card 4">
-			  <div class="card_image">
-			    <img onclick = "location = './port_detail.jsp';" src="/DoZip/images/portfolio/port004.png" />
-			    </div>
-			  <div class="card_title">
-			    <li class = "corp">수환 디자인</li>
-			    <li class = "card_tag">#럭셔리 #80평 5000만원대</li>
-			  </div>
-			  </div>
-			
-			</div>
-		<% } %>
  		</div>	
  		
 

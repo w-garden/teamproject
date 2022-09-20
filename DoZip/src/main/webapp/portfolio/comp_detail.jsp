@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <jsp:include page = "../common/header.jsp"/>
 <%-- 상단 공통부분 끝 --%>
-<link rel="stylesheet" type="text/css" href="../css/comp_det.css" />
+<link rel="stylesheet" type="text/css" href="/DoZip/css/comp_det.css" />
 	<div class = "clear"></div>
 	
 	<!-- 본문영역 -->
