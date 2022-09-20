@@ -2,6 +2,11 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="../common/header.jsp" />
 <%-- 상단 공통부분 끝 --%>
+<script>
+function openSearch(){
+    window.open("counsel_find_partner.do", "_blank", "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=400, height=450, left=0, top=0" );
+}
+</script>
 
 <div class="counsel_write_wrap">
 	<div class="counsel_write_title">
@@ -13,8 +18,8 @@
 			<span>제목<br/></span>
 			<input type="text" name="qna_title"  id="qna_title"  placeholder="제목을 입력해주세요."/><br/>
 			<span>업체명<br/></span>
-			<input type="text" name="businessName"  id="businessName"  readonly placeholder="업체명을 검색해주세요."/>
-			<button type="button" id="cw_search_btn">검색</button><br/>
+			<input type="text" name="businessName"  id="businessName"  readonly placeholder="업체명을 검색해주세요." value="${b_name}"/>
+			<button type="button" id="cw_search_btn" onclick="openSearch();">검색</button><br/>
 			<span>문의유형<br/></span>
 			<select name="qna_type" id="qna_type">
 				<option selected>문의유형</option>

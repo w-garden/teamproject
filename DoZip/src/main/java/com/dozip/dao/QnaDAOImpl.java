@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -81,6 +83,28 @@ public class QnaDAOImpl {
 		}
 		return res;
 	}//insertQna()
+
+	//업체 리스트 출력
+	public List<String> parternList() {
+		List<String> list = new ArrayList<String>();
+		try {
+			con = ds.getConnection();
+			sql = "select businessName from partnersT";
+			pt = con.prepareStatement(sql);
+			rs = pt.executeQuery();
+			while(rs.next()) {
+				String name = rs.getString(1);
+				list.add(name);
+			}						
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pt);
+			close(con);
+		}
+		return list;
+	}
 	
 	
 }
