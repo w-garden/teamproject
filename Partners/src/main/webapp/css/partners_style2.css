@@ -6,8 +6,9 @@
 		background-color:aliceblue;
 	}
 	.item_title{
-		margin: 20px 2% 10px 2%;
-		padding: 20px 0 0 0;
+		margin: 0 0 10px 0;
+		padding: 10px 0 0 2.5%;
+		background-color: white;
 	}
 	.item_tab_box{
 		width: 97%;
@@ -182,20 +183,19 @@
 		letter-spacing: 0.025em;
 	}
 	.request_spot{
-		width: 80%;
-	}
-	h1.item_title{
-		font-size:32px;
+		width: 100%;
+		background-color:white;
 	}
 	.search_tab{
 		width: 100%;
 	}
 	
 	.search_box {
+    margin: 0 2% 0 0;
+    padding: 10px 0 10px 2.5%;
 		width: 100%;
 		height: 35px;
 		/*text-align:center; */
-		margin-bottom: 20px;
 	}
 	.search-txt {
 		padding:0px;
@@ -234,19 +234,16 @@
 	}
 
 	.request_list_top{
-		padding: 7px 0 0 2%;
+		padding: 7px 0 0 2.5%;
 	}
 
 	.request_list_container{
-		background-color:#EBFBFF;
-		margin-top: 15px;
+		background-color:aliceblue;
 		margin-bottom: 15px;
 		width: 80%;
 		white-space: nowrap;
 	}
  	.request_list{
- 		margin: 10px;
- 		margin-top: 15px;
  		margin-bottom: 15px;	
  	}
  	.request_list_top_right{
@@ -348,7 +345,7 @@
  		font-size: 12px;
  		list-style:none;
  		text-align:center;
- 		background-color:#EBFBFF;
+ 		background-color:aliceblue;
  		border-radius:3px;
  		/*word-break: keep-all;*/
  	}
@@ -367,7 +364,7 @@
  		font-size: 12px;
  		list-style: none;
  		text-align: center;
- 		background-color:#EBFBFF;
+ 		background-color:aliceblue;
  		border-radius:3px;
  	}
  	p.request_info_tit{
@@ -448,7 +445,7 @@
 		right:10%;
 	}
 	.request_list_detail_container{
-		background-color:#EBFBFF;
+		background-color:aliceblue;
 		margin-top: 30px;
 		margin-bottom: 30px;
 		width: 80%;
@@ -505,7 +502,7 @@
 	}
 	.green_box{
     padding: 1.5%;
-    background-color: #EBFBFF;
+    background-color: aliceblue;
     box-sizing: border-box;
 		font-weight: 500;
 	
@@ -514,17 +511,17 @@
 		width: 100%;
 		padding:0;
 	}
-
+	
 
 	.detail_info{
-		width: 20%;
+		width: 15%;
 		display: inline-block;
 		border-right:1px solid gray;
 		padding:0% 2% 0% 2%;
 		overflow: hidden;
 	}
 	.detail_info_ex{
-		width: 20%;
+		width: 15%;
 		display: inline-block;
 		padding:0% 2% 0% 2%;
 		overflow: hidden;
@@ -587,7 +584,7 @@
 	.bottom_color{
 		height: 20px;
 		padding: 10px;
-		background-color: #EBFBFF;
+		background-color: aliceblue	;
 	}
 	.bid_but{
 		overflow: hidden;
@@ -609,16 +606,17 @@
 	}
 
 /* my_bid */
+	.request_spot{
+	
+	}
 	.my_bid_title1, .my_bid_title2{
-
-		width: 90%;
+		width: 100%;
 	}
 	#bid_fin, #bid_proc{
-		margin-top:40px;
-		margin-bottom:10px;
+		padding: 40px 0 10px 50px;
+		background-color:white;
 	}
 	.my_bid_list{
-		margin-top:20px;
 		margin-bottom:20px;
 	}
 	.my_bid_label{
@@ -694,5 +692,27 @@
 	}
 	.attach_style_list{
 		list-style:none;
+	}
+	
+	/*request_detail */
+	.detail_info_cons{
+		width: 20%;
+		display: inline-block;
+		border-right:1px solid gray;
+		padding:0% 2% 0% 2%;
+		overflow: hidden;
+	}
+	.detail_info_cons_ex{
+		width: 20%;
+		display: inline-block;
+		padding:0% 2% 0% 2%;
+		overflow: hidden;
+	}
+	.detail_info_cons .dt, .detail_info_cons_ex .dt{
+		font:12px;
+		color:gray;
+	}
+	.detail_info_cons .dd, .detail_info_cons_ex .dd{
+		text-align:center;
 	}
 	
