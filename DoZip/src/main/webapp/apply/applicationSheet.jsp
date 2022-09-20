@@ -8,6 +8,7 @@
     <title>인테리어 견적 신청서</title>
   <body>
     <article id="estimate_step01">
+     <form method="post" action="estimate_apply_ok.do">
       <div>
         <section aria-label="공간 유형 선택" class="building_types">
           <div class="title">
@@ -16,10 +17,8 @@
           <br/>
           <div class="estimate_box">
           <h3>공간 유형</h3>
-            <input type="radio" id="1" name="2" checked>
-            <label for="1">주거</label>
-            <input type="radio" id="2" name="2">
-            <label for="2">상가</label>
+            <input type="radio" id="1" name="est_zoning" checked><label for="1">주거</label>
+            <input type="radio" id="2" name="est_zoning"><label for="2">상가</label>
         </section>
         </div>
       </div>
@@ -27,26 +26,26 @@
         <h3>건물 유형</h3>
         <div id = "type01" >
           <div>
-          <input type="radio" id="ty1" name="ty"><label for="ty1">아파트</label>
-          <input type="radio" id="ty2" name="ty"><label for="ty2">빌라</label>
+          <input type="radio" id="ty1" name="est_use" value="아파트"><label for="ty1">아파트</label>
+          <input type="radio" id="ty2" name="est_use" value="빌라"><label for="ty2">빌라</label>
           </div>
           <div>
-            <input type="radio" id="ty3" name="ty"><label for="ty3">주택</label>
-            <input type="radio" id="ty4" name="ty"><label for="ty4">오피스텔</label>
+            <input type="radio" id="ty3" name="est_use" value="주택"><label for="ty3">주택</label>
+            <input type="radio" id="ty4" name="est_use" value="오피스텔"><label for="ty4">오피스텔</label>
           </div>
           </div>
            <div id="type02" style="display: none;">
             <div>
-            <input type="radio" id="ty5" name="ty"><label for="ty5">사무실</label>
-            <input type="radio" id="ty6" name="ty"><label for="ty6">상가/매장</label>
+            <input type="radio" id="ty5" name="est_use" value="사무실"><label for="ty5">사무실</label>
+            <input type="radio" id="ty6" name="est_use" value="상가/매장"><label for="ty6">상가/매장</label>
             </div>
-            <input type="radio" id="ty7" name="ty"><label for="ty7">카페/식당</label>
-            <input type="radio" id="ty8" name="ty"><label for="ty8">학원/교육</label>
+            <input type="radio" id="ty7" name="est_use" value="카페/식당"><label for="ty7">카페/식당</label>
+            <input type="radio" id="ty8" name="est_use" value="학원/교육"><label for="ty8">학원/교육</label>
             <div>
-            <input type="radio" id="ty9" name="ty"><label for="ty9">숙박/병원</label>
-            <input type="radio" id="ty10" name="ty"><label for="ty10">간판</label>
+            <input type="radio" id="ty9" name="est_use" value="숙박/병원"><label for="ty9">숙박/병원</label>
+            <input type="radio" id="ty10" name="est_use" value="간판"><label for="ty10">간판</label>
             </div>
-            <input type="radio" id="ty11" name="ty"><label for="ty11">기타</label>
+            <input type="radio" id="ty11" name="est_use" value="기타"><label for="ty11">기타</label>
            </div>
       </div>
       <!-- id : 고유한 식별 목적
@@ -54,20 +53,20 @@
            name : 컨트롤 요소값(value)을 서버로 전송하기위함-->
       <div class = "estimate_calculator">
         <h3>평수 (공급면적)</h3><br/><br/>
-        <input type="tel" id="cal1" maxlength="3" placeholder="0" onkeyup="calculator(1);">평 -<input type="text" id="cal2" placeholder="0" onkeyup="calculator(2);">m2
+        <input type="tel" id="cal1" name="areaP" maxlength="3" placeholder="0" onkeyup="calculator(1);" >평 -<input type="text" id="cal2" name="areaM" placeholder="0" onkeyup="calculator(2);">m2
       </div>
       <div class="areaBoxComponent">
         <h3>원하는 공간 선택</h3>
         <div class="123">
           <input type="checkbox" id="allCk" name="checkAll" class="checkbox" data-name="전체선택">
-          <input type="checkbox" id="wall" name="check" data-name="도배/벽" class ="checkbox"/>
-          <input type="checkbox" id="floor" name="check" data-name="바닥" class ="checkbox"/>
-          <input type="checkbox" id="kitchen" name="check" data-name="주방" class ="checkbox"/>
-          <input type="checkbox" id="washroom" name="check" data-name="욕실" class ="checkbox"/>
-          <input type="checkbox" id="porch" name="check" data-name="현관" class ="checkbox"/>
-          <input type="checkbox" id="window" name="check" data-name="발코니/샷시" class ="checkbox"/>
-          <input type="checkbox" id="light" name="check" data-name="조명" class ="checkbox"/>
-          <input type="checkbox" id="door" name="check" data-name="문" class ="checkbox"/>
+          <input type="checkbox" id="wall" name="check" data-name="도배/벽" value="도배/벽" class ="checkbox"/>
+          <input type="checkbox" id="floor" name="check" data-name="바닥" value="바닥" class ="checkbox"/>
+          <input type="checkbox" id="kitchen" name="check" data-name="주방" value="주방" class ="checkbox"/>
+          <input type="checkbox" id="washroom" name="check" data-name="욕실" value="욕실" class ="checkbox"/>
+          <input type="checkbox" id="porch" name="check" data-name="현관" value="현관" class ="checkbox"/>
+          <input type="checkbox" id="window" name="check" data-name="발코니/샷시" value="발코니/샷시" class ="checkbox"/>
+          <input type="checkbox" id="light" name="check" data-name="조명" value="조명" class ="checkbox"/>
+          <input type="checkbox" id="door" name="check" data-name="문" value="문" class ="checkbox"/>
         </div>
       </div>
 
@@ -404,9 +403,10 @@
 
 <%-- 다음페이지 버튼 --%>
       <div class="nextpage">
-        <button class="button" onclick="location.href='applicationSheet2.jsp'">다음단계</button>
+        <button class="button" onclick="location.href='estimate_apply2.do'">다음단계</button>
       </div>
       </div>
+      </form>
     </article>
 </body>
  <%-- 하단 공통부분 --%>
