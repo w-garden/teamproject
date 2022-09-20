@@ -49,6 +49,7 @@ public class PartnersLoginOKController implements Action {
 					
 					session.setAttribute("id", pId);
 					session.setAttribute("businessName", dto.getBusinessName());
+					session.setAttribute("business_num", dto.getBusiness_num());
 
 					ActionForward forward = new ActionForward();
 					forward.setRedirect(false);

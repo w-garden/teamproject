@@ -22,8 +22,6 @@ public class PortfolioDTO {
 	private String pf_photo3;
 	private String pf_photo4;
 	private String pf_photo5;
-	private String pf_photo6;
-	private String pf_photo7;
 	private int pf_premium;
 	private String pf_regdate;
 	
@@ -182,18 +180,6 @@ public class PortfolioDTO {
 	}
 	public void setPf_photo5(String pf_photo5) {
 		this.pf_photo5 = pf_photo5;
-	}
-	public String getPf_photo6() {
-		return pf_photo6;
-	}
-	public void setPf_photo6(String pf_photo6) {
-		this.pf_photo6 = pf_photo6;
-	}
-	public String getPf_photo7() {
-		return pf_photo7;
-	}
-	public void setPf_photo7(String pf_photo7) {
-		this.pf_photo7 = pf_photo7;
 	}
 	public int getPf_premium() {
 		return pf_premium;
