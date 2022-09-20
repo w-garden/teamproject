@@ -10,32 +10,30 @@
 	<!-- 본문영역-->
 	<!-- 프리미엄 기업 리스트-->
 		<div class = "premium_wrap">
-			<div class = "premium_top">
-				<img id = "crown" src = "/DoZip/images/portfolio/detail/crown.png"/>
-				<p class = "premium_title">프리미엄 업체 (광고)</p>
-			</div>
+			
 			<div class = "premium_comp">
 				<div class="outer">
 				  <div class="inner-list">
 				    <div class="inner">
-				      <h2>업체 1</h2>
+				      <img src = "../images/portfolio/banner/test02.png"/>
 				    </div>
 				    <div class="inner">
-				      <h2>업체 2</h2>
+				      <h2>second...</h2>
 				    </div>
 				    <div class="inner">
-				      <h2>업체 3</h2>
+				      <h2>third...</h2>
 				    </div>
-				    <div class = "inner">
-				    	<h2>업체 4</h2>
+				    <div class="inner">
+				      <h2>forth...</h2>
 				    </div>
 				  </div>
 				</div>
+
 				
-				<!-- <div class="button-list">
+				<div class="button-list">
 				  <button class="button-left">← Left</button>
 				  <button class="button-right">Right →</button>
-				</div> -->
+				</div> 
 					
 			</div>
 		</div>
