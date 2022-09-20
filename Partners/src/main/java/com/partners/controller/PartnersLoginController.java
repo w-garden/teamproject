@@ -9,11 +9,9 @@ public class PartnersLoginController implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		
-		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./signin.jsp");
+		forward.setPath("/Partners/signin.jsp");
 		return forward;
 	}
 

@@ -12,34 +12,27 @@
 <script src="/Partners/js/jquery.js"></script>
 <script src="/Partners/js/javascript.js"></script>
 <style>
-body {
-	margin: 0px;
-	background: #F9FAFB;
-}
-
-footer {
-	background: white;
-}
-#signin_wrap{
-	margin: 50px 0px 200px 0px;
-}
 
 
 </style>
+
+
 </head>
 <body>
-	<div id="signin_wrap">
+
+
+	<article id="join_wrap">
 		
 
 		<div id= signin_cont>
 			<div id="signin_title">
-					<div><a href="main.jsp">
-						<img src="images/logo.png" alt="메인로고"></a></div>
+					<div><a href="/DoZip/index.jsp">
+						<img src="images/logo3.png" alt="메인로고"></a></div>
 					<div class="msg">파트너스</div>
 			</div>
-			<form action="index.jsp" id="로그인 폼" onsubmit="return check()">
-				<div><input type="text" name="id" id="signin_id" placeholder="아이디"></div>
-				<div><input type="password" name="pw" id="signin_pw" placeholder="비밀번호"></div>
+			<form action="partners_login_ok.do" method="post" id="로그인 폼" onsubmit="return check()">
+				<div><input type="text" name="login_pId" id="signin_id" placeholder="아이디"></div>
+				<div><input type="password" name="login_pPw" id="signin_pw" placeholder="비밀번호"></div>
 				<div><input type="submit" value="로그인" id="login"></div>
 				<div id=bottom_button1>
 					<div id=id_save>
@@ -51,7 +44,7 @@ footer {
 			</form>
 			<div id=bottom_button2>
 				<div> 아이디 또는 비밀번호를 잃어버리셨다면 ?</div>
-				<div><input type="button" id="" value="문의하기" onclick="location='find_info.jsp'"></div>
+				<div><input type="button" id="" value="문의하기" onclick="location='partners_findinfo.do'"></div>
 			</div>
 		
 		
@@ -91,7 +84,6 @@ footer {
 		
 		</script>
 	
-
 		
 <jsp:include page="include/footer.jsp" />
 

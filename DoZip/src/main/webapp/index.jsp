@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,21 +26,26 @@
 			<nav class="header_nav">
 				<!-- 로고 -->
 				<div class="logo">
-					<a href="./index.jsp"> <img src="./images/logo.png"/>
+					<a href="home.do"> <img src="./images/logo.png"/>
 					</a>
 				</div>
 				
 				<ul class="menu">
-					<li><a href="./apply/applicationSheet.jsp">견적신청</a></li>
-					<li><a href="./portfolio/port_main.jsp">포트폴리오</a></li>
-					<li><a href="./review/review_main.jsp">고객후기</a></li>
-					<li><a href="./mypage/mypage_main.jsp">스토리</a></li>
-					<li><a href="/Partners/Join/signin.jsp">파트너스</a></li>
+					<li><a href="estimate_apply.do">견적신청</a></li>
+					<li><a href="portfolio.do">포트폴리오</a></li>
+					<li><a href="review.do">고객후기</a></li>
+					<li><a href="#">스토리</a></li>
+					<li><a href="partners.do">파트너스</a></li>
 				</ul>
 			
 				<ul class="icons">
+				<c:if test="${empty id}"> <!-- 로그인 전 -->
 					<li><a href="#none" onclick="openLogin();"><img src="./images/user.png" width="30" height="30" /></a></li>
-					<li><a href="./counsel/counsel_main.jsp"><img src="./images/counsel.png" width="30" height="30" /></a></li>
+				</c:if>
+				<c:if test="${!empty id}"> <!-- 로그인 후 -->
+					<li><a href="mypage_go.do"><img src="./images/user.png" width="30" height="30" /></a></li>
+				</c:if>
+					<li><a href="counsel.do"><img src="./images/counsel.png" width="30" height="30" /></a></li>
 				</ul>
 				<a href="#" class="toggleBtn"><i class="fas fa-bars"></i></a> <!-- 반응형 메뉴 토글 버튼-->
 			</nav>
@@ -98,7 +104,7 @@
 			
 
 			<span class="part_title">
-				<a id="part4_link" href='./portfolio/port_main.jsp'><p>포트폴리오 보러가기 >></p></a>
+				<a id="part4_link" href="portfolio.do"><p>포트폴리오 보러가기 >></p></a>
 			</span>
 			
 			<div id = "part4_area">
@@ -159,12 +165,12 @@
 			
 			<div id="part5">
 				<span class="part_title">
-					<a id="part5_link" href='./review/review_main.jsp'><p>더 많은 후기 보러가기 >></p></a>
+					<a id="part5_link" href="review.do"><p>더 많은 후기 보러가기 >></p></a>
 				</span>
 				<div id="part5_area">
 				
 					<div class="part5_inner">
-						<div><a class="part5_img" href="./review/review_detail.jsp">
+						<div><a class="part5_img" href="review_detail.do">
 							<img src=""/>
 						</a></div>
 						<div class="part5_title"><p>후기 제목</p></div>
@@ -174,7 +180,7 @@
 						<p></p>					
 					</div>
 					<div class="part5_inner">
-						<div><a class="part5_img" href="./review/review_detail.jsp">
+						<div><a class="part5_img" href="review_detail.do">
 							<img src=""/>
 						</a></div>
 						<div class="part5_title"><p>후기 제목</p></div>
@@ -184,7 +190,7 @@
 						<p></p>					
 					</div>
 					<div class="part5_inner">
-						<div><a class="part5_img" href="./review/review_detail.jsp">
+						<div><a class="part5_img" href="review_detail.do">
 							<img src=""/>
 						</a></div>
 						<div class="part5_title"><p>후기 제목</p></div>

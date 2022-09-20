@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-body{
-font-family: 'Noto Sans KR', sans-serif;
-}
+@charset "UTF-8";
+
 /********/
 /*전체틀*/
 /*********/
 *{
+	font-family: "맑은 고딕", 돋움, 굴림;
 	margin:0px ;
 	padding:0px;
+	
+}
+body{
+	background: #F6F5EF;
+	
 }
 #wrap{
 	display:flex;
@@ -30,7 +34,6 @@ header {
 	justify-content:space-between;
 	color: white;
 	border-bottom: 1px solid #eee;
-	
 	background-color: rgb(53, 150, 230);	
 }
 
@@ -72,7 +75,7 @@ header .msg {
 #main_cont {
 	/*padding: 17px; */
     min-height: 600px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     margin-left: 10%;
     width: 90%;
     
@@ -146,20 +149,19 @@ header .msg {
 
 footer{
 	width: 90%;
-    padding-top: 10px;
+	padding: 10px 0px 20px 0px;
     margin-left: 10%;
+    border-top: 1px solid black;   
+    background: #2C2A29;
 }
-#footer_nav {
-	font-size: 1.0rem;
-	font-family: '210 맨발의청춘 Regular';
-}
+
 
 #footer_nav a {
 	padding: 10px 0px 0px 20px;
-	font-weight: 500;
-	color: black;
+	color: white;	
 	white-space: nowrap;
 	text-decoration: none;
+	
 	
 }
 
@@ -168,8 +170,7 @@ footer{
 }
 
 footer ul {
-	margin: 0;
-	padding: 0;
+	margin: 10px 0px;
 	display: flex;
 	list-style: none;
 }
@@ -180,11 +181,8 @@ footer ul {
 	margin-left: 20px;
 }
 
-.footer_company_call_number {
-	font-size: 1.0rem;
-	font-family: '여기어때 잘난체';
-	color: black;
+a.footer_mail {
+    color: white;
+    text-decoration: none;
 }
-
-
 

@@ -13,7 +13,7 @@
 			<p id="info_text_s">자주하는 질문과 답변을 확인해보세요</p>
 		</div>
 		<div class="btn_group">
-			<button id="qna_write_btn"><a href="./counsel_write.jsp" >문의글 작성하기</a></button>
+			<button id="qna_write_btn"><a href="counsel_write.do" >문의글 작성하기</a></button>
 			<button id="real_counsel_btn"><a href="#" >1:1 실시간 상담하기</a></button>
 		</div>
 	</div>

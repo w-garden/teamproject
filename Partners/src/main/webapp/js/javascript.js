@@ -11,53 +11,113 @@ $(document).ready(function() {
 			$(this).addClass('enable');
 		} else {
 			$(this).removeClass('enable');
-		}	
+		}
 	});
 });
+
 /***************************/
 /*회원가입창 개인정보 동의 */
 /**************************/
-	$(function() {
-				$('#all').click(function() {
-					if ($('#all').prop('checked')) {
-						$('#check_1').prop('checked', 'checked');
-						$('#check_2').prop('checked', 'checked');
-						$('#check_3').prop('checked', 'checked');
-					} else {
-						$('#check_1').prop('checked', '');
-						$('#check_2').prop('checked', '');
-						$('#check_3').prop('checked', '');
-					}
+$(function() {
+	$('#all').click(function() {
+		if ($('#all').prop('checked')) {
+			$('#check_1').prop('checked', 'checked');
+			$('#check_2').prop('checked', 'checked');
+			$('#check_3').prop('checked', 'checked');
+		} else {
+			$('#check_1').prop('checked', '');
+			$('#check_2').prop('checked', '');
+			$('#check_3').prop('checked', '');
+		}
 
-				});
-			});
-			$(function() {
-				$('#check_1').click(function() {
-					if ($('#all').prop('checked')) {
-						$('#all').prop('checked', '');
-					}
+	});
+});
+$(function() {
+	$('#check_1').click(function() {
+		if ($('#all').prop('checked')) {
+			$('#all').prop('checked', '');
+		}
 
-				});
-			});
-			$(function() {
-				$('#check_2').click(function() {
-					if ($('#all').prop('checked')) {
-						$('#all').prop('checked', '');
-					}
+	});
+});
+$(function() {
+	$('#check_2').click(function() {
+		if ($('#all').prop('checked')) {
+			$('#all').prop('checked', '');
+		}
 
-				});
-			});
-			$(function() {
-				$('#check_3').click(function() {
-					if ($('#all').prop('checked')) {
-						$('#all').prop('checked', '');
-					}
-				});
-			});
+	});
+});
+$(function() {
+	$('#check_3').click(function() {
+		if ($('#all').prop('checked')) {
+			$('#all').prop('checked', '');
+		}
+	});
+});
 
-/***********/
+/*************************/
+/* 로그인 창 유효성 검사 */
+/*************************/
+
+function signup_check() {
+	if ($.trim($('#businessName').val()) == '') {
+		alert('업체명을 입력하세요');
+		$('#businessName').focus();
+		return false;
+	}
+	if ($.trim($('#business_num').val()) == '') {
+		alert('사업자번호를 입력하세요');
+		$('#business_num').focus();
+		return false;
+	}
+	if ($.trim($('#pName').val()) == '') {
+		alert('이름을 입력하세요');
+		$('#pName').focus();
+		return false;
+	}
+	if ($.trim($('#pTel').val()) == '') {
+		alert('연락처를 입력하세요');
+		$('#pTel').focus();
+		return false;
+	}
+	if ($.trim($('#pMail_id').val()) == '') {
+		alert('이메일을 입력하세요');
+		$('#pMail_id').focus();
+		return false;
+	}
+	if ($.trim($('#pId').val()) == '') {
+		alert('아이디를 입력하세요');
+		$('#pId').focus();
+		return false;
+	}pwchk
+	if ($.trim($('#pPw').val()) == '') {
+		alert('비밀번호를 입력하세요');
+		$('#pPw').focus();
+		return false;
+	}
+	if ($.trim($('#pPw').val()) != $.trim($('#pwchk').val())) {
+		alert('비밀번호가 일치하지 않습니다.');
+		$('#pPw').val('');
+		$('#pwchk').val('');
+		$('#pPw').focus();
+
+		return false;
+	}
+}
+/********************/
+/*회원가입창 이메일 */
+/********************/
+
+$(function() {
+	$('#email_adr').change(function() {
+		$('#pMail_domain').val($('#email_adr').val());
+	});
+});
+
+/**************/
 /*로그인 시간 */
-/***********/
+/**************/
 
 var iSecond; //초단위로 환산
 var timerchecker = null;
@@ -122,9 +182,11 @@ function initAjax() { // 브라우저에 따른 AjaxObject 인스턴스 분
 		xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	return xmlhttp;
-} 
+}
+/*******************/
+/***** 주소 검색 ***/
+/*******************/
 
-/* 주소 검색 */
 function sample6_execDaumPostcode() {
 	new daum.Postcode({
 		oncomplete: function(data) {
@@ -173,17 +235,18 @@ function sample6_execDaumPostcode() {
 	}).open();
 }
 
-/*공사유형선택 */
+/*******************/
+/*** 공사유형선택 **/
+/*******************/
 
 $(function() {
-
 	$('#sel_type').change(function() {
-		if (($('#sel_type').val()) == 'house') {
+		if (($('#sel_type').val()) == '주거공간') {
 			$('#sel_house').removeAttr("disabled");
 			$('#sel_house').show();
 			$('#sel_business').hide();
 		}
-		if (($('#sel_type').val()) == 'business') {
+		if (($('#sel_type').val()) == '상업공간') {
 			$('#sel_business').removeAttr("disabled");
 			$('#sel_business').show();
 			$('#sel_house').hide();
@@ -195,7 +258,10 @@ $(function() {
 	});
 });
 
+/*****************************/
 /*고객관리 페이지  토글 버튼*/
+/*****************************/
+
 
 $(function() {
 	$('#detailed_search').click(function() {

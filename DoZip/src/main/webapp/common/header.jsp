@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,7 @@
   
 	<script>
 	    function openLogin(){
-	        window.open("../common/login.jsp", "_blank", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=550, left=0, top=0" );
+	        window.open("member_login.do", "_blank", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=550, left=0, top=0" );
 	    }
 	</script>
 </head>
@@ -30,21 +31,26 @@
 			<nav class="header_nav">
 				<!-- 로고 -->
 				<div class="logo">
-					<a href="../index.jsp"> <img src="../images/logo.png"/>
+					<a href="home.do"> <img src="/DoZip/images/logo.png"/>
 					</a>
 				</div>
 				
 				<ul class="menu">
-					<li><a href="../apply/applicationSheet.jsp">견적신청</a></li>
-					<li><a href="../portfolio/port_main.jsp">포트폴리오</a></li>
-					<li><a href="../review/review_main.jsp">고객후기</a></li>
-					<li><a href="../mypage/mypage_main.jsp">스토리</a></li>
-					<li><a href="/Partners/Join/signin.jsp">파트너스</a></li>
+					<li><a href="estimate_apply.do">견적신청</a></li>
+					<li><a href="portfolio.do">포트폴리오</a></li>
+					<li><a href="review.do">고객후기</a></li>
+					<li><a href="#">스토리</a></li>
+					<li><a href="partners.do">파트너스</a></li>
 				</ul>
 			
 				<ul class="icons">
-					<li><a href="#none" onclick="openLogin();"><img src="../images/user.png" width="30" height="30" /></a></li>
-					<li><a href="../counsel/counsel_main.jsp"><img src="../images/counsel.png" width="30" height="30" /></a></li>
+					<c:if test="${empty id}"> <!-- 로그인 전 -->
+						<li><a href="#none" onclick="openLogin();"><img src="/DoZip/images/user.png" width="30" height="30" /></a></li>
+					</c:if>
+					<c:if test="${!empty id}"> <!-- 로그인 후 -->
+						<li><a href="mypage_go.do"><img src="/DoZip/images/user.png" width="30" height="30" /></a></li>
+					</c:if>
+					<li><a href="counsel.do"><img src="/DoZip/images/counsel.png" width="30" height="30" /></a></li>
 				</ul>
 				<a href="#" class="toggleBtn"><i class="fas fa-bars"></i></a> <!-- 반응형 메뉴 토글 버튼-->
 			</nav>

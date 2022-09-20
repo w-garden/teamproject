@@ -7,7 +7,7 @@ create table memberT(
 	mem_tel varchar2(20) not null, --회원연락처
 	mem_email varchar2(20) not null, --회원 이메일 아이디
 	mem_domain varchar2(20) not null, --회원 이메일 도메인
-	mem_zip number(10), --회원 우편번호
+	mem_zip varchar2(10), --회원 우편번호
 	mem_addr1 varchar2(100), --회원 주소
 	mem_addr2 varchar2(100), --회원 주소 상세
 	mem_joinType varchar2(20) not null, --가입유형(일반/카톡/네이버/페북/구글)

@@ -1,13 +1,14 @@
 package com.partners.dto;
 
 public class PartnersDTO {
-	private int business_num;
+	private String business_num;
 	private String businessName;
 	private String pId;
 	private String pPw;
 	private String pName;
-	private int pTel;
-	private String pMail;
+	private String pTel;
+	private String pMail_id;
+	private String pMail_domain;
 	private String pAddress;
 	private String pDate;
 	private String PDeldate;
@@ -15,9 +16,14 @@ public class PartnersDTO {
 	private int pState;
 	
 	public PartnersDTO() {}
+	
+	
+	
+	
+	//회원가입시 사용할 DTO 
 
-	public PartnersDTO(int business_num, String businessName, String pId, String pPw, String pName, int pTel,
-			String pMail, String pAddress, String pDate, String pDeldate, String pDelcont, int pState) {
+	public PartnersDTO(String business_num, String businessName, String pId, String pPw, String pName, String pTel,
+			String pMail_id, String pMail_domain) {
 		super();
 		this.business_num = business_num;
 		this.businessName = businessName;
@@ -25,19 +31,20 @@ public class PartnersDTO {
 		this.pPw = pPw;
 		this.pName = pName;
 		this.pTel = pTel;
-		this.pMail = pMail;
-		this.pAddress = pAddress;
-		this.pDate = pDate;
-		PDeldate = pDeldate;
-		this.pDelcont = pDelcont;
-		this.pState = pState;
+		this.pMail_id = pMail_id;
+		this.pMail_domain = pMail_domain;
 	}
 
-	public int getBusiness_num() {
+
+
+
+
+
+	public String getBusiness_num() {
 		return business_num;
 	}
 
-	public void setBusiness_num(int business_num) {
+	public void setBusiness_num(String business_num) {
 		this.business_num = business_num;
 	}
 
@@ -73,20 +80,28 @@ public class PartnersDTO {
 		this.pName = pName;
 	}
 
-	public int getpTel() {
+	public String getpTel() {
 		return pTel;
 	}
 
-	public void setpTel(int pTel) {
+	public void setpTel(String pTel) {
 		this.pTel = pTel;
 	}
 
-	public String getpMail() {
-		return pMail;
+	public String getpMail_id() {
+		return pMail_id;
 	}
 
-	public void setpMail(String pMail) {
-		this.pMail = pMail;
+	public void setpMail_id(String pMail_id) {
+		this.pMail_id = pMail_id;
+	}
+
+	public String getpMail_domain() {
+		return pMail_domain;
+	}
+
+	public void setpMail_domain(String pMail_domain) {
+		this.pMail_domain = pMail_domain;
 	}
 
 	public String getpAddress() {

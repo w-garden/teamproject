@@ -44,6 +44,7 @@ public class MemberJoinOKController implements Action {
 			out.println("window.close();");
 			out.println("</script>");
 		}		
+
 		return null;
 	}
 

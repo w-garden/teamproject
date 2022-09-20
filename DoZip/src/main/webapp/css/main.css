@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* index.jsp ui */
+
 body{
 	margin:0px; /*상하좌우 바깥여백을 없앰*/
 	padding:0px; /*상하좌우 안여백을 없앰 */
@@ -112,7 +113,7 @@ a:hover {
 
 /* 본문 */
 #wrap { /* 본문 전체를 감싸는 wrap */
-	width: 90%;
+	width: 100%;
 	margin:0 auto; /* 가운데 정렬 */
 }
 
@@ -292,7 +293,7 @@ a:hover {
 	list-style: none;
 	text-align: center;
 	line-height: 1.9;
-	font-size: 0.8rem;
+	font-size: 0.9rem;
 	font-weight : 700;
 }
 .card:hover {
