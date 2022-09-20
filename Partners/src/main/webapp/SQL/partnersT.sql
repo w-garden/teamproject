@@ -48,8 +48,6 @@ create table portfolioT(
 	pf_photo3 nvarchar2(50), --사진3
 	pf_photo4 nvarchar2(50), --사진4
 	pf_photo5 nvarchar2(50), --사진5
-	pf_photo6 nvarchar2(50), --사진6
-	pf_photo7 nvarchar2(50), --사진7
 	pf_premium number(5) default 0, --프리미엄여부
 	pf_regdate nvarchar2(20) not null, --작성일자
 	foreign key(business_num) references partnersT(business_num)

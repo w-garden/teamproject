@@ -204,41 +204,5 @@ public class PartnersDAO {
 
 	// 파트너스 탈퇴 메서드
 
-	/**************************************/
-	/********* 포트폴리오 관련 메서드 ******/
-	/**************************************/
-
-	public void addPortfolio(PortfolioDTO dto) {
-		try {
-			conn = ds.getConnection();
-			sql = "insert into portfolioT (pf_no, business_num, pf_title, pf_type, pf_subtype, pf_range, pf_zipcode, pf_addr1, pf_addr2, pf_addr3, pf_area, pf_cost, pf_period,"
-					+ "pf_concept, pf_introduction, pf_closing, pf_regdate) values (portfolioT_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getBusiness_num());
-			pstmt.setString(2, dto.getPf_title());
-			pstmt.setString(3, dto.getPf_type());
-			pstmt.setString(4, dto.getPf_subtype());
-			pstmt.setString(5, dto.getPf_range());
-			pstmt.setString(6, dto.getPf_zipcode());
-			pstmt.setString(7, dto.getPf_addr1());
-			pstmt.setString(8, dto.getPf_addr2());
-			pstmt.setString(9, dto.getPf_addr3());
-			pstmt.setInt(10, dto.getPf_area());
-			pstmt.setInt(11, dto.getPf_cost());
-			pstmt.setInt(12, dto.getPf_period());
-			pstmt.setString(13, dto.getPf_concept());
-			pstmt.setString(14, dto.getPf_introduction());
-			pstmt.setString(15, dto.getPf_closing());
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				close(pstmt);
-				close(conn);
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}
-	}
+	
 }

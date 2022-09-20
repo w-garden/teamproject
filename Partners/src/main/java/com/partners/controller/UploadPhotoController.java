@@ -2,11 +2,12 @@ package com.partners.controller;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.partners.dao.PartnersDAO;
-import com.partners.dto.PartnersDTO;
+import com.partners.dao.PortfolioDAO;
 import com.partners.dto.PortfolioDTO;
 
 public class UploadPhotoController implements Action {
@@ -16,14 +17,13 @@ public class UploadPhotoController implements Action {
 		request.setCharacterEncoding("UTF-8");
 		
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		
-		String pId= request.getParameter("pId"); //사업자 번호를 가져오기 위해 세션 값을 가져옴
-		PartnersDAO dao = new PartnersDAO();
-		PartnersDTO pdto =  dao.selectPartner(pId);
+		HttpSession session = request.getSession();
 		
 		
-		String business_num = pdto.getBusiness_num();
+		PortfolioDAO dao = new PortfolioDAO();
+		
+		
+		String business_num = (String)session.getAttribute("business_num"); //세션에 저장된 사업자 번호
 		String pf_title = request.getParameter("pf_title");
 		String pf_type = request.getParameter("pf_type");
 		String pf_subtype = request.getParameter("pf_subtype");
@@ -43,8 +43,13 @@ public class UploadPhotoController implements Action {
 				pf_addr2, pf_addr3, pf_area, pf_cost, pf_period, pf_concept, pf_introduction, pf_closing);
 		
 		
-		dao.addPortfolio(dto);
+		int intpf_no=dao.addPortfolio(dto);
+		String pf_no=String.valueOf(intpf_no);
 		
+		
+		Cookie cookie = new Cookie("pf_no", pf_no);
+		response.addCookie(cookie);
+
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("/portfolio/p_upload_photo.jsp");

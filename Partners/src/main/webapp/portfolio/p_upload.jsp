@@ -16,8 +16,7 @@
 	</div>
 </div>
 <form action="upload_photo.do" id="portfolio_form" method="post">
-	<input type="hidden" name="pId" value="${id }">
-	<!-- 제목, 공사 유형, 시공범위, 주소 ,평수, 공사비용, 공사기간-->
+	<%-- 제목, 공사 유형, 시공범위, 주소 ,평수, 공사비용, 공사기간--%>
 	<fieldset id="first_area">
 		<legend>기본정보</legend>
 		<div>

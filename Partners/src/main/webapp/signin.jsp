@@ -27,8 +27,7 @@
 		<div id= signin_cont>
 			<div id="signin_title">
 					<div><a href="/DoZip/index.jsp">
-						<img src="images/logo3.png" alt="메인로고"></a></div>
-					<div class="msg">파트너스</div>
+						<img src="images/partners_logo.png" alt="메인로고"></a></div>
 			</div>
 			<form action="partners_login_ok.do" method="post" id="로그인 폼" onsubmit="return check()">
 				<div><input type="text" name="login_pId" id="signin_id" placeholder="아이디"></div>
