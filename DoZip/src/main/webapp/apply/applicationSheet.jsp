@@ -53,7 +53,7 @@
            name : 컨트롤 요소값(value)을 서버로 전송하기위함-->
       <div class = "estimate_calculator">
         <h3>평수 (공급면적)</h3><br/><br/>
-        <input type="tel" id="cal1" name="areaP" maxlength="3" placeholder="0" onkeyup="calculator(1);" >평 -<input type="text" id="cal2" name="areaM" placeholder="0" onkeyup="calculator(2);">m2
+        <input type="text" id="cal1" name="areaP" maxlength="3" placeholder=0 onclick="change()" onkeyup="calculator(1);" value="0">평 -<input type="text" id="cal2" name="areaM" placeholder=0 onkeyup="calculator(2);" value="0">m2
       </div>
       <div class="areaBoxComponent">
         <h3>원하는 공간 선택</h3>
@@ -76,41 +76,41 @@
             <h3 class="detail_title">도배/벽</h3>
         <ul aria-label="도배/벽 선택 목록" class="detail_item">
             <li class="btn_line_detail">
-                <input type="radio" id="group_wallpaper_item_0" name="group_wallpaper_item">
+                <input type="radio" id="group_wallpaper_item_0" name="group_wallpaper_item" value="합지">
                 <label for="group_wallpaper_item_0">
                     <span class="h4 select_detail__title">합지</span>
                     <p class="select_detail__desc">일반 종이 벽지로 친환경적</p>
                     <span class="expect_price">326만원~</span>
                 </label>
 
-                <input type="radio" id="group_wallpaper_item_1" name="group_wallpaper_item">
+                <input type="radio" id="group_wallpaper_item_1" name="group_wallpaper_item" value="실크">
                 <label for="group_wallpaper_item_1">
                     <span class="h4 select_detail__title">실크</span>
                     <p class="select_detail__desc">코팅된 종이로 오염에 강함</p>
                     <span class="expect_price">445만원~</span>
                 </label></li>
             <li class="btn_line_detail">
-                <input type="radio" id="group_wallpaper_item_2" name="group_wallpaper_item">
+                <input type="radio" id="group_wallpaper_item_2" name="group_wallpaper_item" value="합지+실크">
                 <label for="group_wallpaper_item_2">
                     <span class="h4 select_detail__title">합지+실크</span>
                     <p class="select_detail__desc">거실 실크+방 합지 조합</p>
                     <span class="expect_price">374만원~</span>
                 </label>
 
-                <input type="radio" id="group_wallpaper_item_3" name="group_wallpaper_item">
+                <input type="radio" id="group_wallpaper_item_3" name="group_wallpaper_item" value="타일">
                 <label for="group_wallpaper_item_3">
                     <span class="h4 select_detail__title">타일</span>
                     <p class="select_detail__desc">내구성이 강하고 고급스러움</p>
                 </label></li>
             <li class="btn_line_detail">
-                <input type="radio" id="group_wallpaper_item_4" name="group_wallpaper_item">
+                <input type="radio" id="group_wallpaper_item_4" name="group_wallpaper_item" value="대리석">
                 <label for="group_wallpaper_item_4">
                     <span class="h4 select_detail__title">대리석</span>
                     <p class="select_detail__desc">천연소재로 고급스러움</p>
                     <span class="expect_price">360만원~</span>
                 </label>
 
-                <input type="radio" id="group_wallpaper_item_5" name="group_wallpaper_item">
+                <input type="radio" id="group_wallpaper_item_5" name="group_wallpaper_item" value="페인트">
                 <label for="group_wallpaper_item_5">
                     <span class="h4 select_detail__title">페인트</span>
                     <p class="select_detail__desc">다양한 색 조합 가능</p>
@@ -118,7 +118,7 @@
         </ul>
         <h4 class="detail_item">추가선택</h4>
         <ul class="clearfix detail_item">
-            <li class="btn_line_detail"><input type="checkbox" id="group_wallpaper_option_0">
+            <li class="btn_line_detail"><input type="checkbox" id="group_wallpaper_option_0" value="몰딩">
                 <label for="group_wallpaper_option_0">
                     <span class="h4 select_detail__title">몰딩</span>
                     <p class="select_detail__desc">천장과 벽 사이의 마감</p>
@@ -133,13 +133,13 @@
       <h3 class="detail_title">바닥</h3>
   <ul aria-label="바닥 선택 목록" class="detail_item">
       <li class="btn_line_detail">
-          <input type="radio" id="group_floor_item_0" name="group_floor_item">
+          <input type="radio" id="group_floor_item_0" name="group_floor_item" value="장판">
           <label for="group_floor_item_0">
               <span class="h4 select_detail__title">장판</span>
               <p class="select_detail__desc">오염과손상에강함</p>
               <span class="expect_price">240만원~</span>
           </label>
-          <input type="radio" id="group_floor_item_1" name="group_floor_item">
+          <input type="radio" id="group_floor_item_1" name="group_floor_item" value="강마루">
           <label for="group_floor_item_1">
               <span class="h4 select_detail__title">강마루</span>
               <p class="select_detail__desc">원목느낌의 코팅합판마루</p>
@@ -147,13 +147,13 @@
           </label></li>
 
       <li class="btn_line_detail">
-          <input type="radio" id="group_floor_item_2" name="group_floor_item">
+          <input type="radio" id="group_floor_item_2" name="group_floor_item" value="타일">
           <label for="group_floor_item_2">
               <span class="h4 select_detail__title">타일</span>
               <p class="select_detail__desc">내구성이강하고고급스러움</p>
               <span class="expect_price">380만원~</span>
           </label>
-          <input type="radio" id="group_floor_item_3" name="group_floor_item">
+          <input type="radio" id="group_floor_item_3" name="group_floor_item" value="포세린타일">
           <label for="group_floor_item_3">
               <span class="h4 select_detail__title">포세린타일</span>
               <p class="select_detail__desc">내구성이 강하고 고급스러움</p>
@@ -161,7 +161,7 @@
           </label></li>
 
       <li class="btn_line_detail">
-          <input type="radio" id="group_floor_item_4" name="group_floor_item">
+          <input type="radio" id="group_floor_item_4" name="group_floor_item" value="대리석">
           <label for="group_floor_item_4">
               <span class="h4 select_detail__title">대리석</span>
               <p class="select_detail__desc">천연소재로 고급스러움</p>
@@ -171,7 +171,7 @@
   </ul>
   <h4 class="detail_item">추가선택</h4>
   <ul class="clearfix detail_item">
-      <li class="btn_line_detail"><input type="checkbox" id="group_floor_option_1">
+      <li class="btn_line_detail"><input type="checkbox" id="group_floor_option_1" value="걸레받이">
           <label for="group_floor_option_1">
               <span class="h4 select_detail__title">걸레받이</span>
               <p class="select_detail__desc">벽과 바닥재 사이의마감</p>
