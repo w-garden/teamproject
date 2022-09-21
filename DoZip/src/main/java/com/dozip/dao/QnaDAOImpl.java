@@ -152,13 +152,17 @@ public class QnaDAOImpl {
 		return bName;
 	}
 
-	//아이디로 문의 리스트 불러오기
+	//로그인된 아이디의 문의 리스트 불러오기 + 사업자명
 	public List<QnaVO> getPlist(String id) {
 		List<QnaVO> list = new ArrayList<>();
 		QnaVO vo = null;
 		try {
 			con = ds.getConnection();
-			sql = "select * from qnaT where mem_id=? order by qna_no desc";
+			sql = "select qna_no, mem_id, qnaT.business_num, qna_type,qna_title,"
+					+ "qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,"
+					+ "qna_level,reply_state,reply_date, partnersT.businessName  "
+					+ "from qnaT,partnersT where qnaT.business_num=partnersT.business_num(+) and mem_id=?"
+					+ "order by qna_no desc";
 			pt = con.prepareStatement(sql);
 			pt.setString(1, id);
 			rs = pt.executeQuery();
@@ -179,7 +183,7 @@ public class QnaDAOImpl {
 				vo.setQna_level(rs.getInt(12));
 				vo.setReply_state(rs.getString(13));
 				vo.setReply_date(rs.getString(14));	
-				
+				vo.setBusinessName(rs.getString(15));
 				list.add(vo);
 			}
 		} catch (Exception e) {

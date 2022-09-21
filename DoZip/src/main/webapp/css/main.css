@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* index.jsp ui */
+*{font-family:Malgun Gothic;}
 
 body{
 	margin:0px; /*상하좌우 바깥여백을 없앰*/
@@ -31,6 +32,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 8px 12px;
+    font-weight: bold;
 }
 .logo{
     font-size: 24px;
@@ -46,7 +48,6 @@ a:hover {
     list-style: none;
     padding-left: 0; /*왼쪽여백을 0을 줘서 중앙에 정렬*/
     font-size: 1.3rem;
-	font-family:'210 맨발의청춘 Regular'; 
 }
 .menu li{
     padding: 8px 25px;
@@ -156,7 +157,8 @@ a:hover {
 	display: flex;
 	justify-content: center;
 	font-size: 1.3rem;
-	font-family:'여기어때 잘난체';
+	/* font-family:'여기어때 잘난체'; */
+	font-weight: bold;
 }
 #part2_info {
 	display: flex;
@@ -191,7 +193,7 @@ a:hover {
 	display: flex;
 	justify-content: center;
 	font-size: 2.0rem;
-	font-family:'여기어때 잘난체';
+	font-weight: bold;
 }
 
 /*part3 부분*/
@@ -231,7 +233,6 @@ a:hover {
 
 .part4_title {
 	font-size: 1.3rem;
-	font-family:'210 맨발의청춘 Regular'; 
 	background-color: orange;
 }
 
@@ -335,7 +336,6 @@ a:hover {
 }
 .part5_title {
 	font-size: 1.3rem;
-	font-family:'210 맨발의청춘 Regular'; 
 	text-overflow: ellipsis;
 	overflow: hidden;
 	display: -webkit-box;
@@ -366,7 +366,6 @@ footer{
     list-style: none;
     padding-left: 0; /*왼쪽여백을 0을 줘서 중앙에 정렬*/
     font-size: 1.0rem;
-	font-family:'210 맨발의청춘 Regular'; 
 	padding-top: 15px;
 }
 .footer_menu li{
