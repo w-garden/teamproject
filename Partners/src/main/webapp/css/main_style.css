@@ -23,7 +23,7 @@ header {
 	position: sticky;	
 }
 #top_bar {
-	height:64px;
+	height: 90px;
 	font-size: 40px;
 	display: flex;
 	position: relative;
@@ -34,24 +34,45 @@ header {
 	background-color: #f6f5ef;	
 }
 
-/*환영 메세지 */
 #top_title div{
 	float:left;
 	margin: 0px 7px;
 }
-header .msg {
-	font-size: 15px;
-	margin: 20px 3px;
-	
+#top_title div:last-of-type{
+	margin-top: 15px;
 }
 #top_title img{
-	width:57px;
+	width:72px;
 	object-fit:cover;
 	float:left;
-	margin:3px 0px 0px 10px;
+	margin:12px 20px 0px 20px;
 }
+
+header .msg {
+	margin-top: 30px;
+    font-size: 20px;
+	
+}
+
 .hide_2, .hide_1{
 	margin-right: 15px;
+}
+span.hide_2 input {
+    height: 40px;
+    padding: 7px;
+}
+span.hide_2 input:hover {
+    background: #397d3f;
+    color: white;
+    border:2px solid #397d3f;
+    border-radius: 3px; 
+    
+}
+span.hide_2 input:active{
+	background: #265329;
+	color: white;
+    border:2px solid #265329;
+    border-radius: 3px;
 }
 /*미디어 쿼리 */
 @media all and (max-width:670px){

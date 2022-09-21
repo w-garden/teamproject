@@ -25,11 +25,8 @@
 		<div id="signup_form">
 
 			<div id="signup_title">
-				<div>
-					<a href="/Partners/signin.jsp"> <img src="images/logo.png"
+					<a href="/Partners/signin.jsp"> <img src="images/join/signup_logo.png"
 						alt="메인로고"></a>
-				</div>
-				<div class="msg" style="font-size: 26px;">파트너스 회원가입</div>
 			</div>
 			<form action="partners_signup_ok.do" method="post"
 				onsubmit="return signup_check();">

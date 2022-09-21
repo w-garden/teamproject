@@ -5,7 +5,9 @@
 	margin: 50px 0px;
 }
 *{
-	font-family: "맑은 고딕", 돋움, 굴림;
+	/*font-family: "맑은 고딕", 돋움, 굴림;*/
+	font-family: "210 맨발의 청춘 Light";
+	
 	margin:0px ;
 	padding:0px;
 }
@@ -29,17 +31,14 @@ body{
 
 #signup_title {
 	width: 80%;
-	height: 65px;
-	margin-left: 60px;
+	height: 90px;
+	margin: 0 auto;
 	padding-top: 30px;
-	font-size: 38px;
 }
 
 #signup_title img {
-	width: 60px;
-	object-fit: cover;
-	float: left;
-	padding-right: 10px;
+	width: 250px;
+	margin-left: 40px;
 }
 
 #signup_form>form>.info,#signup_form>form>.signup_pwd {
@@ -245,17 +244,14 @@ zoom: 1.3;
 /*회원정보 찾기 타이틀 */
 #findinfo_title {
 	width: 80%;
-	height: 65px;
-	margin-left: 70px;
-	padding: 20px 0px;
-	font-size: 38px;
+	height: 90px;
+	margin: 0 auto;
+	padding-top: 30px;
 }
 
 #findinfo_title img {
-	width: 60px;
-	object-fit: cover;
-	float: left;
-	padding-right: 10px;
+	width: 250px;
+	margin-left: 40px;
 }
 
 /*회원정보 찾기 입력폼 */
