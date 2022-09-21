@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.dozip.dao.QnaDAOImpl;
 import com.dozip.vo.QnaVO;
 
-public class CounselWriteOKController implements Action {
+public class CounselPartnerWriteOKController implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -17,6 +17,7 @@ public class CounselWriteOKController implements Action {
 		request.setCharacterEncoding("UTF-8");
 		
 		QnaVO q = new QnaVO();
+		QnaDAOImpl qdao = new QnaDAOImpl();
 		
 		HttpSession session=request.getSession();
 		q.setMem_id((String)session.getAttribute("id"));
@@ -24,7 +25,9 @@ public class CounselWriteOKController implements Action {
 		q.setQna_type(request.getParameter("qna_type"));
 		q.setQna_cont(request.getParameter("qna_cont"));
 		
-		QnaDAOImpl qdao = new QnaDAOImpl();
+		String businessName = request.getParameter("businessName");
+		q.setBusiness_num(qdao.getBnum(businessName));
+		
 		int res = qdao.insertQna(q);
 		
 		response.setContentType("text/html;charset=UTF-8");
@@ -41,6 +44,7 @@ public class CounselWriteOKController implements Action {
 			out.println("history.back();");
 			out.println("</script>");
 		}		
+
 		return null;
 	}
 

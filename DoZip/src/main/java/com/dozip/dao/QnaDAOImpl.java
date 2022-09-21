@@ -105,6 +105,92 @@ public class QnaDAOImpl {
 		}
 		return list;
 	}
+
+	//업체명으로 사업자번호 가져오기
+	public String getBnum(String businessName) {
+		String bNum = null;
+		try {
+			con = ds.getConnection();
+			sql = "select business_num from partnersT where businessName=?";
+			pt = con.prepareStatement(sql);
+			pt.setString(1, businessName);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				bNum = rs.getString(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pt);
+			close(con);
+		}
+		return bNum;
+	}
+	
+	//사업자번호로 업체명 가져오기
+	public String getBname(String business_num) {
+		String bName = null;
+		try {
+			con = ds.getConnection();
+			sql = "select businessName from partnersT where business_num=?";
+			pt = con.prepareStatement(sql);
+			pt.setString(1, business_num);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				bName = rs.getString(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pt);
+			close(con);
+		}
+		return bName;
+	}
+
+	//아이디로 문의 리스트 불러오기
+	public List<QnaVO> getPlist(String id) {
+		List<QnaVO> list = new ArrayList<>();
+		QnaVO vo = null;
+		try {
+			con = ds.getConnection();
+			sql = "select * from qnaT where mem_id=? order by qna_no desc";
+			pt = con.prepareStatement(sql);
+			pt.setString(1, id);
+			rs = pt.executeQuery();
+			
+			while(rs.next()) {
+				vo = new QnaVO();
+				vo.setQna_no(rs.getInt(1));
+				vo.setMem_id(rs.getString(2));
+				vo.setBusiness_num(rs.getString(3));
+				vo.setQna_type(rs.getString(4));
+				vo.setQna_title(rs.getString(5));
+				vo.setQna_cont(rs.getString(6));
+				vo.setQna_date(rs.getString(7));
+				vo.setEdit_date(rs.getString(8));
+				vo.setQna_state(rs.getInt(9));
+				vo.setQna_ref(rs.getInt(10));
+				vo.setQna_step(rs.getInt(11));
+				vo.setQna_level(rs.getInt(12));
+				vo.setReply_state(rs.getString(13));
+				vo.setReply_date(rs.getString(14));	
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pt);
+			close(con);
+		}
+		return list;
+	}
 	
 	
 }
