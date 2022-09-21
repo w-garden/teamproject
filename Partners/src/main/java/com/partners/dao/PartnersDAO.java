@@ -198,6 +198,8 @@ public class PartnersDAO {
 		return dto;
 	}
 
+
+
 	// 파트너스 아이디 찾기 메서드
 
 	// 파트너스 정보 수정 메서드

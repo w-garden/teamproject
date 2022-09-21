@@ -91,11 +91,11 @@ span.hide_2 input:active{
 /*메인 틀*/
 /*********/
 #main_cont {
-	/*padding: 17px; */
+	padding: 50px; 
     min-height: 600px;
     /*border: 1px solid black;*/
     margin-left: 10%;
-    width: 90%;
+    width: 87%;
     
 }
 

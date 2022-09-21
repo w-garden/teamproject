@@ -12,12 +12,12 @@
 			<tr>
 				<td>2</td>
 				<td>이름</td>
-				<td><input type="button" value="수정/삭제" onclick="location='p_modify.jsp'"></td>
+				<td><input type="button" value="수정/삭제" onclick="location='./portfolio/p_modify.jsp'"></td>
 			</tr>
 			<tr>
 				<td>1</td>
 				<td>이름</td>
-				<td><input type="button" value="수정/삭제" onclick="location='p_modify.jsp'"></td>
+				<td><input type="button" value="수정/삭제" onclick="location='./portfolio/p_modify.jsp'"></td>
 			</tr>
 		</table>
 

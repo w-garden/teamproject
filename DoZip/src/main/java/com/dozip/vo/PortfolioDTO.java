@@ -25,8 +25,6 @@ public class PortfolioDTO {
 	private String pf_photo3;
 	private String pf_photo4;
 	private String pf_photo5;
-	private String pf_photo6;
-	private String pf_photo7;
 	private int pf_premium;
 	private String pf_regdate;
 	

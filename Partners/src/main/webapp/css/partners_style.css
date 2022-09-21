@@ -108,14 +108,18 @@ span>div {
 
 /*시공 사례 등록 파일 */
 
-#introduce_cont{
-  background-color:aliceblue;
+#introduce_cont {
+  background-color:#C5BF96;
+  padding:20px 10px;
 
 }
+#introduce_cont *{
+  padding:10px 0px;
+	
+}
 
-#portfolio_form>fieldset{
-  background-color: white;
-  
+#portfolio_form fieldset{
+  padding:20px 10px;
   
 }
 #form_sub_title{

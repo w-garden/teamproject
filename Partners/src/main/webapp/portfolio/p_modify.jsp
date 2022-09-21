@@ -82,8 +82,8 @@
         </fieldset>
         <!-- 여기까지 첫번째 입력 영역-->
         <fieldset>
-          <legend>디자인</legend>
-          <div id="form_sub_title"><label>시공컨셉</label></div>
+          <legend>디자인(시공컨셉)</legend>
+          <div id="form_sub_title"></div>
           <input type="radio" value="modern">모던
           <input type="radio" value="minimal">미니멀
           <input type="radio" value="natural">내추럴

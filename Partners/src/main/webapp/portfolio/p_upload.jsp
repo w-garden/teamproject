@@ -113,9 +113,8 @@
 	</fieldset>
 	<!-- 여기까지 첫번째 입력 영역-->
 	<fieldset>
-		<legend>디자인</legend>
+		<legend>디자인(시공컨셉)</legend>
 		<div id="form_sub_title">
-			<label>시공컨셉</label>
 		</div>
 		<input type="radio" value="모던" name="pf_concept">모던 <input type="radio"
 			value="미니멀" name="pf_concept">미니멀 <input type="radio" value="내추럴" name="pf_concept">내추럴
