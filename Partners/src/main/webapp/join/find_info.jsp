@@ -13,11 +13,8 @@
 	<article id="join_wrap">
 		<div id="findinfo_cont">
 			<div id="findinfo_title">
-				<div>
-					<a href="../signin.jsp"> <img src="./images/logo.png"
+					<a href="../signin.jsp"> <img src="./images/join/findinfo_logo.png"
 						alt="메인로고"></a>
-				</div>
-				<div class="msg">회원정보 찾기</div>
 			</div>
 			<div id="findinfo_menu">
 				<input type="button" id="findid_btn" value="아이디 찾기"> <input

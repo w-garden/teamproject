@@ -62,7 +62,7 @@ String id = request.getParameter("id");
 <div id="wrap">
 	<div id="side_wrap">
 			<ul id="side_menu">
-				<li><a href="#" style="height:49px;"></a></li>
+				<li><a href="#" style="height:75px;"></a></li>
 				<li><a href="/Partners/main.jsp">PARTNERS</a></li>
 				<li><a href="#">요&nbsp;&nbsp;금&nbsp;&nbsp;제</a>
 					<ul>
@@ -114,7 +114,7 @@ String id = request.getParameter("id");
 						<a href="/DoZip/index.jsp"><img
 							src="/Partners/images/dozip_logo.png" alt="메인로고"></a>
 					</div>
-					<div>파트너스 페이지</div>
+					<div>PARTNERS PAGE</div>
 				</div>
 				<div class="msg">
 					<span class="hide_1"> ${businessName}   님 환영합니다 <span id="timer"></span></span> <span
