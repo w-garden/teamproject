@@ -1,5 +1,10 @@
 package com.partners.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class PartnersDTO {
 	private String business_num;
 	private String businessName;

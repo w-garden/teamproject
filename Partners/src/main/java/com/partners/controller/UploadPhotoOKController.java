@@ -47,9 +47,9 @@ public class UploadPhotoOKController implements Action{
 
 
 		/**
-		 * 폴더명 /upload/사업자번호
+		 * 폴더명 /upload/사업자번호/포트폴리오번호 로 폴더 생성
 		 */
-		String homedir=saveFolder+"/"+business_num; /* 업체 사업자 번호로 폴더 생성*/
+		String homedir=saveFolder+"/"+business_num+"/"+pf_no;
 
 
 		File [] upFile = new File[5];
@@ -77,9 +77,7 @@ public class UploadPhotoOKController implements Action{
 
 
 
-
-
-				fileDBName[i] ="/Partners/upload/"+business_num+"/"+pf_title+"/"+refileName; //DB에 저장될 레코드 값
+				fileDBName[i] ="/Partners/upload/"+business_num+"/"+pf_no+"/"+refileName; //DB에 저장될 레코드 값
 				//  /Partners/upload/사업자번호/포트폴리오제목/photo01.jpg
 				System.out.println(fileDBName[i]);
 

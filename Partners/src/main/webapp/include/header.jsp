@@ -114,7 +114,7 @@ String id = request.getParameter("id");
 						<a href="/DoZip/index.jsp"><img
 							src="/Partners/images/dozip_logo.png" alt="메인로고"></a>
 					</div>
-					<div style="font-family: '210 맨발의 청춘'">파트너스 페이지</div>
+					<div>파트너스 페이지</div>
 				</div>
 				<div class="msg">
 					<span class="hide_1"> ${businessName}   님 환영합니다 <span id="timer"></span></span> <span
