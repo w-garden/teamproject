@@ -2,27 +2,24 @@
 @charset "UTF-8";
 
 /* data_manage */
-   #main_cont_color{
-      width:90%;
-      background-color:aliceblue;
-   }
+
    .item_title{
       margin: 0 0 10px 0;
       padding: 10px 0 0 2.5%;
       background-color: white;
    }
    .item_tab_box{
-      width: 97%;
+      width: 100%;
 
    }
    .item_tab_inbox{
       font-size: 17px;
-      width:95%;
+      width:90%;
       border: 1px solid lightgray;
       background-color:white;
       height: 50px;
-      margin: 10px 2%;
-    padding: 0 2%;
+      margin: 20px 2.5%;
+    	padding: 0 2.5%;
       text-align:center;
    }
    #tab1, #tab2, #tab3, #tab4, #tab5{
@@ -44,12 +41,12 @@
    }
    
    .all_information{
-      width:97%;
+      width:100%;
    }
    #business, #additional, #preference, #representative, #payment{
-      width: 95%;
-      margin:30px 2%;
-      padding:0 2% ;
+      width: 90%;
+      margin: 30px 2.5%;
+  	  padding: 0 2.5%;
       background-color:white;
    }
    .one_word{
@@ -176,12 +173,20 @@
     margin:10px 0px 5px;
   }
   
-  
+  .data_edit_button_tag{
+ 		width: 95%;
+    margin: 30px 2%;
+    padding: 0 2%;
+  }
+  .data_edit_button{
+  	padding: 5px;
+  }
   
 /* estimate_request */
 /* bid */
    body{
       letter-spacing: 0.025em;
+      background-color:#f7f7f7;
    }
    .request_spot{
       width: 100%;
@@ -239,7 +244,6 @@
    }
 
    .request_list_container{
-      background-color:aliceblue;
       margin-bottom: 15px;
       width: 80%;
       white-space: nowrap;
@@ -446,7 +450,7 @@
       right:10%;
    }
    .request_list_detail_container{
-      background-color:aliceblue;
+      background-color:#f7f7f7;
       margin-top: 30px;
       margin-bottom: 30px;
       width: 80%;
