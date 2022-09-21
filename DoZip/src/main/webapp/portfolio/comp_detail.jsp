@@ -10,7 +10,7 @@
 		<%-- 업체 명함 부분 --%>
 		<div class = "comp_card">
 			<div class=	"comp_img">
-				<img id = "comp_logo" src = "../images/portfolio/detail/compHC.png"/>
+				<img id = "comp_logo" src = "/DoZip/images/portfolio/detail/compHC.png"/>
 			</div>
 			<div class = "comp_name">
 				<h2>호철 디자인</h2>
@@ -28,13 +28,13 @@
 		<div class = "comp_service">
 			<p id = service_title>제공 서비스</p>
 			<div class = "service_images">
-				<img id = "insu" src = "../images/portfolio/detail/insurance.png"/>
+				<img id = "insu" src = "/DoZip/images/portfolio/detail/insurance.png"/>
 				
-				<img id = "scetch" src = "../images/portfolio/detail/scetch.png"/>
+				<img id = "scetch" src = "/DoZip/images/portfolio/detail/scetch.png"/>
 				
-				<img id = "3d" src = "../images/portfolio/detail/3D.png"/>
+				<img id = "3d" src = "/DoZip/images/portfolio/detail/3D.png"/>
 				
-				<img id = "credit" src = "../images/portfolio/detail/credit.png"/>
+				<img id = "credit" src = "/DoZip/images/portfolio/detail/credit.png"/>
 				
 			</div>
 			<ul class = "service_cont">
@@ -127,7 +127,7 @@
 			
 				<div class="card 1">
 				  <div class="card_image"> 
-				  	<img onclick = "location = './port_detail.jsp';" src= "../images/portfolio/port001.png" /> 
+				  	<img onclick = "location = './port_detail.jsp';" src= "/DoZip/images/portfolio/port001.png" /> 
 				  	<%-- onclick으로 클릭시 상세로 연결되게 --%>
 				  </div>
 				  <div class="card_title">

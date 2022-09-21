@@ -10,12 +10,12 @@
 	<hr>
 		<div class = "detail_1">
 			<div class = "detail_img">
-				<img id = "main_img" src = "../images/portfolio/port001.png"/>
+				<img id = "main_img" src = "/DoZip/images/portfolio/port001.png"/>
 				<br><br>
 				<div class = "d_main">
 					<h2 id = "d_title">빔 프로젝트로 만들어낸 공간 인테리어</h2>
 					<br>
-					<pre id = "d_location"><img id = "d_loca" src = "../images/portfolio/location_icon.png"/>서울 용산구 이태원동 맥주펍</pre>
+					<pre id = "d_location"><img id = "d_loca" src = "/DoZip/images/portfolio/location_icon.png"/>서울 용산구 이태원동 맥주펍</pre>
 					<br>
 					<div class = "d_tags">
 						<button type = "button" id = "type">모던</button>
@@ -65,12 +65,12 @@
 				</pre>
 			</div>
 			<div class = "detail_imgs">
-				<img id = "d_imgs" src = "../images/portfolio/detail/d001.png"/>
-				<img id = "d_imgs" src = "../images/portfolio/detail/d002.png"/>
-				<img id = "d_imgs" src = "../images/portfolio/detail/d003.png"/>
-				<img id = "d_imgs" src = "../images/portfolio/detail/d004.png"/>
-				<img id = "d_imgs" src = "../images/portfolio/detail/d005.png"/>
-				<img id = "d_imgs" src = "../images/portfolio/detail/d006.png"/>
+				<img id = "d_imgs" src = "/DoZip/images/portfolio/detail/d001.png"/>
+				<img id = "d_imgs" src = "/DoZip/images/portfolio/detail/d002.png"/>
+				<img id = "d_imgs" src = "/DoZip/images/portfolio/detail/d003.png"/>
+				<img id = "d_imgs" src = "/DoZip/images/portfolio/detail/d004.png"/>
+				<img id = "d_imgs" src = "/DoZip/images/portfolio/detail/d005.png"/>
+				<img id = "d_imgs" src = "/DoZip/images/portfolio/detail/d006.png"/>
 			</div>
 			<div class = "detail_cont2">
 				<pre id = "end_cont">
@@ -85,7 +85,7 @@
 	<%-- 업체 명함 부분 --%>
 	<div class = "comp_card">
 		<div class=	"comp_img">
-			<img id = "comp_logo" src = "../images/portfolio/detail/compHC.png"/>
+			<img id = "comp_logo" src = "/DoZip/images/portfolio/detail/compHC.png"/>
 		</div>
 		<div class = "comp_name">
 			<h2>호철 디자인</h2>

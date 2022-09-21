@@ -2,10 +2,10 @@
 <jsp:include page = "../common/header.jsp"/>
 <%-- 상단 공통부분 끝--%>
 <link rel="stylesheet" type="text/css" href="/DoZip/css/portfolio.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-
-<script src="../js/portfolio.js" defer></script>
+<script src="./js/portfolio.js"defer></script>
 
 
 	<div class="clear"></div>
@@ -13,23 +13,20 @@
 	<!-- 본문영역-->
 	<!-- 프리미엄 기업 리스트-->
 		<div class = "premium_wrap">
-
-			
-
 			<div class = "premium_comp">
 				<div class="outer">
 				  <div class="inner-list">
 				    <div class="inner">
-				      <img src = "../images/portfolio/banner/test02.png"/>
+				      <img src = "/DoZip/images/portfolio/banner/HC_banner.png"/>
 				    </div>
 				    <div class="inner">
-				      <h2>second...</h2>
+				      <img src = "/DoZip/images/portfolio/banner/JH_banner.png"/>
 				    </div>
 				    <div class="inner">
-				      <h2>third...</h2>
+				      <img src = "/DoZip/images/portfolio/banner/MW_banner.png"/>
 				    </div>
 				    <div class="inner">
-				      <h2>forth...</h2>
+				      <img src = "/DoZip/images/portfolio/banner/SH_banner.png"/>
 				    </div>
 				  </div>
 				
@@ -37,10 +34,10 @@
 				<div class="button-list">
 				  <button class="button-left">← Left</button>
 				  <button class="button-right">Right →</button>
-				</div> 
-					
+				</div> 	
 			</div>
 		</div>
+	</div>
 		<br>	
 	<!-- 드롭다운 버튼 -->
 	<div class = "port_wrap">
@@ -96,7 +93,7 @@
 			<div class = "search">
 				<input type = "text" id="searchTerm" onkeyup = "filter()" placeholder="업체명을 입력하세요">
 				<button type = "submit" class = "search_Btn">
-					<i class = "fa fa-search"></i>
+					<i class = "fas fa-search"></i>
 				</button>
 			</div>
 		</div>
@@ -107,6 +104,7 @@
 			<div class="top_utile">
 				<p class="top_title">포트폴리오</p> 
  			</div>
+ 			
  			<!-- 반복문 시작 -->
 			<div class="cards-list">
 				<c:forEach var="i" begin="0" end="${fn:length(plist)}" step="1">
