@@ -31,7 +31,7 @@ header {
 	justify-content:space-between;
 	border-bottom: 1px solid #eee;
 	/*background-color: rgb(53, 150, 230);*/	
-	background-color: #DEDAC5;	
+	background-color: #f6f5ef;	
 }
 
 /*환영 메세지 */
@@ -85,7 +85,7 @@ header .msg {
 #side_wrap{
 	
 /*    background-color: rgb(53, 150, 230);*/
-    background-color:#DEDAC5;
+    background-color:#f6f5ef;
     width: 10%;
     position: fixed;
 	height: 1000vw;

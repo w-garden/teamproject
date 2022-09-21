@@ -4,7 +4,8 @@
 
 			<div class="my_req_list">
 					<h2 class="item_title">시공견적요청</h2>
-			<table border="1" style="width: 90%; border: 2px solid #0064CD; border-collapse: collapse; text-align:center; margin-top:10px;">
+			<table border="1" style="width: 90%; border: 2px solid #0064CD; border-collapse: collapse; text-align:center;
+			margin:40px 5%; background-color:white;">
 				<tr class="my_req_label">
 					<th>견적요청 내용</th> <th>희망 예산</th> <th>희망 견적일</th> <th>희망 시공시작일</th> <th>희망 시공종료일</th> <th>세부정보</th> <th>수용여부</th>
 				</tr>
