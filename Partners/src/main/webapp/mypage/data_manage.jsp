@@ -3,20 +3,21 @@
 
 
   <article>
-   <div id="main_cont">
-  	<div id="main_cont_color">
-    <h1 class="item_title">내 정보관리</h1>
-  	<div class="item_tab_box">
-  		<div role="tablist" class="item_tab_inbox">
-  			<div id="tab1"><a href="#business" class="tab-link">사업자 정보</a></div>
-  			<div id="tab2"><a href="#additional" class="tab-link">부가 정보</a></div>
-  			<div id="tab3"><a href="#preference" class="tab-link">선호 시공정보</a></div>
-  			<div id="tab4"><a href="#representative" class="tab-link">담당자 정보</a></div>
-  			<div id="tab5"><a href="#payment" class="tab-link">정산 정보</a></div>  			
-  		</div>
+   <div>
+	  	<div class="request_spot">
+		    <h2 class="item_title">내 정보관리</h2>
+	  	<div class="item_tab_box">
+	  		<div role="tablist" class="item_tab_inbox">
+	  			<div id="tab1"><a href="#business" class="tab-link">사업자 정보</a></div>
+	  			<div id="tab2"><a href="#additional" class="tab-link">부가 정보</a></div>
+	  			<div id="tab3"><a href="#preference" class="tab-link">선호 시공정보</a></div>
+	  			<div id="tab4"><a href="#representative" class="tab-link">담당자 정보</a></div>
+	  			<div id="tab5"><a href="#payment" class="tab-link">정산 정보</a></div>  			
+	  		</div>
+	  	</div>
   	</div>    
     <div class="all_information">
-		<form method="post" action="#">
+		<form method="post" action="data_manage_edit_ok.do">
 			<fieldset id="business">
 				<legend>
 					<b>사업자 정보</b>
@@ -25,8 +26,8 @@
 					<div>
 						<label><b>사업자등록번호</b></label><br />
 						<div>
-							<input type="text" size="5"> <input type="text" size="5">
-							<input type="text" size="5">
+							<input type="text" id="business_num" name="business_num" size="5"> <input type="text" size="5">
+							<input type="text" id="business_num" name="business_num" size="5">
 						</div>
 					</div>
 					<br />
@@ -66,9 +67,8 @@
 					<br />
 				</div>
 			</fieldset>
-		</form>
 
-		<form method="post" action="#">
+
 			<fieldset id="additional">
 				<legend>
 					<b>부가 정보</b>
@@ -122,6 +122,9 @@
 					<textarea class="homepage" autocomplete="off" placeholder="홈페이지를 입력하세요" rows="3"></textarea>
 				</div>
 				<br />
+				
+				
+				<!--  
 				<div class="additional-06">
 					<label><b>업체사진(실내)</b></label><br />
 					<div tabindex="0" class="upload_image2" >
@@ -141,10 +144,12 @@
 						<input type="file" id="choosefile" name="file" accept="image/*">
 					</div>
 				</div>
+				-->
+				
 			</fieldset>
-		</form>
 
-		<form method="post" action="#">
+		
+
 			<fieldset id="preference">
 				<legend>
 					<b>선호 시공정보</b>
@@ -286,9 +291,9 @@
 					<label></label>
 				</div>
 			</fieldset>
-		</form>
 
-		<form method="post" action="#">
+
+
 			<fieldset id="representative">
 		 	  <legend><b>담당자 정보</b></legend>
 				<div>
@@ -314,15 +319,18 @@
 					</div>			
 				</div>
 			</fieldset>
-		</form>
 		
-		<form method="post" action="#">
+
 			<fieldset id="payment">
 		 	  <legend><b>정산 정보</b></legend>
+		 	  
+		 	  <!--  
 				<div>
 					<label><b>세금계산서 이메일</b></label>
 					<div><input type="text" size="20"></div></br>					
 				</div>
+				-->
+				
 				<div>
 					<label><b>예치금</b></label>
 					<div><input type="text" size="20" readonly="readonly" autocomplete="off"></div></br>								
@@ -350,11 +358,13 @@
 					</div>
 				</div>
 			</fieldset>
-		</form>
-
+			
+			<div class="data_edit_button_tag">
+				<input type="button" id="data_edit_button" value="정보수정"/>
+			</div>
+			</form>
      </div>
     </div>
-   </div>
   </article>
 
 
