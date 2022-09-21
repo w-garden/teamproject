@@ -8,7 +8,7 @@
 					<div class="my_bid_title1"><h3 id="bid_fin">입찰 완료</h3></div>
 				</div>
 				<table border="1" style="width: 90%; border: 2px solid #0064CD; border-collapse: collapse; text-align:center;
-				margin:40px 5%; background-color:white;">
+				margin:0 5% 40px 5%; background-color:white;">
 					<tr class="my_bid_label">
 						<th>입찰 내용</th> <th>예상 계약금액</th> <th>모집 마감일</th> <th>견적 마감일</th> <th>세부정보</th> <th>입찰결과</th>
 					</tr>
@@ -25,7 +25,7 @@
 				</table>
 				<div class="my_bid_title2"><h3 id="bid_proc">입찰 진행중</h3></div>
 				<table border="1" style="width: 90%; border: 2px solid #0064CD; border-collapse: collapse; text-align:center;
-				margin:40px 5%; background-color:white;">
+				margin:0 5% 40px 5%; background-color:white;">
 					<tr class="my_bid_label">
 						<th>입찰 내용</th> <th>예상 계약금액</th> <th>모집 마감일</th> <th>견적 마감일</th> <th>세부정보</th> <th>입찰취소</th>
 					</tr>
