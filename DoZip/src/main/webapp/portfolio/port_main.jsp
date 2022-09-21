@@ -107,15 +107,16 @@
  			
  			<!-- 반복문 시작 -->
 			<div class="cards-list">
-				<c:forEach var="i" begin="0" end="${fn:length(plist)}" step="1">
+				
+				<c:forEach var="i" begin="0" end="${fn:length(plist)-1}" step="1">
 					<div class="card">
 					  <div class="card_image"> 
-					  	<img class = "ho" onclick = "location = 'port_detail.do';" src= "/DoZip/images/portfolio/port001.png" /> 
-					  	<%-- onclick으로 클릭시 상세로 연결되게 --%>
+					  	<img class = "ho" onclick = "location.href='port_detail.do?pf_no=${plist[i].pf_no}';" src= '${plist[i].pf_photo1}'/> 
+					  	<%-- onclick으로 클릭시 글번호를 넣어 상세로 연결되게 --%>
 					  </div>
 					  <div class="card_title">
 						   	<li class = "corp">${plist[i].pf_title}</li>
-						   	<li class = "card_tag">${plist[i].pf_type} ${plist[i].pf_area}  ${plist[i].pf_cost}</li>
+						   	<li class = "card_tag">${plist[i].pf_type} ${plist[i].pf_area} ${plist[i].pf_cost}</li>
 					  </div>
 					</div>
 				</c:forEach>
