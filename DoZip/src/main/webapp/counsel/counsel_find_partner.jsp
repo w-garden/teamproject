@@ -26,6 +26,11 @@
 		        }
 		    });
 		});
+		
+		function insert(){
+			var name = $('#selected').val();
+			opener.document.getElementById("businessName").value = name;
+		}
 	</script>
 	<style type="text/css">
 	.findP_wrap {
@@ -82,8 +87,8 @@
 			</td></tr>
 		</c:forEach>
 		</table></div>
-		<form class="box2" action="counsel_find_ok.do">		
-			<input type="text"  name="selected" id="selected"><button type="submit">선택완료</button>
+		<form class="box2" onsubmit="insert();" >		
+			<input type="text"  name="selected" id="selected"><button type="submit" onclick="window.close();">선택완료</button>
 		</form>
 	</div>
 </body>
