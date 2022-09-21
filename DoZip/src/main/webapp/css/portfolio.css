@@ -11,6 +11,7 @@
 .dropdown{
   height : 70px;
   float:left;
+  margin-left : 20px;
 }
 
 .dd_group {
@@ -37,6 +38,7 @@
 	width:100%;
 	float: right;
 	display: flex;
+	margin-right : 20px;
 }
 
 .search_nav > ul{
@@ -82,44 +84,37 @@
 }
 
 .outer {
-<<<<<<< HEAD
-  border: 6px solid royalblue;
-  width: 80%;
-=======
-  border: 6px solid royalblue;  
+  /* border: 6px solid white; */
   width: 95%;
->>>>>>> 96f1bafe4b4bba6d2f46cdcfad2185aef2eb6ca7
   height: 300px;
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow-x: hidden; 
 } 
 
 .inner-list {
-  display: flex;
- transition: 1.5s ease-out; 
- /* transition : linear;
-  transition-delay : delay; */
-  height: 100%;
+display: flex;
+transition: .3s ease-out;
+height: 100%;
 }
 
 .inner {
-/*  border: 6px solid olive;  */
   padding: 0 16px; 
+}
+
+.inner img {
+	width : 100%;
+	height : 90%;
+	object-fit: cover;
+}
+.button-left,.button-right{
+	display : none;
 }
 
 .button-list {
   text-align: center;
 }
 
-<<<<<<< HEAD
-.button-left {
-=======
-.button-left,.button-right{
-	display : none;
-}
-
 /* .button-left {
->>>>>>> 96f1bafe4b4bba6d2f46cdcfad2185aef2eb6ca7
 	border:0;
 	border-radius : 5px;
 	font-size : 1.2rem;
@@ -171,11 +166,11 @@
 }
 /* 카드리스트 */
 .cards-list {
+	flex-wrap : wrap;
 	width: 80%;
 	display: flex;
 	justify-content: space-between;
 	margin : 0 auto;
-	
 }
 
 /* 개별카드 */
