@@ -6,6 +6,9 @@ function calculator(num) {
     document.getElementById('cal1').value = parseFloat(document.getElementById('cal2').value) / 3.3058;
   }
 }
+function change(){
+	$('#cal1').val("");
+}
 
 /*전체선택*/
 $(document).ready(function(){
