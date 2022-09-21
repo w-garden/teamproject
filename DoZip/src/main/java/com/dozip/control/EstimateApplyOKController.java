@@ -25,9 +25,11 @@ public class EstimateApplyOKController implements Action {
 		System.out.println(areaP);
 		String areaM = request.getParameter("areaM");
 		System.out.println(areaM);
+		
 		String[] detail01 = request.getParameterValues("check");
+		out.print("원하는 공간 선택 = ");
 		for(int i=0; i<detail01.length; i++) {
-			System.out.println(detail01[i]);
+			out.print(detail01[i]+"|");
 		}
 		
 		/*
