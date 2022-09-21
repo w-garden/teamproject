@@ -47,27 +47,31 @@
 
 #searchTerm {
   width: 100%;
-  border: 3px solid #00B4CC;
+  border-bottom: 1px solid #00704a;
+  border-top : none;
+  border-left : none;
   border-right: none;
+  text-align : center;
   padding: 5px;
   height: 20px;
-  border-radius: 5px 0 0 5px;
   outline: none;
-  color: #9DBFAF;
+  color: #00704a;
 }
 
 #searchTerm:focus{
-  color: #00B4CC;
+  color: #00704a;
 }
 
 .search_Btn {
   width: 40px;
   height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
+  margin-bottom : 40px;
+  margin-left : 2px;
+  /* border: 1px solid #00704a;  */
+  /* background: #00704a; */
   text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
+  color: #00704a;
+  /* border-radius: 0 5px 5px 0; */
   cursor: pointer;
   font-size: 20px;
 }

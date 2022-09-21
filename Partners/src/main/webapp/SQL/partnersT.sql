@@ -54,11 +54,16 @@ create table portfolioT(
 );					
 
 drop table portfolioT;
+
 select * from portfolioT;
+
+select * from portfolioT where pf_no=26;
 
 delete from portfolioT;
 
+update PORTFOLIOT set pf_title = '모던한 포토 스튜디오' where pf_no=32;
 
+update portfolioT set pf_subtype = '스튜디오' where pf_no=27;
 
 
 
