@@ -18,6 +18,7 @@ create table qnaT(
 );
 
 select * from qnaT;
+select * from partnersT;
 
 --qnaT_no_seq 시퀀스 생성
 create sequence qnaT_no_seq
@@ -27,3 +28,20 @@ nocache;
 
 select qnaT_no_seq.nextval from dual;
 
+select * from qnaT where mem_id='hong'order by qna_no desc;
+
+select qna_no, mem_id, qnaT.business_num,partnersT.businessName, qna_type,qna_title,qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,qna_level,reply_state,reply_date  from qnaT,partnersT where qnaT.business_num=partnersT.business_num(+);
+
+
+
+
+
+select * from qnaT;
+select businessName,business_num from partnersT;
+select * from qnaT,v_partnersT(select businessName,business_num from partnersT);
+
+CREATE OR REPLACE VIEW v_partnersT
+AS
+    SELECT businessName
+         , business_num
+      FROM partnersT;

@@ -4,6 +4,8 @@
 <jsp:include page="../common/header.jsp" />
 <%-- 상단 공통부분 끝 --%>
 <link rel = "stylesheet" type = "text/css" href = "../css/myscrap.css"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <script src="/DoZip/js/member.js"></script>
 
 <div class="mypage_wrap">
@@ -321,13 +323,17 @@
 				<table>
 					<tr>
 						<th id="head_num">번호</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
-					</tr>
-					<%! int j = 0; %>
-					<% for(j=1; j<5; j++) { %>
-					<tr>
-						<td id="num"><%=j %></td> <td id="title"><a href="#"><%=j %>번 글 제목</a></td> <td id="state">답변대기중</td> <td id="date"><%=j %>번 글 날짜</td>
-					</tr>
-					<% } %>
+					</tr>	
+					<%! int n=0; %>
+					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">					
+					<c:if test="${qlist[i].business_num == null}">
+						<tr>
+							<td id="num"><%n++;%><%=n%></td>
+							<td id="title"><a href="#">${qlist[i].qna_title}</a></td>
+							<td id="state">${qlist[i].reply_state}</td> <td id="date">${qlist[i].qna_date}</td>
+						</tr>
+					</c:if>
+					</c:forEach>
 				</table>
 			</div>
 			</div>
@@ -346,12 +352,16 @@
 					<tr>
 						<th id="head_num">번호</th> <th>업체명</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
 					</tr>
-					<%! int h = 0; %>
-					<% for(h=1; h<5; h++) { %>
-					<tr>
-						<td id="num"><%=h %></td> <td id="partner_name">업체명</td><td id="title"><a href="#"><%=h %>번 글 제목</a></td> <td id="state">답변대기중</td> <td id="date"><%=h %>번 글 날짜</td>
-					</tr>
-					<% } %>
+					<%! int n2=0; %>
+					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">
+					<c:if test="${qlist[i].business_num != null}">
+						<tr>
+							<td id="num"><%n2++;%><%=n2%></td> <td id="partner_name">${qlist[i].businessName}</td> 
+							<td id="title"><a href="#">${qlist[i].qna_title}</a></td>
+							<td id="state">${qlist[i].reply_state}</td> <td id="date">${qlist[i].qna_date}</td>
+						</tr>
+					</c:if>
+					</c:forEach>
 				</table>
 			</div>
 			</div>
