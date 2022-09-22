@@ -1,4 +1,6 @@
 @charset "UTF-8";
+*{font-family:Malgun Gothic;}
+
 #login_wrap {
 	display: flex;
 	flex-direction: column; /* 세로정렬 */
@@ -7,14 +9,14 @@
 
 #login_title {
 	font-size: 2.0rem;
-	font-family:'여기어때 잘난체';
+	/* font-family:'여기어때 잘난체'; */
+	font-weight:bold;
 	color: black;
 }
 
 #login_info {
 	width: 80%;
 	font-size: 0.8rem;
-	font-family: 'Malgun Gothic', '210 맨발의청춘 Regular';
 	color:gray;
 	margin: 0 auto;
 	font-weight: 400;
@@ -24,7 +26,6 @@
 	font-size: 1.0rem;
 	color: black;
 	text-decoration: none;
-	font-family: 'Malgun Gothic';
 	font-weight: 700;
 }
 
@@ -56,7 +57,6 @@
 
 #id_login p a {
 	font-size: 1.0rem;
-	font-family: 'Malgun Gothic', '210 맨발의청춘 Regular';
 }
 
 /*아이디로 로그인*/
@@ -67,7 +67,8 @@
 }
 #id_login_title {
 	font-size: 1.7rem;
-	font-family:'여기어때 잘난체';
+	/* font-family:'여기어때 잘난체'; */
+	font-weight:bold;
 	color: black;
 	margin-top:10px;
 	margin-bottom: 20px;
@@ -75,14 +76,15 @@
 #id_login_box input{
 	width: 75%;
 	margin-bottom: 20px;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	font-size: 1.1rem;
 	height: 50px;
 }
 #id_login_box button {
 	width: 75%;
-	font-family: '210 맨발의청춘 Regular';
 	font-size: 1.3rem;
+	font-weight:bold;
 	height: 50px;
 	border-radius: 5px;
 	border: 0;
@@ -97,21 +99,19 @@
 	font-size: 1.0rem;
 	color: black;
 	text-decoration: none;
-	font-family: 'Malgun Gothic';
-	font-weight: 500;
+	font-weight:bold;
 }
 #join_info {
 	font-size: 1.0rem;
-	font-family: '210 맨발의청춘 Regular';
 	color: gray;
+	font-weight:bold;
 }
 #join_info a {
 	font-size: 1.0rem;
-	font-family: '210 맨발의청춘 Regular';
 	font-style: italic;
 	/* text-decoration: none; */
 	color: #347844;
-	font-weight: 500;
+	font-weight:bold;
 }
 
 /*회원가입*/
@@ -122,7 +122,8 @@
 }
 #join_title {
 	font-size: 1.7rem;
-	font-family:'여기어때 잘난체';
+	/* font-family:'여기어때 잘난체'; */
+	font-weight:bold;
 	color: black;
 }
 #join_form_table {
@@ -135,7 +136,6 @@
 }
 #join_form_table th {
 	text-align: center;
-	font-family: 'Malgun Gothic';
 	font-size: 1.0rem;
 }
 
@@ -156,8 +156,8 @@
 }
 #join_btn {
 	width: 75%;
-	font-family: '210 맨발의청춘 Regular';
 	font-size: 1.3rem;
+	font-weight:bold;
 	height: 50px;
 	border-radius: 5px;
 	border: 0;
@@ -216,8 +216,8 @@
 	height: 50px;
 	border: 0;
 	background-color: transparent;
-	font-family: '210 맨발의청춘 Regular';
 	font-size: 1.3rem;
+	font-weight:bold;
 }
 .select_btn:active {
 	font-size: 1.5rem;
@@ -227,7 +227,7 @@
 }
 #find_id_btn {
 	width: 75%;
-	font-family: '210 맨발의청춘 Regular';
+	font-weight:bold;
 	font-size: 1.3rem;
 	height: 50px;
 	border-radius: 5px;
@@ -238,7 +238,8 @@
 .find_id_input {
 	width: 75%;
 	margin-bottom: 20px;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	font-size: 1.1rem;
 	height: 50px;
 }
@@ -247,8 +248,8 @@
 }
 #find_pwd_btn {
 	width: 75%;
-	font-family: '210 맨발의청춘 Regular';
 	font-size: 1.3rem;
+	font-weight:bold;
 	height: 50px;
 	border-radius: 5px;
 	border: 0;
@@ -258,7 +259,8 @@
 .find_pwd_input {
 	width: 75%;
 	margin-bottom: 20px;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	font-size: 1.1rem;
 	height: 50px;
 }

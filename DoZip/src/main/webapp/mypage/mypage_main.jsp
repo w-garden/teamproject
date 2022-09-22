@@ -324,11 +324,10 @@
 					<tr>
 						<th id="head_num">번호</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
 					</tr>	
-					<%! int n=0; %>
-					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">					
-					<c:if test="${qlist[i].business_num == null}">
+					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">		
+					<c:if test="${qlist[i].businessName == null}">
 						<tr>
-							<td id="num"><%n++;%><%=n%></td>
+							<td id="num">${qlist[i].qna_no}</td>
 							<td id="title"><a href="#">${qlist[i].qna_title}</a></td>
 							<td id="state">${qlist[i].reply_state}</td> <td id="date">${qlist[i].qna_date}</td>
 						</tr>
@@ -351,12 +350,11 @@
 				<table>
 					<tr>
 						<th id="head_num">번호</th> <th>업체명</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
-					</tr>
-					<%! int n2=0; %>
+					</tr>					
 					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">
-					<c:if test="${qlist[i].business_num != null}">
+					<c:if test="${qlist[i].businessName != null}">
 						<tr>
-							<td id="num"><%n2++;%><%=n2%></td> <td id="partner_name">${qlist[i].businessName}</td> 
+							<td id="num">${qlist[i].qna_no}</td> <td id="partner_name">${qlist[i].businessName}</td> 
 							<td id="title"><a href="#">${qlist[i].qna_title}</a></td>
 							<td id="state">${qlist[i].reply_state}</td> <td id="date">${qlist[i].qna_date}</td>
 						</tr>

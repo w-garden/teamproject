@@ -16,9 +16,10 @@
 .mypage_menu button {
 	border :none;
 	background: none;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
 	font-size: 1.3rem;
 	margin: 15px 10px;
+	font-weight: bold;
 }
 .mypage_menu_main {
 	width: 100%;
@@ -69,15 +70,14 @@
 }
 #mp>span{
 	font-size: 1.5rem;
+	font-weight: bold;
 }
 .my_info_wrap p {
 	font-size: 1.2rem;
-	font-family: '210 맨발의청춘 Regular';
 	margin: 30px 20px;
 }
 .my_info_wrap span {
 	font-size: 1.2rem;
-	font-family: '210 맨발의청춘 Regular';
 	margin: 20px 20px;
 }
 #span_box {
@@ -100,6 +100,8 @@
 	border: none;
 	border-radius: 5px;
 	height: 30px;
+	font-weight: bold;
+	width: 100px;
 }
 
 /*정보수정*/
@@ -117,7 +119,8 @@
 }
 #mim_title {
 	font-size: 2.0rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight: bold;
 }
 .mim_table_box {
 	width: 80%;
@@ -131,7 +134,6 @@
 }
 .mim_table th {
 	font-size: 1.3rem;
-	font-family: 'Malgun Gothic';
 }
 .mim_table td {
 	border: none;
@@ -167,7 +169,6 @@
 	height : 45px;
 	padding: 10px;
 	color: white;
-	font-family: 'Malgun Gothic';
 	font-size: 1.0rem;
 	border-radius: 5px;
 	font-weight:bold;
@@ -179,7 +180,6 @@
 	width: 40%;
 	height : 50px;
 	color: white;
-	font-family:  '210 맨발의청춘 Regular';
 	font-size: 1.3rem;
 	letter-spacing: 10px;
 	border: none;
@@ -199,7 +199,8 @@
 }
 #mpm_title {
 	font-size: 1.7rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	margin-bottom: 40px;
 	margin-left: 20px;
 }
@@ -209,13 +210,11 @@
 }
 .my_pwd_modify_box p {
 	font-size: 1.2rem;
-	font-family:  '210 맨발의청춘 Regular';
 	margin-bottom: 5px;
 }
 .my_pwd_modify_box input {
 	width: 95%;
 	height: 30px;
-	font-family: "Malgun Gothic";
 }
 #infotext_s {
 	color: gray;
@@ -230,7 +229,6 @@
 	width: 45%;
 	height : 50px;
 	color: white;
-	font-family:  '210 맨발의청춘 Regular';
 	font-size: 1.3rem;
 	letter-spacing: 1px;
 	border: none;
@@ -254,7 +252,8 @@
 }
 #mrl_title {
 	font-size: 1.7rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight: bold;
 }
 #b_review {
 	margin-bottom: 20px;
@@ -283,7 +282,8 @@
  .my_apply_info {
 	border: 0;
 	border-radius: 20px;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	background-color: #d9eede;
 	text-align: center;
 	width: 80%;
@@ -330,7 +330,8 @@
 }
 #my_cont_title {
 	font-size: 2.0rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	text-align: center;
 	padding: 5px;
 	background-color: #fde482;
@@ -341,7 +342,8 @@
 }
 #follow_title {
 	font-size: 1.5rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	margin-right: 20px;
 }
 .progress_bar {
@@ -362,14 +364,16 @@
 }
 #progress_percent {
 	font-size: 1.5rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	margin-left: 10px;
 }
 
 .my_contract_info {
 	border: 5px solid #3a7232;
 	border-radius: 20px;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	/* background-color: #d9eede; */
 	text-align: center;
 	width: 90%;
@@ -396,7 +400,8 @@
 }
 .my_contract_cont p {
 	font-size: 1.5rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 }
 .my_contract_cont {
 	width: 50%;
@@ -415,7 +420,6 @@
 }
 .cst_th, .cst_td {
 	font-size: 1.0rem;
-	font-family: '210 맨발의청춘 Regular';
 }
 .contract_view_wrap {
 	text-align: center;
@@ -428,7 +432,6 @@
 	color: white;
 	height: 30px;
 	width: 30%;
-	font-family: '210 맨발의청춘 Regular';
 }
 
 .contract_pay {
@@ -436,7 +439,8 @@
 }
 .contract_pay p {
 	font-size: 1.5rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 }
 .contarct_pay_wrap {
 	border-radius: 20px;
@@ -451,7 +455,6 @@
 }
 .cpt_th , .cpt_td {
 	font-size: 1.0rem;
-	font-family: '210 맨발의청춘 Regular';
 	text-align: center;
 }
 #ttt {
@@ -479,7 +482,6 @@
 	color: white;
 	height: 30px;
 	width: 20%;
-	font-family: '210 맨발의청춘 Regular';
 }
 
 /* 고객센터문의 */
@@ -494,7 +496,8 @@
 	border: 0;
 	border-radius: 20px;
 	font-size: 1.2rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	background-color: #347844;
 	text-align: center;
 	width: 37%;
@@ -523,7 +526,8 @@
 }
 .my_P_qna_title {
 	font-size: 1.5rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 }
 .my_P_qna_cont table {
 	width: 100%;
@@ -542,7 +546,8 @@
 	border: 0;
 	border-radius: 20px;
 	font-size: 1.2rem;
-	font-family: '여기어때 잘난체';
+	/* font-family: '여기어때 잘난체'; */
+	font-weight:bold;
 	background-color: #347844;
 	text-align: center;
 	width: 37%;

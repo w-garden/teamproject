@@ -33,8 +33,7 @@ public class MypageGoController implements Action {
 		List<QnaVO> qlist = new ArrayList<QnaVO>();
 		qlist = qdao.getPlist(id);
 		System.out.println(qlist.size());
-		request.setAttribute("qlist", qlist);
-		
+		request.setAttribute("qlist", qlist);		
 		
 		
 		ActionForward forward=new ActionForward();
