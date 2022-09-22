@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../common/header.jsp" />
-<script src="../js/jquery.js" ></script>
+<script src="/DoZip/js/jquery.js" ></script>
 
 <%-- 상단 공통부분 끝 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 
 <div class="counsel_wrap">
@@ -23,14 +25,22 @@
 		<div class="my_qna_cont">
 			<table>
 				<tr>
-					<th id="head_num">번호</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
-				</tr>
-				<%! int i = 0; %>
-				<% for(i=1; i<5; i++) { %>
-				<tr>
-					<td id="num"><%=i %></td> <td id="title"><a href="#"><%=i %>번 글 제목</a></td> <td id="state">답변대기중</td> <td id="date"><%=i %>번 글 날짜</td>
-				</tr>
-				<% } %>
+						<th id="head_num">번호</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
+					</tr>
+					<c:if test="${fn:length(qlist) == 0}">
+						<tr><td colspan="4"> 등록된 글이 없습니다.</td> </tr>
+					</c:if>	
+					<c:if test="${fn:length(qlist) != 0}">
+					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">		
+					<c:if test="${qlist[i].businessName == null}">
+						<tr>
+							<td id="num">${qlist[i].qna_no}</td>
+							<td id="title"><a href="#">${qlist[i].qna_title}</a></td>
+							<td id="state">${qlist[i].reply_state}</td> <td id="date">${qlist[i].qna_date}</td>
+						</tr>
+					</c:if>
+					</c:forEach>
+					</c:if>
 			</table>
 		</div>
 	</div>
@@ -54,6 +64,7 @@
 				집닥​ 홈페이지 상단 → 로그인 메뉴를 누르신 다음 노출되는 창에서 제일 하단 '이메일로 로그인하기' 로 들어가시면 아이디 또는 비밀번호를 찾으실 수 있습니다. 
 				그래도 찾지 못하실 경우, 고객센터로 연락주시면 신속히 도움 드리겠습니다.
 			</div>
+			<%! int i=0; %>
 			<% for(i=1; i<4; i++){ %>
 			<div class="qna_menu">
 				<span><%=i %>번 질문</span>
