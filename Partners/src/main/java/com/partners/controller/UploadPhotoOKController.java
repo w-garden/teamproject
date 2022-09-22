@@ -31,7 +31,7 @@ public class UploadPhotoOKController implements Action{
 
 		String business_num = (String)session.getAttribute("business_num");
 		int pf_no = 0; 
-		String pf_title="";
+		//String pf_title="";
 
 		Cookie[] cookies = request.getCookies();		 
 		for(Cookie c: cookies) {
@@ -39,9 +39,9 @@ public class UploadPhotoOKController implements Action{
 				pf_no=Integer.parseInt(c.getValue()); //세션에서 포트폴리오 번호 가져옴 -> 사진 삽입 위해
 
 			}
-			if(c.getName().equals("pf_title")) {
-				pf_title=c.getValue();
-			}
+			//if(c.getName().equals("pf_title")) {
+			//	pf_title=c.getValue();
+			//}
 		}
 
 
@@ -86,6 +86,11 @@ public class UploadPhotoOKController implements Action{
 			if(i==4) {
 				PortfolioDAO dao = new PortfolioDAO();
 				dao.selectOnePortfolio(fileDBName, pf_no);
+				
+				//등록된 쿠키 삭제
+				Cookie delPf_no = new Cookie("pf_no", "");
+				delPf_no.setMaxAge(0);
+				response.addCookie(delPf_no); 
 				out.println("<script>");
 				out.println("alert('정상적으로 등록되었습니다!')");
 				out.println("location='/Partners/main.jsp'");

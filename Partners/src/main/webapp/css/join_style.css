@@ -350,3 +350,9 @@ a.footer_mail {
     color: white;
     text-decoration: none;
 }
+a.footer_mail:hover {
+	color: green;
+}
+.footer_company_call_number {
+    font-size: 1.0rem;
+}

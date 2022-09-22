@@ -389,13 +389,17 @@ footer{
 }
 .footer_company_call_number {
 	font-size: 1.0rem;
-	font-family:'여기어때 잘난체';
-	color: white;
 }
 .footer_company_copyright {
 	padding-bottom: 20px;
 }
-
+a.footer_mail {
+    color: white;
+    text-decoration: none;
+}
+a.footer_mail:hover {
+	color: green;
+}
 /*관리자로그아웃*/
 #admin_logout {
 	background-color:  #cdd8e9;

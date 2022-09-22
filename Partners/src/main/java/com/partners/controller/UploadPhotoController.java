@@ -1,6 +1,8 @@
 package com.partners.controller;
 
 
+import java.net.HttpCookie;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,9 +45,9 @@ public class UploadPhotoController implements Action {
 		
 		
 		Cookie cookie = new Cookie("pf_no", String.valueOf(dao.addPortfolio(dto)));
-		Cookie cookie2 = new Cookie("pf_title", pf_title.replaceAll(" ",""));
+	
+		
 		response.addCookie(cookie);
-		response.addCookie(cookie2);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
