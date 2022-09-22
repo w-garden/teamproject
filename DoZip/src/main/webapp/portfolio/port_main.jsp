@@ -107,7 +107,7 @@
  			
  			<!-- 반복문 시작 -->
 			<div class="cards-list">
-				
+				<c:if test = "${!empty plist}">
 				<c:forEach var="i" begin="0" end="${fn:length(plist)-1}" step="1">
 					<div class="card">
 					  <div class="card_image"> 
@@ -121,7 +121,13 @@
 					</div>
 				</c:forEach>
 			</div>
- 		</div>	
+			</c:if>
+			<c:if test = "${empty plist}">
+				<div id = "none_pf">포트폴리오 목록이 없습니다</div>
+			</c:if>
+ 		</div>
+ 		<br>
+ 		<br>	
  		
 
 <%--하단 공통부분 --%>	
