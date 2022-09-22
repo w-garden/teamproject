@@ -323,7 +323,11 @@
 				<table>
 					<tr>
 						<th id="head_num">번호</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
-					</tr>	
+					</tr>
+					<c:if test="${fn:length(qlist) == 0}">
+						<tr><td colspan="4"> 등록된 글이 없습니다.</td> </tr>
+					</c:if>	
+					<c:if test="${fn:length(qlist) != 0}">
 					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">		
 					<c:if test="${qlist[i].businessName == null}">
 						<tr>
@@ -333,6 +337,7 @@
 						</tr>
 					</c:if>
 					</c:forEach>
+					</c:if>
 				</table>
 			</div>
 			</div>
@@ -350,7 +355,11 @@
 				<table>
 					<tr>
 						<th id="head_num">번호</th> <th>업체명</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
-					</tr>					
+					</tr>
+					<c:if test="${fn:length(qlist) == 0}">
+						<tr><td colspan="5"> 등록된 글이 없습니다.</td> </tr>
+					</c:if>	
+					<c:if test="${fn:length(qlist) != 0}">					
 					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">
 					<c:if test="${qlist[i].businessName != null}">
 						<tr>
@@ -360,6 +369,7 @@
 						</tr>
 					</c:if>
 					</c:forEach>
+					</c:if>
 				</table>
 			</div>
 			</div>
