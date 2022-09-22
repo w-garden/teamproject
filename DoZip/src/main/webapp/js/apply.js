@@ -88,6 +88,50 @@ $("#light").click(function(){
 $("#door").click(function(){
   $("#detail08").toggle();
 });
+/*토글 끝*/
+
+/*checkbox 선택취소시 초기화*/
+$("#wall").click(function(){
+ if($("input:checkbox[id=wall]").is(":checked") == false){
+  $("input:radio[name=group_wallpaper_item]").prop('checked', false);
+ }
+});
+$("#floor").click(function(){
+  if($("input:checkbox[id=floor]").is(":checked") == false){
+   $("input:radio[name=group_floor_item]").prop('checked', false);
+  }
+ });
+ $("#kitchen").click(function(){
+  if($("input:checkbox[id=kitchen]").is(":checked") == false){
+   $("input:checkbox[name=group_kitchen_item]").prop('checked', false);
+  }
+ });
+ $("#washroom").click(function(){
+  if($("input:checkbox[id=washroom]").is(":checked") == false){
+   $("input:checkbox[name=group_washroom_item]").prop('checked', false);
+  }
+ });
+ $("#porch").click(function(){
+  if($("input:checkbox[id=porch]").is(":checked") == false){
+   $("input:checkbox[name=group_porch_item]").prop('checked', false);
+  }
+ });
+ $("#window").click(function(){
+  if($("input:checkbox[id=window]").is(":checked") == false){
+   $("input:radio[name=group_window_item]").prop('checked', false);
+  }
+ });
+ $("#light").click(function(){
+  if($("input:checkbox[id=light]").is(":checked") == false){
+   $("input:radio[name=group_light_item]").prop('checked', false);
+  }
+ });
+ $("#door").click(function(){
+  if($("input:checkbox[id=door]").is(":checked") == false){
+   $("input:radio[name=group_door_item]").prop('checked', false);
+  }
+ });
+/*checkbox 선택취소시 초기화 끝*/
 
 /*천단위로 콤마찍기*/
 function comma(str) {

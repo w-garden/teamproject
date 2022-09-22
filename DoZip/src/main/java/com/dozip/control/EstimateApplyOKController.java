@@ -2,6 +2,7 @@ package com.dozip.control;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,10 +17,39 @@ public class EstimateApplyOKController implements Action {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		EstimateVO e = new EstimateVO();
-		
+	      
+	      /*페이지 1  쿠키 탑재 */ 
+	      Cookie cookie1 = new Cookie("name", "value");
+	      response.addCookie(cookie1);
+	      Cookie cookie2 = new Cookie("name1", "value");
+	      response.addCookie(cookie2);
+	      
+	      /*페이지 2 쿠키 불러오기 */
+	      Cookie[] cookies = request.getCookies(); //배열로 받아와야함
+	      
+	      for(Cookie c: cookies) {
+	         if(c.getName().equals("name")) {   //조건에 맞는 쿠키 불러오기
+	            System.out.println(c.getValue());
+	         }
+
+	         System.out.println(c.getName());  //모든 쿠키 이름 출력
+	         System.out.println(c.getValue()); //모든 쿠키 값 출력
+	      }
+	      /* 쿠키 삭제 */
+	      Cookie cookie3 = new Cookie("name", "");    // "name" 이라는 새롭게 쿠키 만든후(기존에 있던 쿠키 이름)
+	      cookie3.setMaxAge(0);    //쿠키 유효시간을 0으로 수정
+	      response.addCookie(cookie3);  //쿠키 탑재
+	      /*쿠키 끝*/
+	      
 		String[] detail= {};
 		String[] detail01 = {};
 		String[] detail02 = {};
+		String[] detail03 = {};
+		String[] detail04 = {};
+		String[] detail05 = {};
+		String[] detail06 = {};
+		String[] detail07 = {};
+		String[] detail08 = {};
 
 		
 		String est_zoning = request.getParameter("est_zoning");
@@ -31,55 +61,98 @@ public class EstimateApplyOKController implements Action {
 		String areaM = request.getParameter("areaM");
 			System.out.println("제곱미터 : "+areaM);
 			
-			if(request.getParameterValues("check") != null) {
-				detail = request.getParameterValues("check");
+		if(request.getParameterValues("check") != null) {
+			detail = request.getParameterValues("check");
+			System.out.print("원하는 공간 선택 : ");
+				for(int i=0; i<detail.length; i++) {
+					System.out.print(detail[i]+"|");
 			}
-			else {
+		}
+		if(request.getParameterValues("group_wallpaper_item") != null) {
+			detail01 = request.getParameterValues("group_wallpaper_item");
+			System.out.print("도배/벽 세부사항 : ");
+				for(int i=0; i<detail01.length; i++) {
+					System.out.print(detail01[i]+"|");
+			}
+		}
+		if(request.getParameterValues("group_floor_item") != null) {
+			detail02 = request.getParameterValues("group_floor_item");
+			System.out.print("\n"+"바닥 세부사항 : ");
+				for(int i=0; i<detail02.length; i++) {
+					System.out.print(detail02[i]+"|");
+			}
+		}
+		if(request.getParameterValues("group_kitchen_item") != null) {
+			detail03 = request.getParameterValues("group_kitchen_item");
+			System.out.print("\n"+"주방 세부사항 : ");
+			for(int i=0; i<detail03.length; i++) {
+				System.out.print(detail03[i]+"|");
+			}
+		}
+		if(request.getParameterValues("group_washroom_item") != null) {
+			detail04 = request.getParameterValues("group_washroom_item");
+			System.out.print("\n"+"욕실 세부사항 : ");
+			for(int i=0; i<detail04.length; i++) {
+				System.out.print(detail04[i]+"|");
+			}
+		}
+		if(request.getParameterValues("group_porch_item") != null) {
+			detail05 = request.getParameterValues("group_porch_item");
+			System.out.print("\n"+"현관 세부사항 : ");
+			for(int i=0; i<detail05.length; i++) {
+				System.out.print(detail05[i]+"|");
+			}
+		}
+		if(request.getParameterValues("group_window_item") != null) {
+			detail06 = request.getParameterValues("group_window_item");
+			System.out.print("\n"+"발코니/샷시 세부사항 : ");
+			for(int i=0; i<detail06.length; i++) {
+				System.out.print(detail06[i]+"|");
+			}
+		}
+		if(request.getParameterValues("group_light_item") != null) {
+			detail07 = request.getParameterValues("group_light_item");
+			System.out.print("\n"+"조명 세부사항 : ");
+			for(int i=0; i<detail07.length; i++) {
+				System.out.print(detail07[i]+"|");
+			}
+		}
+		if(request.getParameterValues("group_door_item") != null) {
+			detail08 = request.getParameterValues("group_door_item");
+			System.out.print("\n"+"문 세부사항 : ");
+			for(int i=0; i<detail08.length; i++) {
+				System.out.print(detail08[i]+"|");
+			}
+		}
+
+			/*유효성검증*/
+			if(est_use == null) {
 				out.println("<script>");
-				out.println("alert('공간 유형을 선택해 주세요!');");
+				out.println("alert('건물 유형을 선택해 주세요!');");
 				out.println("history.go(-1)");
 				out.println("</script>");
 			}
-			System.out.print("원하는 공간 선택 : ");
-			
-
-			System.out.println(detail.length);
-			
-			/*
-			if(detail.length != 0) {
-				for(int i=0; i<detail.length; i++) {
-					System.out.print(detail[i]+"|");
-				}
+			else if(areaP.equals("0") || areaP == "") {
+				out.println("<script>");
+				out.println("alert('평수를 입력해 주세요!');");
+				out.println("history.go(-1)");
+				out.println("</script>");
 			}
-			*/
+			else if(request.getParameterValues("check") == null) {
+				out.println("<script>");
+				out.println("alert('원하는 공간을 선택 주세요!');");
+				out.println("history.go(-1)");
+				out.println("</script>");
+			}
+			/*유효성검증끝*/
 			
-			
-//		detail01 = request.getParameterValues("group_wallpaper_item");
-//					System.out.print("\n"+"벽 디테일 : ");
-//					for(int i=0; i<detail01.length; i++) {
-//						System.out.print(detail01[i]+"|");
-//					}		
-//		detail02 = request.getParameterValues("group_floor_item");
-//					System.out.print("\n"+"바닥 디테일 : ");
-//				for(int i=0; i<detail02.length; i++) {
-//					System.out.print(detail02[i]+"|");
-//				}
+			else {
+				ActionForward forward = new ActionForward();
+				forward.setRedirect(true);
+				forward.setPath("estimate_apply2.do");
 				
-				
-				
-				if(est_use == null) {
-					out.println("<script>");
-					out.println("alert('건물 유형을 선택해 주세요!');");
-					out.println("history.go(-1)");
-					out.println("</script>");
-				}
-				else if(areaP.equals("0") || areaP == "") {
-					out.println("<script>");
-					out.println("alert('평수를 입력해 주세요!');");
-					out.println("history.go(-1)");
-					out.println("</script>");
-				}
-			
+				return forward;
+			}
 
 		/*
 		EstimateDAOImpl edao = new EstimateDAOImpl();
@@ -106,13 +179,7 @@ public class EstimateApplyOKController implements Action {
 		e.setEst_detail07(request.getParameter("est_detail07")); //조명
 		e.setEst_detail08(request.getParameter("est_detail08")); //문
 		
-		else {
-			ActionForward forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("estimate_apply2.do");
-			
-			return forward;
-		}*/
+		*/
 		
 		return null;
 	}
