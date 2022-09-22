@@ -26,7 +26,7 @@
 			<nav class="header_nav">
 				<!-- 로고 -->
 				<div class="logo">
-					<a href="home.do"> <img src="./images/logo.png"/>
+					<a href="home.do"> <img src="./images/main_logo.png"/>
 					</a>
 				</div>
 				

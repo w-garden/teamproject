@@ -3,6 +3,7 @@ package com.dozip.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -17,6 +18,33 @@ public class MemberDAOImpl {
 	ResultSet rs=null;//검색 결과 레코드를 저장 rs
 	DataSource ds=null;//DBCP 커넥션풀 관리 ds
 	String sql=null; //SQL 쿼리문
+	
+	public void close(Connection con) {
+		if (con != null)
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
+
+	public void close(PreparedStatement pt) {
+		if (pt != null)
+			try {
+				pt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
+
+	public void close(ResultSet rs) {
+		if (rs != null)
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
 	
 	public MemberDAOImpl() {
 		try {
@@ -49,12 +77,8 @@ public class MemberDAOImpl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if(pt != null) pt.close();
-				if(con != null) con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close(pt);
+			close(con);
 		}
 		return res;
 	}//insertMember()
@@ -76,16 +100,12 @@ public class MemberDAOImpl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if(rs != null) rs.close();
-				if(pt != null) pt.close();
-				if(con != null) con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close(rs);
+			close(pt);
+			close(con);
 		}
 		return db_pwd;
-	}
+	}//loginCheck()
 
 	//회원가입 아이디 체크
 	public int checkID(String mem_id) {
@@ -104,16 +124,12 @@ public class MemberDAOImpl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if(rs != null) rs.close();
-				if(pt != null) pt.close();
-				if(con != null) con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close(rs);
+			close(pt);
+			close(con);
 		}		
 		return checkid;
-	}
+	}//checkID()
 
 	//아이디 회원의 정보를 불러옴
 	public MemberVO getMemberInfo(String id) {
@@ -143,16 +159,12 @@ public class MemberDAOImpl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if(rs != null) rs.close();
-				if(pt != null) pt.close();
-				if(con != null) con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close(rs);
+			close(pt);
+			close(con);
 		}
 		return m;
-	}
+	}//getMemberInfo()
 
 	//마이페이지-회원정보수정
 	public int updateMember(MemberVO m) {
@@ -177,15 +189,11 @@ public class MemberDAOImpl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if(pt != null) pt.close();
-				if(con != null) con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close(pt);
+			close(con);
 		}		
 		return res;
-	}
+	}//updateMember()
 
 	//아이디 찾기
 	public String getFindID(String mem_name, String mem_tel) {
@@ -206,16 +214,34 @@ public class MemberDAOImpl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if(rs != null) rs.close();
-				if(pt != null) pt.close();
-				if(con != null) con.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			close(rs);
+			close(pt);
+			close(con);
 		}		
 		return mem_id;
-	}
+	}//getFindID()
+
+	//비밀번호 변경
+	public int changePwd(String id, String current_pwd, String new_pwd) {
+		int res = 0;
+		try {
+			con = ds.getConnection();
+			sql = "update memberT set mem_pwd=? where mem_id=? and (select mem_pwd from memberT where mem_id=?)=?";
+			//where mem_id=? 가 없으면 전체 비밀번호가 바뀌게 된다. 
+			pt=con.prepareStatement(sql);
+			pt.setString(1, new_pwd);
+			pt.setString(2, id);
+			pt.setString(3, id);
+			pt.setString(4, current_pwd);			
+			res = pt.executeUpdate();			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pt);
+			close(con);
+		}		
+		return res;
+	}//changePwd()
 	
 	
 	

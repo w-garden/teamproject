@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <jsp:include page="../common/header.jsp" />
 <%-- 상단 공통부분 끝 --%>
 <link rel = "stylesheet" type = "text/css" href = "../css/myscrap.css"/>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<script src="/DoZip/js/member.js"></script>
 
 <div class="mypage_wrap">
 	<%--상단 메뉴부분 --%>
@@ -105,15 +103,15 @@
 		<div class="mypage_body" id="my_pwd_modify">
 			<div class="mpm_wrap">
 				<p id="mpm_title">비밀번호 변경</p>
-				<form method="post" action="#" class="my_pwd_modify_box">
+				<form method="post"  onsubmit="return pwd_check();" action="mypage_pwd.do" class="my_pwd_modify_box"  >
 					<p>기존 비밀번호</p>
 					<input type="password" name="current_pwd" id="current_pwd" placeholder="기존 비밀번호를 입력해주세요."/>
 					<p>새 비밀번호</p>
-					<p id="infotext_s">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요.</p>
+					<p id="infotext_s">영문, 숫자를 포함한 8자 이상의 비밀번호를 입력해주세요. (특수문자는 허용되지 않습니다.)</p>
 					<input type="password" name="new_pwd" id="new_pwd" placeholder="새로운 비밀번호를 입력해주세요."/>
 					<p>비밀번호 확인</p>
 					<input type="password" name="new_pwd_check" id="new_pwd_check" placeholder="다시 한 번 입력해주세요."/>
-					<div id="mpm_btn_wrap"><button type="submit" id="mpm_btn">비밀번호 변경</button></div>
+					<div id="mpm_btn_wrap"><button type="submit" id="mpm_btn" >비밀번호 변경</button></div>
 				</form>
 			</div>
 		</div>

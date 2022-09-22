@@ -23,17 +23,17 @@ public class MypageGoController implements Action {
 		HttpSession session=request.getSession();
 		String id = (String)session.getAttribute("id"); //현재 로그인 되어있는 세션의 아이디 값
 		
+		//회원정보
 		MemberDAOImpl mdao = new MemberDAOImpl();
-		MemberVO m = mdao.getMemberInfo(id);
-		
+		MemberVO m = mdao.getMemberInfo(id);		
 		request.setAttribute("m", m);
 		
-		//파트너스 리스트 출력
+		//파트너스 리스트 출력(업체문의)
 		QnaDAOImpl qdao = new QnaDAOImpl();
 		List<QnaVO> qlist = new ArrayList<QnaVO>();
 		qlist = qdao.getPlist(id);
-		System.out.println(qlist.size());
-		request.setAttribute("qlist", qlist);		
+		System.out.println("qlist.size() = "+qlist.size());
+		request.setAttribute("qlist", qlist);
 		
 		
 		ActionForward forward=new ActionForward();
