@@ -42,7 +42,7 @@
 		<div>
 			<div class="photo_inputfile">
 				<input type="file" name="photo01" id="photo01"
-					onchange="loadFile1(this)" value="사진">
+					onchange="loadFile1(this)">
 			</div>
 			<div>
 				<img alt="미리보기1" id="preview1" style="display: none;">
@@ -50,8 +50,7 @@
 		</div>
 		<div>
 			<div class="photo_inputfile">
-				<input type="file" name="photo02" id="photo02"
-					onchange="loadFile2(this)">
+				<input type="file" name="photo02" id="photo02" onchange="loadFile2(this)">
 			</div>
 			<div>
 				<img alt="미리보기2" id="preview2" style="display: none;">
@@ -60,8 +59,7 @@
 		</div>
 		<div>
 			<div class="photo_inputfile">
-				<input type="file" name="photo03" id="photo03"
-					onchange="loadFile3(this)">
+				<input type="file" name="photo03" id="photo03" onchange="loadFile3(this)">
 			</div>
 			<div>
 				<img alt="미리보기3" id="preview3" style="display: none;">
@@ -70,8 +68,7 @@
 		</div>
 		<div>
 			<div class="photo_inputfile">
-				<input type="file" name="photo04" id="photo04"
-					onchange="loadFile4(this)">
+				<input type="file" name="photo04" id="photo04" onchange="loadFile4(this)">
 			</div>
 			<div>
 				<img alt="미리보기4" id="preview4" style="display: none;">
@@ -79,8 +76,7 @@
 		</div>
 		<div>
 			<div class="photo_inputfile">
-				<input type="file" name="photo05" id="photo05"
-					onchange="loadFile5(this)">
+				<input type="file" name="photo05" id="photo05" onchange="loadFile5(this)">
 			</div>
 			<div>
 				<img alt="미리보기5" id="preview5" style="display: none;">
@@ -91,11 +87,6 @@
 	<div>	<input type="submit" value="등록">
 	</div>
 </form>
-
-
-
-
-
 
 <script type="text/javascript">
 	function loadFile1(input) {
@@ -177,7 +168,13 @@
 			document.getElementById('preview5').src = "";
 		}
 	}
+	
+
 </script>
+
+
+
+
 <jsp:include page="../include/footer.jsp" />
 
 

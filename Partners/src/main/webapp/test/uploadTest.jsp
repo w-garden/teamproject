@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<img src="/Partners/upload/두집파트너스/수정파일.jpg" width="100" height="100"
+<img src="/Partners/upload/57/photo01.jpg" width="100" height="100"
 								alt="프로필 사진">
 </body>
 </html>
