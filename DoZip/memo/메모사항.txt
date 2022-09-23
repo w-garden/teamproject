@@ -4,7 +4,7 @@ main에서 pull -> 브랜치 생성 -> 커밋 -> 커밋옵션(pull request) + �
  push -> merge 확인 후 -> 내 브랜치 삭제
 
 2. 커넥션풀 만들기
-<Resource name="jdbc/oracle" auth="Container"
+<Resource name="jdbc/xe" auth="Container"
                  type="javax.sql.DataSource" driverClassName="oracle.jdbc.OracleDriver"
                  url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
                  username="admin" password="1234" maxTotal="20" maxIdle="10"

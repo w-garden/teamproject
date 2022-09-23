@@ -10,10 +10,24 @@
 
 <script src="/Partners/js/jquery.js"></script>
 <script src="/Partners/js/javascript.js"></script>
-<style>
+<script>
 
-</style>
+/* 유효성 검증 */
+function login_check() {
+	if($.trim($("#signin_id").val())==''){
+		alert('아이디를 입력하세요');
+		$('#signin_id').focus();
+		return false;
+	}
+	if($.trim($('#signin_pw').val())==''){
+		alert('비밀번호를 입력하세요');
+		$('#signin_id').focus();
+		return false;
+	}
+}
 
+
+</script>
 
 </head>
 <body>
@@ -27,9 +41,13 @@
 					<div><a href="/DoZip/index.jsp">
 						<img src="images/join/partners_logo.png" alt="메인로고"></a></div>
 			</div>
-			<form action="partners_login_ok.do" method="post" id="로그인 폼" onsubmit="return check()">
-				<div><input type="text" name="login_pId" id="signin_id" placeholder="아이디"></div>
-				<div><input type="password" name="login_pPw" id="signin_pw" placeholder="비밀번호"></div>
+			<form action="partners_login_ok.do" method="post" id="로그인 폼" onsubmit="return login_check();">
+				<div><input type="text" name="login_pId" id="signin_id" placeholder="아이디">
+				<span id="idcheck"></span>
+				</div>
+				<div><input type="password" name="login_pPw" id="signin_pw" placeholder="비밀번호">
+				<span id="pwcheck"></span>
+				</div>
 				<div><input type="submit" value="로그인" id="login"></div>
 				<div id=bottom_button1>
 					<div id=id_save>
@@ -49,20 +67,7 @@
 	
 	
 		<script>
-		
-			/* 유효성 검증 */
-			function check(){
-				if($.trim($('#signin_id').val())==''){
-					alert('아이디를 입력하세요');
-					$('#id').focus();
-					return false;
-				}
-				if($.trim($('#signin_pw').val())==''){
-					alert('비밀번호를 입력하세요');
-					$('#pw').focus();
-					return false;
-				}
-			}
+			
 		
 		/*아이디 체크 버튼 연동 */
 			$(function(){

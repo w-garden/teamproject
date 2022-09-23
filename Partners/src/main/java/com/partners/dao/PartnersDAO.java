@@ -99,8 +99,31 @@ public class PartnersDAO {
 		return dto;
 	}
 
-	// 아이디 중복 검색 메서드
-
+	// 아이디 중복 검색 메서드, 아이디에 맞는 파트너스 정보 찾기
+	public int idcheck(String pId) {
+		int re=0;
+		try {
+			conn= ds.getConnection();
+			sql="select * from partnersT where pId=?";
+			pstmt= conn.prepareStatement(sql);
+			pstmt.setString(1, pId);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				re=1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				close(pstmt);
+				close(conn);
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return re;
+	}
 	// 파트너스 저장 메서드
 	public int insertPartners(PartnersDTO dto) {
 		int result = 0;
@@ -162,7 +185,7 @@ public class PartnersDAO {
 		}
 		return result;
 	}
-
+	//사업자 번호로 아이디찾기
 	public PartnersDTO findID(String findid_business_num) {
 		PartnersDTO dto = null;
 
@@ -197,6 +220,8 @@ public class PartnersDAO {
 
 		return dto;
 	}
+
+	
 
 
 
