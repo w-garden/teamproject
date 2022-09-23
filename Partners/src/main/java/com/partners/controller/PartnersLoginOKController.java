@@ -24,9 +24,7 @@ public class PartnersLoginOKController implements Action {
 			//로그인 체크 아이디가 없는경우 0, 비번이 일치하지 않는경우 2, 로그인 성공 1
 			int result = dao.loginCheck(pId, pPw);
 			
-			
 			if(result==0) {
-
 				
 				out.println("<script>");
 				out.println("alert('존재하지 않는 아이디입니다')");
@@ -54,12 +52,13 @@ public class PartnersLoginOKController implements Action {
 					ActionForward forward = new ActionForward();
 					forward.setRedirect(false);
 					forward.setPath("main.jsp");
-					return forward;
+					return forward; 
 				}
 				
 			}
 			
-		return null;
+			return null; 	
+			
 	}
 
 }

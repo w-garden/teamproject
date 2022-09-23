@@ -148,5 +148,12 @@ public class PartnersDTO {
 	public void setpState(int pState) {
 		this.pState = pState;
 	}
+
+
+
+
+
+
+
 	
 }

@@ -23,7 +23,7 @@ public class Email_test {
 
 	private static void gernerateAndSendEmail() {
 		final String user = "w.garden316@gmail.com";
-		final String password = "iablqkwrntjvwhph";
+		final String password = "";
 		
 		
 		//Step 1 프로퍼티 생성
