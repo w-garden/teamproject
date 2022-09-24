@@ -81,6 +81,9 @@
 	text-align: left;
 	padding-left: 20px;
 }
+.page_area{
+	text-align:center;
+}
 
 /* 자주하는 질문 */
 .qna_part {

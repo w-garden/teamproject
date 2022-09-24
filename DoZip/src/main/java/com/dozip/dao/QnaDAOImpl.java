@@ -153,37 +153,43 @@ public class QnaDAOImpl {
 	}
 
 	//로그인된 아이디의 문의 리스트 불러오기 + 사업자명
-	public List<QnaVO> getPlist(String id) {
+	public List<QnaVO> getPlist(String id, int page, int limit) {
 		List<QnaVO> list = new ArrayList<>();
 		QnaVO vo = null;
+		int startrow = (page-1)*5+1;
+		int endrow = startrow+limit-1;
+		
 		try {
 			con = ds.getConnection();
-			sql = "select qna_no, mem_id, qnaT.business_num, qna_type,qna_title,"
+			sql = "select * from (select rowNum r, qna_no, mem_id, qnaT.business_num, qna_type,qna_title,"
 					+ "qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,"
 					+ "qna_level,reply_state,reply_date, partnersT.businessName  "
 					+ "from qnaT,partnersT where qnaT.business_num=partnersT.business_num(+) and mem_id=?"
-					+ "order by qna_no desc";
+					+ "order by qna_no desc, qna_ref desc, qna_level asc)"
+					+ "where r >= ? and r<=?";
 			pt = con.prepareStatement(sql);
 			pt.setString(1, id);
-			rs = pt.executeQuery();
+			pt.setInt(2,startrow);
+			pt.setInt(3,endrow);
+			rs = pt.executeQuery();			
 			
 			while(rs.next()) {
 				vo = new QnaVO();
-				vo.setQna_no(rs.getInt(1));
-				vo.setMem_id(rs.getString(2));
-				vo.setBusiness_num(rs.getString(3));
-				vo.setQna_type(rs.getString(4));
-				vo.setQna_title(rs.getString(5));
-				vo.setQna_cont(rs.getString(6));
-				vo.setQna_date(rs.getString(7));
-				vo.setEdit_date(rs.getString(8));
-				vo.setQna_state(rs.getInt(9));
-				vo.setQna_ref(rs.getInt(10));
-				vo.setQna_step(rs.getInt(11));
-				vo.setQna_level(rs.getInt(12));
-				vo.setReply_state(rs.getString(13));
-				vo.setReply_date(rs.getString(14));	
-				vo.setBusinessName(rs.getString(15));
+				vo.setQna_no(rs.getInt(2));
+				vo.setMem_id(rs.getString(3));
+				vo.setBusiness_num(rs.getString(4));
+				vo.setQna_type(rs.getString(5));
+				vo.setQna_title(rs.getString(6));
+				vo.setQna_cont(rs.getString(7));
+				vo.setQna_date(rs.getString(8));
+				vo.setEdit_date(rs.getString(9));
+				vo.setQna_state(rs.getInt(10));
+				vo.setQna_ref(rs.getInt(11));
+				vo.setQna_step(rs.getInt(12));
+				vo.setQna_level(rs.getInt(13));
+				vo.setReply_state(rs.getString(14));
+				vo.setReply_date(rs.getString(15));	
+				vo.setBusinessName(rs.getString(16));
 				list.add(vo);
 			}
 		} catch (Exception e) {
@@ -194,6 +200,28 @@ public class QnaDAOImpl {
 			close(con);
 		}
 		return list;
+	}
+
+	//해당 아이디의 작성 글 개수 확인
+	public int getListCount(String id) {
+		int listcount = 0;
+		
+		try {
+			con = ds.getConnection();
+			sql = "select count(qna_no) from qnaT where mem_id=? and qna_state=1";
+			pt = con.prepareStatement(sql);
+			pt.setString(1, id);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {listcount = rs.getInt(1);}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pt);
+			close(con);
+		}
+		return listcount;
 	}
 	
 	

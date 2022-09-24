@@ -23,25 +23,40 @@
 	<div class="my_qna">
 		<div class="my_qna_title"><p>나의 문의</p></div>
 		<div class="my_qna_cont">
+			<!-- 목록 출력 -->
 			<table>
 				<tr>
-						<th id="head_num">번호</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
+				<th id="head_num">번호</th> <th id="head_title">제목</th> <th id="qna_state">답변상태</th><th id="head_date">작성일</th>
+				</tr>
+				<c:if test="${fn:length(qlist) == 0}">
+					<tr><td colspan="4"> 등록된 글이 없습니다.</td> </tr>
+				</c:if>	
+				<c:if test="${fn:length(qlist) != 0}">
+				<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">		
+				<c:if test="${qlist[i].businessName == null}">
+					<tr>
+						<td id="num">${qlist[i].qna_no}</td>
+						<td id="title"><a href="#">${qlist[i].qna_title}</a></td>
+						<td id="state">${qlist[i].reply_state}</td> <td id="date">${qlist[i].qna_date}</td>
 					</tr>
-					<c:if test="${fn:length(qlist) == 0}">
-						<tr><td colspan="4"> 등록된 글이 없습니다.</td> </tr>
-					</c:if>	
-					<c:if test="${fn:length(qlist) != 0}">
-					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">		
-					<c:if test="${qlist[i].businessName == null}">
-						<tr>
-							<td id="num">${qlist[i].qna_no}</td>
-							<td id="title"><a href="#">${qlist[i].qna_title}</a></td>
-							<td id="state">${qlist[i].reply_state}</td> <td id="date">${qlist[i].qna_date}</td>
-						</tr>
-					</c:if>
-					</c:forEach>
-					</c:if>
+				</c:if>
+				</c:forEach>
+				</c:if>
 			</table>
+			
+			<!-- 쪽번호 출력 -->
+			<div class="page_area">
+				<c:if test="${page<=1}">[이전]</c:if>
+				<c:if test="${page>1}"><a href="counsel.do?page=${page-1}">[이전]</a></c:if>
+				
+				<c:forEach var="p" begin="${startpage}" end="${endpage}" step="1">
+					<c:if test="${p==page}">${p}</c:if>
+					<c:if test="${p!=page}"><a href="counsel.do?page=${p}">[${p}]</a></c:if>
+				</c:forEach>
+				
+				<c:if test="${page>=maxpage}">[다음]</c:if>
+				<c:if test="${page<maxpage}"><a href="counsel.do?page=${page+1}">[다음]</a></c:if>
+			</div>
 		</div>
 	</div>
 

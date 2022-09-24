@@ -28,7 +28,7 @@ public class MypageGoController implements Action {
 		MemberVO m = mdao.getMemberInfo(id);		
 		request.setAttribute("m", m);
 		
-		//파트너스 리스트 출력(업체문의)
+		//문의 리스트 출력(관리자+업체)
 		QnaDAOImpl qdao = new QnaDAOImpl();
 		List<QnaVO> qlist = new ArrayList<QnaVO>();
 		qlist = qdao.getPlist(id);

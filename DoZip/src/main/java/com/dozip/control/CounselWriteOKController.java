@@ -33,7 +33,8 @@ public class CounselWriteOKController implements Action {
 		if(res == 1) { //성공
 			out.println("<script>");
 			out.println("alert('문의글이 등록되었습니다.');");
-			out.println("location.href = 'mypage_go.do';");
+			out.println("history.back();");
+			out.println("history.back();");
 			out.println("</script>");
 		} else { //실패
 			out.println("<script>");
