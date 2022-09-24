@@ -3,7 +3,7 @@
 
 
 
-	<div id="main_cont_title">
+	<div id="qna_title">
 		<div class="title">고객 후기</div>
 		<div class="message">시공 완료 후 고객께서 후기를 남긴 내역입니다</div>
 	</div>
@@ -84,7 +84,7 @@
 	</form>
 
 
-	<div id="board">
+	<div>
 		<table border="1">
 			<tr>
 				<th>↓↑</th>

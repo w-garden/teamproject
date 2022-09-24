@@ -5,12 +5,12 @@
 
 /*Qnad A, review 파일 */
 
-#main_cont_title .title {
+#qna_title .title {
 	font-size: 2em;
 	margin-left: 10px;
 }
 
-#main_cont_title .message {
+#qna_title .message {
 	background-color: #eee;
 	margin: 10px;
 	padding: 6px;
@@ -39,14 +39,7 @@
 	color: antiquewhite;
 }
 
-#board table {
-	height: 200px;
-	width: 99%;
-	margin: 50px 10px;
-	
-	border-collapse: collapse;
-	text-align: center;
-}
+
 
 #search_bar button {
 	border: none;

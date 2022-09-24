@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,8 +32,12 @@ function login_check() {
 
 </head>
 <body>
-
-
+		
+	<c:if test="${empty id}">
+	
+	
+	
+	
 	<article id="join_wrap">
 		
 
@@ -82,10 +87,35 @@ function login_check() {
 				});
 				
 			});
-		
-		
 		</script>
+	</c:if>
 	
+	
+	<c:if test="${!empty id }">
+<jsp:include page="include/header.jsp" />
+
+
+
+<%-- 두집 로고 테스트용 --%>
+<style>
+.image-box {
+    width:700px;
+    height:1000px;
+    overflow:hidden;
+    margin:0 auto;
+    opacity: 0.1;
+}
+
+
+</style>
+		<div style="width:100%; height:900px;"> 
+					<h1>메인내용</h1>
+					<div class="image-box">
+					<img src="/Partners/images/dozip_logo.png" alt="메인로고" class="image-thumbnail">
+					</div>
+			</div>	
+			
+</c:if>
 		
 <jsp:include page="include/footer.jsp" />
 

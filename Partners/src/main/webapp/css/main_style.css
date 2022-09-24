@@ -47,7 +47,10 @@ header {
 	float:left;
 	margin:12px 20px 0px 20px;
 }
-
+button#logo_button {
+    background: none;
+    border: none;
+}
 header .msg {
 	margin-top: 30px;
     font-size: 20px;
@@ -91,12 +94,11 @@ span.hide_2 input:active{
 /*메인 틀*/
 /*********/
 #main_cont {
-	padding: 50px; 
+	padding: 50px 0px 0px 50px; 
     min-height: 600px;
     /*border: 1px solid black;*/
     margin-left: 10%;
     width: 87%;
-    
 }
 
 /************/

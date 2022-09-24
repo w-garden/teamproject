@@ -109,27 +109,8 @@
 		
 
 					<script>
-						//사업자 번호 형식 체크
-								$('#pTel').on('keyup',function(event) {
-											$('#pTel_check').hide();
-											var pTel = $.trim($("#pTel").val());
-											const ONLY_NUMBER = /^[0-9]*$/; //숫자 정규 표현식
-											if(pTel.length==0){
-												$('#pTel').css("border","2.5px solid gray");
-											}
-											if(!(ONLY_NUMBER.test(pTel)) || pTel.length!=11) {
-												$newtext = '<font color="red" size="2"><b>형식이 맞지 않습니다!</b></font>';
-												$('#pTel_check').text('');
-												$('#pTel_check').show('');
-												$('#pTel_check').append($newtext);
-												$('#pTel').css("border","2.5px solid red");
-											}
-											else{
-												$('#pTel').css("border","2.5px solid gray");
-											}
-										
-										});
-						//연락처 형식 체크
+					
+						  //사업자 번호 형식 체크
 						$('#business_num').on('keyup',function(event) {
 											$('#business_num_check').hide();
 											$business_num = $.trim($(
@@ -139,10 +120,9 @@
 											var a2 = $business_num.charAt(6);
 											var a3 = $business_num.replace(
 													/[-_]/g, '');
+											
 											if ($business_num == '') {
-												$('#business_num').css(
-														"border",
-														"2.5px solid gray");
+												$('#business_num').css("border", "2.5px solid gray");
 												return false;
 											}
 
@@ -168,7 +148,26 @@
 														"2.5px solid red");
 											}
 										});
-						
+						//연락처 형식 체크
+						$('#pTel').on('keyup',function(event) {
+									$('#pTel_check').hide();
+									var pTel = $.trim($("#pTel").val());
+									const ONLY_NUMBER = /^[0-9]*$/; //숫자 정규 표현식
+									if(pTel==''){
+										$('#pTel').css("border","2.5px solid gray");
+									}
+									else if(!(ONLY_NUMBER.test(pTel)) || pTel.length!=11) {
+										$newtext = '<font color="red" size="2"><b>형식이 맞지 않습니다!</b></font>';
+										$('#pTel_check').text('');
+										$('#pTel_check').show('');
+										$('#pTel_check').append($newtext);
+										$('#pTel').css("border","2.5px solid red");
+									}
+									else{
+										$('#pTel').css("border","2.5px solid gray");
+									}
+								
+								});
 						//아이디 형식 체크
 						$('#pId').on('keyup',function(event) {
 											$('#idcheck').hide();
@@ -208,36 +207,69 @@
 
 						//아이디 중복체크
 						function id_check() {
-							$('#idcheck').hide();					
-									$.ajax({
-										type : "POST",
-										url : 'partners_idcheck.do',
-										data : {
-											"pId" : $pId
-										},
-										datatype : "int",
-										success : function(data) {
-											if (data == 1) {
-												$newtext = '<font color="red" size="2"><b>중복 아이디입니다!</b></font>';
-												$('#idcheck').text('');
-												$('#idcheck').show('');
-												$('#idcheck').append($newtext);
-												$('#pId').css("border",
-														"2.5px solid red");
-												$('#pId').focus();
-												return false;
-											} else {
-												$newtext = '<font color="blue" size="2"><b>사용가능한 아이디입니다!</b></font>';
-												$('#idcheck').text('');
-												$('#idcheck').show('');
-												$('#idcheck').append($newtext);
-												$('#pId').focus();
-											}
-										},
-										error : function() {
-											alert('data error');
+							$('#idcheck').hide();
+							$pId = $.trim($("#pId").val());
+							if ($pId == '') { //입력된 값이 없을때
+								$('#pId').css("border",
+										"2.5px solid gray");
+								return false;
+							}
+							if ($pId.length < 4) { //아이디 4자 미만
+								$newtext = '<font color="red" size="2"><b>아이디는 4자 이상이어야 합니다!</b></font>';
+								$('#idcheck').text('');
+								$('#idcheck').show('');
+								$('#idcheck').append($newtext);
+								$('#pId').css("border",
+										"2.5px solid red");
+								return false;
+
+							} else if (!(validate_userid($pId))) { //형식 안맞을때
+								$newtext = '<font color="red" size="2"><b>영문 대소문자, 숫자, _조합만 가능합니다!</b></font>';
+								$('#idcheck').text('');
+								$('#idcheck').show('');
+								$('#idcheck').append($newtext);
+								$('#pId').css("border",
+										"2.5px solid red");
+								return false;
+								
+							}else{
+								$.ajax({
+									type : "POST",
+									url : 'partners_idcheck.do',
+									data : {
+										"pId" : $pId
+									},
+									datatype : "int",
+									success : function(data) {
+										if (data == 1) {
+											$newtext = '<font color="red" size="2"><b>중복 아이디입니다!</b></font>';
+											$('#idcheck').text('');
+											$('#idcheck').show('');
+											$('#idcheck').append($newtext);
+											$('#pId').css("border",
+													"2.5px solid red");
+											$('#pId').focus();
+											return false;
+										} else {
+											$newtext = '<font color="blue" size="2"><b>사용가능한 아이디입니다!</b></font>';
+											$('#idcheck').text('');
+											$('#idcheck').show('');
+											$('#idcheck').append($newtext);
+											$('#pId').focus();
 										}
-							});
+									},
+									error : function() {
+										alert('data error');
+									}
+						});
+							}
+								
+								
+								
+								
+								
+							
+									
 						}
 
 						//비밀번호 일치여부
