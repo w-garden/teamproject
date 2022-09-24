@@ -32,6 +32,16 @@ select * from qnaT where mem_id='hong'order by qna_no desc;
 
 select qna_no, mem_id, qnaT.business_num, qna_type,qna_title,qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,qna_level,reply_state,reply_date, partnersT.businessName  from qnaT,partnersT where qnaT.business_num=partnersT.business_num(+) and mem_id='hong';
 
+select * from (
+select rowNum r, qna_no, mem_id, qnaT.business_num, qna_type,qna_title,
+qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,
+qna_level,reply_state,reply_date, partnersT.businessName
+from qnaT,partnersT 
+where qnaT.business_num=partnersT.business_num(+) 
+and mem_id='hong'
+order by qna_no desc, qna_ref desc, qna_level asc
+)where r>=6 and r<=10;
+					
 select * from qnaT;
 select businessName,business_num from partnersT;
 
