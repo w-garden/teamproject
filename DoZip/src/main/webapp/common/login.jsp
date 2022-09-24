@@ -73,7 +73,7 @@
 <!-- 아이디로 로그인 -->
 	<script>
     function openIdLogin(){
-        window.open("member_id_login.do", "_self", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=550, left=0, top=0" );
+        window.open("member_id_login.do", "_self", "toolbar=no, menubar=no, scrollbars=yes, resizable=no" );
     }
 	</script>
 

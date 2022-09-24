@@ -15,8 +15,8 @@
 	<script src ="./js/header.js" defer></script>
 	<script>
 	    function openLogin(){
-	        window.open("member_login.do", "_blank", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=400, height=550, left=0, top=0" );
-	    }
+	        window.open("member_login.do", "_blank", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=550, height=750, left=0, top=0" );
+	    }/* width=400, height=550 */
 	</script>
 </head>
 <body>

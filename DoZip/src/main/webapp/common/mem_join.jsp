@@ -17,39 +17,53 @@
 			<tr>
 				<th>아이디</th>
 				<td id="id_box">
-					<input type="text"  name="mem_id"  id="mem_id" placeholder="아이디를 입력해주세요"/>
-					<button type="button"  onclick="id_check();">아이디체크</button><br/>
-					<span id="idcheck"></span>
+					<input type="text"  name="mem_id"  id="mem_id" placeholder="아이디를 입력해주세요" oninput="id_check();"/><br/>
+					<!-- <button type="button"  onclick="id_check();">아이디체크</button><br/> -->
+					<span class="idcheck"></span>
 				</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
-				<td><input type="password"  name="mem_pwd"  id="mem_pwd" placeholder="비밀번호를 입력해주세요(4자이상)"/></td>
+				<td>
+					<input type="password"  name="mem_pwd"  id="mem_pwd" placeholder="비밀번호를 입력해주세요(4자이상)" oninput="pw_check();"/><br/>
+					<span class="pwdcheck"></span>
+				</td>
 			</tr>
 			<tr>
 				<th>비밀번호확인</th>
-				<td><input type="password"  name="mem_pwd_check"  id="mem_pwd_check" placeholder="비밀번호를 다시 입력해주세요"/></td>
+				<td>
+					<input type="password"  name="mem_pwd_check"  id="mem_pwd_check" placeholder="비밀번호를 다시 입력해주세요" oninput="double_check();"/><br/>
+					<span class="doublecheck"></span>
+				</td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text"  name="mem_name"  id="mem_name" placeholder="이름을 입력해주세요" /></td>
+				<td>
+					<input type="text"  name="mem_name"  id="mem_name" placeholder="이름을 입력해주세요" oninput="name_check();"/><br/>
+					<span class="namecheck"></span>
+				</td>
 			</tr>
 			<tr>
 				<th>연락처</th>
-				<td><input type="tel"  name="mem_tel"  id="mem_tel" placeholder="-없이 숫자만 입력해주세요"/></td>
+				<td>
+					<input type="text"  name="mem_tel"  id="mem_tel" placeholder="-없이 숫자만 입력해주세요" oninput="tel_check();"/><br/>
+					<span class="telcheck"></span>
+				</td>
 			</tr>
 			<tr>
 				<th>이메일주소</th>
 				<td id="emailbox">
-					<input type="text"  name="mem_email"  id="mem_email" placeholder="이메일주소를 입력해주세요"/>
+					<input type="text"  name="mem_email"  id="mem_email" placeholder="이메일주소를 입력해주세요" oninput="email_check();"/>
 					<span>@</span>
-					<input type="text"  name="mem_domain"  id="mem_domain" placeholder="도메인주소를 입력해주세요"/>
+					<input type="text"  name="mem_domain"  id="mem_domain" placeholder="도메인주소를 입력해주세요" oninput="email_check();"/>
 					<select name="domain_list" id="domain_list" onchange="changeSelect(this.value);">
 						<option selected>직접입력</option>
 						<option value="naver.com">naver.com</option>
 						<option value="daum.net">daum.net</option>
 						<option value="gmail.com">gamil.com</option>
 					</select>
+					<br/>
+					<span class="emailcheck"></span>
 				</td>
 			</tr>
 		</table>
@@ -63,7 +77,7 @@
 			<span id="text3">※개인정보 처리방침에 동의해주세요.</span>
 		</div>
 		<div>
-			<button id="join_btn"  type="submit" >가 입 하 기</button>
+			<button id="join_btn"  type="submit"  disabled="disabled">가 입 하 기</button>
 		</div>
 	</form>
 
