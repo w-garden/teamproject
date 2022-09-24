@@ -23,17 +23,36 @@ public class MypageGoController implements Action {
 		HttpSession session=request.getSession();
 		String id = (String)session.getAttribute("id"); //현재 로그인 되어있는 세션의 아이디 값
 		
-		//회원정보
-		MemberDAOImpl mdao = new MemberDAOImpl();
-		MemberVO m = mdao.getMemberInfo(id);		
-		request.setAttribute("m", m);
-		
-		//문의 리스트 출력(관리자+업체)
 		QnaDAOImpl qdao = new QnaDAOImpl();
-		List<QnaVO> qlist = new ArrayList<QnaVO>();
-		qlist = qdao.getPlist(id);
-		System.out.println("qlist.size() = "+qlist.size());
-		request.setAttribute("qlist", qlist);
+		
+		//쪽나누기
+		int page = 1; //현재 쪽번호
+		int limit = 5; //한 페이지에 보여지는 개수
+		
+		if(request.getParameter("page")!=null) {
+			page=Integer.parseInt(request.getParameter("page"));
+		}
+		
+		int listcount=qdao.getListCount(id);	
+		System.out.println(listcount);
+		
+		int maxpage = (int)((double)listcount/limit+0.95); //총페이지
+		int startpage = (((int)((double)page/5+0.9))-1)*5+1; //시작페이지
+		int endpage = maxpage; //마지막페이지
+		
+		if(endpage>startpage+5-1) endpage=startpage+5-1;
+		
+		request.setAttribute("page", page);
+		request.setAttribute("startpage", startpage);
+		request.setAttribute("endpage",endpage);
+        request.setAttribute("maxpage",maxpage);
+        request.setAttribute("listcount",listcount);
+		
+        //문의 리스트 출력(관리자+업체)
+  		List<QnaVO> qlist = new ArrayList<QnaVO>();
+  		qlist = qdao.getPlist(id, page, limit);
+  		System.out.println("qlist.size() = "+qlist.size());
+  		request.setAttribute("qlist", qlist);
 		
 		
 		ActionForward forward=new ActionForward();

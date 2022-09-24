@@ -1,3 +1,5 @@
+drop table qnaT;
+
 create table qnaT(
 	qna_no number(38) primary key, --글번호
 	mem_id varchar2(20) not null, --고객아이디(fk)
@@ -32,16 +34,28 @@ select * from qnaT where mem_id='hong'order by qna_no desc;
 
 select qna_no, mem_id, qnaT.business_num, qna_type,qna_title,qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,qna_level,reply_state,reply_date, partnersT.businessName  from qnaT,partnersT where qnaT.business_num=partnersT.business_num(+) and mem_id='hong';
 
+---쿼리문 테스트
 select * from (
 select rowNum r, qna_no, mem_id, qnaT.business_num, qna_type,qna_title,
 qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,
 qna_level,reply_state,reply_date, partnersT.businessName
 from qnaT,partnersT 
 where qnaT.business_num=partnersT.business_num(+) 
-and mem_id='hong'
+and mem_id='yang'
 order by qna_no desc, qna_ref desc, qna_level asc
 )where r>=6 and r<=10;
-					
+		
+select * from (
+select rowNum r, qna_no, mem_id, q.business_num, qna_type,qna_title,
+qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,
+qna_level,reply_state,reply_date, p.businessName
+from (select*from qnaT where mem_id='yang' order by qna_ref desc, qna_level asc) q,partnersT p  
+where q.business_num=p.business_num(+)
+)where r>=6 and r<=10;
+
+----------
+
+
 select * from qnaT;
 select businessName,business_num from partnersT;
 
