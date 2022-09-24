@@ -16,15 +16,15 @@
 
 #d_title{
 	text-align : center;
-	font-family: '여기어때 잘난체';	
-	font-size : 22px;
-	color : #4AB34A;
+	font-family: 'Malgun Gothic';	
+	font-size : 1.5rem;
+	color : #347844;
 }
 
 #d_location{
 	margin : 10px;
 	text-align : center;
-	font-family: '여기어때 잘난체';
+	font-family: 'Malgun Gothic';
 	font-size : 19px;
 }
 
@@ -44,8 +44,9 @@
 .d_tags button{
 	border : 0;
 	border-radius : 20px;
-	font-size : 14px;
-	font-family: '여기어때 잘난체';
+	font-size : 1.0rem;
+	font-weight: 800;
+	font-family: 'Malgun Gothic';
 	text-align : center;
 	width : 15%;
 	height : 40px;
@@ -69,7 +70,7 @@
 	width : 20%;
 	height : 50px;
 	background-color : #FFA500;
-	font-family : '여기어때 잘난체';	
+	font-family : 'Malgun Gothic';	
 	color : white;
 }
 
@@ -90,7 +91,7 @@
 #start_cont{
 	position : relative;
 	right:40px;
-	font-family : '210 맨발의청춘 Regular';
+	font-family : 'Malgun Gothic';
 	font-size : 18px;
 	line-height:40px;
 	margin : 0px auto;
@@ -113,7 +114,7 @@
 	
 	position : relative;
 	right:40px;
-	font-family : '210 맨발의청춘 Regular';
+	font-family : 'Malgun Gothic';
 	font-size : 18px;
 	line-height:40px; 
 	margin :  10px, 0px,0px,0px;
@@ -135,7 +136,7 @@
 
 /*스크랩 토글*/
 h3{
-	font-family:'여기어때 잘난체';
+	font-family:'Malgun Gothic';
 	color:#0A6EFF;
 	margin-right : 30px;
 }
@@ -247,7 +248,7 @@ input:checked + .slider:before {
 	flex-grow : 1;
 	flex-wrap : wrap;
 	margin: 0 auto;	
-	outline : 3px solid #A0FA78; 
+	outline : 3px solid #347844; 
 	border-radius : 5px;
 }
 
@@ -264,9 +265,11 @@ input:checked + .slider:before {
 	
 }
 
-h2{
-	font-family:'여기어때 잘난체';
-	color: #3296FF;
+.name{
+	font-family:'Malg';
+	color: #347844;
+	font-size : 1.4rem;
+	font-weight : 1000;
 }
 #comp {
 	border:0;
@@ -275,14 +278,15 @@ h2{
 	text-align : center;
 	width : 120px;
 	height : 50px;
-	background-color : #41A541;
-	font-family : '여기어때 잘난체';	
+	background-color : #347844;
+	font-family : 'Malgun Gothic';	
 	color : white;
 }
 
 #comp_loca {
-	font-family:'여기어때 잘난체';
-	font-size : 15px;
+	font-family:'Malgun Gothic';
+	font-size : 1.0rem;
+	font-weight : 1000;
 }
 
 

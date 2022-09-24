@@ -11,26 +11,27 @@
 .dropdown{
   height : 70px;
   float:left;
-  margin-left : 20px;
+  margin-left : 50px;
 }
 
 .dd_group {
-	width: 100px;
+	width: 120px;
 	height: 30px;
 	border: 1px solid #C4C4C4;
 	box-sizing: border-box;
-	border-radius: 10px;
-	font-family: '여기어때 잘난체';
+	margin-left : 10px;
+	border-radius: 5px;
+	font-family: 'Malgun-Gothic';
 	font-size: 14px;
 	line-height: 50px;
 }
 
 .dd_group:focus {
-	border: 1px solid #9B51E0;
+	border: 1px solid #00704a;
 	box-sizing: border-box;
 	border-radius: 10px;
-	outline: 3px solid #a7ee8e;
-	border-radius: 10px;
+	outline: 1px solid #00704a;
+	border-radius: 2px;
 }
 
 /*검색창 부분*/
@@ -46,7 +47,7 @@
 }
 
 #searchTerm {
-  width: 100%;
+  width: 50%;
   border-bottom: 1px solid #00704a;
   border-top : none;
   border-left : none;
@@ -64,14 +65,10 @@
 
 .search_Btn {
   width: 40px;
-  height: 36px;
   margin-bottom : 40px;
   margin-left : 2px;
-  /* border: 1px solid #00704a;  */
-  /* background: #00704a; */
   text-align: center;
   color: #00704a;
-  /* border-radius: 0 5px 5px 0; */
   cursor: pointer;
   font-size: 20px;
 }
@@ -173,7 +170,7 @@ height: 100%;
 #none_pf {
 	display : flex;
 	font-size : 2.0rem;
-	color : #00704a;
+	color : #347844;
 	margin: 0 auto ; 
 	font-weight: 200px;
 	margin-top: 50px;
@@ -224,10 +221,11 @@ height: 100%;
 .corp {
 	list-style: none;
 	text-align: center;
-	font-size: 1.1rem;
-	font-family:'여기어때 잘난체';
+	font-size: 1.3rem;
+	font-family:'Malgun-Gothic';
+	color : #347844;
 	line-height: 1.9;
-	font-weight : 300;
+	font-weight : 1000;
 }
 
 @media all and (max-width: 500px) {

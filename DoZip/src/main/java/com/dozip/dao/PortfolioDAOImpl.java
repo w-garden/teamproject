@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.dozip.vo.PartnersDTO;
 import com.dozip.vo.PortfolioDTO;
 
 
@@ -84,10 +85,10 @@ public class PortfolioDAOImpl {
 
 
     //해당 글번호의 리스트 값 가져오기
-	public List<PortfolioDTO> getOnelist(int pf_no) {
+public PortfolioDTO getOnelist(int pf_no) {
 		
-		List<PortfolioDTO> list = new ArrayList<>();
-		PortfolioDTO dto =null;
+		
+		PortfolioDTO dto =new PortfolioDTO();
 		
 		try {
 			
@@ -123,7 +124,7 @@ public class PortfolioDAOImpl {
 				dto.setPf_premium(rs.getInt(22));
 				dto.setPf_regdate(rs.getString(23));
 				/* System.out.println(dto); dto 찍어보기*/
-				list.add(dto);
+
 			}
 			
 		}catch(Exception e) {e.printStackTrace();}
@@ -134,8 +135,75 @@ public class PortfolioDAOImpl {
 				if(con != null) con.close();
 			}catch(Exception e) {e.printStackTrace();}
 		}
-		return list;
+		return dto;
 	}
+	
+	
+	//해당 글의 파트너스 업체 정보 가져오기
+	public PartnersDTO getComplist(int pf_no) {
+		
+		PartnersDTO dto = new PartnersDTO();
+		
+		try {
+			con = ds.getConnection();
+			sql = "select * from partnersT where business_num = (select business_num from portfolioT where pf_no =?)";
+			pt = con.prepareStatement(sql);
+			pt.setInt(1, pf_no);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setBusiness_num(rs.getString("business_num"));
+				dto.setBusinessName(rs.getString("businessName"));
+				dto.setpName(rs.getString("pName"));
+				dto.setpTel(rs.getString("pTel"));
+				dto.setpMail_id(rs.getString("pMail_id"));
+				dto.setpMail_domain(rs.getString("pMail_domain"));
+				dto.setpAddress(rs.getString("pAddress"));
+				/* System.out.println(dto.toString()); */
+			}
+			}catch(Exception e) {e.printStackTrace();}
+			finally {
+				try {
+					if(rs != null) rs.close();
+					if(pt != null) pt.close();
+					if(con!= null) con.close();
+				}catch(Exception e){e.printStackTrace();}
+			}
+			return dto;
+		}//getComplist();
+		
+	
+	//업체 상세 페이지
+	public PartnersDTO getOnecomp(String business_num) {
+		
+		PartnersDTO dto = new PartnersDTO();
+		
+		try {
+			con = ds.getConnection();
+			sql = "select * from partnersT where businessName = ?";
+			pt = con.prepareStatement(sql);
+			pt.setString(1, business_num);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setBusiness_num(rs.getString("business_num"));
+				dto.setBusinessName(rs.getString("businessName"));
+				dto.setpName(rs.getString("pName"));
+				dto.setpTel(rs.getString("pTel"));
+				dto.setpMail_id(rs.getString("pMail_id"));
+				dto.setpMail_domain(rs.getString("pMail_domain"));
+				dto.setpAddress(rs.getString("pAddress"));
+			}
+			}catch(Exception e) {e.printStackTrace();}
+			finally {
+				try {
+					if(rs != null) rs.close();
+					if(pt != null) pt.close();
+					if(con != null) con.close();
+				}catch(Exception e) {e.printStackTrace();}
+			}
+			return dto;
+		}//getOneComp()
 	
 	
 

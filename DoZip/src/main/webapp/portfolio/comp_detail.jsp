@@ -10,11 +10,11 @@
 		<%-- 업체 명함 부분 --%>
 		<div class = "comp_card">
 			<div class=	"comp_img">
-				<img id = "comp_logo" src = "/DoZip/images/portfolio/detail/compHC.png"/>
+				<img id = "comp_logo" src = "/DoZip/images/portfolio/detail/frog.png"/>
 			</div>
 			<div class = "comp_name">
-				<h2>호철 디자인</h2>
-				<pre id = "comp_loca">경기 수원시 영통구 광교중앙로 170</pre>
+				<h2>${pc.businessName}</h2>
+				<pre id = "comp_loca">${pc.pAddress}</pre>
 			</div>	
 			<div class = "comp_detail">
 				<button type = "button" id = "comp">보증업체 (i)
@@ -49,11 +49,11 @@
 		<%-- 업체 정보 --%>
 		<div class = "comp_cont">
 			<p id = "comp_title">업체정보</p>
-			<p id = "comp_ceo">대표자 : 신호철</p>
+			<p id = "comp_ceo">대표자 : ${pc.pName}</p>
 			<p id = "comp_cont">전문분야 : 주거공간 / 상업공간</p>
 			<p id = "comp_place">시공지역 : 서울/경기</p>
 			<p id = "comp_year">경력 : 7년</p>
-			<p id = "comp_where">주소 : 경기 수원시 영통구 광교중앙로 170</p>
+			<p id = "comp_where">주소 : ${pc.pAddress}</p>
 			<br>
 			<div id="map" style="width:60%;height:400px;"></div>
 
@@ -98,18 +98,18 @@
 		<div class = "comp_ment">
 			<p id = "comp_ment_title">전문가 한마디</p>
 			<pre id = "comp_ment1">
-				안녕하세요  여러분의 생활공간을 실용적이고 아름답게 만들어 드리는 호철 인테리어 입니다.
-				
-				- 체계적인 인테리어 디자인 기획
-				
-				고객 요구 분석을 통해 맞춤형 공간의 아름다움을 부여하고 고객의 니즈를 파악한 후, 삶과
-				관련한 전반적인 요소를 고려해 전략적이고 체계적인 인테리어 디자인 기획을 하고 진행합니다.
-				
-				- 사람과 교감을 통한 공간 창출
-				
-				단순한 디자인에 그치지 않고, 사람과의 교감을 이끌어 내어 보다 만족스러운 공간을 만들어
-				내고자 합니다. 
-				호철 인테리어의 마음가짐은 고객에게 책임감과 전문성에 대한 자부심을 느끼게 합니다.
+			안녕하세요  여러분의 생활공간을 실용적이고 아름답게 만들어 드리는 호철 인테리어 입니다.
+			
+			- 체계적인 인테리어 디자인 기획
+			
+			고객 요구 분석을 통해 맞춤형 공간의 아름다움을 부여하고 고객의 니즈를 파악한 후, 삶과
+			관련한 전반적인 요소를 고려해 전략적이고 체계적인 인테리어 디자인 기획을 하고 진행합니다.
+			
+			- 사람과 교감을 통한 공간 창출
+			
+			단순한 디자인에 그치지 않고, 사람과의 교감을 이끌어 내어 보다 만족스러운 공간을 만들어
+			내고자 합니다. 
+			호철 인테리어의 마음가짐은 고객에게 책임감과 전문성에 대한 자부심을 느끼게 합니다.
 				
 				
 			</pre>
@@ -121,7 +121,7 @@
 		</div>
 		<div class="construction_list">
  		<%! int i=0; int j = 0; %>
-		<% for(j=1; j<3; j++) { %>
+		<% for(j=1; j<2; j++) { %>
 			<div class="cards-list">
 			<%for(i=1; i<5; i++){ %>
 			
@@ -131,7 +131,7 @@
 				  	<%-- onclick으로 클릭시 상세로 연결되게 --%>
 				  </div>
 				  <div class="card_title">
-					   	<li>#감성펍 #20평 1000만원대 </li>
+					   	<li class = "type">#감성펍 #20평 1000만원대 </li>
 				  </div> 
 				</div>
 			<%} %>

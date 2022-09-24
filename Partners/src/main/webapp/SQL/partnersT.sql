@@ -75,7 +75,7 @@ nocache;
 
 select portfolioT_no_seq.nextval from dual;
 
-
+update PARTNERST set  pAddress = '서울시 강남구 선릉로' where  pName = '구동민';
 
 
 
