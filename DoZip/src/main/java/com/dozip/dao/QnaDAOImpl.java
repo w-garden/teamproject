@@ -64,8 +64,8 @@ public class QnaDAOImpl {
 		try {
 			con = ds.getConnection();
 			sql = "insert into qnaT "
-					+ "(qna_no, mem_id, business_num, qna_type, qna_title, qna_cont, qna_step, reply_state)"
-					+ "values (qnaT_no_seq.nextval,?,?,?,?,?,0,'미답변')"; //qna_date, qna_state는 디폴트 값이 설정되어있어서 자동으로 들어감
+					+ "(qna_no, mem_id, business_num, qna_type, qna_title, qna_cont, qna_ref, qna_step, reply_state)"
+					+ "values (qnaT_no_seq.nextval,?,?,?,?,?,qnaT_no_seq.nextval,0,'미답변')"; //qna_date, qna_state는 디폴트 값이 설정되어있어서 자동으로 들어감
 			pt = con.prepareStatement(sql);
 			pt.setString(1, q.getMem_id());
 			pt.setString(2, q.getBusiness_num());
@@ -161,12 +161,13 @@ public class QnaDAOImpl {
 		
 		try {
 			con = ds.getConnection();
-			sql = "select * from (select rowNum r, qna_no, mem_id, qnaT.business_num, qna_type,qna_title,"
+			sql = "select * from ("
+					+ "select rowNum r, qna_no, mem_id, q.business_num, qna_type,qna_title,"
 					+ "qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,"
-					+ "qna_level,reply_state,reply_date, partnersT.businessName  "
-					+ "from qnaT,partnersT where qnaT.business_num=partnersT.business_num(+) and mem_id=?"
-					+ "order by qna_no desc, qna_ref desc, qna_level asc)"
-					+ "where r >= ? and r<=?";
+					+ "qna_level,reply_state,reply_date, p.businessName "
+					+ "from (select*from qnaT where mem_id=? order by qna_ref desc, qna_level asc) q,partnersT p "
+					+ "where q.business_num=p.business_num(+)"
+					+ ")where r>=? and r<=?";
 			pt = con.prepareStatement(sql);
 			pt.setString(1, id);
 			pt.setInt(2,startrow);

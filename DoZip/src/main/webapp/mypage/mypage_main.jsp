@@ -337,6 +337,20 @@
 					</c:forEach>
 					</c:if>
 				</table>
+				
+				<!-- 쪽번호 출력 -->
+				<div class="page_area">
+					<c:if test="${page<=1}">[이전]</c:if>
+					<c:if test="${page>1}"><a href="mypage_go.do?page=${page-1}">[이전]</a></c:if>
+					
+					<c:forEach var="p" begin="${startpage}" end="${endpage}" step="1">
+						<c:if test="${p==page}">${p}</c:if>
+						<c:if test="${p!=page}"><a href="mypage_go.do?page=${p}">[${p}]</a></c:if>
+					</c:forEach>
+					
+					<c:if test="${page>=maxpage}">[다음]</c:if>
+					<c:if test="${page<maxpage}"><a href="mypage_go.do?page=${page+1}">[다음]</a></c:if>
+				</div>
 			</div>
 			</div>
 			<div class="mqw_box"><button id="my_qna_write_btn">
@@ -369,6 +383,20 @@
 					</c:forEach>
 					</c:if>
 				</table>
+				
+				<!-- 쪽번호 출력 -->
+				<div class="page_area">
+					<c:if test="${page<=1}">[이전]</c:if>
+					<c:if test="${page>1}"><a href="mypage_go.do?page=${page-1}">[이전]</a></c:if>
+					
+					<c:forEach var="p" begin="${startpage}" end="${endpage}" step="1">
+						<c:if test="${p==page}">${p}</c:if>
+						<c:if test="${p!=page}"><a href="mypage_go.do?page=${p}">[${p}]</a></c:if>
+					</c:forEach>
+					
+					<c:if test="${page>=maxpage}">[다음]</c:if>
+					<c:if test="${page<maxpage}"><a href="mypage_go.do?page=${page+1}">[다음]</a></c:if>
+				</div>
 			</div>
 			</div>
 			<div class="mqw_box"><button id="my_P_qna_write_btn">
