@@ -1,5 +1,6 @@
 create table estimateT(
- est_num varchar2(12) --고유번호
+ est_num varchar2(12) --고유번호(private key)
+ -- est_check 견적 직접신청 수락/거절 확인 컬럼
  ,est_zoning varchar2(20) not null --공간유형(주거, 상가)
  ,est_use varchar2(20) not null  --건물유형
  ,est_areaP number(12) not null --평수(평)
@@ -23,6 +24,7 @@ create table estimateT(
  ,est_desc varchar2(3000) --스타일 설명
  ,est_file varchar2(200) --파일첨부
  ,est_selectCompany varchar2(50) --업체 선택
+ -- foreign key 사용자 ID 불러오기
 );
 
 select * from estimateT;

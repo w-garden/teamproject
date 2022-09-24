@@ -18,29 +18,6 @@ public class EstimateApplyOKController implements Action {
 		PrintWriter out = response.getWriter();
 		EstimateVO e = new EstimateVO();
 	      
-	      /*페이지 1  쿠키 탑재 */ 
-	      Cookie cookie1 = new Cookie("name", "value");
-	      response.addCookie(cookie1);
-	      Cookie cookie2 = new Cookie("name1", "value");
-	      response.addCookie(cookie2);
-	      
-	      /*페이지 2 쿠키 불러오기 */
-	      Cookie[] cookies = request.getCookies(); //배열로 받아와야함
-	      
-	      for(Cookie c: cookies) {
-	         if(c.getName().equals("name")) {   //조건에 맞는 쿠키 불러오기
-	            System.out.println(c.getValue());
-	         }
-
-	         System.out.println(c.getName());  //모든 쿠키 이름 출력
-	         System.out.println(c.getValue()); //모든 쿠키 값 출력
-	      }
-	      /* 쿠키 삭제 */
-	      Cookie cookie3 = new Cookie("name", "");    // "name" 이라는 새롭게 쿠키 만든후(기존에 있던 쿠키 이름)
-	      cookie3.setMaxAge(0);    //쿠키 유효시간을 0으로 수정
-	      response.addCookie(cookie3);  //쿠키 탑재
-	      /*쿠키 끝*/
-	      
 		String[] detail= {};
 		String[] detail01 = {};
 		String[] detail02 = {};

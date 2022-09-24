@@ -14,6 +14,7 @@
 </head>
 
 <body>
+ <form method="post" action="estimate_apply2_ok.do">
 
   <div id="estimate_step02">
     <section aria-label="예산 선택" class="estimate_yourcost">
@@ -27,7 +28,7 @@
       <div class="estimate_box">
         <h3>예산</h3>
         <div class="your_cost">
-          <input type="text" id="estimate_cost" maxlength="7" placeholder="0" onkeyup="inputNumberFormat(this);" />
+          <input type="text" id="estimate_cost" name="est_bud" maxlength="7" placeholder="0" onkeyup="inputNumberFormat(this);" />
         <h3>만원</h3>
         </div>
         <br/><br/><br/><br/><hr/>
@@ -37,11 +38,11 @@
           오늘 날짜 : <span id="today"></span>
         <form>
           <br/>
-          <label for="fromDate">시작일</label>
-          <input type="text" name="fromDate" id="fromDate">
+          <label for="est_start">시작일</label>
+          <input type="text" name="est_start" id="est_start">
           ~
-          <label for="toDate">종료일</label>
-          <input type="text" name="toDate" id="toDate">
+          <label for="est_end">종료일</label>
+          <input type="text" name="est_end" id="est_end">
         </form>
         </div>
 
@@ -54,6 +55,7 @@
               <button class="button" id="go-next" onclick="location.href='estimate_apply3.do'">다음</button>
             </div>
   </div>
+ </form>
 </body>
  <%-- 하단 공통부분 --%>
 <jsp:include page="../common/footer.jsp" />
