@@ -3,10 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%
-request.setCharacterEncoding("UTF-8");
-String id = request.getParameter("id");
-%>
 <meta charset="UTF-8">
 <title>파트너스 메인</title>
 <link rel="stylesheet" href="/Partners/css/main_style.css">
@@ -111,8 +107,9 @@ String id = request.getParameter("id");
 			<div id="top_bar">
 				<div id=top_title>
 					<div>
-						<a href="/DoZip/index.jsp"><img
-							src="/Partners/images/dozip_logo.png" alt="메인로고"></a>
+					
+					<button id="logo_button" onclick="logout_check()"> <img src="/Partners/images/dozip_logo.png" alt="메인로고"></button>
+						
 					</div>
 					<div>PARTNERS PAGE</div>
 				</div>
@@ -126,7 +123,7 @@ String id = request.getParameter("id");
 							function logout_check() {
 								var x = confirm('로그아웃 하시겠습니까?');
 								
-								if(x) location='/Partners/partners_logout.do'
+								if(x) location='partners_logout.do'
 								else return;
 							}
 						</script>

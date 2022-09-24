@@ -1,10 +1,8 @@
 package com.partners.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class PortfolioDTO {
 	private int pf_no;
 	private String business_num;

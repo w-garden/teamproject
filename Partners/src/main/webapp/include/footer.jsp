@@ -9,7 +9,7 @@
 					<li><a href="#">회사소개</a></li>
 					<li><a href="#">개인정보처리방침</a></li>
 					<li><a href="#">이용약관</a></li>
-					<li><a href="#">파트너스 페이지</a></li>
+					<li><a href="/DoZip/index.jsp">메인 페이지</a></li>
 				</ul>
 			</nav>
 			<div id="footer_company">
