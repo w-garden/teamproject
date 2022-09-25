@@ -16,6 +16,7 @@
 			<tr>
 				<th> </th>
 				<th id="qna_number">글번호</th><th style="width:10%;">글작성자</th><th style="width:8%;">글유형</th>
+				<th>원본글번호</th>
 				<th style="width:10%;">문의유형</th><th style="width:15%;">제목</th><th>문의날짜</th><th>답변자</th>
 				<th>답변상태</th><th>답변일자</th>
 			</tr>
@@ -36,6 +37,7 @@
 						<option value="5">5번 문의유형</option>
 					</select>
 				</th>
+				<th><input type="text"/></th>
 				<th><input type="text"/></th>
 				<th><input type="text"/></th>
 				<th>
@@ -61,6 +63,7 @@
 						<c:if test="${qlist[i].qna_step == 0}">원본글</c:if>
 						<c:if test="${qlist[i].qna_step != 0}">답글</c:if>
 					</td>
+					<td>${qlist[i].qna_ref}</td><!-- 원본글번호 -->
 					<td>${qlist[i].qna_type}</td><!-- 문의유형 -->
 					<td id="title"><a href="admin_qnadetail.do?qna_no=${qlist[i].qna_no}">${qlist[i].qna_title}</a></td><!-- 글제목 -->
 					<td id="date">${qlist[i].qna_date}</td><!-- 문의날짜 -->

@@ -329,7 +329,10 @@
 					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">		
 						<tr>
 							<td id="num">${qlist[i].qna_no}</td>
-							<td id="title"><a href="#">${qlist[i].qna_title}</a></td>
+							<td id="title">
+								<c:if test="${qlist[i].qna_level != 0}">=></c:if>
+								<a href="#">${qlist[i].qna_title}</a>
+							</td>
 							<td id="state">${qlist[i].reply_state}</td> <td id="date">${qlist[i].qna_date}</td>
 						</tr>
 					</c:forEach>
@@ -373,7 +376,10 @@
 					<c:forEach var="i" begin="0" end="${fn:length(qlist2)-1}" step="1">
 						<tr>
 							<td id="num">${qlist2[i].qna_no}</td> <td id="partner_name">${qlist2[i].businessName}</td> 
-							<td id="title"><a href="#">${qlist2[i].qna_title}</a></td>
+							<td id="title">
+								<c:if test="${qlist2[i].qna_level != 0}">=></c:if>
+								<a href="#">${qlist2[i].qna_title}</a>
+							</td>
 							<td id="state">${qlist2[i].reply_state}</td> <td id="date">${qlist2[i].qna_date}</td>
 						</tr>
 					</c:forEach>

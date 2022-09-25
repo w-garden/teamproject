@@ -36,7 +36,10 @@
 				<c:if test="${qlist[i].businessName == null}">
 					<tr>
 						<td id="num">${qlist[i].qna_no}</td>
-						<td id="title"><a href="#">${qlist[i].qna_title}</a></td>
+						<td id="title">
+							<c:if test="${qlist[i].qna_level != 0}">=></c:if>
+							<a href="#">${qlist[i].qna_title}</a>
+						</td>
 						<td id="state">${qlist[i].reply_state}</td> <td id="date">${qlist[i].qna_date}</td>
 					</tr>
 				</c:if>
