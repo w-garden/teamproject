@@ -10,11 +10,35 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
 
+ <script>
+ function check(){
+	var est_bud = document.getElementById("estimate_cost");
+	var est_start = document.getElementById("est_start");
+	var est_end = document.getElementById("est_end");
+	
+	if(est_bud.value == "") {
+		alert('예산을 입력해주세요!');
+		estimate_cost.focus();
+		return false;
+	}
+	else if(est_start.value == "") {
+		alert('시작일을 알려주세요!');
+		est_start.focus();
+		return false;
+	}
+	else if(est_end.value == "") {
+		alert('종료일을 알려주세요!');
+		est_end.focus();
+		return false;
+	}
+ }
+ </script>
+ 
   <title>Step 2</title>
 </head>
 
 <body>
- <form method="post" action="estimate_apply2_ok.do">
+ <form method="post" onsubmit="return check();" action="estimate_apply2_ok.do">
 
   <div id="estimate_step02">
     <section aria-label="예산 선택" class="estimate_yourcost">
@@ -52,7 +76,7 @@
 
              <div class="nextpage">
               <button class="button" id="go-back" onclick="location.href='estimate_apply.do'">이전</button>
-              <button class="button" id="go-next" onclick="location.href='estimate_apply3.do'">다음</button>
+              <button class="button" type="submit" id="go-next">다음</button>
             </div>
   </div>
  </form>
