@@ -93,6 +93,9 @@ public class QnaDAO {
 		}
 		return list;
 	}
+	
+	
+	
 	//문의 페이지에서 쓸 회원 정보 가져오기
 	public String selectMem_name(String mem_id) {
 		String mem_name=null;
@@ -117,6 +120,53 @@ public class QnaDAO {
 			}
 		}
 		return mem_name;
+	}
+
+	
+	
+	
+	public int insertQna(QnaDTO qdto) {
+		int result =0;
+		
+		try {
+			conn =ds.getConnection();
+			sql ="update qnaT set qna_level=qna_level+1 where qna_ref=? and qna_level > ?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, qdto.getQna_ref());
+			pstmt.setInt(2, qdto.getQna_level());
+			pstmt.executeUpdate();
+			
+				
+			
+			sql="insert into qnaT (qna_no, mem_id, business_num, qna_title, qna_cont, qna_ref, qna_step, qna_level, reply_state, reply_date) values"+
+							"(qnaT_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, '답변완료', sysdate) ";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, qdto.getMem_id());
+			pstmt.setString(2, qdto.getBusiness_num());
+			pstmt.setString(3, "답변(수정전)");
+			pstmt.setString(4, qdto.getQna_cont());
+			pstmt.setInt(5, qdto.getQna_ref());
+			pstmt.setInt(6, qdto.getQna_step()+1);
+			pstmt.setInt(7, qdto.getQna_level()+1);
+			
+			
+			result=pstmt.executeUpdate();
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				close(pstmt);
+				close(conn);
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+				
+		return result;
 	}
 
 	

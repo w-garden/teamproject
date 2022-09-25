@@ -19,6 +19,7 @@ create table qnaT(
 	foreign key(business_num) references partnersT(business_num)
 );
 
+
 select * from qnaT;
 select * from partnersT;
 

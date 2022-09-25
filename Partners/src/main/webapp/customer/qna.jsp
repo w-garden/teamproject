@@ -118,30 +118,97 @@
 	<c:if test="${!empty qlist }">
 		<c:forEach var="q" items="${ qlist}">
 			<tr>
+			         
+			
 				<td>${q.qna_no }</td>
 				<td class="qna_table_date">${q.qna_date }</td>
 				<td>${q.mem_id }</td>
 				<td>글제목 : ${q.qna_title } <br>문의내용 : ${q.qna_cont }
 				</td>
-				<td>${q.qna_type }</td>
+				<td>${q.qna_type }
+				
+				<input type="hidden" id="board_ref" value="${q.qna_ref }">
+			    <input type="hidden" id="board_step" value="${q.qna_step }">
+			    <input type="hidden" id="board_level" value="${q.qna_level }">
+				
+				
+				</td>
 				
 				
 				<c:if test="${q.reply_state =='미답변'}">
-					<td><input type="button" value="답변하기" onclick="qna_reply(${q.qna_no })" >
+					<td><input type="button" value="답변하기" onclick="qna_reply_toggle(${q.qna_no })" >
 				</c:if>
 			</tr>
 			<tr>
-			<td colspan="6" style="display:none;" id="reply_${q.qna_no }"><textarea rows="10" cols="100%" id="reply_${q.qna_no }_textarea"></textarea></td>
+			<td colspan="6" style="display:none;" id="reply_${q.qna_no }">
+			<textarea rows="5%" cols="100%" id="reply_${q.qna_no }_textarea" style="width: 86%; resize: none;"></textarea>
+		
+			
+			<input type="button" value="등록" onclick="qna_reply(${q.qna_no }, '${q.mem_id }', '${q.qna_title }',${q.qna_step },${q.qna_level } )">
+			<input type="button" value="삭제">
+				</td>
 			</tr>
 		</c:forEach>
 	</c:if>
 </table>
 <script>
-	function qna_reply(number) {
-		var test = "#reply_"+number;
+	function qna_reply_toggle($number) {
+		var test = "#reply_"+$number;
 
-		$(test).toggle(200);
+		$(test).toggle();
 	}
+	
+	
+	function qna_reply($number, $id, $title, $step, $level){ //답변 입력 함수
+		
+	
+		$qna_no=$number;  //글번호
+		$mem_id=$id; //글작성한 회원아이디
+		$qna_title=$title; //원본글제목
+		$qna_step =$step; //몇번째 답글인지
+		$qna_level=$level; //정렬순서
+		
+		
+		
+		
+		$textarea_id="#reply_"+$number+"_textarea";  
+		$replytext=($($textarea_id).val()); //댓글내용
+		alert($replytext);
+		alert($mem_id);
+		
+		$.ajax({
+			type:"post", 
+			url:'customer_qna_ok.do', 
+			data:{
+				qna_ref: $qna_no, //  그룹번호 = 원본글번호
+				qna_cont: $replytext, // 답글 내용
+				mem_id : $mem_id, //원본글 작성 회원 아이디
+				qna_step : $qna_step, //몇번째 답글인지
+				qna_level : $qna_level //정렬순서
+				
+			},
+			datatype: "text",
+			
+			success : function(result){
+				alert('댓글등록완료!');
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
 </script>	
 <jsp:include page="../include/footer.jsp" />
 

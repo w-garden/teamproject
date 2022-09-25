@@ -1,6 +1,5 @@
 package com.partners.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,20 +26,11 @@ public class CustomerQnaController implements Action {
 		 * 다른 코드로 수정가능하면 바꿀예정 **/
 		
 		
-		/*
-		 * QnaT 에 두집 회원 이름 넣을지 고민중..
-		 * 
-		 */
-		String mem_id = qlist.get(0).getMem_id();
-		
-		String mem_name = dao.selectMem_name(mem_id);
-		
 		
 		
 		
 		
 		request.setAttribute("qlist", qlist);
-		request.setAttribute("mem_name", mem_name);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

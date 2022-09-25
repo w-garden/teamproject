@@ -59,7 +59,7 @@
 	<div id="side_wrap">
 			<ul id="side_menu">
 				<li><a href="#" style="height:75px;"></a></li>
-				<li><a href="/Partners/main.jsp">PARTNERS</a></li>
+				<li><a href="/Partners/index.jsp">PARTNERS</a></li>
 				<li><a href="#">요&nbsp;&nbsp;금&nbsp;&nbsp;제</a>
 					<ul>
 						<li><a href="/Partners/interior_Plan/plan.jsp">요금제안내</a></li>
@@ -123,7 +123,7 @@
 							function logout_check() {
 								var x = confirm('로그아웃 하시겠습니까?');
 								
-								if(x) location='partners_logout.do'
+								if(x) location='/Partners/partners_logout.do'
 								else return;
 							}
 						</script>
