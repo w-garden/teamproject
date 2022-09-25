@@ -19,7 +19,9 @@ public class QnaVO { //14개
 	private String reply_state;
 	private String reply_date;
 	
-	private String businessName;
+	//추가로 필요한 정보
+	private String businessName; //사업자명
+	private String mem_name; //고객명
 	
 	//페이징. 쪽나누기 관련변수
 	private int startrow; //시작행번호

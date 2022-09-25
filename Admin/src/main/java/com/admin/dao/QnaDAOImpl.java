@@ -113,11 +113,11 @@ public class QnaDAOImpl {
 		try {//답글순서와 상관없이 글작성순으로 출력
 			con = ds.getConnection();
 			sql = "select * from ("
-					+ "select rowNum r, qna_no, mem_id, q.business_num, qna_type,qna_title,"
+					+ "select rowNum r, qna_no, q.mem_id, q.business_num, qna_type,qna_title,"
 					+ "qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,"
-					+ "qna_level,reply_state,reply_date, p.businessName "
-					+ "from (select*from qnaT order by qna_no desc) q,partnersT p "
-					+ "where q.business_num=p.business_num(+)"
+					+ "qna_level,reply_state,reply_date, p.businessName, m.mem_name "
+					+ "from (select*from qnaT order by qna_no desc) q,partnersT p, memberT m  "
+					+ "where q.business_num=p.business_num(+) and q.mem_id=m.mem_id(+)"
 					+ ")where r>=? and r<=?";
 			pt = con.prepareStatement(sql);
 			pt.setInt(1,startrow);
@@ -141,6 +141,7 @@ public class QnaDAOImpl {
 				vo.setReply_state(rs.getString(14));
 				vo.setReply_date(rs.getString(15));	
 				vo.setBusinessName(rs.getString(16));
+				vo.setMem_name(rs.getString(17));
 				list.add(vo);
 			}
 		} catch (Exception e) {

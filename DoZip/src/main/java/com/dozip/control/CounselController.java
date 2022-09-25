@@ -33,9 +33,7 @@ public class CounselController implements Action {
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int listcount=qdao.getListCount(id);	
-		System.out.println(listcount);
-		
+		int listcount=qdao.getListCount(id);
 		int maxpage = (int)((double)listcount/limit+0.95); //총페이지
 		int startpage = (((int)((double)page/5+0.9))-1)*5+1; //시작페이지
 		int endpage = maxpage; //마지막페이지
@@ -48,7 +46,7 @@ public class CounselController implements Action {
         request.setAttribute("maxpage",maxpage);
         request.setAttribute("listcount",listcount);
 		
-        //문의 리스트 출력(관리자+업체)
+        //문의 리스트 출력(관리자)
   		List<QnaVO> qlist = new ArrayList<QnaVO>();
   		qlist = qdao.getQlist(id, page, limit);
   		System.out.println("qlist.size() = "+qlist.size());
