@@ -47,7 +47,7 @@ public class EstimateApplyOKController implements Action {
 		}
 		if(request.getParameterValues("group_wallpaper_item") != null) {
 			detail01 = request.getParameterValues("group_wallpaper_item");
-			System.out.print("도배/벽 세부사항 : ");
+			System.out.print("\n"+"도배/벽 세부사항 : ");
 				for(int i=0; i<detail01.length; i++) {
 					System.out.print(detail01[i]+"|");
 			}

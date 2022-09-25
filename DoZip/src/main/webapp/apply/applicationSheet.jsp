@@ -17,8 +17,8 @@
           <br/>
           <div class="estimate_box">
           <h3>공간 유형</h3>
-            <input type="radio" id="1" name="est_zoning" checked><label for="1">주거</label>
-            <input type="radio" id="2" name="est_zoning"><label for="2">상가</label>
+            <input type="radio" value="주거" id="1" name="est_zoning" checked><label for="1">주거</label>
+            <input type="radio" value="상가" id="2" name="est_zoning"><label for="2">상가</label>
         </section>
         </div>
       </div>
