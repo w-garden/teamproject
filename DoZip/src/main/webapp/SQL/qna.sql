@@ -12,7 +12,7 @@ create table qnaT(
 	qna_state number(10) default 1, --글상태(삭제:0)
 	qna_ref number(38), -- 답글(그룹번호)
 	qna_step number(38), -- 답글(원본글:0)
-	qna_level number(38), -- 답글(정렬순서)
+	qna_level number(38), -- 답글(정렬순서 원본글:0)
 	reply_state varchar2(20), -- 답변상태
 	reply_date date, --답변일자
 	foreign key(mem_id) references memberT(mem_id),
@@ -21,6 +21,7 @@ create table qnaT(
 
 select * from qnaT;
 select * from partnersT;
+
 
 --qnaT_no_seq 시퀀스 생성
 create sequence qnaT_no_seq

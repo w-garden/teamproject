@@ -1,4 +1,4 @@
-package com.dozip.dao;
+package com.admin.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.dozip.vo.QnaVO;
+import com.admin.vo.QnaVO;
 
 public class QnaDAOImpl {
 
@@ -57,23 +57,42 @@ public class QnaDAOImpl {
 			}
 	}
 
-	//문의글 작성
-	public int insertQna(QnaVO q) {
+	//관리자 답변 작성
+	public int insertReply(QnaVO q) {
 		int res = 0;
 		
+		System.out.println("아이디" + q.getMem_id());
+		System.out.println("타입" + q.getQna_type());
+		System.out.println(q.getQna_title());
+		System.out.println(q.getQna_cont());
+		System.out.println(q.getQna_ref());
+		System.out.println(q.getQna_step());
+		System.out.println(q.getQna_level());
 		try {
 			con = ds.getConnection();
-			sql = "insert into qnaT "
-					+ "(qna_no, mem_id, business_num, qna_type, qna_title, qna_cont, qna_date, qna_ref, qna_step, qna_level, reply_state)"
-					+ "values (qnaT_no_seq.nextval,?,?,?,?,?,sysdate,qnaT_no_seq.nextval,0,0,'미답변')"; //qna_state는 디폴트 값이 설정되어있어서 자동으로 들어감
+			
+			sql="update qnaT set qna_level=qna_level+1 where qna_ref=? and qna_level>?";
+			pt = con.prepareStatement(sql);
+			pt.setInt(1, q.getQna_ref());
+			pt.setInt(2, q.getQna_level());
+			pt.executeUpdate(); 
+			
+			sql = "insert into qnaT (qna_no,mem_id,qna_type,qna_title,qna_cont,qna_ref,qna_step,qna_level) "
+					+ "values (qnaT_no_seq.nextval,?,?,?,?,?,?,?)";
 			pt = con.prepareStatement(sql);
 			pt.setString(1, q.getMem_id());
-			pt.setString(2, q.getBusiness_num());
-			pt.setString(3, q.getQna_type());
-			pt.setString(4, q.getQna_title());
-			pt.setString(5, q.getQna_cont());
-			
+			pt.setString(2, q.getQna_type());
+			pt.setString(3, q.getQna_title());
+			pt.setString(4, q.getQna_cont());
+			pt.setInt(5, q.getQna_ref());
+			pt.setInt(6, q.getQna_step()+1);
+			pt.setInt(7, q.getQna_level()+1);			
 			res = pt.executeUpdate();
+			
+			sql = "update qnaT set reply_state='답변완료', reply_date=sysdate where qna_no=?";
+			pt = con.prepareStatement(sql);
+			pt.setInt(1, q.getQna_ref());
+			pt.executeUpdate();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,96 +101,27 @@ public class QnaDAOImpl {
 			close(con);
 		}
 		return res;
-	}//insertQna()
+	}//insertReply()
 
-	//업체 리스트 출력
-	public List<String> parternList() {
-		List<String> list = new ArrayList<String>();
-		try {
-			con = ds.getConnection();
-			sql = "select businessName from partnersT";
-			pt = con.prepareStatement(sql);
-			rs = pt.executeQuery();
-			while(rs.next()) {
-				String name = rs.getString(1);
-				list.add(name);
-			}						
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(rs);
-			close(pt);
-			close(con);
-		}
-		return list;
-	}
-
-	//업체명으로 사업자번호 가져오기
-	public String getBnum(String businessName) {
-		String bNum = null;
-		try {
-			con = ds.getConnection();
-			sql = "select business_num from partnersT where businessName=?";
-			pt = con.prepareStatement(sql);
-			pt.setString(1, businessName);
-			rs = pt.executeQuery();
-			
-			if(rs.next()) {
-				bNum = rs.getString(1);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(rs);
-			close(pt);
-			close(con);
-		}
-		return bNum;
-	}
-	
-	//사업자번호로 업체명 가져오기
-	public String getBname(String business_num) {
-		String bName = null;
-		try {
-			con = ds.getConnection();
-			sql = "select businessName from partnersT where business_num=?";
-			pt = con.prepareStatement(sql);
-			pt.setString(1, business_num);
-			rs = pt.executeQuery();
-			
-			if(rs.next()) {
-				bName = rs.getString(1);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(rs);
-			close(pt);
-			close(con);
-		}
-		return bName;
-	}
-
-	//로그인된 아이디의 문의 리스트 불러오기 + 사업자명
-	public List<QnaVO> getPlist(String id, int page, int limit) {
+	//전체 리스트 불러오기
+	public List<QnaVO> getAllList(int page, int limit) {
 		List<QnaVO> list = new ArrayList<>();
 		QnaVO vo = null;
-		int startrow = (page-1)*5+1;
+		int startrow = (page-1)*15+1;
 		int endrow = startrow+limit-1;
 		
-		try {
+		try {//답글순서와 상관없이 글작성순으로 출력
 			con = ds.getConnection();
 			sql = "select * from ("
 					+ "select rowNum r, qna_no, mem_id, q.business_num, qna_type,qna_title,"
 					+ "qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,"
 					+ "qna_level,reply_state,reply_date, p.businessName "
-					+ "from (select*from qnaT where mem_id=? order by qna_ref desc, qna_level asc) q,partnersT p "
+					+ "from (select*from qnaT order by qna_no desc) q,partnersT p "
 					+ "where q.business_num=p.business_num(+)"
 					+ ")where r>=? and r<=?";
 			pt = con.prepareStatement(sql);
-			pt.setString(1, id);
-			pt.setInt(2,startrow);
-			pt.setInt(3,endrow);
+			pt.setInt(1,startrow);
+			pt.setInt(2,endrow);
 			rs = pt.executeQuery();			
 			
 			while(rs.next()) {
@@ -203,15 +153,14 @@ public class QnaDAOImpl {
 		return list;
 	}
 
-	//해당 아이디의 작성 글 개수 확인
-	public int getListCount(String id) {
+	//전체 작성 글 개수 확인
+	public int getAllListCount() {
 		int listcount = 0;
 		
 		try {
 			con = ds.getConnection();
-			sql = "select count(qna_no) from qnaT where mem_id=? and qna_state=1";
+			sql = "select count(qna_no) from qnaT";
 			pt = con.prepareStatement(sql);
-			pt.setString(1, id);
 			rs = pt.executeQuery();
 			
 			if(rs.next()) {listcount = rs.getInt(1);}
@@ -223,6 +172,38 @@ public class QnaDAOImpl {
 			close(con);
 		}
 		return listcount;
+	}
+
+	//글번호로 글 내용 가져오기
+	public QnaVO getDetail(int qna_no) {
+		QnaVO q = null;
+		
+		try {
+			con = ds.getConnection();
+			sql = "select * from qnaT where qna_no=?";
+			pt = con.prepareStatement(sql);
+			pt.setInt(1, qna_no);
+			rs = pt.executeQuery();
+			
+			if(rs.next()) { //일단 필요한 값만 받아옴
+				q = new QnaVO();
+				q.setQna_no(rs.getInt("qna_no"));
+				q.setMem_id(rs.getString("mem_id"));
+				q.setQna_type(rs.getString("qna_type"));
+				q.setQna_title(rs.getString("qna_title"));
+				q.setQna_cont(rs.getString("qna_cont"));
+				q.setQna_ref(rs.getInt("qna_ref"));
+				q.setQna_step(rs.getInt("qna_step"));
+				q.setQna_level(rs.getInt("qna_level"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pt);
+			close(con);
+		}
+		return q;
 	}
 	
 	
