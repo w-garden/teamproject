@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/Partners/css/join_style.css">
 
 <script src="/Partners/js/jquery.js"></script>
-<script src="/Partners/js/javascript.js"></script>
+<script src="/Partners/js/join.js"></script>
 <script>
 
 /* 유효성 검증 */
@@ -26,6 +26,9 @@ function login_check() {
 		return false;
 	}
 }
+
+
+
 
 
 </script>

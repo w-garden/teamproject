@@ -63,10 +63,14 @@ public class QnaDAO {
 		
 		try {
 			conn=ds.getConnection();
-			sql="select * from qnaT where business_num=? and qna_state=1 order by qna_no DESC";
+			sql="select mem_name, qna_no, qnaT.mem_id, qna_type, qna_title, qna_cont, qna_date, qna_ref, qna_step, qna_level, reply_state" +
+					" from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_step=0 and  qna_state=1 order by qna_no DESC";
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, business_num);
 			rs=pstmt.executeQuery();
+			
+
+			
 			
 			while(rs.next()) {
 				QnaDTO dto = new QnaDTO();
@@ -76,10 +80,17 @@ public class QnaDAO {
 				dto.setQna_title(rs.getString("qna_title"));
 				dto.setQna_cont(rs.getString("qna_cont"));
 				dto.setQna_date(rs.getString("qna_date"));
+				dto.setQna_ref(rs.getInt("qna_ref"));
+				dto.setQna_step(rs.getInt("qna_step"));
+				dto.setQna_level(rs.getInt("qna_level"));
 				dto.setReply_state(rs.getString("reply_state"));
+				dto.setMem_name(rs.getString("mem_name"));
+				
 				list.add(dto);
-			}
+		
 			
+			
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -93,38 +104,9 @@ public class QnaDAO {
 		}
 		return list;
 	}
+		
 	
-	
-	
-	//문의 페이지에서 쓸 회원 정보 가져오기
-	public String selectMem_name(String mem_id) {
-		String mem_name=null;
-		try {
-			conn= ds.getConnection();
-			sql = "select mem_name from memberT where mem_id=?";
-			pstmt= conn.prepareStatement(sql);
-			pstmt.setString(1, mem_id);
-			rs= pstmt.executeQuery();
-			if(rs.next()) {
-				mem_name=rs.getString(1);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				close(rs);
-				close(pstmt);
-				close(conn);
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}
-		return mem_name;
-	}
-
-	
-	
-	
+	//답변글 등록
 	public int insertQna(QnaDTO qdto) {
 		int result =0;
 		
@@ -138,16 +120,17 @@ public class QnaDAO {
 			
 				
 			
-			sql="insert into qnaT (qna_no, mem_id, business_num, qna_title, qna_cont, qna_ref, qna_step, qna_level, reply_state, reply_date) values"+
-							"(qnaT_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, '답변완료', sysdate) ";
+			sql="insert into qnaT (qna_no, mem_id, business_num, qna_type, qna_title, qna_cont, qna_ref, qna_step, qna_level, reply_state, reply_date) values"+
+							"(qnaT_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, '답변완료', sysdate) ";
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, qdto.getMem_id());
 			pstmt.setString(2, qdto.getBusiness_num());
-			pstmt.setString(3, "답변(수정전)");
-			pstmt.setString(4, qdto.getQna_cont());
-			pstmt.setInt(5, qdto.getQna_ref());
-			pstmt.setInt(6, qdto.getQna_step()+1);
-			pstmt.setInt(7, qdto.getQna_level()+1);
+			pstmt.setString(3, qdto.getQna_type());
+			pstmt.setString(4, "답변(수정전)");
+			pstmt.setString(5, qdto.getQna_cont());
+			pstmt.setInt(6, qdto.getQna_ref());
+			pstmt.setInt(7, qdto.getQna_step()+1);
+			pstmt.setInt(8, qdto.getQna_level()+1);
 			
 			
 			result=pstmt.executeUpdate();

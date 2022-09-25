@@ -21,11 +21,6 @@ public class CustomerQnaController implements Action {
 		QnaDAO dao = new QnaDAO();
 		List<QnaDTO> qlist = dao.selectAllQna(business_num);
 		
-		/**
-		 * 두집 회원 이름가져오기
-		 * 다른 코드로 수정가능하면 바꿀예정 **/
-		
-		
 		
 		
 		

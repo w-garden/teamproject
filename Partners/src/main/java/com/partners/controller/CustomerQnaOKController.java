@@ -15,9 +15,10 @@ public class CustomerQnaOKController implements Action {
 		HttpSession session = request.getSession();
 		
 		
-		QnaDTO qdto = new QnaDTO();		
+		QnaDTO qdto = new QnaDTO();
 		qdto.setMem_id(request.getParameter("mem_id")); //원본글 작성한 회원 아이디
 		qdto.setBusiness_num((String)session.getAttribute("business_num")); //사업자번호
+		qdto.setQna_type(request.getParameter("qna_type")); //질문유형
 		qdto.setQna_cont(request.getParameter("qna_cont")); //답글내용
 		qdto.setQna_ref(Integer.parseInt(request.getParameter("qna_ref"))); //그룹번호
 		qdto.setQna_step(Integer.parseInt(request.getParameter("qna_step"))); //몇번째 답글인지
