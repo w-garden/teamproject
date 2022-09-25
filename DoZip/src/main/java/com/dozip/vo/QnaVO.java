@@ -3,7 +3,7 @@ package com.dozip.vo;
 import lombok.Data;
 
 @Data
-public class QnaVO { //14개
+public class QnaVO { //qnaT 컬럼 총 14개
 	private int qna_no;
 	private String mem_id;
 	private String business_num;
@@ -19,7 +19,9 @@ public class QnaVO { //14개
 	private String reply_state;
 	private String reply_date;
 	
-	private String businessName;
+	//추가로 필요한 정보
+	private String businessName; //사업자명
+	private String mem_name; //고객명
 	
 	//페이징. 쪽나누기 관련변수
 	private int startrow; //시작행번호

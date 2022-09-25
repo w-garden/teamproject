@@ -50,7 +50,7 @@ public class CounselController implements Action {
 		
         //문의 리스트 출력(관리자+업체)
   		List<QnaVO> qlist = new ArrayList<QnaVO>();
-  		qlist = qdao.getPlist(id, page, limit);
+  		qlist = qdao.getQlist(id, page, limit);
   		System.out.println("qlist.size() = "+qlist.size());
   		request.setAttribute("qlist", qlist);
   		

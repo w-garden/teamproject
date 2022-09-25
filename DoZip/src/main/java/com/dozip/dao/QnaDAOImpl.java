@@ -152,8 +152,8 @@ public class QnaDAOImpl {
 		return bName;
 	}
 
-	//로그인된 아이디의 문의 리스트 불러오기 + 사업자명
-	public List<QnaVO> getPlist(String id, int page, int limit) {
+	//로그인된 아이디의 문의 리스트 불러오기 + 사업자명 + 고객명
+	public List<QnaVO> getQlist(String id, int page, int limit) {
 		List<QnaVO> list = new ArrayList<>();
 		QnaVO vo = null;
 		int startrow = (page-1)*5+1;
@@ -162,11 +162,11 @@ public class QnaDAOImpl {
 		try {
 			con = ds.getConnection();
 			sql = "select * from ("
-					+ "select rowNum r, qna_no, mem_id, q.business_num, qna_type,qna_title,"
+					+ "select rowNum r, qna_no, q.mem_id, q.business_num, qna_type,qna_title,"
 					+ "qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,"
-					+ "qna_level,reply_state,reply_date, p.businessName "
-					+ "from (select*from qnaT where mem_id=? order by qna_ref desc, qna_level asc) q,partnersT p "
-					+ "where q.business_num=p.business_num(+)"
+					+ "qna_level,reply_state,reply_date, p.businessName, m.mem_name "
+					+ "from (select*from qnaT where mem_id=? order by qna_ref desc, qna_level asc) q, partnersT p, memberT m "
+					+ "where q.business_num=p.business_num(+) and q.mem_id=m.mem_id(+)"
 					+ ")where r>=? and r<=?";
 			pt = con.prepareStatement(sql);
 			pt.setString(1, id);
@@ -191,6 +191,7 @@ public class QnaDAOImpl {
 				vo.setReply_state(rs.getString(14));
 				vo.setReply_date(rs.getString(15));	
 				vo.setBusinessName(rs.getString(16));
+				vo.setMem_name(rs.getString(17));
 				list.add(vo);
 			}
 		} catch (Exception e) {

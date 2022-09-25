@@ -4,7 +4,7 @@ create table qnaT(
 	qna_no number(38) primary key, --글번호
 	mem_id varchar2(20) not null, --고객아이디(fk)
 	business_num nvarchar2(12), --사업자번호(fk)
-	qna_type varchar2(50) not null, --질문유형
+	qna_type varchar2(50), --질문유형 (null허용으로 변경하고 작성페이지는 유효성검사로 넣게끔하는걸로 바꿈)
 	qna_title varchar2(200) not null, --글제목
 	qna_cont varchar2(4000) not null, --글내용
 	qna_date date default sysdate, --작성일자
@@ -47,11 +47,11 @@ order by qna_no desc, qna_ref desc, qna_level asc
 )where r>=6 and r<=10;
 		
 select * from (
-select rowNum r, qna_no, mem_id, q.business_num, qna_type,qna_title,
+select rowNum r, qna_no, q.mem_id, q.business_num, qna_type,qna_title,
 qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,
-qna_level,reply_state,reply_date, p.businessName
-from (select*from qnaT where mem_id='yang' order by qna_ref desc, qna_level asc) q,partnersT p  
-where q.business_num=p.business_num(+)
+qna_level,reply_state,reply_date, p.businessName, m.mem_name
+from (select*from qnaT where mem_id='hong' order by qna_ref desc, qna_level asc) q, partnersT p, memberT m  
+where q.business_num=p.business_num(+) and q.mem_id=m.mem_id(+)
 )where r>=6 and r<=10;
 
 ----------
