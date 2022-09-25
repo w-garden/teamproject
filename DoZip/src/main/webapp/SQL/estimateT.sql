@@ -1,5 +1,7 @@
 create table estimateT(
  est_num varchar2(12) --고유번호(private key)
+ -- 멤버아이디 컬럼 not null
+ -- 사업자 번호 null
  -- est_check 견적 직접신청 수락/거절 확인 컬럼
  ,est_zoning varchar2(20) not null --공간유형(주거, 상가)
  ,est_use varchar2(20) not null  --건물유형
@@ -18,13 +20,14 @@ create table estimateT(
  ,est_start varchar2(15) -- 희망공사 시작일
  ,est_end varchar2(15) -- 희망공사 종료일
  ,est_date date --견적신청 일자
- ,est_dateEnd varchar2(15) --견적신청 마감일자 +10일
+ ,est_dateEnd varchar2(15) --견적신청 마감일자 +10일 (date)
  ,est_name varchar2(10) --의뢰인 이름
  ,est_phone varchar2(12) --의로인 휴대폰 번호
  ,est_desc varchar2(3000) --스타일 설명
  ,est_file varchar2(200) --파일첨부
- ,est_selectCompany varchar2(50) --업체 선택
+ ,est_selectCompany varchar2(50) --업체 선택(삭제x)
  -- foreign key 사용자 ID 불러오기
+ -- foreign key 사업자 번호 
 );
 
 select * from estimateT;
