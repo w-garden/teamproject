@@ -1,7 +1,15 @@
 <%@ page  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
+<%@ page import="com.partners.dao.PartnersDAO" %>
+<%@ page import="com.partners.dto.PartnersDTO" %>
 
+<%-- 
+<%
+	String business_num=(String)session.getAttribute("business_num");
 
+	PartnersDAO dao = new PartnersDAO();
+	PartnersDTO dto = dao.selectPartner(business_num);
+%> --%>
   <article>
    <div>
 	  	<div class="request_spot">
@@ -26,15 +34,16 @@
 					<div>
 						<label><b>사업자등록번호</b></label><br />
 						<div>
-							<input type="text" id="business_num" name="business_num" size="5"> <input type="text" size="5">
-							<input type="text" id="business_num" name="business_num" size="5">
+							<input type="text" id="business_num" name="business_num" value="${p.business_num}" size="20"> 
+							<!--  <input type="text" id="business_num" name="business_num" size="5">
+							<input type="text" id="business_num" name="business_num" size="5"> -->
 						</div>
 					</div>
 					<br />
 					<div>
 						<label><b>상호</b></label><br />
 						<div>
-							<input type="text" size="20">
+							<input type="text" id="businessName" name="businessName" value="${p.businessName}" size="20">
 						</div>
 					</div>
 				</div>
@@ -42,22 +51,21 @@
 				<div class="business-03">
 					<label><b>대표자 이름</b></label><br />
 					<div>
-						<input type="text" size="20">
+						<input type="text" id="pName" name="pName" value="${p.pName}" size="20">
 					</div>
 					<br />
 				</div>
 				<div class="business-04">
 					<label><b>대표자 연락처</b></label><br />
 					<div>
-						<input type="text" size="20">
-						<button type="button">변경</button>
+						<input type="text" id="pTel" name="pTel" value="${p.pTel}" size="20">
 					</div>
 					<br />
 				</div>
 				<div class="business-05">
 					<label><b>영업장 주소</b></label><br />
 					<div>
-						<input type="text" size="5" disabled="true"> <input
+						<input type="text" id="pAddress" name="pAddress" value="${p.pAddress}" size="5" disabled="true"> <input
 							type="text" size="10" disabled="true">
 						<button type="button">변경</button>
 					</div>
@@ -68,14 +76,13 @@
 				</div>
 			</fieldset>
 
-
 			<fieldset id="additional">
 				<legend>
 					<b>부가 정보</b>
 				</legend>
 				<div class="additional-01">
 					<label><b>전문가 한마디</b></label><br />
-						<textarea class="one_word" autocomplete="off"
+						<textarea id="pShortstate" name="pShortstate" autocomplete="off"
 							placeholder="(EX. 따듯함이 느껴지는 원목과 화이트 컬러의 내추럴 스타일, 33평 아파트 인테리어입니다.)" rows="5"></textarea>
 					<span class="text">0/2000</span>
 				</div>
@@ -86,7 +93,7 @@
 						<label for="choosefile" class="upload_lbl">
 							<img src="../images/upload_plus.png" width="40px" height="40px">
 						</label>
-						<input type="file" id="choosefile" name="file" accept="image/*">
+						<input type="file" id="pInt_img" name="pInt_img" accept="image/*">
 					</div>
 					<br />
 				</div>
@@ -97,7 +104,7 @@
 						<label for="choosefile" class="upload_lbl">
 							<img src="../images/upload_plus.png" width="40px" height="40px">
 						</label>
-						<input type="file" id="choosefile" name="file" accept="image/*">
+						<input type="file" id="pComp_logo" name="pComp_logo" accept="image/*">
 					</div>
 					<br />
 				</div>
@@ -110,8 +117,8 @@
 						<label for="check3" class="lbl-checkbox"> <input type="checkbox" id="check3">카드결제</label>
 						<label for="check4" class="lbl-checkbox"> <input type="checkbox" id="check4">쇼룸</label>
 						<label for="check5" class="lbl-checkbox"> <input type="checkbox" id="check5">정부지원사업</label></br>
-						<label for="check7" class="lbl-checkbox-disabled"><input type="checkbox" id="check7" aria-hidden="false">두집예치제</label>
-						<label class="deposit_label">예치금</label> <input type="text" id="deposit_money">
+						<label for="check7" class="lbl-checkbox-disabled"><input type="checkbox" id="check7">두집예치제</label>
+						<label class="deposit_label">예치금</label> <input type="text" id="deposit_money" placeholder="0">
 						<p id="red">* 두집예치제는 두집(****-****)으로 추가 문의주세요.</p>
 					</div>
 					
@@ -360,7 +367,7 @@
 			</fieldset>
 			
 			<div class="data_edit_button_tag">
-				<input type="button" id="data_edit_button" value="정보수정"/>
+				<input type="submit" id="data_edit_bu mtton" value="정보수정"/>
 			</div>
 			</form>
      </div>
