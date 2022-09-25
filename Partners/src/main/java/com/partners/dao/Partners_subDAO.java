@@ -59,7 +59,7 @@ public class Partners_subDAO {
 			}
 	}
 	
-	//data_manage에 정보 가져오기
+	//파트너스 data_manage에 세부정보 가져오기
 	public int insertPartnersSub(Partners_subDTO dto) {
 		int result=0;
 		

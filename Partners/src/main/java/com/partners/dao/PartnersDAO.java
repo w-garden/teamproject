@@ -231,5 +231,46 @@ public class PartnersDAO {
 
 	// 파트너스 탈퇴 메서드
 
+	//파트너스 정보관리 페이지 데이터 불러오기
+	public PartnersDTO selectPartner2(String business_num) {
+		PartnersDTO dto = null;
+		try {
+			conn = ds.getConnection();
+			sql = "select * from partnersT where business_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, business_num);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				dto = new PartnersDTO();
+	
+				dto.setBusiness_num(rs.getString("business_num"));
+				dto.setBusinessName(rs.getString("businessName"));
+				dto.setpId(rs.getString("pId"));
+				dto.setpPw(rs.getString("pPw"));
+				dto.setpName(rs.getString("pName"));
+				dto.setpTel(rs.getString("pTel"));
+				dto.setpMail_id(rs.getString("pMail_id"));
+				dto.setpMail_domain(rs.getString("pMail_domain"));
+				dto.setpAddress(rs.getString("pAddress"));
+				dto.setpDate(rs.getString("pDate"));
+				dto.setPDeldate(rs.getString("PDeldate"));
+				dto.setpDelcont(rs.getString("pDelcont"));
+				dto.setpState(rs.getInt("pState"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close(rs);
+				close(pstmt);
+				close(conn);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return dto;
+	}
+	
+	
 	
 }
