@@ -9,11 +9,35 @@
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
-
+  <script src="./js/sessionStorage.js"></script>
+  <script>
+   function check(){
+	   var est_name = document.getElementById("name");
+	   var est_phone = document.getElementById("phone");
+	   var est_desc = document.getElementById("paragraph");
+	   
+	   if(est_name.value == ""){
+		   alert('성함을 알려주세요!');
+		   name.focus();
+		   return false;
+	   }
+	   if(est_phone.value == ""){
+		   alert('전화번호을 알려주세요!');
+		   phone.focus();
+		   return false;
+	   }
+	   if(est_desc.value == ""){
+		   alert('세부 스타일을 알려주세요!');
+		   paragraph.focus();
+		   return false;
+	   }
+   }
+  </script>
+  
   <title>Step 3</title>
 </head>
-
 <body>
+<form method="post" onsubmit="return check()" action="estimate_apply3_ok.do">
 
   <div id="estimate_step03">
     <section aria-label="예산 선택" class="estimate_yourcost">
@@ -25,17 +49,19 @@
         <h3>의뢰인 정보 입력</h3>
         <input type="text" id="name" name="name" placeholder="이름을 입력해주세요.">
         <input type="text" id="phone" name="phone" placeholder="휴대폰 번호를 입력해 주세요.">
-        <button type="button" id="certify_phone">인증하기</button>
+        <button type="button" id="certify_phone" onclick="SessionStorage();">인증하기</button>
+        <input type="text" id="address" name="address" placeholder="주소를 입력해 주세요.">
+        <button type="button" id="address_btn" onclick="test();">주소찾기</button>
 
         <div class="para">
         <h3>스타일을 알려주세요.(1500자 내외)</h3>
         <p class="textCount">0자</p><p class="textTotal">/1500자</p>
       </div>
-        <input type="textarea" id="paragraph" name="paragraph" maxlength="1500" placeholder="원하는 스타일에 대해 자유롭게 써주세요.">
-        <form action="" method="post" enctype="multipart/form-data" name="">
+       <textarea id="paragraph" name="paragraph" maxlength="1500" placeholder="원하는 스타일에 대해 자유롭게 써주세요."></textarea>
+      <%--   <form action="" method="post" enctype="multipart/form-data" name="">
           <input type="file" name="FileName">
+      </form> --%>
       </div>
-      </form>
       </section>
      
   <!-- id : 고유한 식별 목적
@@ -44,9 +70,10 @@
 
   <div class="nextpage">
     <button class="button" id="go-back" onclick="location.href='estimate_apply2.do'">이전</button>
-    <button class="button" id="go-next" onclick="location.href='estimate_apply4.do'">다음</button>
+    <button class="button" type="submit" id="go-next">다음</button>
   </div>
   </div>
+  </form>
 </body>
 <%-- 하단 공통부분 --%>
 <jsp:include page="../common/footer.jsp" />

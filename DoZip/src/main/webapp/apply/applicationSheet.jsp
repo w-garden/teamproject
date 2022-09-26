@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="./css/apply_style.css" />
 <script src="./js/apply.js" defer></script>
 <script src="./js/jquery.js"></script>
+
   </head>
     <title>인테리어 견적 신청서</title>
   <body>

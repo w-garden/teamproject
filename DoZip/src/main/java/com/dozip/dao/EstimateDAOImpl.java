@@ -75,4 +75,24 @@ public class EstimateDAOImpl {
 		return res;
 	}
 
+	//견적내용 DB에 저장
+	public int imsitest(String est_name, String est_phone, String est_desc) {
+		int res=0;
+		try {
+			con = ds.getConnection();
+			sql = "insert into testT values (?,?,?)";
+			pt = con.prepareStatement(sql);
+			pt.setString(1, est_name);
+			pt.setString(2, est_phone);
+			pt.setString(3, est_desc);
+			res = pt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pt);
+			close(con);
+		}
+		return res;
+	}
+
 }
