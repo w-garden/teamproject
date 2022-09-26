@@ -47,7 +47,8 @@
 }
 
 #keyword {
-  width: 50%;
+  width: 400px;
+  
   border-bottom: 1px solid #00704a;
   border-top : none;
   border-left : none;
@@ -73,6 +74,28 @@
   font-size: 20px;
 }
 
+#none_search {
+	display : flex;
+	font-size : 2.0rem;
+	color : #347844;
+	margin: 0 auto ; 
+	justify-content: center;
+	font-weight: 200px;
+	margin-top: 50px;
+	margin-bottom : 100px;
+}
+
+.top_tag {
+	display : flex;
+	justify-content : center;
+	font-family : '맑은고딕';
+	font-size : 1.6rem;
+	font-weight: bold;
+	background-color: #f4f4f2;
+	margin-bottom : 20px;
+	padding:20px 0px;
+}
+
 /*Resize the wrap to see the search bar change!*/
 .search_wrap{
   width: 30%;
@@ -93,7 +116,7 @@ body, hmtl{background: #ecf0f1; font-family: 'Anton', sans-serif;}
 
 
 #wrapper{
-  width :600px;
+  width :1500px;
   margin:50px auto;
   height:400px;
  
@@ -103,7 +126,7 @@ body, hmtl{background: #ecf0f1; font-family: 'Anton', sans-serif;}
 }
 
 #slider-wrap{
-  width:1000px;
+  width:1500px;
   height:400px;
   position:relative;
   overflow:hidden;
@@ -121,7 +144,7 @@ body, hmtl{background: #ecf0f1; font-family: 'Anton', sans-serif;}
 #slider-wrap ul#slider li{
   float:left;
   position:relative;
-  width:1000px;
+  width:1500px;
   height:400px; 
 }
 

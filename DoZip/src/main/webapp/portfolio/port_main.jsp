@@ -1,3 +1,6 @@
+<%@page import="com.dozip.dao.PortfolioDAOImpl"%>
+<%@page import="com.dozip.vo.PortfolioDTO"%>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <jsp:include page = "../common/header.jsp"/>
 <%-- 상단 공통부분 끝--%>
@@ -10,6 +13,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <script src="./js/portfolio.js"defer></script>
+<script src="/DoZip/js/jquery.js"></script>
 
 
 	<div class="clear"></div>
@@ -24,47 +28,21 @@
 				<div id="wrapper">
 			      <div id="slider-wrap">
 			          <ul id="slider">
-			             <li>
-			                <div>
-			                    <h3>호철 디자인</h3>
-			                    <span>Sub-title #1</span>
-			                </div>                
-							<img src="/DoZip/images/portfolio/banner/HC_banner.png">
+			             <li>                
+							<img src="/DoZip/images/portfolio/banner/final_bannerH.png">
 			             </li>
 			             
 			             <li>
-			                <div>
-			                    <h3>Slide #1</h3>
-			                    <span>Sub-title #2</span>
-			                </div>
-							<img src="https://fakeimg.pl/350x200/D27328/000?text=22222">
+							<img src="/DoZip/images/portfolio/banner/final_bannerJ.png">
 			             </li>
 			             
 			             <li>
-			                <div>
-			                    <h3>Slide #3</h3>
-			                    <span>Sub-title #3</span>
-			                </div>
-							<img src="https://fakeimg.pl/350x200/FF607F/000?text=33333">
+							<img src="/DoZip/images/portfolio/banner/final_bannerM.png">
 			             </li>
 			             
 			             <li>
-			                <div>
-			                    <h3>Slide #4</h3>
-			                    <span>Sub-title #4</span>
-			                </div>
-							<img src="https://fakeimg.pl/350x200/0A6E0A/000?text=44444">
+							<img src="/DoZip/images/portfolio/banner/final_bannerS.png">
 			             </li>
-			             
-			             <li>
-			                <div>
-			                    <h3>Slide #5</h3>
-			                    <span>Sub-title #5</span>
-			                </div>
-							<img src="https://fakeimg.pl/350x200/0064CD/000?text=55555">
-			             </li>
-			             
-			             
 			          </ul>
 			          
 			           <!--controls-->
@@ -134,6 +112,7 @@
 		<!-- 드롭다운 끝 -->
 
 		<!-- 검색창 -->
+		<form>
 		<div class = "search_wrap">
 			<div class = "search">
 				<input type = "text" name = "keyword" id="keyword" onkeyup = "filter()" placeholder="업체명을 입력하세요">
@@ -142,32 +121,54 @@
 				</button>
 			</div>
 		</div>
+		</form>
+		<%-- 검색 기능 --%>
+		<%
+			String keyword = "";
+			if(request.getParameter("keyword") != null){
+				keyword = request.getParameter("keyword");
+			}
+			PortfolioDAOImpl pdao = new PortfolioDAOImpl();
+			List<PortfolioDTO>cplist = pdao.searchComp(keyword);
+			request.setAttribute("cplist", cplist);
+		%>
+		
 	</div>		
 			
+		<!-- 검색할 시 반환 -->
+ 			<c:if test = "${!empty cplist}">
+				<div class="top_search">
+					<p class="top_tag">검색결과</p> 
+ 				</div>
+				<div class="cards-list">
+				
+				<c:forEach var="i" begin="0" end="${fn:length(cplist)-1}" step="1">
+					<div class="card">
+					  <div class="card_image"> 
+					  	<img class = "ho" onclick = "location.href='port_detail.do?pf_no=${cplist[i].pf_no}';" src= '${cplist[i].pf_photo1}'/> 
+					  	<%-- onclick으로 클릭시 글번호를 넣어 상세로 연결되게 --%>
+					  </div>
+					  <div class="card_title">
+						   	<li class = "corp">${cplist[i].pf_title}</li>
+						   	<li class = "card_tag">${cplist[i].pf_type} ${cplist[i].pf_area} ${cplist[i].pf_cost}</li>
+					  </div>
+					</div>
+				</c:forEach>
+			</div>
+			</c:if>
+			
+			<c:if test = "${cplist.isEmpty()}">
+				<div id = "none_search">검색 결과가 없습니다</div>
+			</c:if>	
+			<br>
+			<br>
 		<!-- 카드 리스트 -->
 		<div class="construction_list">
 			<div class="top_utile">
 				<p class="top_title">포트폴리오</p> 
  			</div>
  			
- 			<!-- 검색할 시 반환 -->
- 			<c:if test = "${!empty cp}">
-				<div class="cards-list">
-				
-				<c:forEach var="i" begin="0" end="${fn:length(cp)-1}" step="1">
-					<div class="card">
-					  <div class="card_image"> 
-					  	<img class = "ho" onclick = "location.href='port_detail.do?pf_no=${cp[i].pf_no}';" src= '${cp[i].pf_photo1}'/> 
-					  	<%-- onclick으로 클릭시 글번호를 넣어 상세로 연결되게 --%>
-					  </div>
-					  <div class="card_title">
-						   	<li class = "corp">${cp[i].pf_title}</li>
-						   	<li class = "card_tag">${cp[i].pf_type} ${cp[i].pf_area} ${cp[i].pf_cost}</li>
-					  </div>
-					</div>
-				</c:forEach>
-			</div>
-			</c:if>
+ 			
  			<!-- 반복문 시작 -->
 			<div class="cards-list">
 				<c:if test = "${!empty plist}">
@@ -188,14 +189,11 @@
 			<c:if test = "${empty plist}">
 				<div id = "none_pf">포트폴리오 목록이 없습니다</div>
 			</c:if>
-			<c:if test = "${empty cp}">
-				<div id = "none_search">해당 업체 포트폴리오 목록이 없습니다</div>
-				<button type = "button" class="back_p">돌아가기</button>
-			</c:if>
-			
  		</div>
  		<br>
- 		<br>	
+ 		<br>
+ 		
+				
  		
 
 <%--하단 공통부분 --%>	

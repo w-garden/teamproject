@@ -211,7 +211,7 @@ public class PortfolioDAOImpl {
 		
 		List<PortfolioDTO> list = new ArrayList<>();
 		
-		PortfolioDTO dto = new PortfolioDTO();
+		PortfolioDTO dto = null;
 		
 		try {
 			con = ds.getConnection();
@@ -221,6 +221,7 @@ public class PortfolioDAOImpl {
 			rs = pt.executeQuery();
 			
 			while(rs.next()) {
+				dto = new PortfolioDTO();
 				dto.setPf_no(rs.getInt(1));
 				dto.setBusiness_num(rs.getString(2));
 				dto.setPf_title(rs.getString(3));
@@ -244,6 +245,7 @@ public class PortfolioDAOImpl {
 				dto.setPf_photo5(rs.getString(21));				
 				dto.setPf_premium(rs.getInt(22));
 				dto.setPf_regdate(rs.getString(23));
+				System.out.println(dto); 
 				list.add(dto);
 			}
 		}catch(Exception e) {e.printStackTrace();}
