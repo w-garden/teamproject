@@ -17,5 +17,6 @@ public class MemberVO {
 	private String mem_joinDate;
 	private int mem_withdraw;
 	private String mem_withdrawDate;
+
 	
 }

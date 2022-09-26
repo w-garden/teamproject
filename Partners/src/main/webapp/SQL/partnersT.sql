@@ -14,7 +14,7 @@ create table partnersT (
     pDelcont nvarchar2(400), --탈퇴사유
     pState number(5) default 1 --탈퇴여부(가입 1, 탈퇴 2)
 );
-
+update partnersT set business_num='111' where business_num='105';
 insert into partnersT (business_num, businessName, pId, pPw, pName, pTel, pMail_id, 
 pMail_domain,pAddress, pDate,PDeldate,pDelcont,pState) values(105, '민우', 'baba', 123, 'ㅇ', 010, 'baba@naver','주소주소', '역삼동', 510,520,530,1);
 select * from partnersT;

@@ -32,7 +32,7 @@ public class PartnersdataEditOKController implements Action {
 			request.setCharacterEncoding("UTF-8");
 			
 			String businessName=request.getParameter("businessName");
-			System.out.println("상호 : "+businessName);
+			//System.out.println("상호 : "+businessName);
 			String pName=request.getParameter("pName");
 			String pTel=request.getParameter("pTel");
 			String pAddress=request.getParameter("pAddress");
@@ -45,21 +45,28 @@ public class PartnersdataEditOKController implements Action {
 			pdto.setpName(pName); pdto.setpTel(pTel);
 			pdto.setpAddress(pAddress);
 			
-			pdao.insertPartners(pdto);
+			pdao.updatePartners(pdto); //기존 파트너스 정보 수정 (추후묶음)
+			
+			Partners_subDAO psdao=new Partners_subDAO();
+			
+			//dto 값을 받아서 
+			int res = psdao.nullCheck(business_num); 
+			System.out.println("널확인"+res);
+			
+			///////////////////////
+			
+
+			
 			
 			String pShortstate=request.getParameter("pShortstate");
-			String pInt_img=request.getParameter("pInt_img");
-			String pComp_logo=request.getParameter("pComp_logo");
+//			String pInt_img=request.getParameter("pInt_img");
+//			String pComp_logo=request.getParameter("pComp_logo");
 //			String [] pService= request.getParameterValues("pService");
-//			for(String value: pService){
-//				out.print(value);
-//			}
-			String pService=request.getParameter("pService");
 			String pHomepg=request.getParameter("pHomepg");
-			String pRes_build_type=request.getParameter("pRes_build_type"); //배열로?
-			String pRes_space_type=request.getParameter("pRes_space_type");
-			String pCom_build_type=request.getParameter("pShortstate");
-			String pCom_space_type=request.getParameter("pCom_space_type");
+//			String pRes_build_type=request.getParameter("pRes_build_type"); 
+//			String pRes_space_type=request.getParameter("pRes_space_type");
+//			String pCom_build_type=request.getParameter("pCom_build_type");
+//			String pCom_space_type=request.getParameter("pCom_space_type");
 			String pRes_person_name=request.getParameter("pRes_person_name");
 			String pRes_person_tel=request.getParameter("pRes_person_tel");
 			String pCom_person_name=request.getParameter("pCom_person_name");
@@ -68,36 +75,59 @@ public class PartnersdataEditOKController implements Action {
 			String pAccount_bank=request.getParameter("pAccount_bank");
 			String pAccount_name=request.getParameter("pAccount_name");
 			String pAccount_num=request.getParameter("pAccount_num");
-			String pAccount_file=request.getParameter("pAccount_file");
-			String pBusiness_lic_file=request.getParameter("pBusiness_lic_file");
+//			String pAccount_file=request.getParameter("pAccount_file");			
+//			String pBusiness_lic_file=request.getParameter("pBusiness_lic_file");
 			
-			Partners_subDAO psdao=new Partners_subDAO();
+			
+			
 			Partners_subDTO psdto=new Partners_subDTO();
-			
+			psdto.setBusiness_num(business_num);
 			psdto.setpShortstate(pShortstate); 
-			psdto.setpInt_img(pInt_img); psdto.setpComp_logo(pComp_logo); 
-			psdto.setpService(pService); psdto.setpHomepg(pHomepg); 
-			psdto.setpRes_build_type(pRes_build_type); psdto.setpRes_space_type(pRes_space_type); 
-			psdto.setpCom_build_type(pCom_build_type); psdto.setpCom_space_type(pCom_space_type);
-			psdto.setpRes_person_name(pRes_person_name); psdto.setpRes_person_tel(pRes_person_tel);
-			psdto.setpCom_person_name(pCom_person_name); psdto.setpCom_person_tel(pCom_person_tel);
+		//	psdto.setpInt_img(pInt_img); psdto.setpComp_logo(pComp_logo); 
+		//	psdto.setpService(pService); 
+			psdto.setpHomepg(pHomepg); 
+		//	psdto.setpRes_build_type(pRes_build_type); psdto.setpRes_space_type(pRes_space_type); 
+		//	psdto.setpCom_build_type(pCom_build_type); psdto.setpCom_space_type(pCom_space_type);
+			psdto.setpRes_person_name(pRes_person_name); 
+			psdto.setpRes_person_tel(pRes_person_tel);
+			psdto.setpCom_person_name(pCom_person_name); 
+			psdto.setpCom_person_tel(pCom_person_tel);
 			psdto.setpBalance(pBalance);
-			psdto.setpAccount_bank(pAccount_bank); psdto.setpAccount_name(pAccount_name);
+			psdto.setpAccount_bank(pAccount_bank); 
+			psdto.setpAccount_name(pAccount_name);
 			psdto.setpAccount_num(pAccount_num);
-			psdto.setpAccount_num(pAccount_file); psdto.setpAccount_num(pBusiness_lic_file);
+		//	psdto.setpAccount_num(pAccount_file); psdto.setpAccount_num(pBusiness_lic_file);
 			
-			psdao.insertPartnersSub(psdto);
 			
-			/*
-			ActionForward forward=new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("data_manage_edit.do");//뷰페이지 경로 설정
-			return forward; */
-			out.println("<script>");
-			out.println("alert('회원 정보 수정했습니다!');");
-			out.println("location='data_manage.do';");
-			out.println("</script>");
+			if(res == 1/*서브테이블에 저장된 정보가 있으면*/){
+				res = psdao.updatePartnersSub(psdto);
+				
+				out.println("<script>");
+				out.println("alert('정보 수정 성공!');");
+				out.println("location='data_manage.do';");
+				out.println("</script>");
+				
+			}else { //없으면
+				int re = psdao.insertPartners2(psdto);
+				if(re==1) {
+					out.println("<script>");
+					out.println("alert('insert');");
+					out.println("history.back();");
+					out.println("</script>");
+				}
+			}
+			
+//			if(res==1) {
+//				out.println("<script>");
+//				out.println("alert('성공!');");
+//				out.println("location='data_manage.do';");
+//				out.println("</script>");
+//			}else {
+//				//실패 . history.back();
+//			}			
 		}//if else
-			return null;
+		
+		
+		return null;
 	}
 }

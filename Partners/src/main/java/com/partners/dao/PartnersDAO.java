@@ -227,11 +227,36 @@ public class PartnersDAO {
 
 	// 파트너스 아이디 찾기 메서드
 
-	// 파트너스 정보 수정 메서드
-
 	// 파트너스 탈퇴 메서드
+	
+	
+	
+	
+	// 파트너스 정보 수정 메서드 (민우)
+	public void updatePartners(PartnersDTO pdto) {
+		try {
+			conn = ds.getConnection();
+			sql="update PartnersT set businessName=?,pName=?,pTel=?,pAddress=? where business_num=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, pdto.getBusinessName());
+			pstmt.setString(2, pdto.getpName());
+			pstmt.setString(3, pdto.getpTel());
+			pstmt.setString(4, pdto.getpAddress());
+			pstmt.setString(5, pdto.getBusiness_num());
+			
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {e.printStackTrace();}
+		finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			}catch(Exception e) {e.printStackTrace();}
+		}
+	}//updatePartners()
+	
 
-	//파트너스 정보관리 페이지 데이터 불러오기
+	//파트너스 정보관리 페이지 데이터 불러오기(민우)
 	public PartnersDTO selectPartner2(String business_num) {
 		PartnersDTO dto = null;
 		try {
@@ -247,7 +272,6 @@ public class PartnersDAO {
 				dto.setBusinessName(rs.getString("businessName"));
 				dto.setpName(rs.getString("pName"));
 				dto.setpTel(rs.getString("pTel"));
-
 				dto.setpAddress(rs.getString("pAddress"));
 
 			}
@@ -264,6 +288,8 @@ public class PartnersDAO {
 		}
 		return dto;
 	}
+
+	
 	
 	
 	
