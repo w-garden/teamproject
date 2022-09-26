@@ -117,9 +117,11 @@
 	</c:if>
 	<c:if test="${!empty qlist }">
 		<c:forEach var="q" items="${ qlist}">
-			<tr>
-			         
 			
+		
+			 <%--원본글일경우 --%>
+			<c:if test="${q.qna_step==0 }">
+			<tr>
 				<td>${q.qna_no }</td>
 				<td class="qna_table_date">${q.qna_date }</td>
 				<td>${q.mem_name }</td>
@@ -133,17 +135,22 @@
 				
 				
 				</td>
+					<td><input type="button" value="답변하기" id = "reply_${q.qna_no }_btn" onclick="qna_reply_toggle(${q.qna_no })" ></td>
+				</tr>
 				
 				
-				<c:if test="${q.reply_state =='미답변'}">
-					<td><input type="button" value="답변하기" onclick="qna_reply_toggle(${q.qna_no })" >
+				
 				</c:if>
-				<c:if test="${q.reply_state =='답변완료'}">
-					<td><input type="button" value="추가답변" onclick="qna_reply_toggle(${q.qna_no })" >
-				</c:if>
-			</tr>
+				
+				
+				
+						
+			
+			
 			<tr>
-			<td colspan="6" style="display:none;" id="reply_${q.qna_no }">
+			 <td colspan="6" style="display:none;" id="reply_${q.qna_no }"> 
+			
+				
 			<textarea rows="5%" cols="100%" id="reply_${q.qna_no }_textarea" style="width: 86%; resize: none;"></textarea>
 		
 			
@@ -154,11 +161,21 @@
 		</c:forEach>
 	</c:if>
 </table>
+
+
+
+
+
 <script>
 	function qna_reply_toggle($number) {
 		var test = "#reply_"+$number;
 
 		$(test).toggle();
+		
+		
+		
+		
+		
 	}
 	
 	
@@ -191,6 +208,19 @@
 			datatype: "text",
 			
 			success : function(result){
+				
+				
+				
+				
+				
+				<%--
+				$reply_btn="#reply_"+$qna_no+"_btn";  
+				alert($reply_btn);
+				alert($qna_no);
+				$($reply_btn).val('추가댓글');  --%>
+				
+				
+				
 				alert('댓글등록완료!');
 				location.reload();
 			}
