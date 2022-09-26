@@ -15,46 +15,6 @@ $(document).ready(function() {
 	});
 });
 
-/***************************/
-/*회원가입창 개인정보 동의 */
-/**************************/
-$(function() {
-	$('#all').click(function() {
-		if ($('#all').prop('checked')) {
-			$('#check_1').prop('checked', 'checked');
-			$('#check_2').prop('checked', 'checked');
-			$('#check_3').prop('checked', 'checked');
-		} else {
-			$('#check_1').prop('checked', '');
-			$('#check_2').prop('checked', '');
-			$('#check_3').prop('checked', '');
-		}
-
-	});
-});
-$(function() {
-	$('#check_1').click(function() {
-		if ($('#all').prop('checked')) {
-			$('#all').prop('checked', '');
-		}
-
-	});
-});
-$(function() {
-	$('#check_2').click(function() {
-		if ($('#all').prop('checked')) {
-			$('#all').prop('checked', '');
-		}
-
-	});
-});
-$(function() {
-	$('#check_3').click(function() {
-		if ($('#all').prop('checked')) {
-			$('#all').prop('checked', '');
-		}
-	});
-});
 
 
 
@@ -216,6 +176,92 @@ $(function() {
 		$('#search_conditon').hide(400);
 	});
 });
+
+/*****************************/
+/*포트폴리오 사진등록 JS*/
+/*****************************/
+
+
+function loadFile1(input) {
+	// 여러개의 이미지를 읽을수도 있기 때문에 
+	if (input.files && input.files[0]) {
+		var fr = new FileReader();
+		//파일리더로 일고 읽는게 완료되면  만들어준 아이디에 속성값을 지정하여 사용하겠다.
+		fr.onload = function(event) {
+			document.getElementById('preview1').src = event.target.result;
+			document.getElementById('preview1').style.display = "flex";
+		};
+		fr.readAsDataURL(input.files[0]);
+		// 이미지파일을 읽어 온다.
+	} else {
+		document.getElementById('preview1').src = "";
+	}
+}
+function loadFile2(input) {
+	// 여러개의 이미지를 읽을수도 있기 때문에 
+	if (input.files && input.files[0]) {
+		var fr = new FileReader();
+		//파일리더로 일고 읽는게 완료되면  만들어준 아이디에 속성값을 지정하여 사용하겠다.
+		fr.onload = function(event) {
+			document.getElementById('preview2').src = event.target.result;
+			document.getElementById('preview2').style.display = "flex";
+
+		};
+		fr.readAsDataURL(input.files[0]);
+		// 이미지파일을 읽어 온다.
+	} else {
+		document.getElementById('preview2').src = "";
+	}
+}
+function loadFile3(input) {
+	// 여러개의 이미지를 읽을수도 있기 때문에 
+	if (input.files && input.files[0]) {
+		var fr = new FileReader();
+		//파일리더로 일고 읽는게 완료되면  만들어준 아이디에 속성값을 지정하여 사용하겠다.
+		fr.onload = function(event) {
+			document.getElementById('preview3').src = event.target.result;
+			document.getElementById('preview3').style.display = "flex";
+
+		};
+		fr.readAsDataURL(input.files[0]);
+		// 이미지파일을 읽어 온다.
+	} else {
+		document.getElementById('preview3').src = "";
+	}
+}
+function loadFile4(input) {
+	// 여러개의 이미지를 읽을수도 있기 때문에 
+	if (input.files && input.files[0]) {
+		var fr = new FileReader();
+		//파일리더로 일고 읽는게 완료되면  만들어준 아이디에 속성값을 지정하여 사용하겠다.
+		fr.onload = function(event) {
+			document.getElementById('preview4').src = event.target.result;
+			document.getElementById('preview4').style.display = "flex";
+
+		};
+		fr.readAsDataURL(input.files[0]);
+		// 이미지파일을 읽어 온다.
+	} else {
+		document.getElementById('preview4').src = "";
+	}
+}
+function loadFile5(input) {
+	// 여러개의 이미지를 읽을수도 있기 때문에 
+	if (input.files && input.files[0]) {
+		var fr = new FileReader();
+		//파일리더로 일고 읽는게 완료되면  만들어준 아이디에 속성값을 지정하여 사용하겠다.
+		fr.onload = function(event) {
+			document.getElementById('preview5').src = event.target.result;
+			document.getElementById('preview5').style.display = "flex";
+
+		};
+		fr.readAsDataURL(input.files[0]);
+		// 이미지파일을 읽어 온다.
+	} else {
+		document.getElementById('preview5').src = "";
+	}
+}
+
 
 
 

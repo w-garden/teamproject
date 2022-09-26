@@ -18,12 +18,14 @@ create table qnaT(
 	foreign key(mem_id) references memberT(mem_id),
 	foreign key(business_num) references partnersT(business_num)
 );
-
-
+alter table qnaT modify qna_type null;
+delete qnaT;
 select * from qnaT;
 select * from partnersT;
 
 
+commit;
+rollback;
 --qnaT_no_seq 시퀀스 생성
 create sequence qnaT_no_seq
 start with 1 
@@ -69,4 +71,24 @@ CREATE OR REPLACE VIEW v_partnersT
 AS
 SELECT businessName , business_num
 FROM partnersT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select mem_name, qna_no, qnaT.mem_id, qna_type, qna_title, qna_cont, qna_date, qna_ref, qna_step, qna_level, reply_state from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num='321-15-01521' and qna_state=1 order by qna_no DESC;
       

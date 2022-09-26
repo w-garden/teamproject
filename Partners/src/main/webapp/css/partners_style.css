@@ -134,4 +134,23 @@ fieldset>legend{
 .inline_div{
   float:left;
 }
-
+/*시공 사례 사진 등록 페이지 */
+#uploda_photo_cont {
+	height: 130vw;
+}
+#uploda_photo_cont>div {
+	float: left;
+	border-right: 3px solid black;
+	margin-right: 30px;
+}
+.photo_inputfile {
+	margin-bottom: 20px;
+}
+#uploda_photo_cont img {
+	width: 200px;
+	height: 200px;
+}
+#photo_submit {
+	margin: 40px 0px 0px 50px;
+	clear: both;
+}

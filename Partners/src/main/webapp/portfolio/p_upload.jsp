@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
-
 <div id="introduce_cont">
 	<h2>시공사례등록</h2>
 	<p>
@@ -64,9 +63,7 @@
 			<input type="radio" name="pf_range" value="전체 리모델링">전체 리모델링 <input
 				type="radio" name="pf_range" value="부분 리모델링">부분 리모델링
 		</div>
-
 		<div class="clear"></div>
-
 		<div id="form_sub_title">
 			<div id="form_sub_title">
 				<label>주소</label>
@@ -78,7 +75,6 @@
 				type="text" id="sample6_extraAddress" name ="pf_addr3" readonly placeholder="참고항목"
 				size=10> <input type="button" value="주소검색"
 				onclick="sample6_execDaumPostcode()">
-
 		</div>
 		<div class="inline_div">
 			<div id="form_sub_title">
@@ -108,8 +104,6 @@
 				<option value="9">9</option>
 			</select>주
 		</div>
-
-
 	</fieldset>
 	<!-- 여기까지 첫번째 입력 영역-->
 	<fieldset>
@@ -120,7 +114,6 @@
 			value="미니멀" name="pf_concept">미니멀 <input type="radio" value="내추럴" name="pf_concept">내추럴
 		<input type="radio" value="빈티지" name="pf_concept">빈티지 <input type="radio"
 			value="심플" name="pf_concept">심플 <input type="radio" value="럭셔리" name="pf_concept">럭셔리
-
 	</fieldset>
 	<fieldset>
 		<legend>소개글</legend>
@@ -135,37 +128,4 @@
 			value="초기화">
 	</fieldset>
 </form>
-
-
 <jsp:include page="../include/footer.jsp" />
-
-
-<%--
-잘 연동이 안되어 잠시 옮겨놓음
-
---%>
-<script>
-
-$(function() {
-	$('#sel_type').change(function() {
-		if (($('#sel_type').val()) == '주거공간') {
-			$('#sel_house').removeAttr("disabled");
-			$('#sel_house').show();
-			$('#sel_business').hide();
-		}
-		if (($('#sel_type').val()) == '상업공간') {
-			$('#sel_business').removeAttr("disabled");
-			$('#sel_business').show();
-			$('#sel_house').hide();
-		}
-		if (($('#sel_type').val()) == 'none') {
-			$('#sel_house, #sel_business').prop('disabled', 'disabled');
-			$("#sel_house, #sel_business").val("none");
-		}
-	});
-});
-
-
-
-</script>
-
