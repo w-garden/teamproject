@@ -3,7 +3,7 @@ package com.dozip.vo;
 import lombok.Data;
 
 @Data
-public class PortfolioDTO {
+public class PortfolioVO {
 	private int pf_no;
 	private String business_num;
 	private String pf_title;

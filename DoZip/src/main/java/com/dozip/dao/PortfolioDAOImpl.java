@@ -10,8 +10,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.dozip.vo.PartnersDTO;
-import com.dozip.vo.PortfolioDTO;
+import com.dozip.vo.PartnersVO;
+import com.dozip.vo.PortfolioVO;
 
 
 
@@ -33,10 +33,10 @@ public class PortfolioDAOImpl {
 	}//생성자
 
 	//전체 리스트 내용 불러오기 ( 모든 컬럼 포함 )
-	public List<PortfolioDTO> getAllList() {
+	public List<PortfolioVO> getAllList() {
 		
-		List<PortfolioDTO> list = new ArrayList<>();
-		PortfolioDTO dto =null;
+		List<PortfolioVO> list = new ArrayList<>();
+		PortfolioVO dto =null;
 		/* System.out.println("실행"); */
 		try {
 			con = ds.getConnection();
@@ -45,7 +45,7 @@ public class PortfolioDAOImpl {
 			rs = pt.executeQuery();
 			
 			while(rs.next()) {
-				dto = new PortfolioDTO();
+				dto = new PortfolioVO();
 				dto.setPf_no(rs.getInt(1));
 				dto.setBusiness_num(rs.getString(2));
 				dto.setPf_title(rs.getString(3));
@@ -85,10 +85,10 @@ public class PortfolioDAOImpl {
 
 	
     //해당 글번호의 리스트 값 가져오기
-	public PortfolioDTO getOnelist(int pf_no) {
+	public PortfolioVO getOnelist(int pf_no) {
 		
 		
-		PortfolioDTO dto =new PortfolioDTO();
+		PortfolioVO dto =new PortfolioVO();
 		
 		try {
 			
@@ -99,7 +99,7 @@ public class PortfolioDAOImpl {
 			rs = pt.executeQuery();
 			
 			if(rs.next()) {
-				dto = new PortfolioDTO();
+				dto = new PortfolioVO();
 				dto.setPf_no(rs.getInt(1));
 				dto.setBusiness_num(rs.getString(2));
 				dto.setPf_title(rs.getString(3));
@@ -140,9 +140,9 @@ public class PortfolioDAOImpl {
 	
 	
 	//해당 글의 파트너스 업체 정보 가져오기
-	public PartnersDTO getComplist(int pf_no) {
+	public PartnersVO getComplist(int pf_no) {
 		
-		PartnersDTO dto = new PartnersDTO();
+		PartnersVO dto = new PartnersVO();
 		
 		try {
 			con = ds.getConnection();
@@ -174,9 +174,9 @@ public class PortfolioDAOImpl {
 		
 	
 	//업체 상세 페이지
-	public PartnersDTO getOnecomp(String business_num) {
+	public PartnersVO getOnecomp(String business_num) {
 		
-		PartnersDTO dto = new PartnersDTO();
+		PartnersVO dto = new PartnersVO();
 		
 		try {
 			con = ds.getConnection();
@@ -207,11 +207,11 @@ public class PortfolioDAOImpl {
 	
 	
 	//업체명 검색시 해당 업체 포트폴리오 나오게
-	public List<PortfolioDTO> searchComp(String keyword) {
+	public List<PortfolioVO> searchComp(String keyword) {
 		
-		List<PortfolioDTO> list = new ArrayList<>();
+		List<PortfolioVO> list = new ArrayList<>();
 		
-		PortfolioDTO dto = new PortfolioDTO();
+		PortfolioVO dto = new PortfolioVO();
 		
 		try {
 			con = ds.getConnection();

@@ -4,13 +4,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-	$("#insert_btn").click(function() {
-		if(confirm("정말 등록하시겠습니까 ?") == true) {
-			alert("등록되었습니다");
-		} else {
-			return;
-		}
-	});
+	function test(){
+		sessionStorage.setItem("item", 10);
+	}
+
 </script>
 
 

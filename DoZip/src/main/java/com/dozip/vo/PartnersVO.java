@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PartnersDTO {
+public class PartnersVO {
 	private String business_num;
 	private String businessName;
 	private String pId;
@@ -20,14 +20,27 @@ public class PartnersDTO {
 	private String pDelcont;
 	private int pState;
 	
-	public PartnersDTO() {}
+	
+	public PartnersVO() {}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
 	
 	//회원가입시 사용할 DTO 
 
-	public PartnersDTO(String business_num, String businessName, String pId, String pPw, String pName, String pTel,
+	public PartnersVO(String business_num, String businessName, String pId, String pPw, String pName, String pTel,
 			String pMail_id, String pMail_domain) {
 		super();
 		this.business_num = business_num;

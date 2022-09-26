@@ -70,6 +70,10 @@ span>div {
 	background:beige;
 	margin: 50px 10px;
 }
+
+div#search_conditon_wrap {
+   padding: 20px 50px;
+}
 #search_conditon_wrap>div{
 	margin:15px 0px;
 }

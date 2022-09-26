@@ -26,6 +26,30 @@
 	border:none;
 }
 
+td#reply_cont{
+
+	background:#e1deca;
+
+}
+span.reply_date_text{
+	font-weight: bold;
+}
+div#reply_cont{
+    width: 80%;
+    margin: 0 auto;
+   	padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+#qna_table th{
+	height:50px;
+}
+#write_date {
+    border: none;
+    background: none;
+    font-weight: bold;
+    font-size: 15px;
+}
 </style>
 
 <div id="qna_title">
@@ -48,8 +72,6 @@
 				<div>
 					상세검색
 					<button id="detailed_search" type="button">▼</button>
-
-
 				</div>
 				<div>
 					초기화
@@ -99,7 +121,7 @@
 <table id="qna_table">
 	<tr>	
 		<th>글번호</th>
-		<th>등록일시</th>
+		<th><input id="write_date"type="button" value="등록일시" onclick="alert('집에가자')"></th>
 		<%--qna_date --%>
 		<th>고객명</th>
 		<%--  mem_id 통해서 고객명 검색--%>
@@ -117,10 +139,7 @@
 	</c:if>
 	<c:if test="${!empty qlist }">
 		<c:forEach var="q" items="${ qlist}">
-			
-		
-			 <%--원본글일경우 --%>
-			<c:if test="${q.qna_step==0 }">
+			<c:if test="${q.qna_step ==0}">
 			<tr>
 				<td>${q.qna_no }</td>
 				<td class="qna_table_date">${q.qna_date }</td>
@@ -132,15 +151,28 @@
 				<input type="hidden" id="board_ref" value="${q.qna_ref }">
 			    <input type="hidden" id="board_step" value="${q.qna_step }">
 			    <input type="hidden" id="board_level" value="${q.qna_level }">
-				
-				
-				</td>
+			    </td>
 					<td><input type="button" value="답변하기" id = "reply_${q.qna_no }_btn" onclick="qna_reply_toggle(${q.qna_no })" ></td>
-				</tr>
+			</tr>
+			</c:if>
+			<c:if test="${q.qna_step==1 }">
+			<tr>
+			<td colspan="6" >
+			<div id="reply_cont">
+				<div><span class="reply_date_text"> ${ q.reply_date} </span></div>
+				<div> ${q.qna_cont }</div>
+				<div>
+				<input type="button" value="삭제" onclick="reply_del(${q.qna_no })">
+				</div>
+			</div>
+				
+			</td>
+			</tr>
+			</c:if>
+			
 				
 				
 				
-				</c:if>
 				
 				
 				
@@ -155,7 +187,7 @@
 		
 			
 			<input type="button" value="등록" onclick="qna_reply(${q.qna_no }, '${q.mem_id }', '${q.qna_title }',${q.qna_step }, ${q.qna_level },'${q.qna_type }')">
-			<input type="button" value="삭제">
+		
 				</td>
 			</tr>
 		</c:forEach>
@@ -169,31 +201,18 @@
 <script>
 	function qna_reply_toggle($number) {
 		var test = "#reply_"+$number;
-
-		$(test).toggle();
-		
-		
-		
-		
-		
+		$(test).toggle();	
 	}
-	
-	
 	function qna_reply($number, $id, $title, $step, $level, $type){ //답변 입력 함수
-		
-	
 		$qna_no=$number;  //글번호
 		$mem_id=$id; //글작성한 회원아이디
 		$qna_title=$title; //원본글제목
 		$qna_step =$step; //몇번째 답글인지
 		$qna_level=$level; //정렬순서
 		$qna_type=$type; //질문 유형
-		
-		
-		
+			
 		$textarea_id="#reply_"+$number+"_textarea";  
 		$replytext=($($textarea_id).val()); //댓글내용
-		
 		$.ajax({
 			type:"post", 
 			url:'customer_qna_ok.do', 
@@ -207,38 +226,24 @@
 			},
 			datatype: "text",
 			
-			success : function(result){
-				
-				
-				
-				
-				
-				<%--
-				$reply_btn="#reply_"+$qna_no+"_btn";  
-				alert($reply_btn);
-				alert($qna_no);
-				$($reply_btn).val('추가댓글');  --%>
-				
-				
-				
+			success : function(result){			
 				alert('댓글등록완료!');
 				location.reload();
 			}
 		});
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
+	function reply_del($del_qna_no){
+		$.ajax({
+			type:"get",
+			url:'customer_qna_del_ok.do?qna_no='+$del_qna_no,
+			datatype: "text",
+			success : function(result){
+			alert('댓글삭제완료!');
+			location.reload();
+		}
+		});
+	}
+	
 	
 	
 </script>	

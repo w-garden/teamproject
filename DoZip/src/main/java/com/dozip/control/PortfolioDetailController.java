@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dozip.dao.PortfolioDAOImpl;
-import com.dozip.vo.PartnersDTO;
-import com.dozip.vo.PortfolioDTO;
+import com.dozip.vo.PartnersVO;
+import com.dozip.vo.PortfolioVO;
 
 public class PortfolioDetailController implements Action {
 
@@ -19,11 +19,11 @@ public class PortfolioDetailController implements Action {
 		
 		PortfolioDAOImpl dao = new PortfolioDAOImpl();
 		
-		PortfolioDTO pf = dao.getOnelist(pf_no); //값을 하나만 갖고 오니 list로 할 필요 없음
+		PortfolioVO pf = dao.getOnelist(pf_no); //값을 하나만 갖고 오니 list로 할 필요 없음
 		
 		request.setAttribute("pf", pf);
 		
-		PartnersDTO pt = dao.getComplist(pf_no);
+		PartnersVO pt = dao.getComplist(pf_no);
 		
 		request.setAttribute("pt", pt);
 		
