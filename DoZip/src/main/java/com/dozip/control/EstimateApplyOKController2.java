@@ -25,34 +25,15 @@ public class EstimateApplyOKController2 implements Action {
 		System.out.println("시작일 : "+est_start);
 		System.out.println("종료일 : "+est_end);
 		
-		/*유효성검증*/
-		if(est_bud == "") {
-			out.print("<script>");
-			out.print("alert('예산을 입력해주세요!');");
-			out.print("history.go(-1)");
-			out.print("</script>");
-		}
-		else if(est_start == "") {
-			out.print("<script>");
-			out.print("alert('시작일을 알려주세요!');");
-			out.print("history.go(-1)");
-			out.print("</script>");
-		}
-		else if(est_end == "") {
-			out.print("<script>");
-			out.print("alert('종료일을 알려주세요!');");
-			out.print("history.go(-1)");
-			out.print("</script>");
-		}
-		/*유효성검증끝*/
+
 			
-		else {
-			ActionForward forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("estimate_apply3.do");
+
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("estimate_apply3.do");
 				
-			return forward;
-		}
+		return forward;
+
 
 		/*
 		EstimateDAOImpl edao = new EstimateDAOImpl();
@@ -81,6 +62,5 @@ public class EstimateApplyOKController2 implements Action {
 		
 		*/
 		
-		return null;
 	}
 }
