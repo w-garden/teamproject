@@ -24,7 +24,7 @@ public class CustomerQnaOKController implements Action {
 		qdto.setQna_step(Integer.parseInt(request.getParameter("qna_step"))); //몇번째 답글인지
 		qdto.setQna_level(Integer.parseInt(request.getParameter("qna_level")));//정렬순서
 		QnaDAO qdao = new QnaDAO();
-
+		
 		int result = qdao.insertQna(qdto);
 		
 		if(result==1) {

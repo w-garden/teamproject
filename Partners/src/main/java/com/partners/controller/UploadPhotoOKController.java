@@ -77,7 +77,7 @@ public class UploadPhotoOKController implements Action{
 				response.addCookie(delPf_no); 
 				out.println("<script>");
 				out.println("alert('정상적으로 등록되었습니다!')");
-				out.println("location='/Partners/main.jsp'");
+				out.println("location='/Partners/index.jsp'");
 				out.println("</script>");
 			}
 		}

@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dozip.dao.PortfolioDAOImpl;
-import com.dozip.vo.PartnersDTO;
+import com.dozip.vo.PartnersVO;
 
 public class CompDetailController implements Action {
 
@@ -15,7 +15,7 @@ public class CompDetailController implements Action {
 		
 		String businessName = request.getParameter("businessName");
 		
-		PartnersDTO pc = dao.getOnecomp(businessName);
+		PartnersVO pc = dao.getOnecomp(businessName);
 		
 		request.setAttribute("pc", pc);
 		

@@ -63,14 +63,16 @@ public class QnaDAO {
 		
 		try {
 			conn=ds.getConnection();
-			sql="select mem_name, qna_no, qnaT.mem_id, qna_type, qna_title, qna_cont, qna_date, qna_ref, qna_step, qna_level, reply_state" +
-					" from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1 order by qna_no DESC";
+			sql="select mem_name, qna_no, qnaT.mem_id, qna_type, qna_title, qna_cont, qna_date, qna_ref, qna_step, qna_level, reply_state, reply_date" +
+					" from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1 order by qna_ref desc, qna_level asc";
+			
+			
+			
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, business_num);
 			rs=pstmt.executeQuery();
 			
 
-			
 			
 			while(rs.next()) {
 				QnaDTO dto = new QnaDTO();
@@ -78,12 +80,13 @@ public class QnaDAO {
 				dto.setMem_id(rs.getString("mem_id"));
 				dto.setQna_type(rs.getString("qna_type"));
 				dto.setQna_title(rs.getString("qna_title"));
-				dto.setQna_cont(rs.getString("qna_cont"));
+				dto.setQna_cont(rs.getString("qna_cont").replace("\n", "<br>"));	
 				dto.setQna_date(rs.getString("qna_date"));
 				dto.setQna_ref(rs.getInt("qna_ref"));
 				dto.setQna_step(rs.getInt("qna_step"));
 				dto.setQna_level(rs.getInt("qna_level"));
 				dto.setReply_state(rs.getString("reply_state"));
+				dto.setReply_date(rs.getString("reply_date"));
 				dto.setMem_name(rs.getString("mem_name"));
 				
 				list.add(dto);
@@ -104,7 +107,6 @@ public class QnaDAO {
 		}
 		return list;
 	}
-		
 	
 	//답변글 등록
 	public int insertQna(QnaDTO qdto) {
@@ -116,12 +118,10 @@ public class QnaDAO {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, qdto.getQna_ref());
 			pstmt.setInt(2, qdto.getQna_level());
-			pstmt.executeUpdate();
-			
-				
+			pstmt.executeUpdate();		
 			
 			sql="insert into qnaT (qna_no, mem_id, business_num, qna_type, qna_title, qna_cont, qna_ref, qna_step, qna_level, reply_state, reply_date) values"+
-							"(qnaT_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, '답변완료', sysdate) ";
+							"(qnaT_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, '답변완료', sysdate)";
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, qdto.getMem_id());
 			pstmt.setString(2, qdto.getBusiness_num());
@@ -131,13 +131,7 @@ public class QnaDAO {
 			pstmt.setInt(6, qdto.getQna_ref());
 			pstmt.setInt(7, qdto.getQna_step()+1);
 			pstmt.setInt(8, qdto.getQna_level()+1);
-			
-			
-			result=pstmt.executeUpdate();
-			
-			
-			
-			
+			result=pstmt.executeUpdate();			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -148,8 +142,27 @@ public class QnaDAO {
 				e2.printStackTrace();
 			}
 		}
-				
 		return result;
+	}
+
+	public void deleteReply(int qna_no) {
+		try {
+			conn= ds.getConnection();
+			sql="delete qnaT where qna_no=?";
+			pstmt= conn.prepareStatement(sql);
+			pstmt.setInt(1, qna_no);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				close(pstmt);
+				close(conn);
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
 	}
 
 	
