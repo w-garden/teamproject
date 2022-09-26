@@ -85,14 +85,14 @@
 				        <div class="option">
 				            <div id="keyword_form">
 				                <form onsubmit="searchPlaces(); return false;">
-				                    <input type="text" value="이태원 맛집" id="keyword" ><button type="submit">검색하기</button> 
+				                    <input type="text" value="강남 인테리어" id="keyword" ><button type="submit">검색하기</button> 
 				                </form>
 				            </div>
 				        </div>
 				        <hr>
 				        <div id="menu_wrap" class="bg_white">
-				        <ul id="placesList"></ul>
-				        <div id="pagination"></div>
+					        <ul id="placesList"></ul>
+					        <div id="pagination"></div>
 				    	</div>
 					</div>
 					<div id="map"></div>

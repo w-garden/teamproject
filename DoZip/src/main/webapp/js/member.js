@@ -40,6 +40,10 @@ function id_check(){
 	//아이디 영역을 숨김
 	$mem_id=$.trim($("#mem_id").val());	
 	//입력글자 확인
+	if($mem_id==''){
+		$("#join_btn").prop("disabled", true);
+		return false;
+	}
 	if(!(validate_userid($mem_id))){
 		$newtext='<font color="red" size="2"><b>아이디는 영문소문자,숫자,_조합만 가능합니다.</b></font>';
 		$("#join_btn").prop("disabled", true); //가입버튼 비활성화
@@ -65,7 +69,6 @@ function id_check(){
 		$(".idcheck").append($newtext);
 		return false;
 	};
-	
 	
 	//아이디 중복확인
     $.ajax({
@@ -104,7 +107,11 @@ function validate_pw($mem_pwd)
 /* 비밀번호 체크*/
 function pw_check(){
 	$(".pwdcheck").hide();
-	$mem_pwd=$.trim($("#mem_pwd").val()); 
+	$mem_pwd=$.trim($("#mem_pwd").val());
+	if($mem_pwd==''){
+		$("#join_btn").prop("disabled", true);
+		return false;
+	}
 	if(!(validate_pw($mem_pwd))){
 		$newtext='<font color="red" size="2"><b>비밀번호는 영문소문자,숫자조합만 가능합니다.</b></font>';
 		$("#join_btn").prop("disabled", true);
@@ -144,6 +151,11 @@ function double_check(){
 	$(".doublecheck").hide();
 	$mem_pwd=$.trim($("#mem_pwd").val());
 	$mem_pwd_check=$.trim($("#mem_pwd_check").val());
+	if($mem_pwd_check==''){
+		$("#join_btn").prop("disabled", true);
+		$("#mem_pwd_check").css("background-color", "#FFFFFF");
+		return false;
+	}
 	if($mem_pwd != $mem_pwd_check){
 		$("#mem_pwd_check").css("background-color", "#FFCCCC");
 		$newtext='<font color="red" size="2"><b>비밀번호가 일치하지 않습니다.</b></font>';
@@ -173,6 +185,10 @@ function validate_name($mem_name)
 function name_check(){
 	$(".namecheck").hide();
 	$mem_name=$.trim($("#mem_name").val());
+	if($mem_name==''){
+		$("#join_btn").prop("disabled", true);
+		return false;
+	}
 	if(!validate_name($mem_name)){
 		$newtext='<font color="red" size="2"><b>한글이름을 작성해주세요.</b></font>';
 		$("#join_btn").prop("disabled", true);
@@ -198,6 +214,10 @@ function validate_tel($mem_pwd)
 function tel_check(){
 	$(".telcheck").hide();
 	$mem_tel=$.trim($("#mem_tel").val());
+	if($mem_tel==''){
+		$("#join_btn").prop("disabled", true);
+		return false;
+	}
 	if(!validate_tel($mem_tel)){
 		$newtext='<font color="red" size="2"><b>숫자만 입력해주세요.</b></font>';
 		$("#join_btn").prop("disabled", true);
@@ -231,7 +251,11 @@ function email_check(){
 	$(".emailcheck").hide();
 	$mem_email=$.trim($("#mem_email").val());
 	$mem_domain=$.trim($("#mem_domain").val());
-    $mail = $mem_email+"@"+$mem_domain;  
+    $mail = $mem_email+"@"+$mem_domain; 
+	if($mem_email=='' && $mem_domain==''){
+		$("#join_btn").prop("disabled", true);
+		return false;
+	} 
 	if(!emailcheck($mail)){
 		$newtext='<font color="red" size="2"><b>이메일 형식이 맞지않습니다.</b></font>';
 		$("#join_btn").prop("disabled", true);
@@ -305,3 +329,91 @@ function login_check(){
 	}
 }
 
+/*  아이디찾기 */
+/* 이름 체크 */
+function name_check2(){
+	$(".namecheck2").hide();
+	$mem_name=$.trim($("#mem_name2").val());
+	if($mem_name==''){
+		$("#find_id_btn").prop("disabled", true);
+		return false;
+	}
+	if(!validate_name($mem_name)){
+		$newtext='<font color="red" size="2"><b>한글이름을 작성해주세요.</b></font>';
+		$("#find_id_btn").prop("disabled", true);
+		$(".namecheck2").text('');
+		$(".namecheck2").show();
+		$(".namecheck2").append($newtext);
+		return false;
+	}
+	else{
+		$("#find_id_btn").prop("disabled", false);
+		$(".namecheck2").text('');
+		$(".namecheck2").hide();
+		return false;
+	}
+}
+/* 연락처 유효성 */
+function tel_check2(){
+	$(".telcheck2").hide();
+	$mem_tel=$.trim($("#mem_tel2").val());
+	if($mem_tel==''){
+		$("#find_id_btn").prop("disabled", true);
+		return false;
+	}
+	if(!validate_tel($mem_tel)){
+		$newtext='<font color="red" size="2"><b>숫자만 입력해주세요.</b></font>';
+		$("#find_id_btn").prop("disabled", true);
+		$(".telcheck2").text('');
+		$(".telcheck2").show();
+		$(".telcheck2").append($newtext);
+		return false;
+	}
+	else if($mem_tel.length!=11){
+		$newtext='<font color="red" size="2"><b>휴대폰번호 11자리를 확인해주세요.</b></font>';
+		$("#find_id_btn").prop("disabled", true);
+		$(".telcheck2").text('');
+		$(".telcheck2").show();
+		$(".telcheck2").append($newtext);
+		return false;
+	}
+	else{
+		$("#find_id_btn").prop("disabled", false);
+		$(".telcheck2").text('');
+		$(".telcheck2").hide();
+		return false;
+	}
+}
+
+/* 아이디 비번찾기*/
+function id_check2(){
+	$(".idcheck").hide();
+	//아이디 영역을 숨김
+	$mem_id=$.trim($("#mem_id").val());	
+	//입력글자 확인
+	if($mem_id==''){
+		return false;
+	}
+	if(!(validate_userid($mem_id))){
+		$newtext='<font color="red" size="2"><b>아이디는 영문소문자,숫자,_조합만 가능합니다.</b></font>';
+		$(".idcheck").text('');
+		$(".idcheck").show();
+		$(".idcheck").append($newtext);
+		return false;
+	};
+	//입력글자 길이 체크
+	if($mem_id.length < 4){
+		$newtext='<font color="red" size="2"><b>아이디는 4자 이상이어야 합니다.</b></font>';
+		$(".idcheck").text('');
+		$(".idcheck").show();
+		$(".idcheck").append($newtext);
+		return false;
+	};
+	if($mem_id.length > 20){
+		$newtext='<font color="red" size="2"><b>아이디는 20자 이하이어야 합니다.</b></font>';
+		$(".idcheck").text('');
+		$(".idcheck").show();
+		$(".idcheck").append($newtext);
+		return false;
+	};
+}

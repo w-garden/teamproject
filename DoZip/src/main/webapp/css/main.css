@@ -158,11 +158,14 @@ a:hover {
 	font-size: 1.3rem;
 	/* font-family:'여기어때 잘난체'; */
 	font-weight: bold;
+	margin-bottom: 0;
 }
 #part2_info {
 	display: flex;
 	justify-content: center;
 	font-size: 0.8rem;
+	margin-bottom: 30px;
+	margin-top: 10px;
 }
 #part22 {
 	width: 100%;
@@ -172,6 +175,7 @@ a:hover {
 }
 .part2_left {
 	width: 40%;
+	margin-right: 10px;
 }
 #keyword_form {
 	width: 100%;
@@ -187,13 +191,13 @@ a:hover {
 #menu_wrap{
 	width: 100%;
 	overflow: auto;
-	height: 346px;
+	height: 296px;
 }
 
 #map {
 	z-index: 0;
 	width: 40%;
-	height: 400px;
+	height: 350px;
 }
 #search_wrap {
 	text-align: center;
@@ -210,7 +214,6 @@ a:hover {
 	border: 3px solid #99aef9;
 	margin-left: 5px;
 }
-
 
 
 /*공통 타이틀*/
