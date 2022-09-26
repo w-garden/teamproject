@@ -59,8 +59,6 @@ drop table portfolioT;
 
 select * from portfolioT;
 
-select * from portfolioT where pf_no=26;
-
 delete from portfolioT;
 
 update PORTFOLIOT set pf_title = '모던한 포토 스튜디오' where pf_no=32;
@@ -79,7 +77,7 @@ select portfolioT_no_seq.nextval from dual;
 
 update PARTNERST set  pAddress = '서울시 강남구 선릉로' where  pName = '구동민';
 
-
+select * from portfolioT where business_num = (select business_num from partnersT where businessName like '%동민%');
 
 
 create table partners_subT (
