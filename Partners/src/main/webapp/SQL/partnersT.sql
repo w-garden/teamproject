@@ -16,7 +16,7 @@ create table partnersT (
 );
 
 insert into partnersT (business_num, businessName, pId, pPw, pName, pTel, pMail_id, 
-pMail_domain,pAddress, pDate,PDeldate,pDelcont,pState) values(105, '민우', 'baba', 123, 'ㅇ', 010, 'baba@naver','주소주소', 'mail', 510,520,530,1);
+pMail_domain,pAddress, pDate,PDeldate,pDelcont,pState) values(105, '민우', 'baba', 123, 'ㅇ', 010, 'baba@naver','주소주소', '역삼동', 510,520,530,1);
 select * from partnersT;
 drop table partnersT;
 delete from PARTNERST;
@@ -84,6 +84,7 @@ update PARTNERST set  pAddress = '서울시 강남구 선릉로' where  pName = 
 
 create table partners_subT (
 	business_num nvarchar2(12) not null,  --사업자번호
+	pAddress nvarchar2(500), 							--영업장 주소
 	pShortstate nvarchar2(2000),
 	pInt_img nvarchar2(70),
 	pComp_logo nvarchar2(70),
