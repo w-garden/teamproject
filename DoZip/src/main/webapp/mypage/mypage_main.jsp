@@ -328,7 +328,11 @@
 					<c:if test="${fn:length(qlist) != 0}">
 					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">		
 						<tr>
-							<td id="num">${qlist[i].qna_no}</td>
+							<td id="num">
+								<c:set var="cnt" value="${fn:length(qlist)-(5*(page-1))}" />
+								<c:set var="number" value="${cnt-(i-(5*(page-1)))}" />
+								<c:out value="${number}"/>
+							</td>
 							<td id="title">
 								<c:if test="${qlist[i].qna_level != 0}">=></c:if>
 								<a href="#">${qlist[i].qna_title}</a>
@@ -375,7 +379,12 @@
 					<c:if test="${fn:length(qlist2) != 0}">					
 					<c:forEach var="i" begin="0" end="${fn:length(qlist2)-1}" step="1">
 						<tr>
-							<td id="num">${qlist2[i].qna_no}</td> <td id="partner_name">${qlist2[i].businessName}</td> 
+							<td id="num">
+								<c:set var="cnt" value="${fn:length(qlist2)-(5*(page-1))}" />
+								<c:set var="number" value="${cnt-(i-(5*(page-1)))}" />
+								<c:out value="${number}"/>
+							</td> 
+							<td id="partner_name">${qlist2[i].businessName}</td> 
 							<td id="title">
 								<c:if test="${qlist2[i].qna_level != 0}">=></c:if>
 								<a href="#">${qlist2[i].qna_title}</a>

@@ -35,7 +35,11 @@
 				<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">		
 				<c:if test="${qlist[i].businessName == null}">
 					<tr>
-						<td id="num">${qlist[i].qna_no}</td>
+						<td id="num">
+							<c:set var="cnt" value="${fn:length(qlist)-(5*(page-1))}" />
+							<c:set var="number" value="${cnt-(i-(5*(page-1)))}" />
+							<c:out value="${number}"/>
+						</td>
 						<td id="title">
 							<c:if test="${qlist[i].qna_level != 0}">=></c:if>
 							<a href="#">${qlist[i].qna_title}</a>
