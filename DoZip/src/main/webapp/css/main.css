@@ -144,13 +144,13 @@ a:hover {
 #part2 {
 	width: 100%;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
-.part2_left {
-	background-color: yellow;
-	width: 40%;
+#part21 {
+	width: 100%;
+	display: inline-block;
 }
 #part2_title {
 	display: flex;
@@ -164,6 +164,32 @@ a:hover {
 	justify-content: center;
 	font-size: 0.8rem;
 }
+#part22 {
+	width: 100%;
+	display:flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+.part2_left {
+	width: 40%;
+}
+#keyword_form {
+	width: 100%;
+	display:flex;
+	justify-content: center;
+	margin: 0 auto;
+}
+#keyword {
+	width: 300px;
+	height: 30px;
+	margin-right: 10px;
+}
+#menu_wrap{
+	width: 100%;
+	overflow: auto;
+	height: 346px;
+}
+
 #map {
 	z-index: 0;
 	width: 40%;

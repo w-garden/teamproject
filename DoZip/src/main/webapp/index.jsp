@@ -13,6 +13,7 @@
 	
 	<script src="https://kit.fontawesome.com/3624917c4f.js" crossorigin="anonymous"></script>
 	<script src ="./js/header.js" defer></script>
+	<script src ="./js/map.js" defer></script>
 	<script>
 	    function openLogin(){
 	        window.open("member_login.do", "_blank", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=550, height=750, left=0, top=0" );
@@ -72,23 +73,29 @@
 			<div class="clear"></div>
 			
 			<div id="part2">
-				<div class="part2_left">
+				<div id="part21">
 					<p id="part2_title">주변의 인테리어 업체를 찾아보세요</p>
-					<p id="part2_info">검색하고자 하는 위치를 입력하세요. (예. 강남구 역삼동, 서초구 반포동)</p>
-					<p id="search_wrap">
-						<input type="text"  name="search_map" id="search_map"/><button type="submit" id="search_map_btn">검색</button>
-					</p>
+					<p id="part2_info">검색하고자 하는 키워드를 입력하세요. (예. 관악구 인테리어, 역삼동 인테리어)</p>
 				</div>
-				<div id="map"></div>
-				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d8bfa3cbe8aabf2dd47e365262af246"></script>
-				<script>
-					var container = document.getElementById('map');
-					var options = {
-						center: new kakao.maps.LatLng(33.450701, 126.570667),
-						level: 3
-					};			
-					var map = new kakao.maps.Map(container, options);
-				</script>
+				<div id="part22">
+					<div class="part2_left">
+						
+				        <div class="option">
+				            <div id="keyword_form">
+				                <form onsubmit="searchPlaces(); return false;">
+				                    <input type="text" value="이태원 맛집" id="keyword" ><button type="submit">검색하기</button> 
+				                </form>
+				            </div>
+				        </div>
+				        <hr>
+				        <div id="menu_wrap" class="bg_white">
+				        <ul id="placesList"></ul>
+				        <div id="pagination"></div>
+				    	</div>
+					</div>
+					<div id="map"></div>
+					<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d8bfa3cbe8aabf2dd47e365262af246&libraries=services,clusterer,drawing"></script>
+				</div>
 			</div>
 			
 			<div class="clear"></div>
