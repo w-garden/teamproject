@@ -1,48 +1,103 @@
-/*
-  div사이즈 동적으로 구하기
-*/
-const outer = document.querySelector('.outer');
-const innerList = document.querySelector('.inner-list');
-const inners = document.querySelectorAll('.inner');
-let currentIndex = 0; // 현재 슬라이드 화면 인덱스
+//current position
+var pos = 0;
+//number of slides
+var totalSlides = $('#slider-wrap ul li').length;
+//get the slide width
+var sliderWidth = $('#slider-wrap').width();
 
-inners.forEach((inner) => {
-  inner.style.width = `${outer.clientWidth}px`; // inner의 width를 모두 outer의 width로 만들기
-})
 
-innerList.style.width = `${outer.clientWidth * inners.length}px`; // innerList의 width를 inner의 width * inner의 개수로 만들기
+$(document).ready(function(){
+  
+  
+  /*****************
+   BUILD THE SLIDER
+  *****************/
+  //set width to be 'x' times the number of slides
+  $('#slider-wrap ul#slider').width(sliderWidth*totalSlides);
+  
+    //next slide  
+  $('#next').click(function(){
+    slideRight();
+  });
+  
+  //previous slide
+  $('#previous').click(function(){
+    slideLeft();
+  });
+  
+  
+  
+  /*************************
+   //*> OPTIONAL SETTINGS
+  ************************/
+  //automatic slider
+  var autoSlider = setInterval(slideRight, 3000);
+  
+  //for each slide 
+  $.each($('#slider-wrap ul li'), function() { 
 
-/*
-  버튼에 이벤트 등록하기
-*/
-const buttonLeft = document.querySelector('.button-left');
-const buttonRight = document.querySelector('.button-right');
+     //create a pagination
+     var li = document.createElement('li');
+     $('#pagination-wrap ul').append(li);    
+  });
+  
+  //counter
+  countSlides();
+  
+  //pagination
+  pagination();
+  
+  //hide/show controls/btns when hover
+  //pause automatic slide when hover
+  $('#slider-wrap').hover(
+    function(){ $(this).addClass('active'); clearInterval(autoSlider); }, 
+    function(){ $(this).removeClass('active'); autoSlider = setInterval(slideRight, 3000); }
+  );
+  
+  
 
-buttonLeft.addEventListener('click', () => {
-  currentIndex--;
-  currentIndex = currentIndex < 0 ? 0 : currentIndex; // index값이 0보다 작아질 경우 0으로 변경
-  innerList.style.marginLeft = `-${outer.clientWidth * currentIndex}px`; // index만큼 margin을 주어 옆으로 밀기
-  clearInterval(interval); // 기존 동작되던 interval 제거
-  interval = getInterval(); // 새로운 interval 등록
-});
+});//DOCUMENT READY
+  
 
-buttonRight.addEventListener('click', () => {
-  currentIndex++;
-  currentIndex = currentIndex >= inners.length ? inners.length - 1 : currentIndex; // index값이 inner의 총 개수보다 많아질 경우 마지막 인덱스값으로 변경
-  innerList.style.marginLeft = `-${outer.clientWidth * currentIndex}px`; // index만큼 margin을 주어 옆으로 밀기
-  clearInterval(interval); // 기존 동작되던 interval 제거
-  interval = getInterval(); // 새로운 interval 등록
-});
 
-/*
-  주기적으로 화면 넘기기
-*/
-const getInterval = () => {
-  return setInterval(() => {
-    currentIndex++;
-    currentIndex = currentIndex >= inners.length ? 0 : currentIndex;
-    innerList.style.marginLeft = `-${outer.clientWidth * currentIndex}px`;
-  }, 2000);
+/***********
+ SLIDE LEFT
+************/
+function slideLeft(){
+  pos--;
+  if(pos==-1){ pos = totalSlides-1; }
+  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos));  
+  
+  //*> optional
+  countSlides();
+  pagination();
 }
 
-let interval = getInterval(); // interval 등록
+
+/************
+ SLIDE RIGHT
+*************/
+function slideRight(){
+  pos++;
+  if(pos==totalSlides){ pos = 0; }
+  $('#slider-wrap ul#slider').css('left', -(sliderWidth*pos)); 
+  
+  //*> optional 
+  countSlides();
+  pagination();
+}
+
+
+
+  
+/************************
+ //*> OPTIONAL SETTINGS
+************************/
+function countSlides(){
+  $('#counter').html(pos+1 + ' / ' + totalSlides);
+}
+
+function pagination(){
+  $('#pagination-wrap ul li').removeClass('active');
+  $('#pagination-wrap ul li:eq('+pos+')').addClass('active');
+}

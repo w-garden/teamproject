@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,53 +112,24 @@
 			<div id = "part4_area">
 					
 			<div class="cards-list">
-	
-				<div class="card 1">
-					<div class="card_image">
-						<img onclick="location = './portfolio/port_detail.jsp';"
-							src="./images/portfolio/port001.png" />
-						<%-- onclick으로 클릭시 상세로 연결되게 --%>
+				<c:if test= "${!empty plist}">
+					<c:forEach var = "i" begin = "0" end = "${fn:length(plist)-1}" step = "1">
+						<div class="card">
+						  <div class="card_image"> 
+						  	<img class = "ho" onclick = "location.href='port_detail.do?pf_no=${plist[i].pf_no}';" src= '${plist[i].pf_photo1}'/> 
+						  	<%-- 클릭시 글번호를 넣어 상세로 연결 --%>
+						  </div>
+					  <div class="card_title">
+						   	<li class = "corp">${plist[i].pf_title}</li>
+						   	<li class = "card_tag">${plist[i].pf_type} ${plist[i].pf_area} ${plist[i].pf_cost}</li>
+					  </div>
 					</div>
-					<div class="card_title">
-						<li class="corp">호철 디자인</li>
-						<li class = "card_tag">#감성펍 #20평 1000만원대</li>
-					</div>
-				</div>
-	
-	
-				<div class="card 2">
-					<div class="card_image">
-						<img onclick="location = './portfolio/port_detail.jsp';"
-							src="./images/portfolio/port002.png" />
-					</div>
-					<div class="card_title">
-						<li class="corp">지혜 디자인</li>
-						<li class = "card_tag">#모던 #22평 1000만원대</li>
-					</div>
-				</div>
-	
-				<div class="card 3">
-					<div class="card_image">
-						<img onclick="location = './portfolio/port_detail.jsp';"
-							src="./images/portfolio/port003.png" />
-					</div>
-					<div class="card_title">
-						<li class="corp">민우 디자인</li>
-						<li class = "card_tag">#모던 #80평 5000만원대</li>
-					</div>
-				</div>
-	
-				<div class="card 4">
-					<div class="card_image">
-						<img onclick="location = './portfolio/port_detail.jsp';"
-							src="./images/portfolio/port004.png" />
-					</div>
-					<div class="card_title">
-						<li class="corp">수환 디자인</li>
-						<li class = "card_tag">#럭셔리 #80평 5000만원대</li>
-					</div>
-				</div>
-	
+					</c:forEach>
+				</c:if>
+				
+				<c:if test = "${empty plist}">
+					<div id = "none_pf">포트폴리오 목록이 없습니다</div>
+				</c:if>
 			</div>			
 			
 			</div>	
