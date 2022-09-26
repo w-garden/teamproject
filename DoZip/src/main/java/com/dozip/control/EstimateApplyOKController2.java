@@ -24,13 +24,14 @@ public class EstimateApplyOKController2 implements Action {
 		System.out.println("예산 : "+est_bud);
 		System.out.println("시작일 : "+est_start);
 		System.out.println("종료일 : "+est_end);
-			
+
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("estimate_apply3.do");
 				
 		return forward;
+
 
 		/*
 		EstimateDAOImpl edao = new EstimateDAOImpl();
