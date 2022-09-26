@@ -4,8 +4,6 @@
 <%@ page import="com.partners.dto.PartnersDTO" %>
 
 <%
-	String val= request.getParameter("business_num");
-	out.print(val);
 	
 	/* String [] value= request.getParameterValues("pService");
 	for(String val: value){
@@ -74,12 +72,12 @@
 				<div class="business-05">
 					<label><b>영업장 주소</b></label><br />
 					<div>
-						<input type="text" id="pAddress" name="pAddress" value="${p.pAddress}" size="5" disabled="true"> <input
-							type="text" size="10" disabled="true">
+						<input type="text" size="5" disabled="true"> 
+						<input type="text" size="10" disabled="true">
 						<button type="button">변경</button>
 					</div>
 					<div>
-						<input type="text" size="29">
+						<input type="text"  id="pAddress" name="pAddress"  size="29">
 					</div>
 					<br />
 				</div>
@@ -126,8 +124,8 @@
 						<label for="check3" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check3">카드결제</label>
 						<label for="check4" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check4">쇼룸</label>
 						<label for="check5" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check5">정부지원사업</label></br>
-						<label for="check7" class="lbl-checkbox-disabled"><input type="checkbox" id="check7">두집예치제</label>
-						<label class="deposit_label">예치금</label> <input type="text" id="deposit_money" placeholder="0" readonly="readonly">
+						<label for="check7" class="lbl-checkbox-disabled"><input type="checkbox" name="pService" id="check7">두집예치제</label>
+						<label class="deposit_label">예치금</label> <input type="text" id="deposit_money" name="pBalance" placeholder="0" >
 						<p id="red">* 두집예치제는 두집(****-****)으로 추가 문의주세요.</p>
 					</div>
 					
@@ -135,7 +133,7 @@
 
 				<div class="additional-05">
 					<label><b>홈페이지</b></label><br />
-					<textarea class="homepage" autocomplete="off" placeholder="홈페이지를 입력하세요" rows="3"></textarea>
+					<textarea class="homepage" autocomplete="off" name="pHomepg" id="pHomepg" placeholder="홈페이지를 입력하세요" rows="3"></textarea>
 				</div>
 				<br />
 				
@@ -182,10 +180,10 @@
 					<article class="residence" style="border: 1px solid gray;">
 							<label for="check8" class="lbl-checkbox"> <input type="checkbox" id="check8"></input> 전체</label><br />
 						<div>
-							<label for="check9" class="lbl-checkbox"> <input type="checkbox" id="check9">아파트</input></label>
-							<label for="check10" class="lbl-checkbox"> <input type="checkbox" id="check10">빌라</input></label>
-							<label for="check11" class="lbl-checkbox"> <input type="checkbox" id="check11">주택</input></label>
-							<label for="check12" class="lbl-checkbox"> <input type="checkbox" id="check12">오피스텔(원룸)</input></label>
+							<label for="check9" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="check9">아파트</input></label>
+							<label for="check10" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="check10">빌라</input></label>
+							<label for="check11" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="check11">주택</input></label>
+							<label for="check12" class="lbl-checkbox"> <input type="checkbox"name="pRes_build_type" id="check12">오피스텔(원룸)</input></label>
 						</div>
 						<br />
 					</article>
@@ -199,14 +197,15 @@
 						</label><br />
 						<h5 class="sigong">시공</h5>
 						<div>
-							<label for="check14" class="lbl-checkbox"> <input type="checkbox" id="check14">도배</input></label>
-							<label for="check15" class="lbl-checkbox"> <input type="checkbox" id="check15">마루</input></label>
-							<label for="check16" class="lbl-checkbox"> <input type="checkbox" id="check16">장판</input></label>
-							<label for="check17" class="lbl-checkbox"> <input type="checkbox" id="check17">타일</input></label>
-							<label for="check18" class="lbl-checkbox"> <input type="checkbox" id="check18">몰딩</input></label>
-							<label for="check19" class="lbl-checkbox"> <input type="checkbox" id="check19">창호</input></label>
-							<label for="check20" class="lbl-checkbox"> <input type="checkbox" id="check20">주방</input></label>
-							<label for="check21" class="lbl-checkbox"> <input type="checkbox" id="check21">욕실</input></label>
+							<input type="checkbox" id="wall" name="check" data-name="도배/벽"  class ="checkbox"/>
+							<label for="check14" class="lbl-checkbox"> <input type="checkbox" id="check14"  value="도배/벽">도배</input></label>
+							<label for="check15" class="lbl-checkbox"> <input type="checkbox" id="check15" value="바닥">마루</input></label>
+							<label for="check16" class="lbl-checkbox"> <input type="checkbox" id="check16" value="주방">장판</input></label>
+							<label for="check17" class="lbl-checkbox"> <input type="checkbox" id="check17" value="욕실">타일</input></label>
+							<label for="check18" class="lbl-checkbox"> <input type="checkbox" id="check18" value="현관">몰딩</input></label>
+							<label for="check19" class="lbl-checkbox"> <input type="checkbox" id="check19" value="발코니/샷시">창호</input></label>
+							<label for="check20" class="lbl-checkbox"> <input type="checkbox" id="check20" value="조명">주방</input></label>
+							<label for="check21" class="lbl-checkbox"> <input type="checkbox" id="check21" value="문">욕실</input></label>
 							<label for="check22" class="lbl-checkbox"> <input type="checkbox" id="check22">도장</input></label>
 							<label for="check23" class="lbl-checkbox"> <input type="checkbox" id="check23">필름</input></label>
 							<label for="check24" class="lbl-checkbox"> <input type="checkbox" id="check24">목공</input></label>
@@ -315,9 +314,9 @@
 				<div>
 					<div>
 						<label><b>주거 담당자</b></label>
-						<div><input type="text" size="20" placeholder="담당자명"></div></br>
+						<div><input type="text" size="20" id="pRes_person_name" name="pRes_person_name" placeholder="담당자명"></div></br>
 						<label><b>담당자 연락처</b></label>
-						<div><input type="text" size="20" placeholder="담당자 연락처"></div>
+						<div><input type="text" size="20" id="pRes_person_tel" name="pRes_person_tel" placeholder="담당자 연락처"></div>
 						<label>
 							<input type="checkbox" aria-hidden="false">
 							<span class="">대표자 정보와 동일 <!----></span>
@@ -325,9 +324,9 @@
 					</div></br>
 					<div>
 						<label><b>상업 담당자</b></label>
-						<div><input type="text" size="20" placeholder="담당자명"></div></br>
+						<div><input type="text" size="20" name="pCom_person_name" placeholder="담당자명"></div></br>
 						<label><b>담당자 연락처</b></label>
-						<div><input type="text" size="20" placeholder="담당자 연락처"></div>		
+						<div><input type="text" size="20" name="pCom_person_tel" placeholder="담당자 연락처"></div>		
 						<label>
 							<input type="checkbox" aria-hidden="false">
 							<span class="">대표자 정보와 동일 <!----></span>
@@ -349,9 +348,9 @@
 				
 				<div>
 					<label><b>입금계좌</b></label>
-					<div><input type="text" size="20" placeholder="은행명"></div>
-					<div><input type="text" size="20" placeholder="예금주"></div>	
-					<div><input type="text" size="20" placeholder="계좌번호"></div>						
+					<div><input type="text" size="20" name="pAccount_bank"placeholder="은행명"></div>
+					<div><input type="text" size="20" name="pAccount_name" placeholder="예금주"></div>	
+					<div><input type="text" size="20" name="pAccount_num" placeholder="계좌번호"></div>						
 				</div></br>
 				<div>
 					<div>
@@ -372,7 +371,7 @@
 			</fieldset>
 			
 			<div class="data_edit_button_tag">
-				<input type="submit" id="data_edit_bu mtton" value="정보수정"/>
+				<input type="submit" id="data_edit_bu mtton" value="정보수정" onclick="location.href='date_manage.do'"/>
 			</div>
 			</form>
      </div>

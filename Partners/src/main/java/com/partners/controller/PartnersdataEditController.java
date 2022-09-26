@@ -33,7 +33,7 @@ public class PartnersdataEditController implements Action {
 			
 			request.setAttribute("p",p);
 			ActionForward forward=new ActionForward();
-			forward.setRedirect(false);
+			forward.setRedirect(false); //기존 형태를 유지하면서 넘어가는것. true는 새로운 형태일때(대부분 false)
 			forward.setPath("./mypage/data_manage.jsp");//뷰페이지 경로 설정
 			return forward;
 		//}//if else
