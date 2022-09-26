@@ -23,15 +23,16 @@ public class PartnersdataEditOKController implements Action {
 		
 		String business_num = (String)session.getAttribute("business_num");
 		
-//		if(business_num == null) {
-//           out.println("<script>");			
-//           out.println("alert('다시 로그인 하세요!');");
-//           out.println("location='data_manage.do';");
-//           out.println("</script>");
-//		}else {
+		if(business_num == null) {
+           out.println("<script>");			
+           out.println("alert('다시 로그인 하세요!');");
+           out.println("location='data_manage.do';");
+           out.println("</script>");
+		}else { 
 			request.setCharacterEncoding("UTF-8");
 			
 			String businessName=request.getParameter("businessName");
+			System.out.println("상호 : "+businessName);
 			String pName=request.getParameter("pName");
 			String pTel=request.getParameter("pTel");
 			String pAddress=request.getParameter("pAddress");
@@ -49,6 +50,10 @@ public class PartnersdataEditOKController implements Action {
 			String pShortstate=request.getParameter("pShortstate");
 			String pInt_img=request.getParameter("pInt_img");
 			String pComp_logo=request.getParameter("pComp_logo");
+//			String [] pService= request.getParameterValues("pService");
+//			for(String value: pService){
+//				out.print(value);
+//			}
 			String pService=request.getParameter("pService");
 			String pHomepg=request.getParameter("pHomepg");
 			String pRes_build_type=request.getParameter("pRes_build_type"); //배열로?
@@ -83,11 +88,16 @@ public class PartnersdataEditOKController implements Action {
 			
 			psdao.insertPartnersSub(psdto);
 			
+			/*
 			ActionForward forward=new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("data_manage_edit.do");//뷰페이지 경로 설정
-			return forward;
-			
-//		}//if else
+			return forward; */
+			out.println("<script>");
+			out.println("alert('회원 정보 수정했습니다!');");
+			out.println("location='data_manage.do';");
+			out.println("</script>");
+		}//if else
+			return null;
 	}
 }

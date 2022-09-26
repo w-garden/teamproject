@@ -3,6 +3,15 @@
 <%@ page import="com.partners.dao.PartnersDAO" %>
 <%@ page import="com.partners.dto.PartnersDTO" %>
 
+<%
+	String val= request.getParameter("business_num");
+	out.print(val);
+	
+	/* String [] value= request.getParameterValues("pService");
+	for(String val: value){
+		out.print(val+"<br>");
+	} */
+%>
 <%-- 
 <%
 	String business_num=(String)session.getAttribute("business_num");
@@ -112,13 +121,13 @@
 					<label><b>제공 서비스</b></label><br />
 					<div>제공하는 서비스를 모두 선택해 주세요.</div>
 
-						<label for="check1" class="lbl-checkbox"> <input type="checkbox" id="check1">3D도면</label>
-						<label for="check2" class="lbl-checkbox"> <input type="checkbox" id="check2">일반도면</label>
-						<label for="check3" class="lbl-checkbox"> <input type="checkbox" id="check3">카드결제</label>
-						<label for="check4" class="lbl-checkbox"> <input type="checkbox" id="check4">쇼룸</label>
-						<label for="check5" class="lbl-checkbox"> <input type="checkbox" id="check5">정부지원사업</label></br>
+						<label for="check1" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check1">3D도면</label>
+						<label for="check2" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check2">일반도면</label>
+						<label for="check3" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check3">카드결제</label>
+						<label for="check4" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check4">쇼룸</label>
+						<label for="check5" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check5">정부지원사업</label></br>
 						<label for="check7" class="lbl-checkbox-disabled"><input type="checkbox" id="check7">두집예치제</label>
-						<label class="deposit_label">예치금</label> <input type="text" id="deposit_money" placeholder="0">
+						<label class="deposit_label">예치금</label> <input type="text" id="deposit_money" placeholder="0" readonly="readonly">
 						<p id="red">* 두집예치제는 두집(****-****)으로 추가 문의주세요.</p>
 					</div>
 					
@@ -338,10 +347,6 @@
 				</div>
 				-->
 				
-				<div>
-					<label><b>예치금</b></label>
-					<div><input type="text" size="20" readonly="readonly" autocomplete="off"></div></br>								
-				</div>
 				<div>
 					<label><b>입금계좌</b></label>
 					<div><input type="text" size="20" placeholder="은행명"></div>

@@ -96,7 +96,7 @@
 					</ul></li>
 				<li><a href="#">My&nbsp;Page</a>
 					<ul>
-						<li><a href="/Partners/mypage/data_manage.jsp">내 정보관리</a></li>
+						<li><a href="/Partners/data_manage.do">내 정보관리</a></li>
 						<li><a href="/Partners/mypage/pw_change.jsp">비밀번호 변경</a></li>
 					</ul></li>
 				

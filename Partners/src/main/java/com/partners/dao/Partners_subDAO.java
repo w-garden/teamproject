@@ -60,44 +60,55 @@ public class Partners_subDAO {
 	}
 	
 	//파트너스 data_manage에 세부정보 가져오기
-	public int insertPartnersSub(Partners_subDTO dto) {
+	public int insertPartnersSub(PartnersDTO dto,Partners_subDTO sdto) {
 		int result=0;
 		
 		try {
 			conn=ds.getConnection();
-			sql="insert into partners_subT (business_num,pShortstate,pInt_img,pComp_logo,pService,pHomepg,"
-			+ "pRes_build_type,pRes_space_type,pCom_build_type,pCom_space_type,pRes_person_name,pRes_person_tel,"
-			+ "pBalance,pAccount_bank,pAccount_name,pAccount_num,pAccount_file,pBusiness_lic_file) "
-			+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			sql="update partnersT set business_num=?, businessName=?, pName=?, pTel=? where business_num=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getBusiness_num());
+			pstmt.setString(2, dto.getBusinessName());
+			pstmt.setString(3, dto.getpName());
+			pstmt.setString(4, dto.getpTel());
+			pstmt.setString(5, dto.getBusiness_num());
+			pstmt.executeUpdate();
+			
+			
+			
+			sql="update partners_subT set business_num=?, pShortstate=?,pInt_img=?,pComp_logo=?,pService=?,pHomepg=?,"
+			+ "pRes_build_type=?,pRes_space_type=?,pCom_build_type=?,pCom_space_type=?,pRes_person_name=?,pRes_person_tel=?,"
+			+ "pBalance=?,pAccount_bank=?,pAccount_name=?,pAccount_num=?,pAccount_file=?,pBusiness_lic_file=? where business_num=?";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, dto.getBusiness_num());
-			pstmt.setString(2, dto.getpShortstate());
-			pstmt.setString(3, dto.getpInt_img());
-			pstmt.setString(4, dto.getpComp_logo());
-			pstmt.setString(5, dto.getpService());
-			pstmt.setString(6, dto.getpHomepg());
-			pstmt.setString(7, dto.getpRes_build_type());
-			pstmt.setString(8, dto.getpRes_space_type());
-			pstmt.setString(9, dto.getpCom_build_type());
-			pstmt.setString(10, dto.getpCom_space_type());
-			pstmt.setString(11, dto.getpRes_person_name());
-			pstmt.setString(12, dto.getpRes_person_tel());
-			pstmt.setString(13, dto.getpCom_person_name());
-			pstmt.setString(14, dto.getpCom_person_tel());
-			pstmt.setInt(15, dto.getpBalance());
-			pstmt.setString(16, dto.getpAccount_bank());
-			pstmt.setString(17, dto.getpAccount_name());
-			pstmt.setString(18, dto.getpAccount_num());
-			pstmt.setString(19, dto.getpAccount_file());
-			pstmt.setString(20, dto.getpBusiness_lic_file());
-			
+			pstmt.setString(1, sdto.getBusiness_num());
+			pstmt.setString(2, sdto.getpShortstate());
+			pstmt.setString(3, sdto.getpInt_img());
+			pstmt.setString(4, sdto.getpComp_logo());
+			pstmt.setString(5, sdto.getpService());
+			pstmt.setString(6, sdto.getpHomepg());
+			pstmt.setString(7, sdto.getpRes_build_type());
+			pstmt.setString(8, sdto.getpRes_space_type());
+			pstmt.setString(9, sdto.getpCom_build_type());
+			pstmt.setString(10, sdto.getpCom_space_type());
+			pstmt.setString(11, sdto.getpRes_person_name());
+			pstmt.setString(12, sdto.getpRes_person_tel());
+			pstmt.setString(13, sdto.getpCom_person_name());
+			pstmt.setString(14, sdto.getpCom_person_tel());
+			pstmt.setInt(15, sdto.getpBalance());
+			pstmt.setString(16, sdto.getpAccount_bank());
+			pstmt.setString(17, sdto.getpAccount_name());
+			pstmt.setString(18, sdto.getpAccount_num());
+			pstmt.setString(19, sdto.getpAccount_file());
+			pstmt.setString(20, sdto.getpBusiness_lic_file());
+			pstmt.setString(21, sdto.getBusiness_num());
+			pstmt.executeUpdate(); 
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			close(conn);
 			close(pstmt);
+			close(conn);	
 		}
 		return result;
 	}

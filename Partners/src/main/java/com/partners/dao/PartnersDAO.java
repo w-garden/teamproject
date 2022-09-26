@@ -245,17 +245,11 @@ public class PartnersDAO {
 	
 				dto.setBusiness_num(rs.getString("business_num"));
 				dto.setBusinessName(rs.getString("businessName"));
-				dto.setpId(rs.getString("pId"));
-				dto.setpPw(rs.getString("pPw"));
 				dto.setpName(rs.getString("pName"));
 				dto.setpTel(rs.getString("pTel"));
-				dto.setpMail_id(rs.getString("pMail_id"));
-				dto.setpMail_domain(rs.getString("pMail_domain"));
+
 				dto.setpAddress(rs.getString("pAddress"));
-				dto.setpDate(rs.getString("pDate"));
-				dto.setPDeldate(rs.getString("PDeldate"));
-				dto.setpDelcont(rs.getString("pDelcont"));
-				dto.setpState(rs.getInt("pState"));
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
