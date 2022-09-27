@@ -13,18 +13,38 @@ public class CustomerQnaController implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		//로그인한 파트너스 사업자 번호(세션에 저장되 있음) 불러오기 
-		HttpSession session= request.getSession();
-		String business_num =(String) session.getAttribute("business_num");
+		request.setCharacterEncoding("UTF-8");
+		// 로그인한 파트너스 사업자 번호(세션에 저장되 있음) 불러오기
+		HttpSession session = request.getSession();
+		String business_num = (String) session.getAttribute("business_num");
+
+		String find_field = null;
+		String find_text = null;
+
+		QnaDTO findq = new QnaDTO();
+
 		
-		//사업자 번호 기준으로 qnaT 에서 정보 담아서 list에 저장하기
-		QnaDAO dao = new QnaDAO();
-		List<QnaDTO> qlist = dao.selectAllQna(business_num);
 		
 		
 		
-		
-		
+		if(request.getParameter("find_text")!= null && request.getParameter("find_field") != null) {
+			find_text = request.getParameter("find_text").trim();
+			find_field = request.getParameter("find_field");
+			if (find_field.equals("customer_name")) {
+				findq.setFind_text(find_text);
+			} else if (find_field.equals("qna_type")) {
+				findq.setFind_text("%" + find_text + "%");
+			}
+		}
+		findq.setFind_field(find_field);
+
+
+		// 사업자 번호 기준으로 qnaT 에서 정보 담아서 list에 저장하기
+		QnaDAO qdao = new QnaDAO();
+		List<QnaDTO> qlist = qdao.getQnaList(business_num, findq); // 검색 전후 목록
+
+		request.setAttribute("find_text", find_text);
+		request.setAttribute("find_field", find_field);
 		request.setAttribute("qlist", qlist);
 
 		ActionForward forward = new ActionForward();

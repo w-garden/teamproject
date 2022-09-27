@@ -14,21 +14,21 @@ import javax.sql.DataSource;
 import com.partners.dto.QnaDTO;
 
 public class QnaDAO {
-	Connection conn=null;
-	PreparedStatement pstmt =null;
+	Connection conn = null;
+	PreparedStatement pstmt = null;
 	DataSource ds = null;
-	ResultSet rs=null;
-	String sql="";
-	
+	ResultSet rs = null;
+	String sql = "";
+
 	public QnaDAO() {
 		try {
 			Context context = new InitialContext();
-			ds= (DataSource) context.lookup("java:comp/env/jdbc/xe");
+			ds = (DataSource) context.lookup("java:comp/env/jdbc/xe");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void close(Connection conn) {
 		if (conn != null)
 			try {
@@ -55,26 +55,38 @@ public class QnaDAO {
 				e.printStackTrace();
 			}
 	}
-	
-	
-	//고객문의글 불러오기
-	public List<QnaDTO> selectAllQna(String business_num) {
-		List<QnaDTO> list = new ArrayList<QnaDTO>();
+
+	// 검색전후 고객문의글 불러오기
+	public List<QnaDTO> getQnaList(String business_num, QnaDTO findQ) {
 		
+		List<QnaDTO> qlist = new ArrayList<QnaDTO>();
 		try {
-			conn=ds.getConnection();
-			sql="select mem_name, qnaT.* from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1 order by qna_ref desc, qna_level asc";			
-			pstmt=conn.prepareStatement(sql);
+			conn = ds.getConnection();
+			sql = "select mem_name, qnaT.* from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1 ";
+			if (findQ.getFind_field() != null && !findQ.getFind_field().equals("default"))  {
+				if (findQ.getFind_field().equals("customer_name")) {
+					sql += " and mem_name=?";
+				} else if (findQ.getFind_field().equals("qna_type")) {
+					sql += " and qna_type like ?";
+				}
+			}
+			sql += " order by qna_ref desc, qna_level asc";
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, business_num);
-			rs=pstmt.executeQuery();
-			
-			while(rs.next()) {
+
+			if (findQ.getFind_field() != null && !findQ.getFind_field().equals("default")) { // 검색하는 경우
+				System.out.println(findQ.getFind_text()+ "으로검색합니다");
+				pstmt.setString(2, findQ.getFind_text());
+			}
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
 				QnaDTO dto = new QnaDTO();
 				dto.setQna_no(rs.getInt("qna_no"));
 				dto.setMem_id(rs.getString("mem_id"));
 				dto.setQna_type(rs.getString("qna_type"));
 				dto.setQna_title(rs.getString("qna_title"));
-				dto.setQna_cont(rs.getString("qna_cont").replace("\n", "<br>"));	
+				dto.setQna_cont(rs.getString("qna_cont").replace("\n", "<br>"));
 				dto.setQna_date(rs.getString("qna_date"));
 				dto.setQna_ref(rs.getInt("qna_ref"));
 				dto.setQna_step(rs.getInt("qna_step"));
@@ -82,15 +94,13 @@ public class QnaDAO {
 				dto.setReply_state(rs.getString("reply_state"));
 				dto.setReply_date(rs.getString("reply_date"));
 				dto.setMem_name(rs.getString("mem_name"));
-				
-				list.add(dto);
-		
-			
-			
+
+				qlist.add(dto);
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				close(rs);
 				close(pstmt);
@@ -99,36 +109,43 @@ public class QnaDAO {
 				e2.printStackTrace();
 			}
 		}
-		return list;
+		return qlist;
 	}
-	
-	//답변글 등록
+
+	// 답변글 등록
 	public int insertQna(QnaDTO qdto) {
-		int result =0;
-		
+		int result = 0;
+
 		try {
-			conn =ds.getConnection();
-			sql ="update qnaT set qna_level=qna_level+1 where qna_ref=? and qna_level > ?";
-			pstmt=conn.prepareStatement(sql);
+			conn = ds.getConnection();
+			sql = "update qnaT set qna_level=qna_level+1 where qna_ref=? and qna_level > ?";
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, qdto.getQna_ref());
 			pstmt.setInt(2, qdto.getQna_level());
-			pstmt.executeUpdate();		
-			
-			sql="insert into qnaT (qna_no, mem_id, business_num, qna_type, qna_title, qna_cont, qna_ref, qna_step, qna_level, reply_state, reply_date) values"+
-							"(qnaT_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, '답변완료', sysdate)";
-			pstmt=conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+
+			sql = "insert into qnaT (qna_no, mem_id, business_num, qna_type, qna_title, qna_cont, qna_ref, qna_step, qna_level, reply_state, reply_date) values"
+					+ "(qnaT_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, '답변완료', sysdate)";
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, qdto.getMem_id());
 			pstmt.setString(2, qdto.getBusiness_num());
 			pstmt.setString(3, qdto.getQna_type());
-			pstmt.setString(4, "답변(수정전)");
+			pstmt.setString(4, "RE:");
 			pstmt.setString(5, qdto.getQna_cont());
 			pstmt.setInt(6, qdto.getQna_ref());
-			pstmt.setInt(7, qdto.getQna_step()+1);
-			pstmt.setInt(8, qdto.getQna_level()+1);
-			result=pstmt.executeUpdate();			
+			pstmt.setInt(7, qdto.getQna_step() + 1);
+			pstmt.setInt(8, qdto.getQna_level() + 1);
+			result = pstmt.executeUpdate();
+			
+			
+			
+			
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				close(pstmt);
 				close(conn);
@@ -141,14 +158,14 @@ public class QnaDAO {
 
 	public void deleteReply(int qna_no) {
 		try {
-			conn= ds.getConnection();
-			sql="delete qnaT where qna_no=?";
-			pstmt= conn.prepareStatement(sql);
+			conn = ds.getConnection();
+			sql = "delete qnaT where qna_no=?";
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, qna_no);
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				close(pstmt);
 				close(conn);
@@ -156,15 +173,7 @@ public class QnaDAO {
 				e2.printStackTrace();
 			}
 		}
-		
+
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
 }
