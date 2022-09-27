@@ -66,14 +66,14 @@
 	<!-- 드롭다운 버튼 -->
 	<div class = "port_wrap">
 		<div class = "dropdown">
-			<select name="d1" class="dd_group">
+			<select name="d1" id="dd_group1">
 				<option selected>주거유형</option>
 				<option value="아파트">아파트</option>
 				<option value="빌라">빌라</option>
 				<option value="주택">주택</option>
 				<option value="오피스텔">오피스텔</option>
 			</select>
-			<select name="d2" class="dd_group">
+			<select name="d2" id="dd_group2">
 				<option selected>상업유형</option>
 				<option value="카페/식당">카페/식당</option>
 				<option value="상가/매장">상가/매장</option>
@@ -83,7 +83,7 @@
 				<option value = "간판">간판</option>
 				<option value = "기타">기타</option>
 			</select>
-			<select name="d3" class="dd_group">
+			<select name="d3" id="dd_group3">
 				<option selected>스타일</option>
 				<option value="모던">모던</option>
 				<option value="심플/미니멀">심플/미니멀</option>
@@ -91,7 +91,7 @@
 				<option value="빈티지">빈티지</option>
 				<option value="럭셔리">럭셔리</option>
 			</select>
-			<select name="d4" class="dd_group">
+			<select name="d4" id="dd_group4">
 				<option selected>비용</option>
 				<option value="1000만원 이하">1000만원 이하</option>
 				<option value="1000만원대">1000만원대</option>
@@ -101,7 +101,7 @@
 				<option value="5000만원대">5000만원대</option>
 				<option value="6000만원 이상">6000만원 이상</option>
 			</select>
-			<select name="d5" class="dd_group">
+			<select name="d5" id="dd_group5">
 				<option selected>평수</option>
 				<option value="10평대">10평대</option>
 				<option value="20평대">20평대</option>
@@ -109,8 +109,24 @@
 				<option value="50평대">50평대</option>
 				<option value="60평대 이상">60평대 이상</option>
 			</select>
+			
+			<button onclick = "clear_btn()" class = "clear_btn">초기화</button>			
 		</div>	
 		<!-- 드롭다운 끝 -->
+		
+		<%-- 초기화 버튼 클릭시 select 버튼 초기화 --%>
+		<script>
+			function clear_btn(){
+				document.getElementById("dd_group1").value = "주거유형";
+				document.getElementById("dd_group2").value = "상업유형";
+				document.getElementById("dd_group3").value = "스타일";
+				document.getElementById("dd_group4").value = "비용";
+				document.getElementById("dd_group5").value = "평수";
+			}
+		</script>
+		
+		<%-- select 옵션 클릭시 해당 업체만 나오게 --%>
+		
 		
 		<%-- 업체 검색시 해당 업체 출력 --%>
 		<script type="text/javascript">
