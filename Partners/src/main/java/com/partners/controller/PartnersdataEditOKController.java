@@ -31,12 +31,13 @@ public class PartnersdataEditOKController implements Action {
 		}else { 
 			request.setCharacterEncoding("UTF-8");
 			
+			//text에 넣은 값을 가져와 partners테이블에 값을 저장해준다.
 			String businessName=request.getParameter("businessName");
 			//System.out.println("상호 : "+businessName);
 			String pName=request.getParameter("pName");
 			String pTel=request.getParameter("pTel");
 			String pAddress=request.getParameter("pAddress");
-			
+
 			PartnersDAO pdao=new PartnersDAO();
 			PartnersDTO pdto=new PartnersDTO();
 			
@@ -51,22 +52,63 @@ public class PartnersdataEditOKController implements Action {
 			
 			//dto 값을 받아서 
 			int res = psdao.nullCheck(business_num); 
-			System.out.println("널확인"+res);
+			//System.out.println("널확인"+res);
 			
-			///////////////////////
+			String[] pService = {};
+			String[] pRes_build_type = {};
+			String[] pRes_space_type = {};
+			String[] pCom_build_type = {};
+			String[] pCom_space_type = {};
 			
+			pService= request.getParameterValues("pService");
+			pRes_build_type=request.getParameterValues("pRes_build_type");
+			pRes_space_type=request.getParameterValues("pRes_space_type");
+			pCom_build_type=request.getParameterValues("pCom_build_type");
+			pCom_space_type=request.getParameterValues("pCom_space_type");
+			String pServicep = "";
 
+			for(int i=0; i<pService.length; i++) {
+				pServicep+=pService[i]+"/";
+			}
+			System.out.println(pServicep);
+			
+			String pRes_build_typep = "";
+//			for(int i=0; i<pRes_build_type.length; i++) {
+//				if(pRes_build_type[i]== "all") {
+//					continue;
+//				}
+//				else {
+//					pRes_build_typep+=pRes_build_type[i]+"/";
+//				}
+//			}
+			for(int i=0; i<pRes_build_type.length; i++) {
+				pRes_build_typep+=pRes_build_type[i]+"/";
+			}
+			System.out.println(pRes_build_typep);
+			
+			String pRes_space_typep = "";
+			for(int i=0; i<pRes_space_type.length; i++) {
+				pRes_space_typep+=pRes_space_type[i]+"/";
+			}
+			System.out.println(pRes_space_typep);
+			
+			String pCom_build_typep = "";
+			for(int i=0; i<pCom_build_type.length; i++) {
+				pCom_build_typep+=pCom_build_type[i]+"/";
+			}
+			System.out.println(pCom_build_typep);
+			
+			String pCom_space_typep = "";
+			for(int i=0; i<pCom_space_type.length; i++) {
+				pCom_space_typep+=pCom_space_type[i]+"/";
+			}
+			System.out.println(pCom_space_typep);
 			
 			
 			String pShortstate=request.getParameter("pShortstate");
 //			String pInt_img=request.getParameter("pInt_img");
-//			String pComp_logo=request.getParameter("pComp_logo");
-//			String [] pService= request.getParameterValues("pService");
-			String pHomepg=request.getParameter("pHomepg");
-//			String pRes_build_type=request.getParameter("pRes_build_type"); 
-//			String pRes_space_type=request.getParameter("pRes_space_type");
-//			String pCom_build_type=request.getParameter("pCom_build_type");
-//			String pCom_space_type=request.getParameter("pCom_space_type");
+//			String pComp_logo=request.getParameter("pComp_logo");			
+			String pHomepg=request.getParameter("pHomepg"); 
 			String pRes_person_name=request.getParameter("pRes_person_name");
 			String pRes_person_tel=request.getParameter("pRes_person_tel");
 			String pCom_person_name=request.getParameter("pCom_person_name");
@@ -84,10 +126,10 @@ public class PartnersdataEditOKController implements Action {
 			psdto.setBusiness_num(business_num);
 			psdto.setpShortstate(pShortstate); 
 		//	psdto.setpInt_img(pInt_img); psdto.setpComp_logo(pComp_logo); 
-		//	psdto.setpService(pService); 
+			psdto.setpService(pServicep); 
 			psdto.setpHomepg(pHomepg); 
-		//	psdto.setpRes_build_type(pRes_build_type); psdto.setpRes_space_type(pRes_space_type); 
-		//	psdto.setpCom_build_type(pCom_build_type); psdto.setpCom_space_type(pCom_space_type);
+			psdto.setpRes_build_type(pRes_build_typep); psdto.setpRes_space_type(pRes_space_typep); 
+			psdto.setpCom_build_type(pCom_build_typep); psdto.setpCom_space_type(pCom_space_typep);
 			psdto.setpRes_person_name(pRes_person_name); 
 			psdto.setpRes_person_tel(pRes_person_tel);
 			psdto.setpCom_person_name(pCom_person_name); 
@@ -102,14 +144,17 @@ public class PartnersdataEditOKController implements Action {
 			if(res == 1/*서브테이블에 저장된 정보가 있으면*/){
 				res = psdao.updatePartnersSub(psdto);
 				
+				request.setAttribute("pd", res);
 				out.println("<script>");
 				out.println("alert('정보 수정 성공!');");
 				out.println("location='data_manage.do';");
 				out.println("</script>");
 				
 			}else { //없으면
-				int re = psdao.insertPartners2(psdto);
+				int re = psdao.insertPartnersSub(psdto);
 				if(re==1) {
+					request.setAttribute("pd", re);
+					
 					out.println("<script>");
 					out.println("alert('insert');");
 					out.println("history.back();");

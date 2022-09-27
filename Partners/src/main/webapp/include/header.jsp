@@ -67,7 +67,7 @@
 				</li>
 				<li><a href="#">견적&nbsp;의뢰</a>
 					<ul>
-						<li><a href="/Partners/estimate_request/bid.jsp">입찰의뢰</a></li>
+						<li><a href="/Partners/bid.do">입찰의뢰</a></li>
 						<li><a href="/Partners/estimate_request/construct_request.jsp">시공요청</a></li>
 					</ul></li>
 				<li><a href="#">견적&nbsp;관리</a>
