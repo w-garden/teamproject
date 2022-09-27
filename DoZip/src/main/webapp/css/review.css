@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .review_wrap {
-	width: 95%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -49,6 +49,7 @@
 	color: white;
 	vertical-align: middle;
 	font-weight: bold;
+	margin-right: 30px;
 }
 
 .part1 {
@@ -60,6 +61,7 @@
 	/* font-family: '여기어때 잘난체'; */
 	line-height: 70px;
 	font-weight: bold;
+	margin-left: 30px;
 }
 
 #part1_count {
@@ -67,15 +69,17 @@
 	line-height: 70px;
 	float: right;
 	font-weight: bold;
+	margin-right: 30px;
 }
 
 /* 큰 리뷰 창 */
 .big_review {
 	padding: 20px 0;
-	border: 1px solid;
+	/* border: 1px solid; */
 	display: flex;
 	margin: 0 auto;
 	justify-content: space-between;
+	background-color: #F8F8F8;
 }
 
 #big_img {

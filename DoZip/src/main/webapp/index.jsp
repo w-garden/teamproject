@@ -73,19 +73,19 @@
 			      <div id="slider-wrap">
 			          <ul id="slider">
 			             <li>                
-							<img src="/DoZip/images/portfolio/banner/final_bannerH.png">
+							<img src="/DoZip/images/main_b2_1.jpg">
 			             </li>
 			             
 			             <li>
-							<img src="/DoZip/images/portfolio/banner/final_bannerJ.png">
+							<img src="/DoZip/images/main_b3_1.png">
 			             </li>
 			             
 			             <li>
-							<img src="/DoZip/images/portfolio/banner/final_bannerM.png">
+							<img src="/DoZip/images/main_b1.png">
 			             </li>
 			             
 			             <li>
-							<img src="/DoZip/images/portfolio/banner/final_bannerS.png">
+							<img src="/DoZip/images/main_b4.png">
 			             </li>
 			          </ul>
 			          
@@ -184,9 +184,9 @@
 				
 					<div class="part5_inner">
 						<div><a class="part5_img" href="review_detail.do">
-							<img src=""/>
+							<img src="/DoZip/images/review1.jpg"/>
 						</a></div>
-						<div class="part5_title"><p>후기 제목</p></div>
+						<div class="part5_title"><p>깔끔한 주방 인테리어</p></div>
 						<div class="part5_cont">
 							<p>싱크대 상판을 세라믹으로 하고 화장대의 상판과 수납장 하나의 상판도 세라믹으로 해서 효율적으로 세라믹을 사용할 수 있어서 만족합니다. 인조대리석보다 비싸지만 아주 만족합니다.</p>
 						</div>
@@ -194,21 +194,21 @@
 					</div>
 					<div class="part5_inner">
 						<div><a class="part5_img" href="review_detail.do">
-							<img src=""/>
+							<img src="/DoZip/images/review2.jpg"/>
 						</a></div>
-						<div class="part5_title"><p>후기 제목</p></div>
+						<div class="part5_title"><p>아늑하고 분위기 있는 침실</p></div>
 						<div class="part5_cont">
-							<p>싱크대 상판을 세라믹으로 하고 화장대의 상판과 수납장 하나의 상판도 세라믹으로 해서 효율적으로 세라믹을 사용할 수 있어서 만족합니다. 인조대리석보다 비싸지만 아주 만족합니다.</p>
+							<p>편안하고 분위기 있는 침실을 원했어요. 업체와 여러번의 이야기를 통해 제가 원하는 느낌을 찾을 수 잇었어요. 소통이 원활해서 큰 스트레스를 받지 않고 공사를 진행할 수 있었습니다. 군더더기 없이 침실공간을 만들고 싶었는데 제가 원하던대로 잘 나온거 같아요.</p>
 						</div>
 						<p></p>					
 					</div>
 					<div class="part5_inner">
 						<div><a class="part5_img" href="review_detail.do">
-							<img src=""/>
+							<img src="/DoZip/images/review3.jpg"/>
 						</a></div>
-						<div class="part5_title"><p>후기 제목</p></div>
+						<div class="part5_title"><p>작업을 위한 작업실 공사</p></div>
 						<div class="part5_cont">
-							<p>싱크대 상판을 세라믹으로 하고 화장대의 상판과 수납장 하나의 상판도 세라믹으로 해서 효율적으로 세라믹을 사용할 수 있어서 만족합니다. 인조대리석보다 비싸지만 아주 만족합니다.</p>
+							<p>프리랜서로 일하고 있는데, 이번에 두집을 통해 작업실 공사를 맡겨봤어요. 어떻게 해야할지 몰랐는데 전문가분들이 여러가지 시안을 보여주시면서 선택할 수 있도록 도와주셔서 더 좋은 결과물이 나온거 같아요. 만족합니다.</p>
 						</div>
 						<p></p>					
 					</div>
