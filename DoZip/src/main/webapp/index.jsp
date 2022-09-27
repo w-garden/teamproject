@@ -12,10 +12,17 @@
 	
 	<title>두꺼비집</title>
 	<link rel="stylesheet" type="text/css" href="/DoZip/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="/DoZip/css/portfolio.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
 	
 	<script src="https://kit.fontawesome.com/3624917c4f.js" crossorigin="anonymous"></script>
 	<script src ="./js/header.js" defer></script>
 	<script src ="./js/map.js" defer></script>
+	<script src="./js/portfolio.js"defer></script>
+	<script src="./js/jquery.js"></script>
 	<script>
 	    function openLogin(){
 	        window.open("member_login.do", "_blank", "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=550, height=750, left=0, top=0" );
@@ -61,15 +68,41 @@
 
 		<div id="part">
 			<div id="part1">
-				<!-- <div id="slide_banner"> -->
-					<a id="banner1" href="#">
-						<img src="./images/banner_01.png">
-					</a>
-					<div id="btn_group">
-						<button id="btn1" type="button" onclick=""><img src="./images/next1.png" width="20" height="20"/></button>
-						<button id="btn2" type="button" onclick=""><img src="./images/next2.png" width="20" height="20"/></button>
-					</div>					
-				<!-- </div> -->				
+				<%--배너 시작 --%>
+				<div id="wrapper">
+			      <div id="slider-wrap">
+			          <ul id="slider">
+			             <li>                
+							<img src="/DoZip/images/portfolio/banner/final_bannerH.png">
+			             </li>
+			             
+			             <li>
+							<img src="/DoZip/images/portfolio/banner/final_bannerJ.png">
+			             </li>
+			             
+			             <li>
+							<img src="/DoZip/images/portfolio/banner/final_bannerM.png">
+			             </li>
+			             
+			             <li>
+							<img src="/DoZip/images/portfolio/banner/final_bannerS.png">
+			             </li>
+			          </ul>
+			          
+			           <!--controls-->
+			          <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+			          <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+			          <div id="counter"></div>
+			          
+			          <div id="pagination-wrap">
+			            <ul>
+			            </ul>
+			          </div>
+			          <!--controls-->  
+                 
+      			</div>
+   			</div>
+   			<%-- 배너 종료 --%>				
 			</div>
 			
 			<div class="clear"></div>
