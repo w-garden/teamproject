@@ -15,16 +15,16 @@
 	</div>
 	<script>
 		function loadPortfolioInfo(){
-			
+			$business_num='${business_num}'
 			$.ajax({
 				type:"post",
 				url:'loadportfolio_info.do',
 				data:{
-					business_num:${business_num}
+					business_num:$business_num
 				},
-				datatype:'text',
+				datatype:"text",
 				success: function(result){
-					window.open( "./portfolio/info.jsp", "Child", "width=400, height=300, top=50, left=50" );
+					window.open( "./portfolio/load_info.jsp", "Child", "width=800, height=300, top=500, left=500");
 				}
 			});
 		}
@@ -41,7 +41,7 @@
 				<label>제목</label>
 			</div>
 			<div class="a">
-				<input type="text" name="pf_title" size="30"
+				<input type="text" name="pf_title" size="30" id="parentValue"
 					placeholder="이보다 더 완벽할 수는 없다"> <span>0/50</span>
 				<!-- 제목 -->
 			</div>
@@ -98,7 +98,7 @@
 			<div id="form_sub_title">
 				<label>평수</label>
 			</div>
-			<input name="pf_area" size="10"> 평
+			<input name="pf_area" size="10" id="parentValue1"> 평
 		</div>
 		<div class="inline_div">
 			<div id="form_sub_title">

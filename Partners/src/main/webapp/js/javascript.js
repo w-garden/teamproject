@@ -30,7 +30,7 @@ window.onload = function() {
 }
 function fncClearTime() {
 		
-	iSecond = 1000000000; 		//로그인 시간 설정
+	iSecond = 10000; 		//로그인 시간 설정
 }
 
 Lpad = function(str, len) {

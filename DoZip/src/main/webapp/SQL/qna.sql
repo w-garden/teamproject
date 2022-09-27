@@ -1,5 +1,5 @@
 drop table qnaT;
-
+select * from qnaT;
 create table qnaT(
 	qna_no number(38) primary key, --글번호
 	mem_id varchar2(20) not null, --고객아이디(fk)
@@ -20,6 +20,7 @@ create table qnaT(
 );
 alter table qnaT modify qna_type null;
 delete qnaT;
+COMMIT;
 select * from partnersT;
 
 

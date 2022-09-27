@@ -80,6 +80,7 @@ update PARTNERST set  pAddress = '서울시 강남구 선릉로' where  pName = 
 select * from portfolioT where business_num = (select business_num from partnersT where businessName like '%동민%');
 
 
+
 create table partners_subT (
 	business_num nvarchar2(12) not null,  --사업자번호
 	pAddress nvarchar2(500), 							--영업장 주소

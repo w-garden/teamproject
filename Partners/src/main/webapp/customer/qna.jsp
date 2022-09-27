@@ -50,6 +50,9 @@ div#reply_cont{
     font-weight: bold;
     font-size: 15px;
 }
+.not_serach_msg {
+	text-align: center;
+}
 </style>
 
 <div id="qna_title">
@@ -82,7 +85,8 @@ div#reply_cont{
 	</div>
 
 </div>
-<form id="search_conditon">
+<form action="customer_qna.do" method="post" onsubmit='return search_check();'>
+<div  id="search_conditon">
 	<div id=search_conditon_wrap>
 		<div id=search_conditon_sub_1>
 			<div>
@@ -95,29 +99,42 @@ div#reply_cont{
 		</div>
 		<hr>
 		<div>
-			<input type="radio" name="answer" value="whole"> 전체 <input
-				type="radio" name="answer" value="yes"> 답변 <input
-				type="radio" name="answer" value="no"> 미답변
-		</div>
-		<hr>
-		<div>
-			<select id="search_condition">
-				<option value="customer_name" selected>고객명</option>
-				<option value="construction_num">시공번호</option>
-			</select> <input type="text" placeholder="입력해주세요">
+			<select id="search_condition" name="find_field">
+				<option value="default" selected>검색옵션</option>
+				<option value="customer_name" <c:if test="${find_field =='customer_name' }"> ${'selected' }</c:if>>고객명</option>
+				<option value="qna_type" <c:if test="${find_field =='qna_type' }"> ${'selected' }</c:if>>문의유형</option>
+			</select> <input type="search" name="find_text" id="search_text" value="${find_name }" placeholder="입력해주세요">
 		</div>
 		<hr>
 
 		<div id="search_conditon_hidemenu">
 			<div>
-				<input type="button" value="검색"> <input type="reset"
-					value="초기화">
+				<input type="submit" value="검색"> <input type="reset" value="초기화" onclick="">
 			</div>
-			<input type="button" value="검색 접기" id=hide_button onclick="display()">
+			<input type="button" value="검색 접기" id="hide_button" onclick="display()">
 		</div>
 	</div>
+	
+	
+	<script>
+		function search_check(){
+			if($('#search_condition').val()=='default' && $('#search_text').val()!=""){
+				alert('검색유형을 선택하세요 입력하세요');
+				$('#search_text').val("");
+				return false;
+			}
+			if($('#search_condition').val()!='default' && $('#search_text').val()==""){
+				alert('검색어를 입력하세요');
+				$('#search_text').focus();
+				return false;
+			}
+			
+		}
+	
 
-</form>
+	
+	</script>
+</div>
 <table id="qna_table">
 	<tr>	
 		<th>글번호</th>
@@ -134,7 +151,7 @@ div#reply_cont{
 	</tr>
 	<c:if test="${empty qlist }">
 		<tr>
-			<td colspan="5">조회된 문의 내용이 없습니다.</td>
+			<td colspan="6" class="not_serach_msg"> 조회된 문의 내용이 없습니다.</td>
 		</tr>
 	</c:if>
 	<c:if test="${!empty qlist }">
@@ -160,7 +177,7 @@ div#reply_cont{
 			<td colspan="6" >
 			<div id="reply_cont">
 				<div><span class="reply_date_text"> ${ q.reply_date} </span></div>
-				<div> ${q.qna_cont }</div>
+				<div> <span style="color:blue; font-weight:bolder;">${q.qna_title} </span>  &nbsp; ${q.qna_cont }</div>
 				<div>
 				<input type="button" value="삭제" onclick="reply_del(${q.qna_no })">
 				</div>
@@ -194,7 +211,7 @@ div#reply_cont{
 	</c:if>
 </table>
 
-
+</form>
 
 
 
