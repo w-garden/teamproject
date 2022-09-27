@@ -36,39 +36,9 @@
  
   <title>Step 2</title>
 </head>
-<script>
 
-function check(){
-	
-	var est_bud = request.getElementById("estimate_cost");
-	var est_start = request.getElementById("est_start");
-	var est_end = request.getElementById("est_end");
-	
-if(est_bud.value == "") {
-	alert('예산을 입력해주세요!');
-	est_bud.focus();
-	return false;
-}
-else if(est_start.value == "") {
-	alert('시작일을 알려주세요!');
-	est_start.focus();
-	return false;
-}
-else if(est_end.value == "") {
-	alert('종료일을 알려주세요!');
-	est_end.focus();
-	return false;
-	}
-}
-
-</script>
-
-<body>
-<<<<<<< HEAD
  <form method="post" onsubmit="return check();" action="estimate_apply2_ok.do">
-=======
- <form method="post" onsubmit = "return check();" action="estimate_apply2_ok.do">
->>>>>>> suhwan
+<body>
 
   <div id="estimate_step02">
     <section aria-label="예산 선택" class="estimate_yourcost">
@@ -109,7 +79,7 @@ else if(est_end.value == "") {
               <button class="button" type="submit" id="go-next">다음</button>
             </div>
   </div>
- </form>
 </body>
+ </form>
  <%-- 하단 공통부분 --%>
 <jsp:include page="../common/footer.jsp" />

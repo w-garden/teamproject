@@ -125,7 +125,7 @@ public class EstimateApplyOKController implements Action {
 			
 			else {
 				ActionForward forward = new ActionForward();
-				forward.setRedirect(true);
+				forward.setRedirect(false);
 				forward.setPath("estimate_apply2.do");
 				
 				return forward;

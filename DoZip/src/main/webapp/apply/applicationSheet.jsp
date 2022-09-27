@@ -404,7 +404,7 @@
 
 <%-- 다음페이지 버튼 --%>
       <div class="nextpage">
-        <button class="button" onclick="location.href='estimate_apply2.do'">다음단계</button>
+        <button class="button" type="submit" onclick="SessionStorage_page01()">다음단계</button>
       </div>
       </div>
       </form>
