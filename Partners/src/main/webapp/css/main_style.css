@@ -9,6 +9,9 @@
 	padding:0px;
 	/*background: aliceblue;*/
 }
+html{
+	scroll-behavior: smooth;
+}
 
 #wrap{
 	display:flex;

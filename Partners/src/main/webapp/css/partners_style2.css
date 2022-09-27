@@ -13,7 +13,7 @@
    }
    .item_tab_inbox{
       font-size: 17px;
-      width:90%;
+      width:80%;
       border: 1px solid lightgray;
       background-color:white;
       height: 50px;
@@ -41,7 +41,7 @@
       text-decoration-line:none;
       font-weight:bold;
       color:lightgray;
-
+      scroll-behavior: smooth;
    }
    .tab-link:hover{
    		color:#4398ed;
@@ -51,7 +51,7 @@
       width:100%;
    }
    #business, #additional, #preference, #representative, #payment{
-      width: 90%;
+      width: 80%;
       margin: 30px 2.5%;
   	  padding: 0 2.5%;
       background-color:white;
@@ -151,10 +151,18 @@
     font-size: 12px;
     font-weight: bold;
   }
+  .residence, .commercial{
+  	border: 1px solid lightgray;
+  	border-radius:5px;
+  }
   .clear{
      clear:both; 
    }
-  #check1{
+  #service1, #service2, #service3, #service4, #service5, #service6,
+  #res_build_all, #res_build01, #res_build02, #res_build03, #res_build04,
+  #res_space_all, #res_space01, #res_space02, #res_space03, #res_space04, #res_space05, #res_space06, #res_space07, #res_space08,
+  #com_build_all, #com_build01, #com_build02, #com_build03, #com_build04, #com_build05, #com_build06, #com_build07,
+  #com_space_all, #com_space01, #com_space02, #com_space03, #com_space04, #com_space05, #com_space06, #com_space07, #com_space08{
      cursor: pointer;
   }
   #check1:visited{
@@ -175,8 +183,8 @@
      border:1px solid blue;
   }
   
-
-  .lbl-checkbox-disabled{
+ /* 나중에 관리자 페이지에서 파트너스 예치금 추가할수 있도록 변경 */
+  .lbl-checkbox-disabled{  
      font-size: 15px;
      font-weight: bold;
      color: #606266;
@@ -187,6 +195,10 @@
      cursor: pointer;
      display: inline-block;
   }
+  .lbl-checkbox-disabled:hover{
+     border:1px solid blue;
+  }
+  
   .deposit_label{
      margin:5px;
   }
@@ -624,7 +636,7 @@
    .bottom_color{
       height: 20px;
       padding: 10px;
-      background-color: aliceblue;
+      /*background-color: aliceblue;*/
    }
    .bid_part_div{
    		width:100%;
@@ -666,6 +678,7 @@
    	/*display:inline-block; */
    	display:none;
    	width:100%;
+   	background-color:#f7f7f7;
    }
    .bid_complete_button{
    	display:inline-block;

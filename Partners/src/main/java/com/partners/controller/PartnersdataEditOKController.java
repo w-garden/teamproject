@@ -52,7 +52,6 @@ public class PartnersdataEditOKController implements Action {
 			
 			//dto 값을 받아서 
 			int res = psdao.nullCheck(business_num); 
-			//System.out.println("널확인"+res);
 			
 			String[] pService = {};
 			String[] pRes_build_type = {};
@@ -72,15 +71,8 @@ public class PartnersdataEditOKController implements Action {
 			}
 			System.out.println(pServicep);
 			
+			
 			String pRes_build_typep = "";
-//			for(int i=0; i<pRes_build_type.length; i++) {
-//				if(pRes_build_type[i]== "all") {
-//					continue;
-//				}
-//				else {
-//					pRes_build_typep+=pRes_build_type[i]+"/";
-//				}
-//			}
 			for(int i=0; i<pRes_build_type.length; i++) {
 				pRes_build_typep+=pRes_build_type[i]+"/";
 			}
@@ -121,8 +113,8 @@ public class PartnersdataEditOKController implements Action {
 //			String pBusiness_lic_file=request.getParameter("pBusiness_lic_file");
 			
 			
-			
 			Partners_subDTO psdto=new Partners_subDTO();
+			
 			psdto.setBusiness_num(business_num);
 			psdto.setpShortstate(pShortstate); 
 		//	psdto.setpInt_img(pInt_img); psdto.setpComp_logo(pComp_logo); 

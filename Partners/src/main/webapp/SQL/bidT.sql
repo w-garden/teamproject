@@ -10,4 +10,5 @@ create table bidT (
     foreign key(est_num) references estimateT(est_num)
 );
 
+select * from bidT;
 drop table bidT;
