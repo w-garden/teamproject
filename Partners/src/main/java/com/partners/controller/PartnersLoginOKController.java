@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import com.partners.dao.PartnersDAO;
 import com.partners.dto.PartnersDTO;
@@ -25,7 +24,6 @@ public class PartnersLoginOKController implements Action {
 			int result = dao.loginCheck(pId, pPw);
 			
 			if(result==0) {
-				
 				out.println("<script>");
 				out.println("alert('존재하지 않는 아이디입니다')");
 				out.println("history.back()");
@@ -40,25 +38,23 @@ public class PartnersLoginOKController implements Action {
 				out.println("</script>");
 				}
 				else if(result==1) {
-					PartnersDTO dto = dao.selectPartner(pId);
-					
-					
+					PartnersDTO dto = dao.selectPartner(pId);		
 					HttpSession session = request.getSession();
-					
-					session.setAttribute("id", pId);
+					session.setAttribute("id", pId);				
 					session.setAttribute("businessName", dto.getBusinessName());
 					session.setAttribute("business_num", dto.getBusiness_num());
-
+					
+					
+					session.setMaxInactiveInterval(10000);
+					
+					
 					ActionForward forward = new ActionForward();
 					forward.setRedirect(true);
 					forward.setPath("index.do");
 					return forward; 
 				}
-				
 			}
-			
 			return null; 	
-			
 	}
 
 }

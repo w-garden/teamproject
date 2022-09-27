@@ -2,6 +2,7 @@ package com.partners.controller;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
@@ -10,12 +11,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 //실행 partners_login
 public class PForntController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	
+			
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		
+		
 		String RequestURI = request.getRequestURI(); // /Partners/*.do 를 구함
 		String contextPath = request.getContextPath(); // 컨텍스트 패스 경로를 구함 /Partners
 		String command = RequestURI.substring(contextPath.length()); // /Partners 컨텍스트 패스 경로 이후 URI 매핑 주소인 *.do 를 구함

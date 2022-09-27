@@ -63,16 +63,10 @@ public class QnaDAO {
 		
 		try {
 			conn=ds.getConnection();
-			sql="select mem_name, qna_no, qnaT.mem_id, qna_type, qna_title, qna_cont, qna_date, qna_ref, qna_step, qna_level, reply_state, reply_date" +
-					" from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1 order by qna_ref desc, qna_level asc";
-			
-			
-			
+			sql="select mem_name, qnaT.* from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1 order by qna_ref desc, qna_level asc";			
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, business_num);
 			rs=pstmt.executeQuery();
-			
-
 			
 			while(rs.next()) {
 				QnaDTO dto = new QnaDTO();

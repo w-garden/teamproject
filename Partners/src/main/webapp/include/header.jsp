@@ -26,33 +26,38 @@
 	width: 100%;
 	height: 100%;
 	top: 0px;
-	left: 0px;
-	position: fixed;
+	left: 0px; 
 	display: block;
-	background-color: #fff;
-	z-index: 99;
+	background-color: gray;
+	z-index: 20;
 	text-align: center;
+
 }
 #loading-image {
+	width:250px;
  	position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 50%;
-	z-index: 100;
 }
 </style>	
 	
 </head>
 <script>
 	$(window).ready(function() {
-		$('#loading').hide();
+		$('#loading').hide(1500);
 	});
 </script>
-
-
+<% if(session.getAttribute("id")==null){
+	out.println("<script>");
+	out.println("alert('시간이 만료되어 로그아웃되었습니다!')");
+	out.println("location='/Partners/index.do'");
+	out.println("</script>");
+ }
+%>
 
 <body>
 <!-- 로딩 아이콘 -->
-<div align="center" id="loading"><img id="loading-image" src="../images/loading.gif"></div>
+<div align="center" id="loading"><img id="loading-image" src="/Partners/images/dozip_logo.png"></div>
 
 <!-- 좌측 사이드바 영역 -->
 <div id="wrap">
