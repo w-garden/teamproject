@@ -154,9 +154,9 @@ $(function() {
 									</div>
 									<div id="bid_part_detail">
 											<div class="bid_detail01">입찰가</div>
-											<div class="bid_detail_text01"><input type="text" id="bid_price" name="bid_price" size="8"/><br/></div>
+											<div class="bid_detail_text01"><input type="text" id="bid_price" name="bid_price" size="10"/><br/></div>
 											<div class="bid_detail02" >예상 공사기간</div>
-											<div class="bid_detail_text02"><input type="text" id="bid_period" name="bid_period"  size="8"/><br/></div>
+											<div class="bid_detail_text02"><input type="text" id="bid_period" name="bid_period"  size="10"/><br/></div>
 											<div class="bid_detail03">업체 공사 스타일 설명</div>
 											<textarea id="bid_detail" name="bid_detail" rows="5" ></textarea>
 									</div>

@@ -52,15 +52,15 @@ function selectAll4(selectAll)  {
    <div>
 	  	<div class="request_spot">
 	  		<div class="request_color">
-		    <h2 class="item_title">내 정보관리</h2>
+		    <h2 class="item_title" >내 정보관리</h2>
 		    
-			  	<div class="item_tab_box">
-			  		<div role="tablist" class="item_tab_inbox">
-			  			<div id="tab1"><a href="#business" class="tab-link">사업자 정보</a></div>
-			  			<div id="tab2"><a href="#additional" class="tab-link">부가 정보</a></div>
-			  			<div id="tab3"><a href="#preference" class="tab-link">선호 시공정보</a></div>
-			  			<div id="tab4"><a href="#representative" class="tab-link">담당자 정보</a></div>
-			  			<div id="tab5"><a href="#payment" class="tab-link">정산 정보</a></div>  			
+			  	<div class="item_tab_box" >
+			  		<div role="tablist" class="item_tab_inbox" id="business-link">
+			  			<div id="tab1"><a href="#business-link" class="tab-link" >사업자 정보</a></div>
+			  			<div id="tab2"><a href="#additional-link" class="tab-link">부가 정보</a></div>
+			  			<div id="tab3"><a href="#pHomepg" class="tab-link">선호 시공정보</a></div>
+			  			<div id="tab4"><a href="#representative-link" class="tab-link">담당자 정보</a></div>
+			  			<div id="tab5"><a href="#payment-link" class="tab-link">정산 정보</a></div>  			
 			  		</div>
 			  	</div>
 		  	</div>
@@ -103,7 +103,7 @@ function selectAll4(selectAll)  {
 					</div>
 					<br />
 				</div>
-				<div class="business-05">
+				<div class="business-05" id="additional-link">
 					<label><b>영업장 주소</b></label><br />
 					<div>
 						<!--  <input type="text" size="5" disabled="true"> 
@@ -153,12 +153,12 @@ function selectAll4(selectAll)  {
 					<label><b>제공 서비스</b></label><br />
 					<div>제공하는 서비스를 모두 선택해 주세요.</div>
 			
-						<label for="check1" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check1" value="3D도면">3D도면</label>
-						<label for="check2" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check2" value="일반도면">일반도면</label>
-						<label for="check3" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check3" value="카드결제">카드결제</label>
-						<label for="check4" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check4" value="쇼룸">쇼룸</label>
-						<label for="check5" class="lbl-checkbox"> <input type="checkbox" name="pService" id="check5" value="정부지원사업">정부지원사업</label></br>
-						<label for="check7" class="lbl-checkbox-disabled"><input type="checkbox" name="pService" id="check7" value="두집예치제">두집예치제</label>
+						<label for="service1" class="lbl-checkbox"> <input type="checkbox" name="pService" id="service1" value="3D도면">3D도면</label>
+						<label for="service2" class="lbl-checkbox"> <input type="checkbox" name="pService" id="service2" value="일반도면">일반도면</label>
+						<label for="service3" class="lbl-checkbox"> <input type="checkbox" name="pService" id="service3" value="카드결제">카드결제</label>
+						<label for="service4" class="lbl-checkbox"> <input type="checkbox" name="pService" id="service4" value="쇼룸">쇼룸</label>
+						<label for="service5" class="lbl-checkbox"> <input type="checkbox" name="pService" id="service5" value="정부지원사업">정부지원사업</label></br>
+						<label for="service6" class="lbl-checkbox-disabled"><input type="checkbox" name="pService" id="service6" value="두집예치제">두집예치제</label>
 						<label class="deposit_label">예치금</label> <input type="text" id="deposit_money" name="pBalance" value="${ps.pBalance}" >
 						<p id="red">* 두집예치제는 두집(****-****)으로 추가 문의주세요.</p>
 					<div class="current-service">
@@ -214,22 +214,22 @@ function selectAll4(selectAll)  {
 					<div>
 						<b><span id="red">*</span></b><span> <b>건물 유형(최소 2개 이상)</b></span>
 					</div>
-					<article class="residence" style="border: 1px solid gray;">
-							<label for="res_build_all" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="res_build_all" value="" onclick="selectAll1(this)"></input> 전체</label><br />
+					<div class="residence">
+							<label for="res_build_all" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type_all" id="res_build_all" value="" onclick="selectAll1(this)"></input> 전체</label><br />
 						<div>
 							<label for="res_build01" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="res_build01" value="아파트">아파트</input></label>
 							<label for="res_build02" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="res_build02" value="빌라">빌라</input></label>
 							<label for="res_build03" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="res_build03" value="주택">주택</input></label>
 							<label for="res_build04" class="lbl-checkbox"> <input type="checkbox"name="pRes_build_type" id="res_build04" value="오피스텔">오피스텔</input></label>
 						</div> <!-- label의 for와 input의 id가 같아야 label값 눌러도 선택됨 -->
-					</article>
+					</div>
 					<br />
 
 					<div>
 						<b><span id="red">*</span></b><span> <b>가능한 공간</b></span>
 					</div>
-					<article class="residence" style="border: 1px solid gray;">
-						<label for="res_space_all" class="lbl-checkbox"> <input type="checkbox" name="pRes_space_type" id="res_space_all" value="" onclick="selectAll2(this)"></input>전체</label><br />
+					<div class="residence" >
+						<label for="res_space_all" class="lbl-checkbox"> <input type="checkbox" name="pRes_space_type_all" id="res_space_all" value="" onclick="selectAll2(this)"></input>전체</label><br />
 						<!-- <h5 class="sigong">시공</h5>  -->
 						<div>
 							<!--  <input type="checkbox" id="wall" name="check" data-name="도배/벽"  class ="checkbox"/> -->
@@ -259,7 +259,7 @@ function selectAll4(selectAll)  {
 							<label for="check33" class="lbl-checkbox"> <input type="checkbox" id="check33">단열</input></label>
 							<label for="check34" class="lbl-checkbox"> <input type="checkbox" id="check34">확장</input></label>
 						</div> -->
-					</article>
+					</div>
 					<br />
 				</div>
 
@@ -271,8 +271,8 @@ function selectAll4(selectAll)  {
 					<div>
 						<b><span id="red">*</span></b><span> <b>건물 유형(최소 3개 이상)</b></span>
 					</div>
-					<article class="residence" style="border: 1px solid gray;">
-							<label for="com_build_all" class="lbl-checkbox"> <input type="checkbox" name="pCom_build_type" id="com_build_all" value="" onclick="selectAll3(this)"></input> 전체</label><br />
+					<div class="commercial" >
+							<label for="com_build_all" class="lbl-checkbox"> <input type="checkbox" name="pCom_build_type_all" id="com_build_all" value="" onclick="selectAll3(this)"></input> 전체</label><br />
 						<div>
 							<label for="com_build01" class="lbl-checkbox"> <input type="checkbox" name="pCom_build_type" id="com_build01" value="사무실">사무실</input></label>
 							<label for="com_build02" class="lbl-checkbox"> <input type="checkbox" name="pCom_build_type" id="com_build02" value="상가/매장">상가/매장</input></label>
@@ -282,17 +282,17 @@ function selectAll4(selectAll)  {
 							<label for="com_build06" class="lbl-checkbox"> <input type="checkbox" name="pCom_build_type" id="com_build06" value="간판">간판</input></label>
 							<label for="com_build07" class="lbl-checkbox"> <input type="checkbox" name="pCom_build_type" id="com_build07" value="기타">기타</input></label>
 						</div>
-					</article>
+					</div>
 					<br />
 
 					<div>
 						<b><span id="red">*</span></b><span> <b>가능한 공간</b></span>
 					</div>
-					<article class="residence" style="border: 1px solid gray;">
-						<label for="com_space_all" class="lbl-checkbox"> <input type="checkbox" name="pCom_space_type" id="com_space_all" value="" onclick="selectAll4(this)"></input> 전체
+					<div class="commercial" >
+						<label for="com_space_all" class="lbl-checkbox"> <input type="checkbox" name="pCom_space_type_all" id="com_space_all" value="" onclick="selectAll4(this)"></input> 전체
 						</label><br />
 						<!--  <h5 class="sigong">시공</h5> -->
-						<div>
+						<div id="representative-link">
 							<label for="com_space01" class="lbl-checkbox"> <input type="checkbox" name="pCom_space_type" id="com_space01" value="도배/벽">도배/벽</input></label>
 							<label for="com_space02" class="lbl-checkbox"> <input type="checkbox" name="pCom_space_type" id="com_space02" value="바닥">바닥</input></label>
 							<label for="com_space03" class="lbl-checkbox"> <input type="checkbox" name="pCom_space_type" id="com_space03" value="주방">주방</input></label>
@@ -311,7 +311,7 @@ function selectAll4(selectAll)  {
 							<label for="check72" class="lbl-checkbox"> <input type="checkbox" id="check72">확장</input></label>
 							<label for="check73" class="lbl-checkbox"> <input type="checkbox" id="check73">간판</input></label>
 						</div> -->
-					</article>
+					</div>
 					<br />
 				</div>
 
@@ -336,7 +336,7 @@ function selectAll4(selectAll)  {
 					<div>
 						<label><b>상업 담당자</b></label>
 						<div><input type="text" size="20" id="pCom_person_name" name="pCom_person_name" value="${ps.pCom_person_name}" placeholder="담당자명"></div></br>
-						<label><b>담당자 연락처</b></label>
+						<label id="payment-link"><b>담당자 연락처</b></label>
 						<div><input type="text" size="20" id="pCom_person_tel" name="pCom_person_tel" value="${ps.pCom_person_tel}" placeholder="담당자 연락처"></div>		
 						<label>
 							<input type="checkbox" aria-hidden="false">
