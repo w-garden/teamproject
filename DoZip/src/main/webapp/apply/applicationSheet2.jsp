@@ -9,7 +9,7 @@
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
-
+  <script src="./js/sessionStorage.js"></script>
  <script>
  function check(){
 	var est_bud = document.getElementById("estimate_cost");
@@ -76,7 +76,7 @@
 
              <div class="nextpage">
               <button class="button" id="go-back" onclick="location.href='estimate_apply.do'">이전</button>
-              <button class="button" type="submit" id="go-next">다음</button>
+              <button class="button" type="submit" id="go-next" onclick="SessionStorage_page02()">다음</button>
             </div>
   </div>
 </body>

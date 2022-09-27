@@ -6,11 +6,13 @@
   <script src="./js/apply.js" defer></script>
   <script src="./js/jquery.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="./js/sessionStorage.js"></script>
 
   <title>Step 5</title>
 </head>
 
 <body>
+<form action="estimate_apply5_ok.do">
 
   <div id="estimate_step05">
     <section aria-label="견적요청" class="estimate_yourcost">
@@ -38,9 +40,10 @@
       </section>    
    <div class="nextpage">
     <button class="button" id="go-back" onclick="location.href='estimate_apply4.do'">이전</button>
-    <button class="button" id="go-next" onclick="location.href=''">진행하기</button>
+    <button class="button" type="submit" id="go-next" onclick="test()">진행하기</button>
    </div>
   </div>
+  </form>
 </body>
  <%-- 하단 공통부분 --%>
 <jsp:include page="../common/footer.jsp" />

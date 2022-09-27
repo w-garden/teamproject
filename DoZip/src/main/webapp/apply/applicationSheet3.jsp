@@ -14,6 +14,7 @@
    function check(){
 	   var est_name = document.getElementById("name");
 	   var est_phone = document.getElementById("phone");
+	   var est_addr = document.getElementById("addr");
 	   var est_desc = document.getElementById("paragraph");
 	   
 	   if(est_name.value == ""){
@@ -23,6 +24,10 @@
 	   }
 	   if(est_phone.value == ""){
 		   alert('전화번호을 알려주세요!');
+		   phone.focus();
+		   return false;
+	   if(est_phone.value == ""){
+		   alert('주소를 알려주세요!');
 		   phone.focus();
 		   return false;
 	   }
@@ -50,7 +55,7 @@
         <input type="text" id="name" name="name" placeholder="이름을 입력해주세요.">
         <input type="text" id="phone" name="phone" placeholder="휴대폰 번호를 입력해 주세요.">
         <button type="button" id="certify_phone" onclick="SessionStorage();">인증하기</button>
-        <input type="text" id="address" name="address" placeholder="주소를 입력해 주세요.">
+        <input type="text" id="addr" name="addr" placeholder="주소를 입력해 주세요.">
         <button type="button" id="address_btn" onclick="test();">주소찾기</button>
 
         <div class="para">
@@ -70,7 +75,7 @@
 
   <div class="nextpage">
     <button class="button" id="go-back" onclick="location.href='estimate_apply2.do'">이전</button>
-    <button class="button" type="submit" id="go-next">다음</button>
+    <button class="button" type="submit" id="go-next" onclick="SessionStorage_page03()">다음</button>
   </div>
   </div>
   </form>
