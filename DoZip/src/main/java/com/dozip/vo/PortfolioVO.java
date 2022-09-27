@@ -27,5 +27,6 @@ public class PortfolioVO {
 	private String pf_photo5;
 	private int pf_premium;
 	private String pf_regdate;
+	private String businessName;
 	
 }

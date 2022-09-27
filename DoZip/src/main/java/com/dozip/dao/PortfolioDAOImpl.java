@@ -1,5 +1,6 @@
 package com.dozip.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +33,7 @@ public class PortfolioDAOImpl {
 		}
 	}//생성자
 
-	//전체 리스트 내용 불러오기 ( 모든 컬럼 포함 )
+	//전체 리스트 내용 불러오기 ( 모든 컬럼 포함 ) + 아웃조인
 	public List<PortfolioVO> getAllList() {
 		
 		List<PortfolioVO> list = new ArrayList<>();
@@ -40,7 +41,7 @@ public class PortfolioDAOImpl {
 		/* System.out.println("실행"); */
 		try {
 			con = ds.getConnection();
-			sql = "select * from portfolioT order by pf_no desc";
+			sql = "select pf.*, pt.businessName from portfolioT pf, partnersT pt where pf.business_num = pt.business_num(+) order by pf_no desc";
 			pt = con.prepareStatement(sql);
 			rs = pt.executeQuery();
 			
@@ -69,6 +70,7 @@ public class PortfolioDAOImpl {
 				dto.setPf_photo5(rs.getString(21));				
 				dto.setPf_premium(rs.getInt(22));
 				dto.setPf_regdate(rs.getString(23));
+				dto.setBusinessName(rs.getString(24));
 				/* System.out.println(dto); */
 				list.add(dto);
 			}
@@ -123,7 +125,7 @@ public class PortfolioDAOImpl {
 				dto.setPf_photo5(rs.getString(21));				
 				dto.setPf_premium(rs.getInt(22));
 				dto.setPf_regdate(rs.getString(23));
-				/* System.out.println(dto); dto 찍어보기*/
+				
 
 			}
 			
@@ -205,60 +207,4 @@ public class PortfolioDAOImpl {
 			return dto;
 		}//getOneComp()
 	
-	
-	//업체명 검색시 해당 업체 포트폴리오 나오게
-	public List<PortfolioVO> searchComp(String keyword) {
-		
-		List<PortfolioVO> list = new ArrayList<>();
-		
-		PortfolioVO dto = null;
-		
-		try {
-			con = ds.getConnection();
-			sql = "select * from portfolioT where business_num = (select business_num from partnersT where businessName like ?)";
-			pt = con.prepareStatement(sql);
-			pt.setString(1, "%" + keyword + "%");
-			rs = pt.executeQuery();
-			
-			while(rs.next()) {
-				dto = new PortfolioVO();
-				dto.setPf_no(rs.getInt(1));
-				dto.setBusiness_num(rs.getString(2));
-				dto.setPf_title(rs.getString(3));
-				dto.setPf_type(rs.getString(4));
-				dto.setPf_subtype(rs.getString(5));
-				dto.setPf_range(rs.getString(6));
-				dto.setPf_zipcode(rs.getString(7));
-				dto.setPf_addr1(rs.getString(8));
-				dto.setPf_addr2(rs.getString(9));
-				dto.setPf_addr3(rs.getString(10));
-				dto.setPf_area(rs.getInt(11));
-				dto.setPf_cost(rs.getInt(12));
-				dto.setPf_period(rs.getInt(13));
-				dto.setPf_concept(rs.getString(14));
-				dto.setPf_introduction(rs.getString(15));
-				dto.setPf_closing(rs.getString(16));
-				dto.setPf_photo1(rs.getString(17));
-				dto.setPf_photo2(rs.getString(18));
-				dto.setPf_photo3(rs.getString(19));
-				dto.setPf_photo4(rs.getString(20));
-				dto.setPf_photo5(rs.getString(21));				
-				dto.setPf_premium(rs.getInt(22));
-				dto.setPf_regdate(rs.getString(23));
-				System.out.println(dto); 
-				list.add(dto);
-			}
-		}catch(Exception e) {e.printStackTrace();}
-		finally {
-			try {
-				if(rs != null) rs.close();
-				if(pt != null) pt.close();
-				if(con != null) con.close();
-			}catch(Exception e) {e.printStackTrace();}
-		}
-		return list;
-	}
-	
-	
-
 }

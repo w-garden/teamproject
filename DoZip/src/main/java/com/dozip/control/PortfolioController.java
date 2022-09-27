@@ -23,13 +23,6 @@ public class PortfolioController implements Action {
 		plist = pdao.getAllList();
 		request.setAttribute("plist", plist);
 		
-		String keyword = request.getParameter("keyword"); //keyword 값을 가져와 검색
-		System.out.println(keyword);
-		
-		List<PortfolioVO> cplist = new ArrayList<>();
-		cplist = pdao.searchComp(keyword);
-		
-		request.setAttribute("cplist", cplist);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
