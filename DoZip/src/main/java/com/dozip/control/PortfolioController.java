@@ -26,7 +26,7 @@ public class PortfolioController implements Action {
 		String keyword = request.getParameter("keyword"); //keyword 값을 가져와 검색
 		System.out.println(keyword);
 		
-		List<PortfolioDTO> cplist = new ArrayList<>();
+		List<PortfolioVO> cplist = new ArrayList<>();
 		cplist = pdao.searchComp(keyword);
 		
 		request.setAttribute("cplist", cplist);

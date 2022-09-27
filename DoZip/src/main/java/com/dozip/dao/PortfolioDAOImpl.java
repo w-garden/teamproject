@@ -221,7 +221,7 @@ public class PortfolioDAOImpl {
 			rs = pt.executeQuery();
 			
 			while(rs.next()) {
-				dto = new PortfolioDTO();
+				dto = new PortfolioVO();
 				dto.setPf_no(rs.getInt(1));
 				dto.setBusiness_num(rs.getString(2));
 				dto.setPf_title(rs.getString(3));

@@ -1,5 +1,6 @@
+<%@page import="com.dozip.vo.PortfolioVO"%>
 <%@page import="com.dozip.dao.PortfolioDAOImpl"%>
-<%@page import="com.dozip.vo.PortfolioDTO"%>
+<%@page import="com.dozip.vo.PortfolioVO"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <jsp:include page = "../common/header.jsp"/>
@@ -129,7 +130,7 @@
 				keyword = request.getParameter("keyword");
 			}
 			PortfolioDAOImpl pdao = new PortfolioDAOImpl();
-			List<PortfolioDTO>cplist = pdao.searchComp(keyword);
+			List<PortfolioVO>cplist = pdao.searchComp(keyword);
 			request.setAttribute("cplist", cplist);
 		%>
 		
