@@ -29,7 +29,8 @@ window.onload = function() {
 	initTimer();
 }
 function fncClearTime() {
-	iSecond = 1800;
+		
+	iSecond = 1000000000; 		//로그인 시간 설정
 }
 
 Lpad = function(str, len) {

@@ -1,12 +1,9 @@
 package com.dozip.control;
 
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dozip.dao.EstimateDAOImpl;
-import com.dozip.vo.EstimateVO;
 
 public class EstimateApplyOKController3 implements Action {
 

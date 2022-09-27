@@ -10,9 +10,27 @@
 		<h4>1. 정보입력 ---> 2. 사진등록 ---> 3. 완료</h4>
 	</div>
 	<div>
-		<span><b>두집</b>에서 계약한 인테리어를 조회하면 쉽게 주요정보를 입력 할 수 있습니다.</span> <input
-			type="file" name="fileipload" value="내 계약 불러오기">
+		<span><b>두집</b>에서 계약한 인테리어를 조회하면 쉽게 주요정보를 입력 할 수 있습니다.</span> 
+		<input type="button" value="불러오기" onclick="loadPortfolioInfo()">
 	</div>
+	<script>
+		function loadPortfolioInfo(){
+			
+			$.ajax({
+				type:"post",
+				url:'loadportfolio_info.do',
+				data:{
+					business_num:${business_num}
+				},
+				datatype:'text',
+				success: function(result){
+					window.open( "./portfolio/info.jsp", "Child", "width=400, height=300, top=50, left=50" );
+				}
+			});
+		}
+	
+	
+	</script>
 </div>
 <form action="upload_photo.do" id="portfolio_form" method="post">
 	<%-- 제목, 공사 유형, 시공범위, 주소 ,평수, 공사비용, 공사기간--%>

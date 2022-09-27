@@ -2,7 +2,6 @@
 <jsp:include page="../include/header.jsp" />
 <%@ page import="com.partners.dao.PartnersDAO" %>
 <%@ page import="com.partners.dto.PartnersDTO" %>
-
 <%
 	
 	/* String [] value= request.getParameterValues("pService");
@@ -10,6 +9,7 @@
 		out.print(val+"<br>");
 	} */
 %>
+
 <%-- 
 <%
 	String business_num=(String)session.getAttribute("business_num");
@@ -183,7 +183,7 @@
 							<label for="check9" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="check9">아파트</input></label>
 							<label for="check10" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="check10">빌라</input></label>
 							<label for="check11" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="check11">주택</input></label>
-							<label for="check12" class="lbl-checkbox"> <input type="checkbox"name="pRes_build_type" id="check12">오피스텔(원룸)</input></label>
+							<label for="check12" class="lbl-checkbox"> <input type="checkbox" name="pRes_build_type" id="check12">오피스텔(원룸)</input></label>
 						</div>
 						<br />
 					</article>

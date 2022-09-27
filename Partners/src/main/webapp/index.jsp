@@ -9,6 +9,7 @@
 <script src="/Partners/js/jquery.js"></script>
 <script src="/Partners/js/join.js"></script>
 </head>
+
 <body>
 	<c:if test="${empty id}">
 	<article id="join_wrap">		
