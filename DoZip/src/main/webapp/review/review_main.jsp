@@ -4,10 +4,10 @@
 <%-- 상단 공통부분 끝 --%>
 
 	<div class="review_wrap">
-	<hr/>
+	<br/>
 	<!-- 드롭다운 버튼 -->
 		<div class = "dropdown">
-			<select name="d1" class="dd_group">
+			<select name="d1" class="dd_group" style="margin-left:30px;">
 				<option selected>주거유형</option>
 				<option value="아파트">아파트</option>
 				<option value="빌라">빌라</option>
@@ -75,40 +75,37 @@
 	
 		<!-- part2 -->
 		<div class="part2">
-		<div id = "part2_area">
-			<div class="part2_inner">
-					<div><a class="part2_img" href="review_detail.do">
-					<img src=""/>
-					</a></div>
-					<div class="part2_title"><p>후기 제목</p></div>
-					<hr/>
-					<div class="part2_cont">
-						<p>마감을 중요하게 생각하는 ‘조은인테리어’‘조은인테리어’는 최소한의 가치로 최대의 효과를 누릴 수 있게끔 디자인 하고 마지막 마감까지 세심하게 살펴보며 입주 후 장기적인 A/S시스템으로 고객님께서 ‘조은인테리어’를 믿고 신뢰하고 의지할 수 있도록 하겠습니다.</p>
-					</div>
-					<p></p>
+		<div id="part5_area">
+			<div class="part5_inner">
+				<div><a class="part5_img" href="review_detail.do">
+					<img src="/DoZip/images/review1.jpg"/>
+				</a></div>
+				<div class="part5_title"><p>깔끔한 주방 인테리어</p></div>
+				<div class="part5_cont">
+					<p>싱크대 상판을 세라믹으로 하고 화장대의 상판과 수납장 하나의 상판도 세라믹으로 해서 효율적으로 세라믹을 사용할 수 있어서 만족합니다. 인조대리석보다 비싸지만 아주 만족합니다.</p>
+				</div>
+				<p></p>					
 			</div>
-			<div class="part2_inner">
-					<div><a class="part2_img" href="review_detail.do">
-					<img src=""/>
-					</a></div>
-					<div class="part2_title"><p>후기 제목</p></div>
-					<hr/>
-					<div class="part2_cont">
-						<p>마감을 중요하게 생각하는 ‘조은인테리어’‘조은인테리어’는 최소한의 가치로 최대의 효과를 누릴 수 있게끔 디자인 하고 마지막 마감까지 세심하게 살펴보며 입주 후 장기적인 A/S시스템으로 고객님께서 ‘조은인테리어’를 믿고 신뢰하고 의지할 수 있도록 하겠습니다.</p>
-					</div>
-					<p></p>
+			<div class="part5_inner">
+				<div><a class="part5_img" href="review_detail.do">
+					<img src="/DoZip/images/review2.jpg"/>
+				</a></div>
+				<div class="part5_title"><p>아늑하고 분위기 있는 침실</p></div>
+				<div class="part5_cont">
+					<p>편안하고 분위기 있는 침실을 원했어요. 업체와 여러번의 이야기를 통해 제가 원하는 느낌을 찾을 수 잇었어요. 소통이 원활해서 큰 스트레스를 받지 않고 공사를 진행할 수 있었습니다. 군더더기 없이 침실공간을 만들고 싶었는데 제가 원하던대로 잘 나온거 같아요.</p>
+				</div>
+				<p></p>					
 			</div>
-			<div class="part2_inner">
-					<div><a class="part2_img" href="review_detail.do">
-					<img src=""/>
-					</a></div>
-					<div class="part2_title"><p>후기 제목</p></div>
-					<hr/>
-					<div class="part2_cont">
-						<p>마감을 중요하게 생각하는 ‘조은인테리어’‘조은인테리어’는 최소한의 가치로 최대의 효과를 누릴 수 있게끔 디자인 하고 마지막 마감까지 세심하게 살펴보며 입주 후 장기적인 A/S시스템으로 고객님께서 ‘조은인테리어’를 믿고 신뢰하고 의지할 수 있도록 하겠습니다.</p>
-					</div>
-					<p></p>
-			</div>					
+			<div class="part5_inner">
+				<div><a class="part5_img" href="review_detail.do">
+					<img src="/DoZip/images/review3.jpg"/>
+				</a></div>
+				<div class="part5_title"><p>작업을 위한 작업실 공사</p></div>
+				<div class="part5_cont">
+					<p>프리랜서로 일하고 있는데, 이번에 두집을 통해 작업실 공사를 맡겨봤어요. 어떻게 해야할지 몰랐는데 전문가분들이 여러가지 시안을 보여주시면서 선택할 수 있도록 도와주셔서 더 좋은 결과물이 나온거 같아요. 만족합니다.</p>
+				</div>
+				<p></p>					
+			</div>
 		</div>
 	</div>	
 	
