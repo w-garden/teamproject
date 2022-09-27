@@ -16,8 +16,8 @@ public class MemberFindIDController implements Action {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		String mem_name = request.getParameter("mem_name");
-		String mem_tel = request.getParameter("mem_tel");
+		String mem_name = request.getParameter("mem_name2");
+		String mem_tel = request.getParameter("mem_tel2");
 		
 		MemberDAOImpl mdao = new MemberDAOImpl();
 		String mem_id = mdao.getFindID(mem_name, mem_tel);

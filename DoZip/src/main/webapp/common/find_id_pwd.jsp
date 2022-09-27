@@ -30,36 +30,36 @@
 	<form class="find_id" method="post" action="member_find_id.do">
 	<table style="width:100%;">
 	<tr><td style="height:70px;">
-		<input class="find_id_input"  type="text" name="mem_name"  id="mem_name" placeholder="이름" oninput="name_check();" />		
-		<br/><span class="namecheck"></span>
+		<input class="find_id_input"  type="text" name="mem_name2"  id="mem_name2" placeholder="이름" oninput="name_check2();" />		
+		<br/><span class="namecheck2"></span>
 	</td></tr>
 	<tr><td style="height:70px;">
-		<input class="find_id_input" type="text" name="mem_tel" id="mem_tel"  placeholder="전화번호" oninput="tel_check();"/>
-		<br/><span class="telcheck"></span>
+		<input class="find_id_input" type="text" name="mem_tel2" id="mem_tel2"  placeholder="전화번호" oninput="tel_check2();"/>
+		<br/><span class="telcheck2"></span>
 	</td></tr>
 	</table>
-		<button id="find_id_btn" type="submit">아이디 찾기</button>
+		<button id="find_id_btn" type="submit" disabled="disabled">아이디 찾기</button>
 	</form>
 	
-	<form class="find_pwd" method="post" action="#"   style="display: none;">
+	<form class="find_pwd" method="post" action="member_find_pw.do"   style="display: none;">
 	<table style="width:100%;">
 	<tr><td style="height:70px;">
-		<input class="find_pwd_input"  type="text" name="mem_id"  placeholder="아이디" oninput="id_check();"/>
+		<input class="find_pwd_input"  type="text" name="mem_id" id="mem_id" placeholder="아이디" oninput="id_check2();"/>
 		<br/><span class="idcheck"></span>
 	</td></tr>
 	<tr><td style="height:70px;">
-		<input class="find_pwd_input" type="text" name="mem_name"  placeholder="이름" oninput="name_check();"/>
+		<input class="find_pwd_input" type="text" name="mem_name" id="mem_name" placeholder="이름" oninput="name_check();"/>
 		<br/><span class="namecheck"></span>
 	</td></tr>
 	<tr><td style="height:70px;">
-		<input class="find_pwd_input" type="text" name="mem_tel"  placeholder="전화번호" oninput="tel_check();"/>
+		<input class="find_pwd_input" type="text" name="mem_tel" id="mem_tel" placeholder="전화번호" oninput="tel_check();"/>
 		<br/><span class="telcheck"></span>
 	</td></tr>
 	<tr><td style="height:70px;">
 		<input class="find_pwd_input"  type="text"  name="mem_email"  id="mem_email" placeholder="이메일주소를 입력해주세요" oninput="email_check();" style="width: 26%;"/>
 		<span>@</span>
 		<input class="find_pwd_input"  type="text"  name="mem_domain"  id="mem_domain" placeholder="도메인주소를 입력해주세요" oninput="email_check();" style="width: 26%;"/>
-		<select name="domain_list" id="domain_list" onchange="changeSelect(this.value);">
+		<select name="domain_list" id="domain_list" onchange="changeSelect(this.value);" onclick="email_check();">
 			<option selected>직접입력</option>
 			<option value="naver.com">naver.com</option>
 			<option value="daum.net">daum.net</option>
@@ -69,7 +69,7 @@
 	</td></tr>
 	</table>
 		<p id="find_pwd_info">※비밀번호 찾기를 누르면 임시번호를 메일주소로 보내드립니다.</p>
-		<button id="find_pwd_btn" type="submit">비밀번호 찾기</button>
+		<button id="find_pwd_btn" type="submit" >비밀번호 찾기</button>
 	</form>
 	
 	<div class="find_info">

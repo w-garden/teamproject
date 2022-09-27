@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
+import javax.mail.*;
+import javax.mail.internet.*;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -242,6 +245,92 @@ public class MemberDAOImpl {
 		}		
 		return res;
 	}//changePwd()
+
+	//비번찾기
+	public String getFindPW(MemberVO m) {
+		String pwd = "";
+		System.out.println(m.toString());
+		try {
+			con = ds.getConnection();
+			sql = "select mem_pwd from memberT where mem_id=? and mem_name=? and mem_tel=? and mem_email=? and mem_domain=?";
+			pt=con.prepareStatement(sql);
+			pt.setString(1, m.getMem_id());
+			pt.setString(2, m.getMem_name());
+			pt.setString(3, m.getMem_tel());
+			pt.setString(4, m.getMem_email());
+			pt.setString(5, m.getMem_domain());
+			rs = pt.executeQuery();
+			
+			if(rs.next()) {
+				pwd = rs.getString(1);
+			}			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pt);
+			close(con);
+		}
+		return pwd;
+	}
+
+	//메일로 임시비번 발송
+	public int sendEmail(MemberVO m, String pwd) {
+		int result=0;
+		String imsiPw = "";
+		for (int i = 0; i < 12; i++) {
+			imsiPw += (char) ((Math.random() * 26) + 97);
+		}
+		int r = changePwd(m.getMem_id(),pwd,imsiPw);
+		if(r==1) {
+			
+			String subject = "[두꺼비집] 임시비밀번호 발송메일입니다.";
+			String msg = "";
+			
+	        msg += m.getMem_name() + "님의 임시 비밀번호입니다.\n 비밀번호를 변경하여 사용하세요.";
+	        msg += "\n임시 비밀번호 : "+imsiPw;
+	        
+	        String host = "smtp.naver.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
+	        String user = "dandell92@naver.com"; // 패스워드
+	        String password = "비번입력후사용평소에는지워놓음"; 
+	        String email = m.getMem_email()+"@"+m.getMem_domain();
+
+	        // SMTP 서버 정보를 설정한다.
+	        Properties props = new Properties();
+	        props.put("mail.smtp.host", host);
+	        props.put("mail.smtp.port", 587);
+	        props.put("mail.smtp.auth", "true");
+	        
+	        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
+	            protected PasswordAuthentication getPasswordAuthentication() {
+	                return new PasswordAuthentication(user, password);
+	            }
+	        });
+
+	        try {
+	            MimeMessage message = new MimeMessage(session);
+	            message.setFrom(new InternetAddress(user));
+	            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+
+	            // 메일 제목
+	            message.setSubject(subject);
+
+	            // 메일 내용
+	            message.setText(msg);
+
+	            // send the message
+	            Transport.send(message);
+	            result=1;
+			} catch (Exception e) {
+				System.out.println("메일발송 실패 : " + e);
+			} finally {
+				close(pt);
+				close(con);
+			}
+		}else {result=0;}
+		return result;
+	}
+
 	
 	
 	

@@ -56,7 +56,7 @@
 					<input type="text"  name="mem_email"  id="mem_email" placeholder="이메일주소를 입력해주세요" oninput="email_check();"/>
 					<span>@</span>
 					<input type="text"  name="mem_domain"  id="mem_domain" placeholder="도메인주소를 입력해주세요" oninput="email_check();"/>
-					<select name="domain_list" id="domain_list" onchange="changeSelect(this.value);">
+					<select name="domain_list" id="domain_list" onchange="changeSelect(this.value);" onclick="email_check();">
 						<option selected>직접입력</option>
 						<option value="naver.com">naver.com</option>
 						<option value="daum.net">daum.net</option>
