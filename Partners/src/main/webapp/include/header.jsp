@@ -34,7 +34,7 @@
 
 }
 #loading-image {
-	width:250px;
+	width:200px;
  	position: absolute;
 	top: 40%;
 	left: 50%;
@@ -44,21 +44,20 @@
 </head>
 <script>
 	$(window).ready(function() {
-		$('#loading').hide(1500);
+		$('#loading').hide(1000);
 	});
 </script>
-<% if(session.getAttribute("id")==null){
+<% 
+if(session.getAttribute("id")==null){
 	out.println("<script>");
 	out.println("alert('시간이 만료되어 로그아웃되었습니다!')");
 	out.println("location='/Partners/index.do'");
 	out.println("</script>");
  }
 %>
-
 <body>
 <!-- 로딩 아이콘 -->
 <div align="center" id="loading"><img id="loading-image" src="/Partners/images/dozip_logo.png"></div>
-
 <!-- 좌측 사이드바 영역 -->
 <div id="wrap">
 	<div id="side_wrap">
@@ -104,7 +103,7 @@
 						<li><a href="/Partners/data_manage.do">내 정보관리</a></li>
 						<li><a href="/Partners/mypage/pw_change.jsp">비밀번호 변경</a></li>
 					</ul></li>
-				
+				<%-- --%>
 			</ul>
 		</div>
 	<div id="cont_wrap">
