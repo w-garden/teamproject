@@ -26,10 +26,10 @@ public class PortfolioController implements Action {
 		String keyword = request.getParameter("keyword"); //keyword 값을 가져와 검색
 		System.out.println(keyword);
 		
-		List<PortfolioVO> cp = new ArrayList<>();
-		cp = pdao.searchComp(keyword);
+		List<PortfolioDTO> cplist = new ArrayList<>();
+		cplist = pdao.searchComp(keyword);
 		
-		request.setAttribute("cp", cp);
+		request.setAttribute("cplist", cplist);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
