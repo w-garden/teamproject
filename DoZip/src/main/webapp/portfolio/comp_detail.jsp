@@ -68,6 +68,25 @@
 				// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 				var map = new kakao.maps.Map(mapContainer, mapOption); 
 				
+				// 주소-좌표 변환 객체 생성
+				var geocoder = new kakao.maps.services.Geocoder();
+				
+				// 주소로 좌표를 검색
+				geocoder.addressSearch('${pc.pAddress}', function(result,status)){
+					if(status == kakao.maps.services.Status.OK){
+						var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+						
+						//결과 값으로 받은 위치를 마커로 표시
+						var marker = new kakao.maps.Marker({
+							map : map,
+							position : coords
+						});
+						
+						//인포 윈도우로 장소에 대한 설명 표시
+						
+					}
+				}
+				
 				// 마커가 표시될 위치입니다 
 				var markerPosition  = new kakao.maps.LatLng(37.28815527469634, 127.06061484018433); 
 
@@ -114,31 +133,8 @@
 				
 			</pre>
 		</div>
-		<hr>
-		<%-- 시공사례 모아보기 --%>
-		<div class = "com_port">
-			<p id = "port_title">시공사례 모아보기</p>
-		</div>
-		<div class="construction_list">
- 		<%! int i=0; int j = 0; %>
-		<% for(j=1; j<2; j++) { %>
-			<div class="cards-list">
-			<%for(i=1; i<5; i++){ %>
+		
 			
-				<div class="card 1">
-				  <div class="card_image"> 
-				  	<img onclick = "location = './port_detail.jsp';" src= "/DoZip/images/portfolio/port001.png" /> 
-				  	<%-- onclick으로 클릭시 상세로 연결되게 --%>
-				  </div>
-				  <div class="card_title">
-					   	<li class = "type">#감성펍 #20평 1000만원대 </li>
-				  </div> 
-				</div>
-			<%} %>
-			<%out.println("<br><br>"); %>
-			</div>
-		<% } %>
- 		</div>	
 	</div>
 	
 	<%-- 하단 공통부분--%>

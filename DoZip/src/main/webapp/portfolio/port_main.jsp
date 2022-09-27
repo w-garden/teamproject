@@ -111,64 +111,42 @@
 			</select>
 		</div>	
 		<!-- 드롭다운 끝 -->
-
+		
+		<%-- 업체 검색시 해당 업체 출력 --%>
+		<script type="text/javascript">
+		jQuery(function($) {
+		    $('.search_Btn').on('click',function(event) {
+		        var val = $('#keyword').val();
+		        if (val == "") {
+		            $('.card').show();
+		        } else {
+		        	if(".bname:contains('"+val+"')") {
+			            $('.card').hide();
+			            $(".card:contains('"+val+"')").show();
+		        	}else{
+		        		$('.card').hide();
+		        	}
+		        }
+		    });
+		});
+		</script>
 		<!-- 검색창 -->
-		<form>
 		<div class = "search_wrap">
 			<div class = "search">
-				<input type = "text" name = "keyword" id="keyword" onkeyup = "filter()" placeholder="업체명을 입력하세요">
-				<button type = "submit" class = "search_Btn">
+				<input type = "text" name = "keyword" id="keyword" placeholder="업체명을 입력하세요">
+				<button  class = "search_Btn">
 					<i class = "fas fa-search"></i>
 				</button>
 			</div>
 		</div>
-		</form>
-		<%-- 검색 기능 --%>
-		<%
-			String keyword = "";
-			if(request.getParameter("keyword") != null){
-				keyword = request.getParameter("keyword");
-			}
-			PortfolioDAOImpl pdao = new PortfolioDAOImpl();
-			List<PortfolioVO>cplist = pdao.searchComp(keyword);
-			request.setAttribute("cplist", cplist);
-		%>
-		
 	</div>		
 			
-		<!-- 검색할 시 반환 -->
- 			<c:if test = "${!empty cplist}">
-				<div class="top_search">
-					<p class="top_tag">검색결과</p> 
- 				</div>
-				<div class="cards-list">
-				
-				<c:forEach var="i" begin="0" end="${fn:length(cplist)-1}" step="1">
-					<div class="card">
-					  <div class="card_image"> 
-					  	<img class = "ho" onclick = "location.href='port_detail.do?pf_no=${cplist[i].pf_no}';" src= '${cplist[i].pf_photo1}'/> 
-					  	<%-- onclick으로 클릭시 글번호를 넣어 상세로 연결되게 --%>
-					  </div>
-					  <div class="card_title">
-						   	<li class = "corp">${cplist[i].pf_title}</li>
-						   	<li class = "card_tag">${cplist[i].pf_type} ${cplist[i].pf_area} ${cplist[i].pf_cost}</li>
-					  </div>
-					</div>
-				</c:forEach>
-			</div>
-			</c:if>
-			
-			<c:if test = "${cplist.isEmpty()}">
-				<div id = "none_search">검색 결과가 없습니다</div>
-			</c:if>	
-			<br>
-			<br>
+		
 		<!-- 카드 리스트 -->
 		<div class="construction_list">
 			<div class="top_utile">
 				<p class="top_title">포트폴리오</p> 
  			</div>
- 			
  			
  			<!-- 반복문 시작 -->
 			<div class="cards-list">
@@ -180,7 +158,8 @@
 					  	<%-- onclick으로 클릭시 글번호를 넣어 상세로 연결되게 --%>
 					  </div>
 					  <div class="card_title">
-						   	<li class = "corp">${plist[i].pf_title}</li>
+						  	<li class = "bname" style="display: none">${plist[i].businessName}</li>
+						   	<li class = "corp">${plist[i].pf_title}</li>						   	
 						   	<li class = "card_tag">${plist[i].pf_type} ${plist[i].pf_area} ${plist[i].pf_cost}</li>
 					  </div>
 					</div>
