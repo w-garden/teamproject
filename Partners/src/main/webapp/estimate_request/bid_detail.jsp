@@ -1,10 +1,26 @@
 <%@ page contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
 
+<script>
+$(function() {
+	$('#bid_participate').click(function() {
+		$('#bid_part_detail').toggle(400);
+		$('.bid_complete_button').toggle(400);
+	});
+});
+$(function() {
+	$('#hide_button').click(function() {
+		$('#search_conditon').hide(400);
+	});
+});
+
+
+</script>
+
 	<div class="request_detail_page">
 		<div class="my_bid_detail_icon">
 			<a href="./my_bid.jsp;"
-				class="to_my_bid" target="_blank"><img src="../images/bid_list.png" width="65px" height="65px"></a>
+				class="to_my_bid" target="_blank"><img src="../images/bid_list.png" width="55px" height="55px"></a>
 		</div>		
 		<div class="request_list_detail_container">
 			<div class="go_bid_detail">
@@ -131,10 +147,26 @@
 									외부시트지 디자인작업이 필요합니다.
 								</dd>
 							</dl>
+							<form method="post" action="bid_detail_ok.do">
+								<div>
+									<div class="bid_part_div">
+										<button type="button" id="bid_participate">입찰 신청하기</button>
+									</div>
+									<div id="bid_part_detail">
+											<div class="bid_detail01">입찰가</div>
+											<div class="bid_detail_text01"><input type="text" id="bid_price" name="bid_price" size="8"/><br/></div>
+											<div class="bid_detail02" >예상 공사기간</div>
+											<div class="bid_detail_text02"><input type="text" id="bid_period" name="bid_period"  size="8"/><br/></div>
+											<div class="bid_detail03">업체 공사 스타일 설명</div>
+											<textarea id="bid_detail" name="bid_detail" rows="5" ></textarea>
+									</div>
+									<div class="bid_complete_button">
+										<input type="submit" id="bid_complete" value="신청완료">
+									</div>
+								</div>
+							</form>	
 						</div>
-						<div class="bid_but_tab">
-								<a href="./bid_participate.jsp;" class="bid_but">입찰 참가하기</a>
-						</div>
+
 					</div>
 				</div>
 			</div>

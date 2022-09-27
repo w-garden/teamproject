@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.partners.dao.PartnersDAO;
+import com.partners.dao.Partners_subDAO;
 import com.partners.dto.PartnersDTO;
+import com.partners.dto.Partners_subDTO;
 
 public class PartnersdataEditController implements Action {
 
@@ -19,7 +21,8 @@ public class PartnersdataEditController implements Action {
 		//지정
 		PrintWriter out=response.getWriter();//출력 스트림 out을 생성
 		HttpSession session=request.getSession();//서버에 작동되는 세션 객체 생성
-		PartnersDAO pdao=new PartnersDAO();
+		
+		
 		
 		String business_num = (String)session.getAttribute("business_num");
 		
@@ -29,9 +32,16 @@ public class PartnersdataEditController implements Action {
            out.println("location='data_manage.do';");
            out.println("</script>");
 		}else { */
+			PartnersDAO pdao=new PartnersDAO();
 			PartnersDTO p=pdao.selectPartner2(business_num);//오라클 DB로 부터 business_num에 해당하는 회원정보를 가져온다.
-			
+			//Partners_subDTO ps=psdao.updatePartnersSub(psdto);
 			request.setAttribute("p",p);
+			
+			Partners_subDAO psdao=new Partners_subDAO();
+			Partners_subDTO ps=psdao.selectPartnerSub(business_num);
+			
+			request.setAttribute("ps",ps);
+			
 			ActionForward forward=new ActionForward();
 			forward.setRedirect(false); //기존 형태를 유지하면서 넘어가는것. true는 새로운 형태일때(대부분 false)
 			forward.setPath("./mypage/data_manage.jsp");//뷰페이지 경로 설정
