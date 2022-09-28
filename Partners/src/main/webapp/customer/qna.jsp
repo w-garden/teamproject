@@ -98,6 +98,13 @@ div#reply_cont{
 			</div>
 		</div>
 		<hr>
+			<h1>   테스트 ${answer }</h1>
+		<div>
+			<input type="radio" name="answer" value="whole" <c:if test="${answer =='whole'}"> ${'checked' }</c:if>> 전체 <input
+				type="radio" name="answer" value="yes" <c:if test="${answer =='yes' }"> ${'checked' }</c:if>> 답변 <input
+				type="radio" name="answer" value="no" <c:if test="${answer =='no' }"> ${'checked' }</c:if>> 미답변
+		</div>
+		<hr>
 		<div>
 			<select id="search_condition" name="find_field">
 				<option value="default" selected>검색옵션</option>
@@ -114,40 +121,15 @@ div#reply_cont{
 			<input type="button" value="검색 접기" id="hide_button" onclick="display()">
 		</div>
 	</div>
-	
-	
-	<script>
-		function search_check(){
-			if($('#search_condition').val()=='default' && $('#search_text').val()!=""){
-				alert('검색유형을 선택하세요 입력하세요');
-				$('#search_text').val("");
-				return false;
-			}
-			if($('#search_condition').val()!='default' && $('#search_text').val()==""){
-				alert('검색어를 입력하세요');
-				$('#search_text').focus();
-				return false;
-			}
-			
-		}
-	
-
-	
-	</script>
 </div>
 <table id="qna_table">
 	<tr>	
 		<th>글번호</th>
-		<th><input id="write_date"type="button" value="등록일시" onclick="alert('집에가자')"></th>
-		<%--qna_date --%>
+		<th><input id="write_date"type="button" value="등록일시" onclick="alert('정렬기능 구현 대기중')"></th>
 		<th>고객명</th>
-		<%--  mem_id 통해서 고객명 검색--%>
 		<th>문의내용</th>
-		<%--글제목 : qna_title,  글내용 : qna_cont --%>
 		<th>문의유형</th>
-		<%-- qna_type--%>
 		<th>답변여부</th>
-		<%--reply_state --%>
 	</tr>
 	<c:if test="${empty qlist }">
 		<tr>
@@ -164,12 +146,11 @@ div#reply_cont{
 				<td>글제목 : ${q.qna_title } <br>문의내용 : ${q.qna_cont }
 				</td>
 				<td>${q.qna_type }
-				
 				<input type="hidden" id="board_ref" value="${q.qna_ref }">
 			    <input type="hidden" id="board_step" value="${q.qna_step }">
 			    <input type="hidden" id="board_level" value="${q.qna_level }">
 			    </td>
-					<td><input type="button" value="답변하기" id = "reply_${q.qna_no }_btn" onclick="qna_reply_toggle(${q.qna_no })" ></td>
+				<td><input type="button" value="답변하기" id = "reply_${q.qna_no }_btn" onclick="qna_reply_toggle(${q.qna_no })" ></td>
 			</tr>
 			</c:if>
 			<c:if test="${q.qna_step==1 }">
@@ -186,84 +167,14 @@ div#reply_cont{
 			</td>
 			</tr>
 			</c:if>
-			
-				
-				
-				
-				
-				
-				
-						
-			
-			
 			<tr>
 			 <td colspan="6" style="display:none;" id="reply_${q.qna_no }"> 
-			
-				
-			<textarea rows="5%" cols="100%" id="reply_${q.qna_no }_textarea" style="width: 86%; resize: none;"></textarea>
-		
-			
-			<input type="button" value="등록" onclick="qna_reply(${q.qna_no }, '${q.mem_id }', '${q.qna_title }',${q.qna_step }, ${q.qna_level },'${q.qna_type }')">
-		
-				</td>
+				<textarea rows="5%" cols="100%" id="reply_${q.qna_no }_textarea" style="width: 86%; resize: none;"></textarea>
+				<input type="button" value="등록" onclick="qna_reply(${q.qna_no }, '${q.mem_id }', '${q.qna_title }',${q.qna_step }, ${q.qna_level },'${q.qna_type }')">
+			</td>
 			</tr>
 		</c:forEach>
 	</c:if>
 </table>
-
 </form>
-
-
-
-<script>
-	function qna_reply_toggle($number) {
-		var test = "#reply_"+$number;
-		$(test).toggle();	
-	}
-	function qna_reply($number, $id, $title, $step, $level, $type){ //답변 입력 함수
-		$qna_no=$number;  //글번호
-		$mem_id=$id; //글작성한 회원아이디
-		$qna_title=$title; //원본글제목
-		$qna_step =$step; //몇번째 답글인지
-		$qna_level=$level; //정렬순서
-		$qna_type=$type; //질문 유형
-			
-		$textarea_id="#reply_"+$number+"_textarea";  
-		$replytext=($($textarea_id).val()); //댓글내용
-		$.ajax({
-			type:"post", 
-			url:'customer_qna_ok.do', 
-			data:{
-				qna_ref: $qna_no, //  그룹번호 = 원본글번호
-				qna_cont: $replytext, // 답글 내용
-				mem_id : $mem_id, //원본글 작성 회원 아이디
-				qna_step : $qna_step, //몇번째 답글인지
-				qna_level : $qna_level, //정렬순서
-				qna_type : $qna_type //질문 유형
-			},
-			datatype: "text",
-			
-			success : function(result){			
-				alert('댓글등록완료!');
-				location.reload();
-			}
-		});
-	}
-	function reply_del($del_qna_no){
-		$.ajax({
-			type:"get",
-			url:'customer_qna_del_ok.do?qna_no='+$del_qna_no,
-			datatype: "text",
-			success : function(result){
-			alert('댓글삭제완료!');
-			location.reload();
-		}
-		});
-	}
-	
-	
-	
-</script>	
 <jsp:include page="../include/footer.jsp" />
-
-

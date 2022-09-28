@@ -42,6 +42,21 @@ select qna_no, mem_id, qnaT.business_num, qna_type,qna_title,qna_cont,qna_date,e
 
 select qna_no, mem_id, qnaT.business_num, qna_type,qna_title,qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,qna_level,reply_state,reply_date, partnersT.businessName  from qnaT,partnersT where qnaT.business_num=partnersT.business_num(+) and mem_id='hong';
 
+
+
+
+select mem_name, qnaT.* from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num='321-15-01521' and qna_state=1 and reply_state='답변완료' and qna_type like 3 order by qna_ref desc, qna_level asc;
+
+
+
+
+
+
+
+
+
+
+
 ---쿼리문 테스트
 select * from (
 select rowNum r, qna_no, mem_id, qnaT.business_num, qna_type,qna_title,

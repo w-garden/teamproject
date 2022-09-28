@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.partners.dao.QnaDAO;
 import com.partners.dto.QnaDTO;
 
-public class CustomerQnaOKController implements Action {
+public class CustomerReplyOKController implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {

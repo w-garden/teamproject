@@ -23,16 +23,6 @@
       }
     </script>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<form action="/Partners/loadportfolio_info_ok.do" method="post">
 		<input type="text" name="cost" value="${cost }">
 		<input type="submit" value="불러오기">

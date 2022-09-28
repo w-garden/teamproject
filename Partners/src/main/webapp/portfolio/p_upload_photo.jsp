@@ -6,7 +6,6 @@
 <p>포트폴리오에 등록할 사진을 첨부해주세요. 최대 5장까지 가능합니다</p>
 </div>
 <form action="upload_photo_ok.do" method="post"	enctype="multipart/form-data">
-	<input name="test">
 	<div id=uploda_photo_cont>
 		<div>
 			<div class="photo_inputfile">

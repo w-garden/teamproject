@@ -29,8 +29,8 @@ window.onload = function() {
 	initTimer();
 }
 function fncClearTime() {
-		
-	iSecond = 10000; 		//로그인 시간 설정
+
+	iSecond = 600; 		//로그인 시간 설정
 }
 
 Lpad = function(str, len) {
@@ -264,6 +264,122 @@ function loadFile5(input) {
 }
 
 
+/*******************************/
+/* 포트폴리오 등록시 유효성검증*/
+/*******************************/
+function portfoilio_check() {
+
+	if ($.trim($('#pf_title').val()) == '') {
+		alert('제목은 필수사항입니다');
+		$('#pf_title').focus();
+		return false;
+	}
+	if ($.trim($('#pf_type').val()) == '') {
+		alert('공사유형은 필수사항입니다');
+		$('#pf_type').focus();
+		return false;
+	}
+	if ($.trim($('#pf_subtype').val()) == '') {
+		alert('공사세부 유형은 필수사항입니다');
+		$('#pf_subtype').focus();
+		return false;
+	}
+	if ($(':radio[name="pf_range"]:checked').length < 1) {
+		alert('시공범위를 선택해주세요');
+		return false;
+	}
+	if ($.trim($('#sample6_postcode').val()) == '') {
+		alert('주소는 필수사항입니다');
+		$('#sample6_postcode').focus();
+		return false;
+	}
+	if ($.trim($('#pf_area').val()) == '') {
+		alert('평수를 입력하세요');
+		$('#pf_area').focus();
+		return false;
+	}
+	if ($.trim($('#pf_cost').val()) == '') {
+		alert('공사비용을 입력하세요');
+		$('#pf_cost').focus();
+		return false;
+	}
+	if ($(':radio[name="pf_concept"]:checked').length < 1) {
+		alert('시공 컨셉을 선택하세요');
+		return false;
+	}
+	if ($.trim($('#pf_introduction').val()) == '') {
+		alert('소개글을 입력하세요');
+		$('#pf_introduction').focus();
+		return false;
+	}
+	if ($.trim($('#pf_closing').val()) == '') {
+		alert('맺음말을 입력하세요');
+		$('#pf_closing').focus();
+		return false;
+	}
+}
 
 
+/***********************/
+/*qna 페이지 유효성검증*/
+/***********************/
+function search_check() {
+	if ($('#search_condition').val() == 'default' && $('#search_text').val() != "") {
+		alert('검색유형을 선택하세요 입력하세요');
+		$('#search_text').val("");
+		return false;
+	}
+	if ($('#search_condition').val() != 'default' && $('#search_text').val() == "") {
+		alert('검색어를 입력하세요');
+		$('#search_text').focus();
+		return false;
+	}
 
+}
+/**********************/
+/*문의글 답변 기능 JS */
+/**********************/
+function qna_reply_toggle($number) {
+	var test = "#reply_" + $number;
+	$(test).toggle();
+}
+function qna_reply($number, $id, $title, $step, $level, $type) { //답변 입력 함수
+	$qna_no = $number;  //글번호
+	$mem_id = $id; //글작성한 회원아이디
+	$qna_title = $title; //원본글제목
+	$qna_step = $step; //몇번째 답글인지
+	$qna_level = $level; //정렬순서
+	$qna_type = $type; //질문 유형
+
+	$textarea_id = "#reply_" + $number + "_textarea";
+	$replytext = ($($textarea_id).val()); //댓글내용
+	$.ajax({
+		type: "post",
+		url: 'customer_reply_ok.do',
+		data: {
+			qna_ref: $qna_no, //  그룹번호 = 원본글번호
+			qna_cont: $replytext, // 답글 내용
+			mem_id: $mem_id, //원본글 작성 회원 아이디
+			qna_step: $qna_step, //몇번째 답글인지
+			qna_level: $qna_level, //정렬순서
+			qna_type: $qna_type //질문 유형
+		},
+		datatype: "text",
+
+		success: function(result) {
+			alert('댓글등록완료!');
+			location.reload();
+		}
+	});
+}
+function reply_del($del_qna_no) {
+	$.ajax({
+		type: "get",
+		url: 'customer_qna_del_ok.do?qna_no=' + $del_qna_no,
+		datatype: "text",
+		success: function(result) {
+			alert('댓글삭제완료!');
+			location.reload();
+		}
+	});
+}

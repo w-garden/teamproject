@@ -1,6 +1,5 @@
 <%@ page  contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../include/header.jsp" />
-	
     <div id="introduce_cont">
       <h2>시공사례 수정페이지</h2>
       <p>이미 등록한 시공사례들의 내용들을 수정 할 수 있습니다<br>
@@ -112,12 +111,7 @@
 
 
 <jsp:include page="../include/footer.jsp" />
-
-
-
-    <%--공사유형선택 --%>
-
-
+    <%--공사유형선택 
 <script>
 $(document).ready(function() {
 
@@ -139,3 +133,4 @@ $('#sel_type').change(function() {
 });
 });
 </script>
+--%>

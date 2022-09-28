@@ -20,29 +20,32 @@ public class CustomerQnaController implements Action {
 
 		String find_field = null;
 		String find_text = null;
+		String answer = null;
+		QnaDTO findQ = new QnaDTO();
 
-		QnaDTO findq = new QnaDTO();
-
 		
-		
-		
+		if(request.getParameter("answer")!=null) {
+			answer=request.getParameter("answer");
+		}
 		
 		if(request.getParameter("find_text")!= null && request.getParameter("find_field") != null) {
 			find_text = request.getParameter("find_text").trim();
 			find_field = request.getParameter("find_field");
 			if (find_field.equals("customer_name")) {
-				findq.setFind_text(find_text);
+				findQ.setFind_text(find_text);
 			} else if (find_field.equals("qna_type")) {
-				findq.setFind_text("%" + find_text + "%");
+				findQ.setFind_text("%" + find_text + "%");
 			}
 		}
-		findq.setFind_field(find_field);
-
+		findQ.setFind_field(find_field);
+		findQ.setAnswer(answer);
 
 		// 사업자 번호 기준으로 qnaT 에서 정보 담아서 list에 저장하기
 		QnaDAO qdao = new QnaDAO();
-		List<QnaDTO> qlist = qdao.getQnaList(business_num, findq); // 검색 전후 목록
+		List<QnaDTO> qlist = qdao.getQnaList(business_num, findQ); // 검색 전후 목록
 
+		
+		request.setAttribute("answer", answer);
 		request.setAttribute("find_text", find_text);
 		request.setAttribute("find_field", find_field);
 		request.setAttribute("qlist", qlist);

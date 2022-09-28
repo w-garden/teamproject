@@ -29,7 +29,7 @@ public class QnaDTO { //db 레코드는 14개
 		//검색하기
 		private String find_field; //검색 필드
 		private String find_text; //검색어
-		private int answer; //답변여부
+		private String answer; //답변여부
 
 		
 		

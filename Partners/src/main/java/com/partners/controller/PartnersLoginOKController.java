@@ -45,7 +45,7 @@ public class PartnersLoginOKController implements Action {
 					session.setAttribute("business_num", dto.getBusiness_num());
 					
 					
-					session.setMaxInactiveInterval(10000);
+					session.setMaxInactiveInterval(600);   //세션을 통해 로그인 시간 설정
 					
 					
 					ActionForward forward = new ActionForward();

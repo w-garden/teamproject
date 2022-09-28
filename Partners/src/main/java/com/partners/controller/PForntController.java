@@ -39,7 +39,6 @@ public class PForntController extends HttpServlet {
 		fis.close();
 
 		String value = prop.getProperty(command); // 키 이름 매핑 주소에 해당하는 값을 구함
-
 		if (value.subSequence(0, 7).equals("execute")) {
 			try {
 				StringTokenizer st = new StringTokenizer(value, "@");

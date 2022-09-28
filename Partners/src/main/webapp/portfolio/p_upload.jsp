@@ -13,6 +13,9 @@
 		<span><b>두집</b>에서 계약한 인테리어를 조회하면 쉽게 주요정보를 입력 할 수 있습니다.</span> 
 		<input type="button" value="불러오기" onclick="loadPortfolioInfo()">
 	</div>
+	
+	<%--계약 불러오기 개발중 --%>
+	
 	<script>
 		function loadPortfolioInfo(){
 			$business_num='${business_num}'
@@ -28,11 +31,9 @@
 				}
 			});
 		}
-	
-	
 	</script>
 </div>
-<form action="upload_photo.do" id="portfolio_form" method="post">
+<form action="upload_photo.do" id="portfolio_form" method="post" onsubmit="return portfoilio_check()">
 	<%-- 제목, 공사 유형, 시공범위, 주소 ,평수, 공사비용, 공사기간--%>
 	<fieldset id="first_area">
 		<legend>기본정보</legend>
@@ -41,7 +42,7 @@
 				<label>제목</label>
 			</div>
 			<div class="a">
-				<input type="text" name="pf_title" size="30" id="parentValue"
+				<input type="text" name="pf_title" size="30" id="pf_title"
 					placeholder="이보다 더 완벽할 수는 없다"> <span>0/50</span>
 				<!-- 제목 -->
 			</div>
@@ -51,17 +52,17 @@
 				<label>공사 유형</label>
 			</div>
 			<!-- 공사유형 -->
-			<select id="sel_type" name="pf_type">
+			<select id="sel_type" name="pf_type" id="pf_type">
 				<option value="none" selected>선택</option>
 				<option value="주거공간">주거공간</option>
 				<option value="상업공간">상업공간</option>
-			</select> <select id="sel_house" name="pf_subtype" disabled>
+			</select> <select id="sel_house" name="pf_subtype" id="pf_subtype" disabled>
 				<option value="none" selected>선택</option>
 				<option value="아파트">아파트</option>
 				<option value="빌라">빌라</option>
 				<option value="주택">주택</option>
 				<option value="오피스텔">오피스텔&nbsp;</option>
-			</select> <select id="sel_business" name="pf_subtype" style="display: none;">
+			</select> <select id="sel_business" name="pf_subtype" id="pf_subtype" style="display: none;">
 				<option value="none" selected>선택</option>
 				<option value="사무실">사무실</option>
 				<option value="상가/매장">상가/매장</option>
@@ -98,19 +99,19 @@
 			<div id="form_sub_title">
 				<label>평수</label>
 			</div>
-			<input name="pf_area" size="10" id="parentValue1"> 평
+			<input name="pf_area" id="pf_area" size="10" id="parentValue1"> 평
 		</div>
 		<div class="inline_div">
 			<div id="form_sub_title">
 				<label>공사비용</label>
 			</div>
-			<input type="text" name="pf_cost" size="10"> 만원
+			<input type="text" name="pf_cost" id="pf_cost" size="10"> 만원
 		</div>
 		<div class="inline_div">
 			<div id="form_sub_title">
 				<label>공사기간</label>
 			</div>
-			<select name="pf_period">
+			<select name="pf_period" id="pf_period">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -135,11 +136,11 @@
 	</fieldset>
 	<fieldset>
 		<legend>소개글</legend>
-		<textarea rows=10% cols=100% name="pf_introduction" style="width: 100%; resize: none;">(EX. 따듯함이 느껴지는 원목과 화이트 컬러의 내추럴 스타일, 33평 아파트 인테리어 입니다.)</textarea>
+		<textarea rows=10% cols=100% name="pf_introduction" id="pf_introduction" style="width: 100%; resize: none;">(EX. 따듯함이 느껴지는 원목과 화이트 컬러의 내추럴 스타일, 33평 아파트 인테리어 입니다.)</textarea>
 	</fieldset>
 	<fieldset>
 		<legend>맺음말</legend>
-		<textarea rows="7" cols=100% name="pf_closing" style="width: 100%; resize: none;">지금까지 서울 강남구 논현동 33평 아파트 인테리어 였습니다.</textarea>
+		<textarea rows="7" cols=100% name="pf_closing" id="pf_closing" style="width: 100%; resize: none;">(EX. 지금까지 서울 강남구 논현동 33평 아파트 인테리어 였습니다.)</textarea>
 	</fieldset>
 	<fieldset id="f_button">
 		<input type="submit" value="사진등록"> <input type="reset"

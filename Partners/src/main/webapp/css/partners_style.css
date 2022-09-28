@@ -90,19 +90,6 @@ div#search_conditon_wrap {
 	margin-right:50px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*시공 사례 등록 파일 */
 
 #introduce_cont {
@@ -140,7 +127,7 @@ fieldset>legend{
 }
 /*시공 사례 사진 등록 페이지 */
 #uploda_photo_cont {
-	height: 130vw;
+	display: inline-grid;
 }
 #uploda_photo_cont>div {
 	float: left;

@@ -22,7 +22,6 @@ public class UploadPhotoController implements Action {
 		
 		PortfolioDAO dao = new PortfolioDAO();
 		
-		
 		String business_num = (String)session.getAttribute("business_num"); //세션에 저장된 사업자 번호
 		String pf_title = request.getParameter("pf_title");
 		String pf_type = request.getParameter("pf_type");
@@ -30,7 +29,10 @@ public class UploadPhotoController implements Action {
 		String pf_range = request.getParameter("pf_range");
 		String pf_zipcode = request.getParameter("pf_zipcode");
 		String pf_addr1 = request.getParameter("pf_addr1");
-		String pf_addr2 = request.getParameter("pf_addr2");
+		String pf_addr2="";
+		if(request.getParameter("pf_addr2")!=null) {
+			pf_addr2 = request.getParameter("pf_addr2");	
+		}
 		String pf_addr3 = request.getParameter("pf_addr3");
 		int pf_area = Integer.parseInt(request.getParameter("pf_area"));
 		int pf_cost = Integer.parseInt(request.getParameter("pf_cost"));

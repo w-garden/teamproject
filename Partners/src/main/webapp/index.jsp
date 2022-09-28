@@ -9,7 +9,33 @@
 <script src="/Partners/js/jquery.js"></script>
 <script src="/Partners/js/join.js"></script>
 </head>
+<script>
 
+
+$(window).resize(function (){
+
+  // width값을 가져오기
+
+  var width_size = window.outerWidth;
+
+  
+
+  // 800 이하인지 if문으로 확인
+
+  if (width_size <= 1250) {
+
+	$('#side_wrap').hide();
+  }
+
+  else  {
+
+	$('#side_wrap').show();
+  }
+
+})
+
+
+</script>
 <body>
 	<c:if test="${empty id}">
 	<article id="join_wrap">		

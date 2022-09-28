@@ -58,11 +58,32 @@ public class QnaDAO {
 
 	// 검색전후 고객문의글 불러오기
 	public List<QnaDTO> getQnaList(String business_num, QnaDTO findQ) {
-		
+		System.out.println(findQ.getAnswer());
 		List<QnaDTO> qlist = new ArrayList<QnaDTO>();
 		try {
 			conn = ds.getConnection();
 			sql = "select mem_name, qnaT.* from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1 ";
+			
+			/*
+			 * 
+			 * 답변, 미답변 검색 쿼리문 추가부분
+			 * 
+			*/
+			if(findQ.getAnswer()!=null) {
+				if(findQ.getAnswer().equals("yes")) { //답변완료
+					sql+=" and reply_state='답변완료'";
+				}
+				else if(findQ.getAnswer().equals("no")){ //답변 미완료
+					sql+=" and reply_state='미답변'";
+				}
+			}
+
+			/*
+			 * 
+			 * 검색어 쿼리문 추가 부분
+			 * 
+			*/
+			
 			if (findQ.getFind_field() != null && !findQ.getFind_field().equals("default"))  {
 				if (findQ.getFind_field().equals("customer_name")) {
 					sql += " and mem_name=?";
@@ -137,7 +158,10 @@ public class QnaDAO {
 			pstmt.setInt(8, qdto.getQna_level() + 1);
 			result = pstmt.executeUpdate();
 			
-			
+			sql="update qnat set reply_state='답변완료' where qna_ref=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qdto.getQna_ref());
+			pstmt.executeUpdate();
 			
 			
 			

@@ -81,13 +81,22 @@ span.hide_2 input:active{
     border-radius: 3px;
 }
 /*미디어 쿼리 */
-@media all and (max-width:670px){
+@media all and (max-width:1250px){
+	
+	/*좌측 메뉴 수정 */
+	
+}
+
+
+
+
+@media all and (max-width:905px){
 
 .msg>.hide_1{
 	display: none;
 }
 }
-@media all and (max-width:530px){
+@media all and (max-width:545px){
 #top_bar{
 	display: none;
 }
@@ -98,7 +107,7 @@ span.hide_2 input:active{
 /*********/
 #main_cont {
 	padding: 50px 0px 0px 50px; 
-    min-height: 600px;
+    min-height: 400px;
     /*border: 1px solid black;*/
     margin-left: 10%;
     width: 87%;
