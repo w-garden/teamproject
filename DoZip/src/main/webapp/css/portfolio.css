@@ -17,7 +17,7 @@
 #dd_group1, #dd_group2, #dd_group3, #dd_group4, #dd_group5 {
 	width: 120px;
 	height: 30px;
-	border: 1px solid #C4C4C4;
+	/* border: 1px solid #C4C4C4; */
 	box-sizing: border-box;
 	margin-left : 10px;
 	border-radius: 5px;
