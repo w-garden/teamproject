@@ -86,7 +86,7 @@
 			<select name="d3" id="dd_group3">
 				<option selected>스타일</option>
 				<option value="모던">모던</option>
-				<option value="심플/미니멀">심플/미니멀</option>
+				<option value="미니멀">미니멀</option>
 				<option value="내추럴">내추럴</option>
 				<option value="빈티지">빈티지</option>
 				<option value="럭셔리">럭셔리</option>
@@ -103,18 +103,20 @@
 			</select>
 			<select name="d5" id="dd_group5">
 				<option selected>평수</option>
-				<option value="10평대">10평대</option>
-				<option value="20평대">20평대</option>
-				<option value="30평대">30평대</option>
-				<option value="50평대">50평대</option>
-				<option value="60평대 이상">60평대 이상</option>
+				<option value="10평">10평</option>
+				<option value="20평">20평</option>
+				<option value="30평">30평</option>
+				<option value="50평">50평</option>
+				<option value="60평">60평</option>
+				<option value="70평 이상">70평 이상</option>
+				
 			</select>
 			
 			<button onclick = "clear_btn()" class = "clear_btn">초기화</button>			
 		</div>	
 		<!-- 드롭다운 끝 -->
 		
-		<%-- 초기화 버튼 클릭시 select 버튼 초기화 --%>
+		<%-- 초기화 버튼 클릭시 select 버튼 초기화 + 검색 초기화--%>
 		<script>
 			function clear_btn(){
 				document.getElementById("dd_group1").value = "주거유형";
@@ -122,15 +124,136 @@
 				document.getElementById("dd_group3").value = "스타일";
 				document.getElementById("dd_group4").value = "비용";
 				document.getElementById("dd_group5").value = "평수";
+				$('#dd_group1').show();
+				$('#dd_group2').show();
+				$('.card').show();
 			}
 		</script>
 		
 		<%-- select 옵션 클릭시 해당 업체만 나오게 --%>
 		
+		<%-- 주거유형 & 스타일 --%>
+		<script type = "text/javascript">
+		if($('#dd_group1').change() && $('#dd_group3').change(function()){
+			var val01 = $('#dd_group1 option:selected').val();
+			var val02 = $('#dd_group3 option:selected').val();
+			$('#dd_group2').hide();
+			if(val01 == "주거유형"){
+				$('#dd_group1').show();
+				$('.card').show();
+			}else{
+				if(".card_tag:contains('"+val01+" && "+val02+"')"){
+					$('.card').hide();
+					$('.card:contains('"+val01+" && "+val02+"')").show();
+				}else{
+					$('.card').hide();
+				}
+			}	
+		});
+		</script>
+		
+		<!-- <script type = "text/javascript">
+		if(($('#dd_group1').change()) && ($('#dd_group3').change())){
+			var val01 = $('#dd_group1 option:selected').val();
+			var val02 = $('#dd_group3 option:selected').val();
+			$('#dd_group2').hide();
+			if(val01 == "주거유형"){
+				$('#dd_group1').show();
+				$('.card').show();
+			}else{
+				if(".card_tag:contains('"+val01+" && "+val02+"')"){
+					$('.card').hide();
+					$('.card:contains('"+val01+" && "+val02+"')").show();
+				}else{
+					$('.card').hide();
+				}
+			}	
+		});
+		</script> -->
+		
+		<%-- 상업유형 & 스타일 --%>
+
+		<script type = "text/javascript">
+		$('#dd_group2').change(function(){
+			var val = $('#dd_group2 option:selected').val();
+			$('#dd_group1').hide();
+			if (val == "상업유형"){
+				$('#dd_group1').show();
+				$('.card').show();
+			}else{
+				if(".card_tag:contains('"+val+"')"){
+					$('.card').hide();
+					$(".card:contains('"+ val + "')").show();
+				}else{
+					$('.card').hide();
+				}
+			}
+		});
+		</script>
+		
+		<%-- 스타일 
+		<script type = "text/javascript">
+		$(document).ready(function(){
+			$('#dd_group3').change(functio(){
+				var val = $('#dd_group3 option:selected').val();
+				if (val == "스타일"){
+					$('.card').show();
+				}else{
+					if(".card_tag:contains('"+val+"')"){
+						$('.card').hide();
+						$(".card:contains('"+ val + "')").show();
+					}else{
+						$('.card').hide();
+					}
+				}
+			});
+		});
+		</script> --%>
+		
+		<%-- 비용 --%>
+		<script type = "text/javascript">
+		$(document).ready(function(){
+			$('#dd_group4').change(function(){
+				var val = $('#dd_group4 option:selected').val();
+				if (val == "비용"){
+					$('.card').show();
+				}else if(val == "이상"){
+					$(".card:contains('"+ val + "')").show();
+				}
+				}else{
+					if(".card_tag:contains('"+val+"')"){
+						$('.card').hide();
+						$(".card:contains('"+ val + "')").show();
+					}else{
+						$('.card').hide();
+					}
+				}
+			});
+		});
+		</script>
+		
+		<%-- 평수 --%>
+		<script type = "text/javascript">
+		$(document).ready(function(){
+			$('#dd_group5').change(function(){
+				var val = $('#dd_group5 option:selected').val();
+				if (val == "평수"){
+					$('.card').show();
+				}else{
+					if(".card_tag:contains('"+val+"')"){
+						$('.card').hide();
+						$(".card:contains('"+ val + "')").show();
+					}else{
+						$('.card').hide();
+					}
+				}
+			});
+		});
+		</script>
 		
 		<%-- 업체 검색시 해당 업체 출력 --%>
 		<script type="text/javascript">
-		jQuery(function($) {
+		jQuery(function(event) {
 		    $('.search_Btn').on('click',function(event) {
 		        var val = $('#keyword').val();
 		        if (val == "") {
@@ -176,7 +299,7 @@
 					  <div class="card_title">
 						  	<li class = "bname" style="display: none">${plist[i].businessName}</li>
 						   	<li class = "corp">${plist[i].pf_title}</li>						   	
-						   	<li class = "card_tag">${plist[i].pf_type} ${plist[i].pf_area} ${plist[i].pf_cost}</li>
+						   	<li class = "card_tag">${plist[i].pf_subtype} ${plist[i].pf_concept} ${plist[i].pf_area}평 ${plist[i].pf_cost}만원대</li>
 					  </div>
 					</div>
 				</c:forEach>
