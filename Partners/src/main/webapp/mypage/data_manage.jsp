@@ -18,7 +18,6 @@ function selectAll1(selectAll)  {
 	    checkbox.checked = selectAll.checked;
 	  })
 	}
-
 function selectAll2(selectAll)  {
 	  const checkboxes 
 	       = document.getElementsByName('pRes_space_type');
@@ -27,8 +26,6 @@ function selectAll2(selectAll)  {
 	    checkbox.checked = selectAll.checked;
 	  })
 	}
-
-
 function selectAll3(selectAll)  {
   const checkboxes 
        = document.getElementsByName('pCom_build_type');
@@ -37,7 +34,6 @@ function selectAll3(selectAll)  {
     checkbox.checked = selectAll.checked;
   })
 }
-
 function selectAll4(selectAll)  {
   const checkboxes 
        = document.getElementsByName('pCom_space_type');

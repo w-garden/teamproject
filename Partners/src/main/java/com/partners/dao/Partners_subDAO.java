@@ -130,30 +130,30 @@ public class Partners_subDAO {
 			 * "pCom_person_tel,pBalance,pAccount_bank,pAccount_name,pAccount_num,pAccount_file,pBusiness_lic_file)"
 			 * + "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			 */
-			sql = "insert into partners_subT (business_num , pShortstate,pHomepg ,"
-					+ "pRes_person_name,pRes_person_tel,pCom_person_name,"
-					+ "pCom_person_tel,pBalance,pAccount_bank,pAccount_name,pAccount_num)"
-					+ "values(?,?,?,?,?,?,?,?,?,?,?)";
+			sql = "insert into partners_subT (business_num,pShortstate,pService,pHomepg,pRes_build_type,pRes_space_type,"
+					+ "pCom_build_type,pCom_space_type,pRes_person_name,pRes_person_tel,pCom_person_name,pCom_person_tel,"
+					+ "pBalance,pAccount_bank,pAccount_name,pAccount_num)"
+					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, psdto.getBusiness_num());
 			pstmt.setString(2, psdto.getpShortstate());
 			//pstmt.setString(2, psdto.getpInt_img());
 			//pstmt.setString(3, psdto.getpComp_logo());
-			pstmt.setString(4, psdto.getpService());
-			pstmt.setString(3, psdto.getpHomepg());
-			pstmt.setString(6, psdto.getpRes_build_type());
-			pstmt.setString(7, psdto.getpRes_space_type());
-			pstmt.setString(8, psdto.getpCom_build_type());
-			pstmt.setString(9, psdto.getpCom_space_type());
-			pstmt.setString(4, psdto.getpRes_person_name());
-			pstmt.setString(5, psdto.getpRes_person_tel());
-			pstmt.setString(6, psdto.getpCom_person_name());
-			pstmt.setString(7, psdto.getpCom_person_tel());
-			pstmt.setInt(8, psdto.getpBalance());
-			pstmt.setString(9, psdto.getpAccount_bank());
-			pstmt.setString(10, psdto.getpAccount_name());
-			pstmt.setString(11, psdto.getpAccount_num());
+			pstmt.setString(3, psdto.getpService());
+			pstmt.setString(4, psdto.getpHomepg());
+			pstmt.setString(5, psdto.getpRes_build_type());
+			pstmt.setString(6, psdto.getpRes_space_type());
+			pstmt.setString(7, psdto.getpCom_build_type());
+			pstmt.setString(8, psdto.getpCom_space_type());
+			pstmt.setString(9, psdto.getpRes_person_name());
+			pstmt.setString(10, psdto.getpRes_person_tel());
+			pstmt.setString(11, psdto.getpCom_person_name());
+			pstmt.setString(12, psdto.getpCom_person_tel());
+			pstmt.setInt(13, psdto.getpBalance());
+			pstmt.setString(14, psdto.getpAccount_bank());
+			pstmt.setString(15, psdto.getpAccount_name());
+			pstmt.setString(16, psdto.getpAccount_num());
 			//pstmt.setString(18, psdto.getpAccount_file());
 			//pstmt.setString(19, psdto.getpBusiness_lic_file());
 			

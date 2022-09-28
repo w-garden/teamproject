@@ -249,14 +249,14 @@ public class PartnersDAO {
 		}catch(Exception e) {e.printStackTrace();}
 		finally {
 			try {
-				if(pstmt != null) pstmt.close();
-				if(conn != null) conn.close();
+				close(pstmt);
+				close(conn);
 			}catch(Exception e) {e.printStackTrace();}
 		}
 	}//updatePartners()
 	
 
-	//파트너스 정보관리 페이지 데이터 불러오기(민우)
+	//파트너스 정보관리 페이지 데이터 불러오기(민우) + 비밀번호 변경 페이지 데이터 불러와서 비번 비교
 	public PartnersDTO selectPartner2(String business_num) {
 		PartnersDTO dto = null;
 		try {
@@ -273,6 +273,8 @@ public class PartnersDAO {
 				dto.setpName(rs.getString("pName"));
 				dto.setpTel(rs.getString("pTel"));
 				dto.setpAddress(rs.getString("pAddress"));
+				
+				dto.setpPw(rs.getString("pPw"));
 
 			}
 		} catch (Exception e) {
@@ -288,7 +290,28 @@ public class PartnersDAO {
 		}
 		return dto;
 	}
+	
+	//파트너스 비밀번호 변경 (민우)
+	public int updatePwdPartners(PartnersDTO pdto) {
+		int result = 0;
 
+		try {
+			conn = ds.getConnection();
+					
+			sql="update PartnersT set pPw=? where business_num=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, pdto.getpPw());
+			pstmt.setString(2, pdto.getBusiness_num());
+			pstmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(conn);
+		}
+		return result;
+	}//changePwdPartners()
 	
 	
 	

@@ -19,13 +19,13 @@ $(function() {
 
 	<div class="request_detail_page">
 		<div class="my_bid_detail_icon">
-			<a href="./my_bid.jsp;"
-				class="to_my_bid" target="_blank"><img src="../images/bid_list.png" width="55px" height="55px"></a>
+			<a href="./my_bid.do"
+				class="to_my_bid" target="_blank"><img src="./images/bid_list.png" width="55px" height="55px"></a>
 		</div>		
 		<div class="request_list_detail_container">
 			<div class="go_bid_detail">
-				<a href="./bid.jsp;" class="list_go">
-					<span class="ico_back"><img src="../images/list-arrow.png"></span>
+				<a href="./bid.do" class="list_go">
+					<span class="ico_back"><img src="./images/list-arrow.png"></span>
 					<span class="list_go_text">목록으로</span>
 				</a>
 			</div>
@@ -48,7 +48,7 @@ $(function() {
 								<div class="dt">
 									<p class="ico1">희망 예산</p>
 								</div>
-								<div class="dd">500만원</div>
+								<div class="dd">5000000</div> <!-- 500만원 -->
 							</li>
 							<li class="detail_info">
 								<div class="dt">
@@ -60,17 +60,17 @@ $(function() {
 								<div class="dt">
 									<p class="ico3">희망 시공시작일</p>
 								</div>
-								<div class="dd">2022.08.12</div>
+								<div class="dd">2022.09.01</div>
 							</li>
 							<li class="detail_info">
 								<div class="dt">
 									<p class="ico4">희망 시공종료일</p>
 								</div>
-								<div class="dd">2022.08.12</div>
+								<div class="dd">2022.09.12</div>
 							</li>							
 							<li class="detail_info_ex">
 								<div class="dt">
-									<p class="ico5">참여 파트너 수</p>
+									<p class="ico5">참여 파트너수</p>
 								</div>
 								<div class="dd">3개 사</div>
 							</li>
@@ -86,7 +86,7 @@ $(function() {
 								<ul class="file-list">
 									<li class="attach_file_list">
 										<a href="javascript:void(0);" class="btn-file">
-										<span class="download_mark"><img src="../images/downloadmark.png" width="20px" height="20px"></span>
+										<span class="download_mark"><img src="./images/downloadmark.png" width="20px" height="20px"></span>
 										 프로젝트 첨부파일
 										</a>
 									</li>
@@ -119,7 +119,7 @@ $(function() {
 							</dl>
 							<dl class="sec-item">
 								<dt class="sec-title">시공 규모(평 수)</dt>
-								<dd class="sec-cont">21.96m2(10평)</dd>
+								<dd class="sec-cont">21.96m<sup>2</sup>(10평)</dd>
 							</dl>
 							<dl class="sec-item">
 								<dt class="sec-title">시공 주소</dt>
@@ -127,7 +127,7 @@ $(function() {
 							</dl>
 							<dl class="sec-item">
 								<dt class="sec-title">희망 예산</dt>
-								<dd class="sec-cont">500만원</dd>
+								<dd class="sec-cont">5000000</dd>
 							</dl>
 							<dl class="sec-item">
 								<dt class="sec-title">희망 시공시작일</dt>

@@ -101,7 +101,7 @@ if(session.getAttribute("id")==null){
 				<li><a href="#">My&nbsp;Page</a>
 					<ul>
 						<li><a href="/Partners/data_manage.do">내 정보관리</a></li>
-						<li><a href="/Partners/mypage/pw_change.jsp">비밀번호 변경</a></li>
+						<li><a href="/Partners/pw_change.do">비밀번호 변경</a></li>
 					</ul></li>
 				<%-- --%>
 			</ul>

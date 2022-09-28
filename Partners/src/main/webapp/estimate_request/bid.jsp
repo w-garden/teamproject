@@ -13,12 +13,12 @@
 						<div class="search_box">
 					    <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
 					    <button class="search-btn" type="submit">
-					    	<img src="../images/search.png" width="20px" height="20px">
+					    	<img src="./images/search.png" width="20px" height="20px">
 					    </button>
 						</div>
 					<div class="my_bid_icon">
-						<a href="./my_bid.jsp;"
-							class="to_my_bid" target="_blank"><img src="../images/bid_list.png" width="55px" height="55px"></a>
+						<a href="./my_bid.do"
+							class="to_my_bid" target="_blank"><img src="./images/bid_list.png" width="55px" height="55px"></a>
 					</div>
 			</div>
 			<div class="request_list_container">
@@ -56,9 +56,9 @@
 							</div>
 								<ul class="request_info">
 									<li class="info">
-										<p class="request_info_tit">예상 계약금액</p>
+										<p class="request_info_tit">희망 예산</p>
 										<p class="request_info_val">
-											<span><b>500</b></span>만원
+											<span><b>5000000</b></span>
 										</p>
 									</li>
 									<li class="info">
@@ -68,15 +68,15 @@
 										</p>
 									</li>
 									<li class="info">
-										<p class="request_info_tit">견적 마감일</p>
+										<p class="request_info_tit">희망 시공시작일</p>
 										<p class="request_info_val">
 											<span><b>2022.09.01</b></span>
 										</p>
 									</li>
 									<li class="info">
-										<p class="request_info_tit">참여 파트너 수</p>
+										<p class="request_info_tit">희망 시공종료일</p>
 										<p class="request_info_val">
-											<span><b>3</b></span>
+											<span><b>2022.09.12</b></span>
 										</p>
 									</li>
 								</ul>
@@ -84,17 +84,17 @@
 						<div class="request_list_item02">
 							<ul class="company_profile">
 								<li class="info2">
-									<p class="key">기업형태</p>
-									<p class="val"><b>(공공)기관</b></p></li>
+									<p class="key">시공규모</p>
+									<p class="val"><b>21.96m<sup>2</sup>(10평)</b></p></li>
 								<li class="info2">
-									<p class="key">지역</p>
-									<p class="val"><b>서울 용산구</b></p></li>
+									<p class="key">시공주소</p>
+									<p class="val"><b>경기 성남시</b></p></li>
 								<li class="info2">
-									<p class="key">업종</p>
-									<p class="val"><b>그 외 기타 협회 및 단체</b></p></li>
+									<p class="key">참여 파트너수</p>
+									<p class="val"><b>3</b></p></li>
 							</ul>
 							<div class="bid_detail">
-								<a href="./bid_detail.jsp;" class="btn-d-view" >자세히 보기</a>
+								<a href="./bid_detail.do" class="btn-d-view" >자세히 보기</a>
 							</div>
 						</div>						
 					</div></br>
