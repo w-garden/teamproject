@@ -260,7 +260,7 @@
    }
    .search-txt:focus{
       border:none;
-      background:#EBFBFF;
+      background:aliceblue;
    }
    
    .search-btn {
@@ -825,4 +825,20 @@
    .detail_info_cons .dd, .detail_info_cons_ex .dd{
       text-align:center;
    }
+   
+   
+   
+   /*pw_change */
+   .pw_change_form{
+   		min-height: 500px;
+   }
+   .pw_change_title{
+   		margin-bottom:10px;
+   }
+   .pw_change01, .pw_change02, .pw_change03{
+  	width: 97%;
+    padding: 1px 0px 1px 10px;
+    border: 2.5px solid gray;
+   }
+   
    

@@ -5,6 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.partners.dao.BidDAO;
+import com.partners.dto.EstimateDTO;
+
 public class BidBoardListController implements Action {
 
 	@Override
@@ -22,34 +25,34 @@ public class BidBoardListController implements Action {
 		if(request.getParameter("find_name") != null) {//검색어가 있는 경우
 			find_name=request.getParameter("find_name").trim();//trim()메서드로 양쪽공백을 제거해서 저장
 		}
-		BoardVO findB=new BoardVO();
-		findB.setFind_field(find_field); 
-		findB.setFind_name("%"+find_name+"%");//%는 쿼리문 와일드카드
+		EstimateDTO findB=new EstimateDTO();
+		//findB.setFind_field(find_field); 
+		//findB.setFind_name("%"+find_name+"%");//%는 쿼리문 와일드카드
 		//문자로서 검색해서 하나 이상의 임의의 모르는 문자와 매핑 대응한다.
 		
 		
-		BoardDAOImpl bdao=new BoardDAOImpl();
+		//BidDAO bdao=new BidDAO();
 		
-		int listcount=bdao.getListCount(findB);//검색 전후 레코드 개수
-		List<BoardVO> blist=bdao.getBoardList(page, limit, findB);//검색 전후 목록
+		//int listcount=bdao.getListCount(findB);//검색 전후 레코드 개수
+		//List<EstimateDTO> blist=bdao.getBoardList(page, limit, findB);//검색 전후 목록
 		
-		int maxpage=(int)((double)listcount/limit+0.95);//총페이지 수
+		//int maxpage=(int)((double)listcount/limit+0.95);//총페이지 수
 		int startpage=(((int)((double)page/10+0.9))-1)*10+1;//시작페이지
-		int endpage=maxpage;//마지막 페이지
+		//int endpage=maxpage;//마지막 페이지
 		
-		if(endpage>startpage+10-1) endpage=startpage+10-1;
+		//if(endpage>startpage+10-1) endpage=startpage+10-1;
 		
-		request.setAttribute("blist", blist); //blist속성키이름에 목록을 저장
-		request.setAttribute("page", page);//쪽번호 저장
-		request.setAttribute("startpage",startpage);
-		request.setAttribute("endpage", endpage);
-		request.setAttribute("maxpage", maxpage);
-		request.setAttribute("listcount", listcount);//레코드 개수
-		request.setAttribute("find_field", find_field);//board_title,board_cont 검색필드 저장
-		request.setAttribute("find_name", find_name);//검색어	
+//		request.setAttribute("blist", blist); //blist속성키이름에 목록을 저장
+//		request.setAttribute("page", page);//쪽번호 저장
+//		request.setAttribute("startpage",startpage);
+//		request.setAttribute("endpage", endpage);
+//		request.setAttribute("maxpage", maxpage);
+//		request.setAttribute("listcount", listcount);//레코드 개수
+//		request.setAttribute("find_field", find_field);//board_title,board_cont 검색필드 저장
+//		request.setAttribute("find_name", find_name);//검색어	
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/estimate_request/bid_detail");
+		forward.setPath("/estimate_request/bid.jsp"); //여기서 만들어놓은 뷰페이지 경로로 넘어간다.
 		return forward;
 	}
 

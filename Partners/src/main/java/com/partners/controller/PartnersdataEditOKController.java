@@ -148,20 +148,16 @@ public class PartnersdataEditOKController implements Action {
 					request.setAttribute("pd", re);
 					
 					out.println("<script>");
-					out.println("alert('insert');");
+					out.println("alert('정보 입력 성공!');");
 					out.println("history.back();");
 					out.println("</script>");
 				}
 			}
 			
-//			if(res==1) {
-//				out.println("<script>");
-//				out.println("alert('성공!');");
-//				out.println("location='data_manage.do';");
-//				out.println("</script>");
-//			}else {
-//				//실패 . history.back();
-//			}			
+//			ActionForward forward = new ActionForward();
+//			forward.setRedirect(false);
+//			forward.setPath("data_manage.do");
+//			return forward; 
 		}//if else
 		
 		
