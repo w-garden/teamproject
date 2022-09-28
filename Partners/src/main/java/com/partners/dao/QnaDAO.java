@@ -57,13 +57,14 @@ public class QnaDAO {
 	}
 
 	// 검색전후 고객문의글 불러오기
-	public List<QnaDTO> getQnaList(String business_num, QnaDTO findQ) {
-		System.out.println(findQ.getAnswer());
+	public List<QnaDTO> getQnaList(int page, int limit, QnaDTO findQ) {
 		List<QnaDTO> qlist = new ArrayList<QnaDTO>();
 		try {
 			conn = ds.getConnection();
-			sql = "select mem_name, qnaT.* from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1 ";
-			
+			//sql = "select mem_name, qnaT.* from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1 ";
+			sql ="select * from (select rowNum rNum, qna_no, m.mem_id, qna_type, qna_title, qna_cont, qna_date, qna_ref, qna_step, qna_level, reply_state, reply_date, m.mem_name from (select*from qnaT where business_num= ? and qna_state=1";
+					
+
 			/*
 			 * 
 			 * 답변, 미답변 검색 쿼리문 추가부분
@@ -91,17 +92,30 @@ public class QnaDAO {
 					sql += " and qna_type like ?";
 				}
 			}
-			sql += " order by qna_ref desc, qna_level asc";
+			//sql += " order by qna_ref desc, qna_level asc";
+			sql+= "order by qna_ref desc, qna_level asc) q, memberT m where q.mem_id = m.mem_id(+)) where rNum >= ? and rNum <= ?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, business_num);
+			
+			
+			int startrow=(page-1)*5+1; //읽기 시작할 행번호
+			int endrow = startrow+limit-1; //읽을 마지막 행번호
+			
+			
+			pstmt.setString(1, findQ.getBusiness_num());
 
 			if (findQ.getFind_field() != null && !findQ.getFind_field().equals("default")) { // 검색하는 경우
-				System.out.println(findQ.getFind_text()+ "으로검색합니다");
 				pstmt.setString(2, findQ.getFind_text());
+				pstmt.setInt(3,startrow);
+				pstmt.setInt(4,endrow);
+			}
+			else {
+				pstmt.setInt(2,startrow);
+				pstmt.setInt(3,endrow);
 			}
 			rs = pstmt.executeQuery();
-
+			int c=0;
 			while (rs.next()) {
+				c++;
 				QnaDTO dto = new QnaDTO();
 				dto.setQna_no(rs.getInt("qna_no"));
 				dto.setMem_id(rs.getString("mem_id"));
@@ -119,6 +133,9 @@ public class QnaDAO {
 				qlist.add(dto);
 
 			}
+			System.out.println("endrow :"+  endrow);
+			System.out.println("startrow :"  +startrow);
+			System.out.println("c : " + c);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -162,11 +179,7 @@ public class QnaDAO {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, qdto.getQna_ref());
 			pstmt.executeUpdate();
-			
-			
-			
-			
-			
+				
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -179,7 +192,7 @@ public class QnaDAO {
 		}
 		return result;
 	}
-
+	//댓글 삭제
 	public void deleteReply(int qna_no) {
 		try {
 			conn = ds.getConnection();
@@ -199,5 +212,46 @@ public class QnaDAO {
 		}
 
 	}
+	//검색 전후 레코드 개수
+	public int getListCount(QnaDTO findQ) {
+		
+		int count =0;
 
+		try {
+			conn= ds.getConnection();
+			sql="select count(qna_no) from qnaT Left Join memberT On qnaT.mem_id = memberT.mem_id where business_num=? and qna_state=1"; 
+			if(findQ.getFind_field()==null) { //검색전 총 레코드 개수
+				sql+="";
+			}
+			else if (findQ.getFind_field().equals("customer_name")) {
+					sql += " and mem_name = ?";
+			} 
+			else if (findQ.getFind_field().equals("qna_type")) {
+					sql += " and qna_type like ?";
+			}
+			sql+="  group by qna_ref";
+
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, findQ.getBusiness_num());
+			if(findQ.getFind_field()!=null) {
+				pstmt.setString(2, findQ.getFind_text());
+			}
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				count++;
+			}
+		} catch (Exception e) {
+		} finally {
+			try {
+				close(rs);
+				close(pstmt);
+				close(conn);
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		System.out.println("                                     count: " + count);
+
+		return count;
+	}
 }

@@ -18,16 +18,26 @@ public class CustomerQnaController implements Action {
 		HttpSession session = request.getSession();
 		String business_num = (String) session.getAttribute("business_num");
 
+		
+		
+		int page =1; //쪽번호
+		int limit =5;
+		
+		
+		
 		String find_field = null;
 		String find_text = null;
 		String answer = null;
-		QnaDTO findQ = new QnaDTO();
-
+		
+		if(request.getParameter("page")!= null) {
+			page=Integer.parseInt(request.getParameter("page"));
+		}
 		
 		if(request.getParameter("answer")!=null) {
 			answer=request.getParameter("answer");
 		}
-		
+		QnaDTO findQ = new QnaDTO();
+
 		if(request.getParameter("find_text")!= null && request.getParameter("find_field") != null) {
 			find_text = request.getParameter("find_text").trim();
 			find_field = request.getParameter("find_field");
@@ -39,12 +49,28 @@ public class CustomerQnaController implements Action {
 		}
 		findQ.setFind_field(find_field);
 		findQ.setAnswer(answer);
-
-		// 사업자 번호 기준으로 qnaT 에서 정보 담아서 list에 저장하기
+		findQ.setBusiness_num(business_num);
 		QnaDAO qdao = new QnaDAO();
-		List<QnaDTO> qlist = qdao.getQnaList(business_num, findQ); // 검색 전후 목록
-
 		
+		int listcount = qdao.getListCount(findQ); //검색전후 레코드 개수 
+		System.out.println("listcount : " +listcount);
+		System.out.println("page : "+ page);
+		System.out.println("limit : "+ limit);
+		List<QnaDTO> qlist = qdao.getQnaList(page, limit, findQ); // 검색 전후 목록
+		int maxpage = (int)((double)listcount/limit+0.95); //총 페이지 수
+		System.out.println("maxpage : " +maxpage);
+
+		int startpage = (((int)((double)page/10+0.9))-1)*10+1; //시작 페이지
+		int endpage = maxpage; //마지막 페이지
+		
+		if(endpage>startpage+10-1) endpage=startpage+10-1;
+		
+		
+		request.setAttribute("page", page);
+		request.setAttribute("startpage", startpage);
+		request.setAttribute("endpage", endpage);
+		request.setAttribute("maxpage", maxpage);
+		request.setAttribute("listcount", listcount); //레코드 개수
 		request.setAttribute("answer", answer);
 		request.setAttribute("find_text", find_text);
 		request.setAttribute("find_field", find_field);

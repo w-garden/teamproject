@@ -343,19 +343,19 @@ function qna_reply_toggle($number) {
 	var test = "#reply_" + $number;
 	$(test).toggle();
 }
-function qna_reply($number, $id, $title, $step, $level, $type) { //답변 입력 함수
+function qna_reply($number, $id, $title, $step, $level, $type, $pagenum) { //답변 입력 함수
 	$qna_no = $number;  //글번호
 	$mem_id = $id; //글작성한 회원아이디
 	$qna_title = $title; //원본글제목
 	$qna_step = $step; //몇번째 답글인지
 	$qna_level = $level; //정렬순서
 	$qna_type = $type; //질문 유형
-
+	$page =$pagenum; //페이지
 	$textarea_id = "#reply_" + $number + "_textarea";
 	$replytext = ($($textarea_id).val()); //댓글내용
 	$.ajax({
 		type: "post",
-		url: 'customer_reply_ok.do',
+		url: 'customer_reply_ok.do?page=$page',
 		data: {
 			qna_ref: $qna_no, //  그룹번호 = 원본글번호
 			qna_cont: $replytext, // 답글 내용
