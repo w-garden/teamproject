@@ -8,6 +8,7 @@ import java.util.Random;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import com.dozip.vo.EstimateVO;
@@ -72,24 +73,7 @@ public class EstimateDAOImpl {
 			close(pt);
 			close(con);
 		}
-		
 		return res;
-	}
-	
-	public String randomString() {
-		Random rnd = new Random();
-		StringBuffer sb = new StringBuffer();
-		String return_str = "";
-		
-		for(int i = 0; i < 2; i++) {
-			sb.append((char) ((rnd.nextInt(26)) + 65));
-		}
-		for(int i = 0; i < 5; i++) {
-			sb.append((rnd.nextInt(10)));
-		}
-		return_str = sb.toString();
-
-        return return_str;
 	}
 
 	//견적내용 DB에 저장
@@ -99,28 +83,29 @@ public class EstimateDAOImpl {
 		try {
 			con = ds.getConnection();
 			sql = "insert into estimateT"+
-					"(est_zoning, est_use, est_areaP, est_areaM, est_detail, est_detail01, est_detail02"
+					"(est_num, mem_id, est_zoning, est_use, est_areaP, est_areaM, est_detail, est_detail01, est_detail02"
 					+", est_detail03, est_detail04, est_detail05, est_detail06, est_detail07, est_detail08"+
 					", est_bud, est_start, est_end, est_date, est_dateEnd, est_name, est_phone, est_desc, est_file)"
-					+" values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					+" values(est_num_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate,?,?,?,?,?)";
 			pt = con.prepareStatement(sql);
-			pt.setString(1, e.getEst_zoning());
-			pt.setString(2, e.getEst_use());
-			pt.setString(3, e.getEst_areaP());
-			pt.setString(4, e.getEst_areaM());
-			pt.setString(5, e.getEst_detail());
-			pt.setString(6, e.getEst_detail01());
-			pt.setString(7, e.getEst_detail02());
-			pt.setString(8, e.getEst_detail03());
-			pt.setString(9, e.getEst_detail04());
-			pt.setString(10, e.getEst_detail05());
-			pt.setString(11, e.getEst_detail06());
-			pt.setString(12, e.getEst_detail07());
-			pt.setString(13, e.getEst_detail08());
-			pt.setString(14, e.getEst_bud());
-			pt.setString(15, e.getEst_start());
-			pt.setString(16, e.getEst_end());
-			pt.setString(17, e.getEst_date());
+			pt.setString(1, e.getMem_id());
+			pt.setString(2, e.getEst_zoning());
+			pt.setString(3, e.getEst_use());
+			pt.setString(4, e.getEst_areaP());
+			pt.setString(5, e.getEst_areaM());
+			pt.setString(6, e.getEst_detail());
+			pt.setString(7, e.getEst_detail01());
+			pt.setString(8, e.getEst_detail02());
+			pt.setString(9, e.getEst_detail03());
+			pt.setString(10, e.getEst_detail04());
+			pt.setString(11, e.getEst_detail05());
+			pt.setString(12, e.getEst_detail06());
+			pt.setString(13, e.getEst_detail07());
+			pt.setString(14, e.getEst_detail08());
+			pt.setString(15, e.getEst_bud());
+			pt.setString(16, e.getEst_start());
+			pt.setString(17, e.getEst_end());
+//			pt.setString(18, e.getEst_date());
 			pt.setString(18, e.getEst_dateEnd());
 			pt.setString(19, e.getEst_name());
 			pt.setString(20, e.getEst_phone());
@@ -135,6 +120,21 @@ public class EstimateDAOImpl {
 			close(con);
 		}
 		return res;
+	}
+
+	public void insertaa(String detail) {
+		try {
+			con = ds.getConnection();
+			sql = "insert into aT (detail) values (?)";
+			pt = con.prepareStatement(sql);
+			pt.setString(1, detail);
+			pt.executeUpdate();
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		} finally {
+			close(pt);
+			close(con);
+		}		
 	}
 
 }

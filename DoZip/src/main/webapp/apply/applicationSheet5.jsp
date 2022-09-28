@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<form action="estimate_apply5_ok.do">
+<form method="post">
 
   <div id="estimate_step05">
     <section aria-label="견적요청" class="estimate_yourcost">

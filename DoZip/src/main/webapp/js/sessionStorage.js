@@ -1,20 +1,93 @@
-
 function SessionStorage_page01(){ /*1페이지*/
-	sessionStorage.setItem('est_zoning', document.getElementByName("est_zoning"));
-	sessionStorage.setItem('est_use', document.getElementByName("est_use"));
-	sessionStorage.setItem('areaP', document.getElementByName("areaP"));
-	sessionStorage.setItem('areaM', document.getElementByName("areaM"));
-	sessionStorage.setItem('detail', document.getElementByName("check"));
-	sessionStorage.setItem('detail01', document.getElementByName("group_wallpaper_item"));
-	sessionStorage.setItem('detail02', document.getElementByName("group_floor_item"));
-	sessionStorage.setItem('detail03', document.getElementByName("group_kitchen_item"));
-	sessionStorage.setItem('detail04', document.getElementByName("group_washroom_item"));
-	sessionStorage.setItem('detail05', document.getElementByName("group_porch_item"));
-	sessionStorage.setItem('detail06', document.getElementByName("group_window_item"));
-	sessionStorage.setItem('detail07', document.getElementByName("group_light_item"));
-	sessionStorage.setItem('detail08', document.getElementByName("group_door_item"));
+	
+	/*radio 체크된 값 받기*/
+	const list = document.getElementsByName('est_zoning');
+	list.forEach((node)=> {
+		if(node.checked){
+			sessionStorage.setItem('est_zoning', node.value);
+		}
+	})
+	const list1 = document.getElementsByName("est_use");
+	list1.forEach((node)=> {
+		if(node.checked){
+			sessionStorage.setItem('est_use', node.value);
+		}
+	})
+	const list2 = document.getElementsByName("group_wallpaper_item");
+	list2.forEach((node)=> {
+		if(node.checked){
+			sessionStorage.setItem('detail01', node.value);
+		}
+	})
+	const list3 = document.getElementsByName("group_floor_item");
+	list3.forEach((node)=> {
+		if(node.checked){
+			sessionStorage.setItem('detail02', node.value);
+		}
+	})
+	const list4 = document.getElementsByName("group_window_item");
+	list4.forEach((node)=> {
+		if(node.checked){
+			sessionStorage.setItem('detail06', node.value);
+		}
+	})
+	const list5 = document.getElementsByName("group_light_item");
+	list5.forEach((node)=> {
+		if(node.checked){
+			sessionStorage.setItem('detail07', node.value);
+		}
+	})
+	const list6 = document.getElementsByName("group_door_item");
+	list6.forEach((node)=> {
+		if(node.checked){
+			sessionStorage.setItem('detail08', node.value);
+		}
+	})
+	/*radio 체크된 값 받기 끝*/
+	
+	/*체크박스 배열로 값받기*/
+	var all = '';
+	var detail_val = document.getElementsByName("check");
+	for(var i=0; i<detail_val.length; i++){
+		if(detail_val[i].checked){
+			all+=detail_val[i].value+"/";
+		}
+	}
+	sessionStorage.setItem('detail', all);
 
-	//alert (sessionStorage.getItem('est_zoning'));
+	var all2 = '';
+	var detail03_val = document.getElementsByName("group_kitchen_item");
+	for(var i=0; i<detail03_val.length; i++){
+		if(detail03_val[i].checked){
+			all2+=detail03_val[i].value+"/";
+		}
+	}
+	sessionStorage.setItem('detail03', all2);
+
+	var all3 = '';
+	var detail04_val = document.getElementsByName("group_washroom_item");
+	for(var i=0; i<detail04_val.length; i++){
+		if(detail04_val[i].checked){
+			all3+=detail04_val[i].value+"/";
+		}
+	}
+	sessionStorage.setItem('detail04', all3);
+	
+	var all4 = '';
+	var detail05_val = document.getElementsByName("group_porch_item");
+	for(var i=0; i<detail05_val.length; i++){
+		if(detail05_val[i].checked){
+			all4+=detail05_val[i].value+"/";
+		}
+	}
+	sessionStorage.setItem('detail05', all4);
+	/*체크박스 배열로 값받기 끝*/
+
+	sessionStorage.setItem('areaP', document.getElementById("cal1").value);
+	sessionStorage.setItem('areaM', document.getElementById("cal2").value);
+
+
+	alert ("작동!");
 }
 
 function SessionStorage_page02(){ /*2페이지*/
@@ -30,13 +103,6 @@ function SessionStorage_page03(){ /*3페이지*/
    sessionStorage.setItem('est_desc', document.getElementById("paragraph").value);
 	}
 
-function SessionStorage_page04(){
-	sessionStorage.setItem('')
-	}
-
-function SessionStorage_page05(){
-	
-	}
 
 function test(){
 	var est_zoning = sessionStorage.getItem('est_zoning');
@@ -65,6 +131,7 @@ function test(){
 	$.ajax({
 		type:"post", 
 		url:'estimate_apply5_ok.do', 
+		datatype: "text",
 		data:{
 			est_zoning : est_zoning,
 			est_use : est_use,
@@ -88,13 +155,13 @@ function test(){
 			est_phone: est_phone,
 			est_addr : est_addr,
 			est_desc : est_desc
-		},
-		datatype: "text",
-		
-		success : function(result){
-			
-			alert('완료!');
-			location.reload();
 		}
+		
+		
+		
+		/*, success : function(result){
+			alert('sessionStorage는 작동!');
+			location.reload();
+		}*/
 	});
 }
