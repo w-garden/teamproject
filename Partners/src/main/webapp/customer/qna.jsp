@@ -7,17 +7,16 @@
 	height: 200px;
 	width: 99%;
 	margin: 50px 10px;
+	border: 1px solid black;
 	border-collapse: collapse;
 }
 #qna_table th {
 	background: #C0BA8D;
 	border: 1px solid black;
-	
 }
-#qna_table td{
+tr.qna_tr>td{
+	border:1px solid black;
 	padding:2px 5px;
-	border: 1px solid black;
-
 }
 .qna_table_date{
 	max-width:100px;
@@ -27,19 +26,10 @@
 }
 
 td#reply_cont{
-
 	background:#e1deca;
-
 }
 span.reply_date_text{
 	font-weight: bold;
-}
-div#reply_cont{
-    width: 80%;
-    margin: 0 auto;
-   	padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
 }
 #qna_table th{
 	height:50px;
@@ -52,6 +42,30 @@ div#reply_cont{
 }
 .not_serach_msg {
 	text-align: center;
+}
+td.first_reply_td {
+	text-align: center;
+	border: 1px solid black;
+	padding: 10px 5px;
+}
+td.second_reply_td {
+	border: 1px solid black;
+	padding: 10px 15px;
+}
+td.third_reply_td {
+	border: 1px solid black;
+}
+.reply_btn>input {
+	margin-left:26%;
+	padding:5px;
+}
+td.third_reply_td>input {
+	margin-left:45%;
+	padding:5px;
+}
+div#qna_paging {
+    float: left;
+    margin: 0 0 20px 500px;
 }
 </style>
 
@@ -85,7 +99,7 @@ div#reply_cont{
 	</div>
 
 </div>
-<form action="customer_qna.do" method="post" onsubmit='return search_check();'>
+<form action="customer_qna.do" method="get" onsubmit='return search_check();'>
 <div  id="search_conditon">
 	<div id=search_conditon_wrap>
 		<div id=search_conditon_sub_1>
@@ -98,7 +112,6 @@ div#reply_cont{
 			</div>
 		</div>
 		<hr>
-			<h1>   테스트 ${answer }</h1>
 		<div>
 			<input type="radio" name="answer" value="whole" <c:if test="${answer =='whole'}"> ${'checked' }</c:if>> 전체 <input
 				type="radio" name="answer" value="yes" <c:if test="${answer =='yes' }"> ${'checked' }</c:if>> 답변 <input
@@ -110,7 +123,7 @@ div#reply_cont{
 				<option value="default" selected>검색옵션</option>
 				<option value="customer_name" <c:if test="${find_field =='customer_name' }"> ${'selected' }</c:if>>고객명</option>
 				<option value="qna_type" <c:if test="${find_field =='qna_type' }"> ${'selected' }</c:if>>문의유형</option>
-			</select> <input type="search" name="find_text" id="search_text" value="${find_name }" placeholder="입력해주세요">
+			</select> <input type="search" name="find_text" id="search_text" value="${find_text }" placeholder="입력해주세요">
 		</div>
 		<hr>
 
@@ -122,10 +135,95 @@ div#reply_cont{
 		</div>
 	</div>
 </div>
+
+
+
+
+
+
+<%--검색 전후 페이징(쪽나누기 --%>
+<div id="qna_paging">
+	<%--검색 전 페이징 --%>
+	<c:if test="${(empty find_field ) && (empty find_text)}"><%--검색 필드와 검색어가 없을떄 --%>
+		<c:if test="${page <=1 }">
+				[이전]&nbsp;
+		</c:if>
+		<c:if test="${page>1 }">
+			<a href="customer_qna.do?page=${page-1 }">[이전]</a>&nbsp;
+		</c:if>
+		
+		
+		<%--현재 쪽번호 출력 --%>
+		<c:forEach var="a" begin="${startpage }" end="${endpage }" step="1">
+			<c:if test="${a==page }"> <%--현재 쪽번호가 선택된 경우 --%>
+				<${ a} >
+			</c:if>
+			<c:if test="${a!=page }"> <%--현재 페이지가 선택 안된 경우 --%>
+				<a href="customer_qna.do?page=${a}">[${a }]</a>
+			</c:if>
+		</c:forEach>
+			<c:if test="${page  >= maxpage }">
+				[다음]
+			</c:if>
+			<c:if test="${page < maxpage }">
+				<a href="customer_qna.do?page=${page+1 }"> [다음] </a>
+			</c:if>
+</c:if>
+
+<%--검색이후 페이징 (쪽나누기) --%>
+<c:if test="${(!empty find_field ) || (!empty find_name)}">
+	<c:if test="${page<=1 }"> [이전]&nbsp; </c:if>
+		<c:if test="${page>1 }">
+			<a href="customer_qna.do?page=${page-1}&find_field=${find_field}&find_text=${find_text}">[이전]</a>&nbsp;
+		</c:if>
+		<%--get으로 find_field 와 find_text을 전달해야 검색이후 페이징 목록을 유지한다. 검색필드와 검색어를
+		전달하지 않으면 검색전 페이징 목록으로 이동해서 검색효과가 사라진다--%>
+		
+		<%--현재 쪽번호 출력 --%>
+		<c:forEach var="a" begin="${startpage }" end="${endpage }" step="1">
+			<c:if test="${a == page }"> <%--현재 페이지가 선택된 경우 --%>
+				<${a }>
+			</c:if>
+			<c:if test="${a!= page }"> <%--현재 페이지가 선택 안된 경우 --%>
+				<a href="customer_qna.do?page=${a}&find_field=${find_field}&find_text=${find_text}">[${a }]</a>&nbsp;
+			</c:if>
+		</c:forEach>
+	<c:if test="${page >= maxpage }">
+		[다음]
+	</c:if>
+	<c:if test="${page< maxpage }">
+		<a href="customer_qna.do?page=${page+1 }">[다음]</a>
+	</c:if>
+
+</c:if>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table id="qna_table">
 	<tr>	
 		<th>글번호</th>
-		<th><input id="write_date"type="button" value="등록일시" onclick="alert('정렬기능 구현 대기중')"></th>
+		<th><input id="write_date"type="button" value="등록일시↓↑" onclick="alert('정렬기능 구현 대기중')"></th>
 		<th>고객명</th>
 		<th>문의내용</th>
 		<th>문의유형</th>
@@ -139,7 +237,7 @@ div#reply_cont{
 	<c:if test="${!empty qlist }">
 		<c:forEach var="q" items="${ qlist}">
 			<c:if test="${q.qna_step ==0}">
-			<tr>
+			<tr class="qna_tr">
 				<td>${q.qna_no }</td>
 				<td class="qna_table_date">${q.qna_date }</td>
 				<td>${q.mem_name }</td>
@@ -150,31 +248,39 @@ div#reply_cont{
 			    <input type="hidden" id="board_step" value="${q.qna_step }">
 			    <input type="hidden" id="board_level" value="${q.qna_level }">
 			    </td>
-				<td><input type="button" value="답변하기" id = "reply_${q.qna_no }_btn" onclick="qna_reply_toggle(${q.qna_no })" ></td>
+				<td class="reply_btn"><input type="button" value="답변하기" id = "reply_${q.qna_no }_btn" onclick="qna_reply_toggle(${q.qna_no })" ></td>
 			</tr>
 			</c:if>
 			<c:if test="${q.qna_step==1 }">
 			<tr>
-			<td colspan="6" >
-			<div id="reply_cont">
-				<div><span class="reply_date_text"> ${ q.reply_date} </span></div>
-				<div> <span style="color:blue; font-weight:bolder;">${q.qna_title} </span>  &nbsp; ${q.qna_cont }</div>
-				<div>
-				<input type="button" value="삭제" onclick="reply_del(${q.qna_no })">
-				</div>
-			</div>
-				
-			</td>
+			<td colspan="2" class="first_reply_td"><span class="reply_date_text"> ${ q.reply_date} </span></td>
+			<td colspan="2" class="second_reply_td"><span style="color:blue; font-weight:bolder;">${q.qna_title} </span>  &nbsp; ${q.qna_cont } </td>
+			<td colspan="2" class="third_reply_td"><input type="button" value="삭제" onclick="reply_del(${q.qna_no })"></td>
 			</tr>
 			</c:if>
 			<tr>
 			 <td colspan="6" style="display:none;" id="reply_${q.qna_no }"> 
 				<textarea rows="5%" cols="100%" id="reply_${q.qna_no }_textarea" style="width: 86%; resize: none;"></textarea>
-				<input type="button" value="등록" onclick="qna_reply(${q.qna_no }, '${q.mem_id }', '${q.qna_title }',${q.qna_step }, ${q.qna_level },'${q.qna_type }')">
+				<input type="button" value="등록" onclick="qna_reply(${q.qna_no }, '${q.mem_id }', '${q.qna_title }',${q.qna_step }, ${q.qna_level },'${q.qna_type }',${page })">
 			</td>
 			</tr>
 		</c:forEach>
 	</c:if>
 </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </form>
 <jsp:include page="../include/footer.jsp" />
