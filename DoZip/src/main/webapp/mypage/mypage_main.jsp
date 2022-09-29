@@ -329,8 +329,7 @@
 					<c:forEach var="i" begin="0" end="${fn:length(qlist)-1}" step="1">		
 						<tr>
 							<td id="num">
-								<c:set var="cnt" value="${fn:length(qlist)-(5*(page-1))}" />
-								<c:set var="number" value="${cnt-(i-(5*(page-1)))}" />
+								<c:set var="number" value="${(listcount-(5*(page-1)))-i}" />
 								<c:out value="${number}"/>
 							</td>
 							<td id="title">
@@ -380,16 +379,24 @@
 					<c:forEach var="i" begin="0" end="${fn:length(qlist2)-1}" step="1">
 						<tr>
 							<td id="num">
-								<c:set var="cnt" value="${fn:length(qlist2)-(5*(page-1))}" />
-								<c:set var="number" value="${cnt-(i-(5*(page-1)))}" />
+								<c:set var="number" value="${(listcountP-(5*(pageP-1)))-i}" />
 								<c:out value="${number}"/>
-							</td> 
-							<td id="partner_name">${qlist2[i].businessName}</td> 
-							<td id="title">
-								<c:if test="${qlist2[i].qna_level != 0}">=></c:if>
-								<a href="#">${qlist2[i].qna_title}</a>
 							</td>
-							<td id="state">${qlist2[i].reply_state}</td> <td id="date">${qlist2[i].qna_date}</td>
+							<td id="partner_name">
+								<c:if test="${qlist2[i].qna_level != 0}"><span></span></c:if>
+								<c:if test="${qlist2[i].qna_level == 0}"><a href="#">${qlist2[i].businessName}</a></c:if>
+							</td> 
+							<td id="title">
+								<c:if test="${qlist2[i].qna_level != 0}">
+								<span style="color:blue; font-weight:bold;">=> Re: </span><a href="#">${qlist2[i].qna_cont}</a> <%-- 발표용으로 잠시 내용을 노출함 --%>
+								</c:if>
+								<c:if test="${qlist2[i].qna_level == 0}">${qlist2[i].qna_title}</c:if>
+							</td>
+							<td id="state">
+								<c:if test="${qlist2[i].qna_level != 0}"><span></span></c:if>
+								<c:if test="${qlist2[i].qna_level == 0}">${qlist2[i].reply_state}</c:if>
+							</td> 
+							<td id="date">${qlist2[i].qna_date}</td>
 						</tr>
 					</c:forEach>
 					</c:if>

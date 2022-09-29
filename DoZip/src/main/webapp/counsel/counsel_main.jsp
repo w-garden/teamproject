@@ -36,8 +36,7 @@
 				<c:if test="${qlist[i].businessName == null}">
 					<tr>
 						<td id="num">
-							<c:set var="cnt" value="${fn:length(qlist)-(5*(page-1))}" />
-							<c:set var="number" value="${cnt-(i-(5*(page-1)))}" />
+							<c:set var="number" value="${(listcount-(5*(page-1)))-i}" />
 							<c:out value="${number}"/>
 						</td>
 						<td id="title">
