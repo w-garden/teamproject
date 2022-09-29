@@ -8,6 +8,7 @@
 #qna_title .title {
 	font-size: 2em;
 	margin-left: 10px;
+	font-weight: 900;
 }
 
 #qna_title .message {
@@ -17,7 +18,7 @@
 }
 
 #search_bar {
-	background-color: antiquewhite;
+	background-color: #A29FC6;
 	border-radius: 20px;
 	height: 120px;
 	margin: 0px 10px;
@@ -93,9 +94,9 @@ div#search_conditon_wrap {
 /*시공 사례 등록 파일 */
 
 #introduce_cont {
-  background-color:#C5BF96;
-  padding:20px 10px;
-
+  	background-color: #F39A49;
+    padding: 20px 10px;
+    border-radius: 6px;
 }
 #introduce_cont *{
   padding:10px 0px;

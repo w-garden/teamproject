@@ -10,7 +10,7 @@
     <title>인테리어 견적 신청서</title>
   <body>
     <article id="estimate_step01">
-     <form method="post" action="estimate_apply_ok.do">
+     <form method="post" action="estimate_apply_ok.do" onsubmit='return apply01_check()'>
       <div>
         <section aria-label="공간 유형 선택" class="building_types">
           <div class="title">
@@ -54,8 +54,8 @@
            class : 재사용을 목적
            name : 컨트롤 요소값(value)을 서버로 전송하기위함-->
       <div class = "estimate_calculator">
-        <h3>평수 (공급면적)</h3><br/><br/>
-        <input type="text" id="cal1" name="areaP" maxlength="3" placeholder=0 onclick="change()" onkeyup="calculator(1);" value="0">평 -<input type="text" id="cal2" name="areaM" placeholder=0 onkeyup="calculator(2);" value="0">m2
+        <h3>평수 (공급면적)</h3><br/>
+        <input type="text" id="cal1" name="areaP" maxlength="3" placeholder=0 onclick="change()" onkeyup="calculator(1);" value="0">&nbsp;평 -&nbsp;<input type="text" id="cal2" name="areaM" placeholder=0 onkeyup="calculator(2);" value="0">&nbsp;m2
       </div>
       <div class="areaBoxComponent">
         <h3>원하는 공간 선택</h3>
@@ -403,13 +403,46 @@
 </div>
 </article>
 
+
+
 <%-- 다음페이지 버튼 --%>
       <div class="nextpage">
-        <button class="button" type="submit" onclick="SessionStorage_page01()">다음단계</button>
+ <%--   <button class="button" type="submit" onclick="SessionStorage_page01()">다음단계</button>--%>
+        <button class="button" type="submit">다음단계</button>
       </div>
       </div>
       </form>
     </article>
 </body>
+
+
+
+
+<script>
+function apply01_check() {
+	if ($(':radio[name="est_use"]:checked').length < 1) {
+		alert('건물 유형을 선택해 주세요!');
+		return false;
+
+	}
+	if($('#cal1').val()=="" ||$('#cal1').val()==0){
+		alert('평수를 입력해 주세요!');
+		return false;
+
+	}
+	if($('#cal2').val()=="" ||$('#cal2').val()==0){
+		alert('평수를 입력해 주세요!');
+		return false;
+
+	}
+	if ($(':checkbox[name="check"]:checked').length < 1) {
+		alert('원하는 공간을 선택 주세요!');
+		return false;
+
+	}
+	SessionStorage_page01();
+}
+
+</script>
  <%-- 하단 공통부분 --%>
 <jsp:include page="../common/footer.jsp" />

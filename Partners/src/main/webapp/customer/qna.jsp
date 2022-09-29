@@ -11,7 +11,7 @@
 	border-collapse: collapse;
 }
 #qna_table th {
-	background: #C0BA8D;
+	background:#DEDBC5;
 	border: 1px solid black;
 }
 tr.qna_tr>td{
@@ -64,8 +64,9 @@ td.third_reply_td>input {
 	padding:5px;
 }
 div#qna_paging {
-    float: left;
-    margin: 0 0 20px 500px;
+   	float: left;
+    margin-bottom: 60px;
+    margin-left: 45%;
 }
 </style>
 
@@ -111,12 +112,12 @@ div#qna_paging {
 				<input type="date"> ~ <input type="date">
 			</div>
 		</div>
-		<hr>
+		<%-- <hr>
 		<div>
 			<input type="radio" name="answer" value="whole" <c:if test="${answer =='whole'}"> ${'checked' }</c:if>> 전체 <input
 				type="radio" name="answer" value="yes" <c:if test="${answer =='yes' }"> ${'checked' }</c:if>> 답변 <input
 				type="radio" name="answer" value="no" <c:if test="${answer =='no' }"> ${'checked' }</c:if>> 미답변
-		</div>
+		</div>--%>
 		<hr>
 		<div>
 			<select id="search_condition" name="find_field">

@@ -47,22 +47,22 @@
   <div id="estimate_step03">
     <section aria-label="예산 선택" class="estimate_yourcost">
       <div class="title">
-        <h2>상세 내용을 알려주세요.</h2><h3>3/4</h3>
+        <h2>상세 내용을 알려주세요</h2><h3>3/4</h3>
       </div>
-          <p class="subtitle">단 한번 입력으로 조건에 맞는 전문가들과 간편하게 상담 하세요.</p><br />
+          <p class="subtitle">단 한번 입력으로 조건에 맞는 전문가들과 간편하게 상담 하세요</p><br />
       <div class="estimate_box">
         <h3>의뢰인 정보 입력</h3>
-        <input type="text" id="name" name="name" placeholder="이름을 입력해주세요.">
-        <input type="text" id="phone" name="phone" placeholder="휴대폰 번호를 입력해 주세요.">
+        <input type="text" id="name" name="name" placeholder="이름을 입력해주세요">
+        <input type="text" id="phone" name="phone" placeholder="휴대폰 번호를 입력해 주세요">
         <button type="button" id="certify_phone" onclick="SessionStorage();">인증하기</button>
-        <input type="text" id="addr" name="addr" placeholder="주소를 입력해 주세요.">
+        <input type="text" id="addr" name="addr" placeholder="주소를 입력해 주세요">
         <button type="button" id="address_btn" onclick="test();">주소찾기</button>
 
         <div class="para">
-        <h3>스타일을 알려주세요.(1500자 내외)</h3>
+        <h3>스타일을 알려주세요(1500자 내외)</h3>
         <p class="textCount">0자</p><p class="textTotal">/1500자</p>
       </div>
-       <textarea id="paragraph" name="paragraph" maxlength="1500" placeholder="원하는 스타일에 대해 자유롭게 써주세요."></textarea>
+       <textarea id="paragraph" name="paragraph" maxlength="1500" placeholder="원하는 스타일에 대해 자유롭게 써주세요"></textarea>
       <%--   <form action="" method="post" enctype="multipart/form-data" name="">
           <input type="file" name="FileName">
       </form> --%>

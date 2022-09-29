@@ -146,7 +146,7 @@
 			
 
 			<span class="part_title">
-				<a id="part4_link" href="portfolio.do"><p>포트폴리오 보러가기 >></p></a>
+				<a id="part4_link" href="portfolio.do"><p>포트폴리오 보러가기</p></a>
 			</span>
 			
 			<div id = "part4_area">
@@ -178,7 +178,7 @@
 			
 			<div id="part5">
 				<span class="part_title">
-					<a id="part5_link" href="review.do"><p>더 많은 후기 보러가기 >></p></a>
+					<a id="part5_link" href="review.do"><p>더 많은 후기 보러가기</p></a>
 				</span>
 				<div id="part5_area">
 				

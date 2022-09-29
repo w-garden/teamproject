@@ -87,7 +87,7 @@ function SessionStorage_page01(){ /*1페이지*/
 	sessionStorage.setItem('areaM', document.getElementById("cal2").value);
 
 
-	alert ("작동!");
+	/*alert ("작동!");*/
 }
 
 function SessionStorage_page02(){ /*2페이지*/

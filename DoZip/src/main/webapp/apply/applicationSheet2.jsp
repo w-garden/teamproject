@@ -43,14 +43,14 @@
   <div id="estimate_step02">
     <section aria-label="예산 선택" class="estimate_yourcost">
       <div class="title">
-        <h2>예산과 일정을 알려주세요.</h2><h3>2/4</h3>
+        <h1>예산과 일정을 알려주세요.</h1><h3>2/4</h3>
         </div>
         <div>
         <p>단 한번 입력으로 조건에 맞는 전문가들과 간편하게 상담 하세요.</p><br />
       </div>
       </section>
       <div class="estimate_box">
-        <h3>예산</h3>
+        <h2>예산</h2>
         <div class="your_cost">
           <input type="text" id="estimate_cost" name="est_bud" maxlength="7" placeholder="0" onkeyup="inputNumberFormat(this);" />
         <h3>만원</h3>
@@ -58,14 +58,16 @@
         <br/><br/><br/><br/><hr/>
         </div>
         <div class="estimate_date">
-          <h3>희망 시공일정</h3><br/><br/>
-          오늘 날짜 : <span id="today"></span>
+          <h2>희망 시공일정</h2><br/><br/>
+          <span style="font-size:20px">오늘 날짜 : <span id="today"></span></span>
+          <br>
+          <br>
         <form>
           <br/>
-          <label for="est_start">시작일</label>
+          <label for="est_start">시작일</label>&nbsp;
           <input type="text" name="est_start" id="est_start">
           ~
-          <label for="est_end">종료일</label>
+          <label for="est_end">종료일</label>&nbsp;
           <input type="text" name="est_end" id="est_end">
         </form>
         </div>

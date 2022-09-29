@@ -51,7 +51,7 @@
   .title h3{
     color: #888;
     font-size: 28px;
-    margin-top: 0;
+    margin-top: 15px;
   }
   
   #p1 {

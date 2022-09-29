@@ -21,7 +21,7 @@ a:hover {
 #header {
 	position: fixed; /* 헤더부분 상단 고정 */
 	width: 100%;
-	background-color: #f6f5ef;
+	background-color: #D5D0B5;
 	z-index: 1; /* 항상 제일 위에 위치하도록 설정 */
 }
 #header + div{ /* 헤더 다음에 오는 div 에 패딩을 주어 가려짐 문제 해결 */
@@ -416,6 +416,11 @@ a:hover {
 	display: -webkit-box;
  	-webkit-line-clamp: 3;
  	-webkit-box-orient: vertical; 	
+}
+
+a#part5_link:hover, a#part4_link:hover {
+	color:#27562B;
+	text-decoration: underline;
 }
 
 /* index.jsp footer 영역 */

@@ -41,9 +41,20 @@
 .title h3{
   color: #888;
   font-size: 28px;
-  margin-top: 0;
+  margin-top: 10px;
 }
-
+button#certify_phone, button#address_btn {
+    height: 35px;
+    background: #EB6703;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+    padding-top: 2px;
+}
+button#certify_phone:hover, button#address_btn:hover{
+	background: #444;
+}
 /*your_cost, proposed_cost*/
 .proposed_cost{
   display:flex;
@@ -58,7 +69,9 @@
   height: 35px;
   width: 450px;
 }
-
+.estimate_box input[type=text]:hover{
+	
+}
 /*다음 페이지 넘김 버튼*/
 .nextpage{
   background-color: none;

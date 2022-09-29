@@ -102,34 +102,32 @@ public class EstimateApplyOKController implements Action {
 			}
 		}
 
-			/*유효성검증*/
+			/*유효성검증
 			if(est_use == null) {
 				out.println("<script>");
 				out.println("alert('건물 유형을 선택해 주세요!');");
 				out.println("history.go(-1)");
 				out.println("</script>");
 			}
-			else if(areaP.equals("0") || areaP == "") {
+			if(areaP.equals("0") || areaP == "") {
 				out.println("<script>");
 				out.println("alert('평수를 입력해 주세요!');");
 				out.println("history.go(-1)");
 				out.println("</script>");
 			}
-			else if(request.getParameterValues("check") == null) {
+			if(request.getParameterValues("check") == null) {
 				out.println("<script>");
 				out.println("alert('원하는 공간을 선택 주세요!');");
 				out.println("history.go(-1)");
 				out.println("</script>");
-			}
+			}*/
 			/*유효성검증끝*/
 			
-			else {
 				ActionForward forward = new ActionForward();
 				forward.setRedirect(false);
 				forward.setPath("estimate_apply2.do");
 				
 				return forward;
-			}
 
 		/*
 		EstimateDAOImpl edao = new EstimateDAOImpl();
@@ -158,6 +156,5 @@ public class EstimateApplyOKController implements Action {
 		
 		*/
 		
-		return null;
 	}
 }

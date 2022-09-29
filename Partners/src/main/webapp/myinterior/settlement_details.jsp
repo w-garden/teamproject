@@ -2,7 +2,7 @@
 <jsp:include page="../include/header.jsp" />
 
 
-		<div style="width:100%; height:700px; background: orange;"> 
+		<div style="width:100%; height:700px;"> 
 					<h1>메인내용</h1>
 		
 					<h1>settlement_details.jsp</h1>
