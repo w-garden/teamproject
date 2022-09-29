@@ -26,4 +26,6 @@ public class QnaVO { //14개
 	//페이징. 쪽나누기 관련변수
 	private int startrow; //시작행번호
 	private int endrow; //끝행 번호
+
+
 }

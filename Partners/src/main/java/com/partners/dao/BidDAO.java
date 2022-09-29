@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.partners.dto.EstimateDTO;
+import com.partners.dto.Partners_subDTO;
 
 public class BidDAO {
 	Connection conn=null;  //DB연결 con
@@ -60,10 +61,34 @@ public class BidDAO {
 			}
 	}
 	
-	public List<EstimateDTO> selectNearPartners(String applyAddress) {
-		
-		List<EstimateDTO> list=new ArrayList<EstimateDTO>();
+	//파트너스 정보 검색(사업자 번호 기준)
+	public EstimateDTO selectBid(String est_num) {
+		EstimateDTO edto = null;
+		try {
+			conn = ds.getConnection();
+			sql = "select * from estimateT where est_num=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, est_num);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				edto = new EstimateDTO();
 	
-	
+				edto.setEst_num(rs.getString("mem_id"+"견적 문의"));
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				close(rs);
+				close(pstmt);
+				close(conn);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return edto;
+	}
+
 	
 }
