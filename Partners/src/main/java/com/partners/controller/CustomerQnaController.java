@@ -21,7 +21,7 @@ public class CustomerQnaController implements Action {
 		
 		
 		int page =1; //쪽번호
-		int limit =5;
+		int limit = 8; 																													//한페이지에 보여질 개수
 		
 		
 		
@@ -53,13 +53,10 @@ public class CustomerQnaController implements Action {
 		QnaDAO qdao = new QnaDAO();
 		
 		int listcount = qdao.getListCount(findQ); //검색전후 레코드 개수 
-		System.out.println("listcount : " +listcount);
 		System.out.println("page : "+ page);
-		System.out.println("limit : "+ limit);
 		List<QnaDTO> qlist = qdao.getQnaList(page, limit, findQ); // 검색 전후 목록
 		int maxpage = (int)((double)listcount/limit+0.95); //총 페이지 수
-		System.out.println("maxpage : " +maxpage);
-
+		System.out.println("============================");
 		int startpage = (((int)((double)page/10+0.9))-1)*10+1; //시작 페이지
 		int endpage = maxpage; //마지막 페이지
 		

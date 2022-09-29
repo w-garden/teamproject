@@ -100,7 +100,7 @@ div#qna_paging {
 
 </div>
 <form action="customer_qna.do" method="get" onsubmit='return search_check();'>
-<div  id="search_conditon">
+<div  id="search_conditon" style="display:none">
 	<div id=search_conditon_wrap>
 		<div id=search_conditon_sub_1>
 			<div>
@@ -131,7 +131,7 @@ div#qna_paging {
 			<div>
 				<input type="submit" value="검색"> <input type="reset" value="초기화" onclick="">
 			</div>
-			<input type="button" value="검색 접기" id="hide_button" onclick="display()">
+			<input type="button" value="검색 접기" id="hide_button">
 		</div>
 	</div>
 </div>
@@ -141,17 +141,74 @@ div#qna_paging {
 
 
 
+
+
+
+
+
+
+
+
+
+<table id="qna_table">
+	<tr>	
+		<th>글번호</th>
+		<th><input id="write_date"type="button" value="등록일시↓↑" onclick="alert('정렬기능 구현 대기중')"></th>
+		<th>고객명</th>
+		<th>문의내용</th>
+		<th>문의유형</th>
+		<th>답변여부</th>
+	</tr>
+	
+	<c:if test="${empty qlist }">
+		<tr>
+			<td colspan="6" class="not_serach_msg"> 조회된 문의 내용이 없습니다.</td>
+		</tr>
+	</c:if>
+	<c:if test="${!empty qlist }">
+		
+		<c:forEach var="q" items="${ qlist}">
+			<c:if test="${q.qna_step ==0}">
+			<tr class="qna_tr">
+				<td>${q.qna_no }</td>
+				<td class="qna_table_date">${q.qna_date }</td>
+				<td>${q.mem_name }</td>
+				<td>글제목 : ${q.qna_title } <br>문의내용 : ${q.qna_cont }
+				</td>
+				<td>${q.qna_type }
+				<input type="hidden" id="board_ref" value="${q.qna_ref }">
+			    <input type="hidden" id="board_step" value="${q.qna_step }">
+			    <input type="hidden" id="board_level" value="${q.qna_level }">
+			    </td>
+				<td class="reply_btn"><input type="button" value="답변하기" id = "reply_${q.qna_no }_btn" onclick="qna_reply_toggle(${q.qna_no })" ></td>
+			</tr>
+			</c:if>
+			<c:if test="${q.qna_step==1 }">
+			<tr>
+			<td colspan="2" class="first_reply_td"><span class="reply_date_text"> ${ q.reply_date} </span></td>
+			<td colspan="2" class="second_reply_td"><span style="color:blue; font-weight:bolder;">${q.qna_title} </span>  &nbsp; ${q.qna_cont } </td>
+			<td colspan="2" class="third_reply_td"><input type="button" value="삭제" onclick="reply_del(${q.qna_no }, ${q.qna_ref })"></td>
+			</tr>
+			</c:if>
+			<tr>
+			 <td colspan="6" style="display:none;" id="reply_${q.qna_no }"> 
+				<textarea rows="5%" cols="100%" id="reply_${q.qna_no }_textarea" style="width: 86%; resize: none;"></textarea>
+				<input type="button" value="등록" onclick="qna_reply(${q.qna_no }, '${q.mem_id }', '${q.qna_title }',${q.qna_step }, ${q.qna_level },'${q.qna_type }',${page })">
+			</td>
+			</tr>
+		</c:forEach>
+	</c:if>
+</table>
+
+
 <%--검색 전후 페이징(쪽나누기 --%>
 <div id="qna_paging">
 	<%--검색 전 페이징 --%>
 	<c:if test="${(empty find_field ) && (empty find_text)}"><%--검색 필드와 검색어가 없을떄 --%>
-		<c:if test="${page <=1 }">
-				[이전]&nbsp;
+		<%--이전 버튼 --%>
+		<c:if test="${page <=1 }">[이전]&nbsp;</c:if>
+		<c:if test="${page>1 }"><a href="customer_qna.do?page=${page-1 }">[이전]</a>&nbsp;
 		</c:if>
-		<c:if test="${page>1 }">
-			<a href="customer_qna.do?page=${page-1 }">[이전]</a>&nbsp;
-		</c:if>
-		
 		
 		<%--현재 쪽번호 출력 --%>
 		<c:forEach var="a" begin="${startpage }" end="${endpage }" step="1">
@@ -162,6 +219,7 @@ div#qna_paging {
 				<a href="customer_qna.do?page=${a}">[${a }]</a>
 			</c:if>
 		</c:forEach>
+			<%--다음 버튼 --%>
 			<c:if test="${page  >= maxpage }">
 				[다음]
 			</c:if>
@@ -197,79 +255,7 @@ div#qna_paging {
 
 </c:if>
 
-
-
-
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table id="qna_table">
-	<tr>	
-		<th>글번호</th>
-		<th><input id="write_date"type="button" value="등록일시↓↑" onclick="alert('정렬기능 구현 대기중')"></th>
-		<th>고객명</th>
-		<th>문의내용</th>
-		<th>문의유형</th>
-		<th>답변여부</th>
-	</tr>
-	<c:if test="${empty qlist }">
-		<tr>
-			<td colspan="6" class="not_serach_msg"> 조회된 문의 내용이 없습니다.</td>
-		</tr>
-	</c:if>
-	<c:if test="${!empty qlist }">
-		<c:forEach var="q" items="${ qlist}">
-			<c:if test="${q.qna_step ==0}">
-			<tr class="qna_tr">
-				<td>${q.qna_no }</td>
-				<td class="qna_table_date">${q.qna_date }</td>
-				<td>${q.mem_name }</td>
-				<td>글제목 : ${q.qna_title } <br>문의내용 : ${q.qna_cont }
-				</td>
-				<td>${q.qna_type }
-				<input type="hidden" id="board_ref" value="${q.qna_ref }">
-			    <input type="hidden" id="board_step" value="${q.qna_step }">
-			    <input type="hidden" id="board_level" value="${q.qna_level }">
-			    </td>
-				<td class="reply_btn"><input type="button" value="답변하기" id = "reply_${q.qna_no }_btn" onclick="qna_reply_toggle(${q.qna_no })" ></td>
-			</tr>
-			</c:if>
-			<c:if test="${q.qna_step==1 }">
-			<tr>
-			<td colspan="2" class="first_reply_td"><span class="reply_date_text"> ${ q.reply_date} </span></td>
-			<td colspan="2" class="second_reply_td"><span style="color:blue; font-weight:bolder;">${q.qna_title} </span>  &nbsp; ${q.qna_cont } </td>
-			<td colspan="2" class="third_reply_td"><input type="button" value="삭제" onclick="reply_del(${q.qna_no })"></td>
-			</tr>
-			</c:if>
-			<tr>
-			 <td colspan="6" style="display:none;" id="reply_${q.qna_no }"> 
-				<textarea rows="5%" cols="100%" id="reply_${q.qna_no }_textarea" style="width: 86%; resize: none;"></textarea>
-				<input type="button" value="등록" onclick="qna_reply(${q.qna_no }, '${q.mem_id }', '${q.qna_title }',${q.qna_step }, ${q.qna_level },'${q.qna_type }',${page })">
-			</td>
-			</tr>
-		</c:forEach>
-	</c:if>
-</table>
-
-
-
 
 
 

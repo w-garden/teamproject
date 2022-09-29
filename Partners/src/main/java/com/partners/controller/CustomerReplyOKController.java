@@ -27,6 +27,8 @@ public class CustomerReplyOKController implements Action {
 		
 		int result = qdao.insertQna(qdto);
 		
+		
+		
 		if(result==1) {
 			System.out.println("저장완료");
 		}

@@ -28,11 +28,6 @@ create table estimateT(
  ,est_file varchar2(200) --파일첨부
 );
 
-create table aT(
-	detail varchar2(100)
-);
-
-select *from aT;
 
 -- 시퀀스 생성
 create sequence est_num_seq

@@ -15,7 +15,7 @@ create table memberT(
 	mem_withdraw number(10) default 0, -- 탈퇴여부(탈퇴시 : 1)
 	mem_withdrawDate date -- 탈퇴일자
 );
-
+delete from memberT;
 select * from memberT;
 
 /* 간편 로그인은 어떤식으로 값들이 넘어오는지 각 플랫폼 별로 찾아봐야해서  

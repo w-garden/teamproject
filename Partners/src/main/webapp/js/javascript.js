@@ -324,17 +324,21 @@ function portfoilio_check() {
 /*qna 페이지 유효성검증*/
 /***********************/
 function search_check() {
-	if ($('#search_condition').val() == 'default' && $('#search_text').val() != "") {
-		alert('검색유형을 선택하세요 입력하세요');
+	if ($('#search_condition').val() == 'default' || $('#search_text').val() == "") {
+		alert('검색유형을 선택하세요');
 		$('#search_text').val("");
 		return false;
 	}
-	if ($('#search_condition').val() != 'default' && $('#search_text').val() == "") {
+	/*if ($('#search_condition').val() != 'default' && $('#search_text').val() == "") {
 		alert('검색어를 입력하세요');
 		$('#search_text').focus();
 		return false;
+	}*/
+	if($(':radio[name="answer"]:checked').length < 1) {
+		alert('검색유형을 선택하세요');
+		return false;
+	
 	}
-
 }
 /**********************/
 /*문의글 답변 기능 JS */
@@ -368,17 +372,21 @@ function qna_reply($number, $id, $title, $step, $level, $type, $pagenum) { //답
 
 		success: function(result) {
 			alert('댓글등록완료!');
+			
 			location.reload();
 		}
 	});
 }
-function reply_del($del_qna_no) {
+function reply_del($del_qna_no, $del_qna_ref) {
 	$.ajax({
 		type: "get",
-		url: 'customer_qna_del_ok.do?qna_no=' + $del_qna_no,
+		url: 'customer_qna_del_ok.do?qna_no=' + $del_qna_no + '&qna_ref=' + $del_qna_ref,
 		datatype: "text",
 		success: function(result) {
 			alert('댓글삭제완료!');
+			
+			
+			
 			location.reload();
 		}
 	});

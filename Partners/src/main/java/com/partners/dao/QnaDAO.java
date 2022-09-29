@@ -70,6 +70,7 @@ public class QnaDAO {
 			 * 답변, 미답변 검색 쿼리문 추가부분
 			 * 
 			*/
+			
 			if(findQ.getAnswer()!=null) {
 				if(findQ.getAnswer().equals("yes")) { //답변완료
 					sql+=" and reply_state='답변완료'";
@@ -84,6 +85,7 @@ public class QnaDAO {
 			 * 검색어 쿼리문 추가 부분
 			 * 
 			*/
+			sql+= " order by qna_ref desc, qna_level asc) q, memberT m where q.mem_id = m.mem_id(+)) where rNum >= ? and rNum < ?";
 			
 			if (findQ.getFind_field() != null && !findQ.getFind_field().equals("default"))  {
 				if (findQ.getFind_field().equals("customer_name")) {
@@ -93,29 +95,26 @@ public class QnaDAO {
 				}
 			}
 			//sql += " order by qna_ref desc, qna_level asc";
-			sql+= "order by qna_ref desc, qna_level asc) q, memberT m where q.mem_id = m.mem_id(+)) where rNum >= ? and rNum <= ?";
+			System.out.println(sql);
 			pstmt = conn.prepareStatement(sql);
-			
-			
-			int startrow=(page-1)*5+1; //읽기 시작할 행번호
+			int startrow=(page-1)*8+1; //읽기 시작할 행번호
 			int endrow = startrow+limit-1; //읽을 마지막 행번호
-			
-			
-			pstmt.setString(1, findQ.getBusiness_num());
+			System.out.println("시작행 startrow : " + startrow);
+			System.out.println("마지막 행 endrow : " + endrow);
 
+			pstmt.setString(1, findQ.getBusiness_num());
 			if (findQ.getFind_field() != null && !findQ.getFind_field().equals("default")) { // 검색하는 경우
-				pstmt.setString(2, findQ.getFind_text());
-				pstmt.setInt(3,startrow);
-				pstmt.setInt(4,endrow);
+
+				pstmt.setInt(2,startrow);
+				pstmt.setInt(3,endrow+1);
+				pstmt.setString(4, findQ.getFind_text());
 			}
 			else {
 				pstmt.setInt(2,startrow);
-				pstmt.setInt(3,endrow);
+				pstmt.setInt(3,endrow+1);
 			}
 			rs = pstmt.executeQuery();
-			int c=0;
 			while (rs.next()) {
-				c++;
 				QnaDTO dto = new QnaDTO();
 				dto.setQna_no(rs.getInt("qna_no"));
 				dto.setMem_id(rs.getString("mem_id"));
@@ -129,13 +128,8 @@ public class QnaDAO {
 				dto.setReply_state(rs.getString("reply_state"));
 				dto.setReply_date(rs.getString("reply_date"));
 				dto.setMem_name(rs.getString("mem_name"));
-
 				qlist.add(dto);
-
 			}
-			System.out.println("endrow :"+  endrow);
-			System.out.println("startrow :"  +startrow);
-			System.out.println("c : " + c);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -149,7 +143,6 @@ public class QnaDAO {
 		}
 		return qlist;
 	}
-
 	// 답변글 등록
 	public int insertQna(QnaDTO qdto) {
 		int result = 0;
@@ -193,13 +186,34 @@ public class QnaDAO {
 		return result;
 	}
 	//댓글 삭제
-	public void deleteReply(int qna_no) {
+	public void deleteReply(int qna_no, int qna_ref) {
 		try {
 			conn = ds.getConnection();
 			sql = "delete qnaT where qna_no=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, qna_no);
 			pstmt.executeUpdate();
+						
+			
+			sql= "select count(*) from qnaT where qna_ref= ?"; //글그룹 조회, 1이면 답변글이 없는상태
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qna_ref);
+			rs = pstmt.executeQuery();
+			int count=0;
+			if(rs.next()) {		
+				count =(rs.getInt(1));
+				System.out.println("count : "+ count);
+			}
+			if(count==1) {
+				System.out.println("실행되야함");
+				sql="update qnaT set reply_state='미답변' where qna_no="+qna_ref; //원본글을 다시 미답변 상태로
+			}
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+			
+		
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -250,7 +264,6 @@ public class QnaDAO {
 				e2.printStackTrace();
 			}
 		}
-		System.out.println("                                     count: " + count);
 
 		return count;
 	}
