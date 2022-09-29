@@ -78,7 +78,7 @@ public class MypageGoController implements Action {
   		
 		//문의 리스트 출력(업체)
   		List<QnaVO> qlist2 = new ArrayList<QnaVO>();
-  		qlist2 = qdao.getPartnersQlist(id, page, limit);
+  		qlist2 = qdao.getPartnersQlist(id, pageP, limitP);
   		request.setAttribute("qlist2", qlist2);
 		
 		ActionForward forward=new ActionForward();
