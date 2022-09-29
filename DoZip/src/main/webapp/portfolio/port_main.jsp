@@ -89,26 +89,27 @@
 				<option value="미니멀">미니멀</option>
 				<option value="내추럴">내추럴</option>
 				<option value="빈티지">빈티지</option>
+				<option value="심플">심플</option>
 				<option value="럭셔리">럭셔리</option>
 			</select>
 			<select name="d4" id="dd_group4">
-				<option selected>비용</option>
-				<option value="1000만원 이하">1000만원 이하</option>
-				<option value="1000만원대">1000만원대</option>
-				<option value="2000만원대">2000만원대</option>
-				<option value="3000만원대">3000만원대</option>
-				<option value="4000만원대">4000만원대</option>
-				<option value="5000만원대">5000만원대</option>
-				<option value="6000만원 이상">6000만원 이상</option>
+				<option value="0" selected>비용</option>
+				<option value="999">1000만원 이하</option>
+				<option value="1000">1000만원대</option>
+				<option value="2000">2000만원대</option>
+				<option value="3000">3000만원대</option>
+				<option value="4000">4000만원대</option>
+				<option value="5000">5000만원대</option>
+				<option value="6000">6000만원 이상</option>
 			</select>
 			<select name="d5" id="dd_group5">
-				<option selected>평수</option>
-				<option value="10평">10평</option>
-				<option value="20평">20평</option>
-				<option value="30평">30평</option>
-				<option value="50평">50평</option>
-				<option value="60평">60평</option>
-				<option value="70평 이상">70평 이상</option>
+				<option value="0" selected>평수</option>
+				<option value="10">10평</option>
+				<option value="20">20평</option>
+				<option value="30">30평</option>
+				<option value="40">40평</option>
+				<option value="50">50평</option>
+				<option value="60">60평 이상</option>
 				
 			</select>
 			
@@ -131,127 +132,38 @@
 		</script>
 		
 		<%-- select 옵션 클릭시 해당 업체만 나오게 --%>
-		
-		<%-- 주거유형 & 스타일 --%>
-		<script type = "text/javascript">
-		if($('#dd_group1').change() && $('#dd_group3').change(function()){
-			var val01 = $('#dd_group1 option:selected').val();
-			var val02 = $('#dd_group3 option:selected').val();
-			$('#dd_group2').hide();
-			if(val01 == "주거유형"){
-				$('#dd_group1').show();
-				$('.card').show();
-			}else{
-				if(".card_tag:contains('"+val01+" && "+val02+"')"){
-					$('.card').hide();
-					$('.card:contains('"+val01+" && "+val02+"')").show();
-				}else{
-					$('.card').hide();
-				}
-			}	
-		});
-		</script>
-		
-		<!-- <script type = "text/javascript">
-		if(($('#dd_group1').change()) && ($('#dd_group3').change())){
-			var val01 = $('#dd_group1 option:selected').val();
-			var val02 = $('#dd_group3 option:selected').val();
-			$('#dd_group2').hide();
-			if(val01 == "주거유형"){
-				$('#dd_group1').show();
-				$('.card').show();
-			}else{
-				if(".card_tag:contains('"+val01+" && "+val02+"')"){
-					$('.card').hide();
-					$('.card:contains('"+val01+" && "+val02+"')").show();
-				}else{
-					$('.card').hide();
-				}
-			}	
-		});
-		</script> -->
-		
-		<%-- 상업유형 & 스타일 --%>
-
-		<script type = "text/javascript">
-		$('#dd_group2').change(function(){
-			var val = $('#dd_group2 option:selected').val();
-			$('#dd_group1').hide();
-			if (val == "상업유형"){
-				$('#dd_group1').show();
-				$('.card').show();
-			}else{
-				if(".card_tag:contains('"+val+"')"){
-					$('.card').hide();
-					$(".card:contains('"+ val + "')").show();
-				}else{
-					$('.card').hide();
-				}
+		<script>
+			function searchTag(){
+				var sub1 = document.getElementById("dd_group1").value;
+				var sub2 = document.getElementById("dd_group2").value;
+				var con = document.getElementById("dd_group3").value;
+				var cost = document.getElementById("dd_group4").value;
+				var area = document.getElementById("dd_group5").value;
+				
+				$.ajax({
+					type:"post", 
+					url:'port_search.do', 
+					datatype: "json",
+					data:{
+						sub1 : sub1,
+						sub2 : sub2,
+						con : con,
+						area : area,
+						cost : cost
+					}, success: function(data) {
+						alert('댓글등록완료!');
+						var result = data.json;
+						$.each(result,function(idx,val){
+							console.log(idx+" "+val.con);
+						});
+						
+					}
+				});
 			}
-		});
 		</script>
 		
-		<%-- 스타일 
-		<script type = "text/javascript">
-		$(document).ready(function(){
-			$('#dd_group3').change(functio(){
-				var val = $('#dd_group3 option:selected').val();
-				if (val == "스타일"){
-					$('.card').show();
-				}else{
-					if(".card_tag:contains('"+val+"')"){
-						$('.card').hide();
-						$(".card:contains('"+ val + "')").show();
-					}else{
-						$('.card').hide();
-					}
-				}
-			});
-		});
-		</script> --%>
 		
-		<%-- 비용 --%>
-		<script type = "text/javascript">
-		$(document).ready(function(){
-			$('#dd_group4').change(function(){
-				var val = $('#dd_group4 option:selected').val();
-				if (val == "비용"){
-					$('.card').show();
-				}else if(val == "이상"){
-					$(".card:contains('"+ val + "')").show();
-				}
-				}else{
-					if(".card_tag:contains('"+val+"')"){
-						$('.card').hide();
-						$(".card:contains('"+ val + "')").show();
-					}else{
-						$('.card').hide();
-					}
-				}
-			});
-		});
-		</script>
-		
-		<%-- 평수 --%>
-		<script type = "text/javascript">
-		$(document).ready(function(){
-			$('#dd_group5').change(function(){
-				var val = $('#dd_group5 option:selected').val();
-				if (val == "평수"){
-					$('.card').show();
-				}else{
-					if(".card_tag:contains('"+val+"')"){
-						$('.card').hide();
-						$(".card:contains('"+ val + "')").show();
-					}else{
-						$('.card').hide();
-					}
-				}
-			});
-		});
-		</script>
-		
-		<%-- 업체 검색시 해당 업체 출력 --%>
+		<%-- 업체 검색시 해당 업체 출력--%>
 		<script type="text/javascript">
 		jQuery(function(event) {
 		    $('.search_Btn').on('click',function(event) {
@@ -268,7 +180,7 @@
 		        }
 		    });
 		});
-		</script>
+		</script> 
 		<!-- 검색창 -->
 		<div class = "search_wrap">
 			<div class = "search">
@@ -287,7 +199,7 @@
 				<p class="top_title">포트폴리오</p> 
  			</div>
  			
- 			<!-- 반복문 시작 -->
+ 			<!-- 반복문 시작-->
 			<div class="cards-list">
 				<c:if test = "${!empty plist}">
 				<c:forEach var="i" begin="0" end="${fn:length(plist)-1}" step="1">
@@ -297,14 +209,21 @@
 					  	<%-- onclick으로 클릭시 글번호를 넣어 상세로 연결되게 --%>
 					  </div>
 					  <div class="card_title">
-						  	<li class = "bname" style="display: none">${plist[i].businessName}</li>
-						   	<li class = "corp">${plist[i].pf_title}</li>						   	
-						   	<li class = "card_tag">${plist[i].pf_subtype} ${plist[i].pf_concept} ${plist[i].pf_area}평 ${plist[i].pf_cost}만원대</li>
+						  	<li id = "bname" style="display: none">${plist[i].businessName}</li>
+						   	<li class = "corp" id="pf_title">${plist[i].pf_title}</li>						   	
+						   	<li class = "card_tag">
+						   		<span id="pf_subtype">${plist[i].pf_subtype}</span>
+						   		<span id="pf_concept">${plist[i].pf_concept}</span>
+						   		<span id="pf_area">${plist[i].pf_area}평</span>
+						   		<span id="pf_cost">${plist[i].pf_cost}만원대</span>
+						   	</li>
 					  </div>
 					</div>
 				</c:forEach>
-			</div>
-			</c:if>
+				</c:if>
+			</div> 
+			
+			
 			<c:if test = "${empty plist}">
 				<div id = "none_pf">포트폴리오 목록이 없습니다</div>
 			</c:if>

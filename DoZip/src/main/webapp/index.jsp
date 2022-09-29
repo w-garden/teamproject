@@ -153,7 +153,7 @@
 					
 			<div class="cards-list">
 				<c:if test= "${!empty plist}">
-					<c:forEach var = "i" begin = "0" end = "${fn:length(plist)-1}" step = "1">
+					<c:forEach var = "i" begin = "0" end = "2" step = "1">
 						<div class="card">
 						  <div class="card_image"> 
 						  	<img class = "ho" onclick = "location.href='port_detail.do?pf_no=${plist[i].pf_no}';" src= '${plist[i].pf_photo1}'/> 
