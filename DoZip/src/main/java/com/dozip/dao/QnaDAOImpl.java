@@ -215,12 +215,13 @@ public class QnaDAOImpl {
 					+ "select rowNum r, qna_no, mem_id, q.business_num, qna_type,qna_title,"
 					+ "qna_cont,qna_date,edit_date,qna_state,qna_ref,qna_step,"
 					+ "qna_level,reply_state,reply_date, p.businessName "
-					+ "from (select*from qnaT where mem_id='hong' order by qna_ref desc, qna_level asc) q, partnersT p  "
+					+ "from (select*from qnaT where mem_id=? order by qna_ref desc, qna_level asc) q, partnersT p  "
 					+ "where q.business_num=p.business_num(+) and (q.business_num is not null)"
 					+ ")where r>=? and r<=?";
 			pt = con.prepareStatement(sql);
-			pt.setInt(1,startrow);
-			pt.setInt(2,endrow);
+			pt.setString(1, id);
+			pt.setInt(2,startrow);
+			pt.setInt(3,endrow);
 			rs = pt.executeQuery();			
 			
 			while(rs.next()) {
