@@ -123,8 +123,8 @@
 				document.getElementById("dd_group1").value = "주거유형";
 				document.getElementById("dd_group2").value = "상업유형";
 				document.getElementById("dd_group3").value = "스타일";
-				document.getElementById("dd_group4").value = "비용";
-				document.getElementById("dd_group5").value = "평수";
+				document.getElementById("dd_group4").value = 0;
+				document.getElementById("dd_group5").value = 0;
 				$('#dd_group1').show();
 				$('#dd_group2').show();
 				$('.card').show();
