@@ -54,10 +54,11 @@
 			<p id = "comp_place">시공지역 : 서울/경기</p>
 			<p id = "comp_year">경력 : 7년</p>
 			<p id = "comp_where">주소 : ${pc.pAddress}</p>
+			
 			<br>
 			<div id="map" style="width:60%;height:400px;"></div>
 
-				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d8bfa3cbe8aabf2dd47e365262af246"></script>
+				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	3d8bfa3cbe8aabf2dd47e365262af246"></script>
 				<script>
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 				    mapOption = { 
@@ -68,24 +69,6 @@
 				// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 				var map = new kakao.maps.Map(mapContainer, mapOption); 
 				
-				// 주소-좌표 변환 객체 생성
-				var geocoder = new kakao.maps.services.Geocoder();
-				
-				// 주소로 좌표를 검색
-				geocoder.addressSearch('${pc.pAddress}', function(result,status)){
-					if(status == kakao.maps.services.Status.OK){
-						var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-						
-						//결과 값으로 받은 위치를 마커로 표시
-						var marker = new kakao.maps.Marker({
-							map : map,
-							position : coords
-						});
-						
-						//인포 윈도우로 장소에 대한 설명 표시
-						
-					}
-				}
 				
 				// 마커가 표시될 위치입니다 
 				var markerPosition  = new kakao.maps.LatLng(37.28815527469634, 127.06061484018433); 
