@@ -30,7 +30,7 @@ window.onload = function() {
 }
 function fncClearTime() {
 
-	iSecond = 600; 		//로그인 시간 설정
+	iSecond = 1000; 		//로그인 시간 설정
 }
 
 Lpad = function(str, len) {
@@ -274,7 +274,7 @@ function portfoilio_check() {
 		$('#pf_title').focus();
 		return false;
 	}
-	if ($.trim($('#pf_type').val()) == '') {
+	/*if ($.trim($('#pf_type').val()) == '') {
 		alert('공사유형은 필수사항입니다');
 		$('#pf_type').focus();
 		return false;
@@ -283,7 +283,7 @@ function portfoilio_check() {
 		alert('공사세부 유형은 필수사항입니다');
 		$('#pf_subtype').focus();
 		return false;
-	}
+	}*/
 	if ($(':radio[name="pf_range"]:checked').length < 1) {
 		alert('시공범위를 선택해주세요');
 		return false;
@@ -324,21 +324,23 @@ function portfoilio_check() {
 /*qna 페이지 유효성검증*/
 /***********************/
 function search_check() {
-	if ($('#search_condition').val() == 'default' || $('#search_text').val() == "") {
+	if ($('#search_condition').val() == 'default' &&  $('#search_text').val() == "") {
 		alert('검색유형을 선택하세요');
 		$('#search_text').val("");
 		return false;
 	}
-	/*if ($('#search_condition').val() != 'default' && $('#search_text').val() == "") {
+	/*
+	if ($('#search_condition').val() != 'default' && $('#search_text').val() == "") {
 		alert('검색어를 입력하세요');
 		$('#search_text').focus();
 		return false;
-	}*/
+	}
+
 	if($(':radio[name="answer"]:checked').length < 1) {
 		alert('검색유형을 선택하세요');
 		return false;
 	
-	}
+	}*/
 }
 /**********************/
 /*문의글 답변 기능 JS */

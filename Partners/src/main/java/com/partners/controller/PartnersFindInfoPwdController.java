@@ -78,7 +78,7 @@ public class PartnersFindInfoPwdController implements Action {
 					message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 					
 					
-					message.setSubject("비밀번호 찾기 결과");
+					message.setSubject("[DOZIP]비밀번호 찾기 결과");
 					
 					
 					message.setText("당신의 비밀번호는 " + dto.getpPw() + " 입니다.");

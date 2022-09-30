@@ -17,7 +17,7 @@
   <div id="estimate_step05">
     <section aria-label="견적요청" class="estimate_yourcost">
       <div class="title">
-        <h2>**고객님의 견적요청내용입니다.</h2><h3></h3>
+        <h2>고객님의 견적요청내용입니다.</h2><h3></h3>
       </div>
           <p class="subtitle">견적요청내용을 확인하시고 맞다면 요청을 보내주세요.</p><br />
       <div class="estimate_box">

@@ -66,7 +66,7 @@ td.third_reply_td>input {
 div#qna_paging {
    	float: left;
     margin-bottom: 60px;
-    margin-left: 45%;
+    margin-left: 40%;
 }
 </style>
 
@@ -185,7 +185,7 @@ div#qna_paging {
 			</tr>
 			</c:if>
 			<c:if test="${q.qna_step==1 }">
-			<tr>
+			<tr style="height:90px">
 			<td colspan="2" class="first_reply_td"><span class="reply_date_text"> ${ q.reply_date} </span></td>
 			<td colspan="2" class="second_reply_td"><span style="color:blue; font-weight:bolder;">${q.qna_title} </span>  &nbsp; ${q.qna_cont } </td>
 			<td colspan="2" class="third_reply_td"><input type="button" value="삭제" onclick="reply_del(${q.qna_no }, ${q.qna_ref })"></td>
